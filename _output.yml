@@ -1,0 +1,37 @@
+bookdown::gitbook:
+  #css: style.css
+  split_bib: true
+  includes:
+    after_body: discus.html
+  config:
+    toc:
+      before: |
+        <li><a href="./">John's Thesis</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    edit: https://github.com/bblodfon/my-phd-thesis/edit/master/%s
+    download: "pdf"
+    sharing: no
+
+# Because of typesetting details, use this format after finishing the book content
+bookdown::pdf_book:
+  includes:
+    # in_header: latex/preamble.tex
+    # before_body: latex/before_body.tex
+    # latex_engine: xelatex
+    # citation_package: natbib
+  keep_tex: yes
+  # number_sections: no
+
+# E-book
+# bookdown::epub_book: default
+
+# RMarkdown to HTML (not nice compared to gitbook!)
+# bookdown::html_book:
+#   toc: yes
+#   css: css/toc.css
+
+# Markdown to Tufte style (looks good, needs a lot of config+fixes)
+# bookdown::tufte_html_book:
+#   toc: yes
+#   split_by: none

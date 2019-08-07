@@ -1,0 +1,36 @@
+---
+title: "John's PhD Thesis"
+subtitle: 'A subtitle of software implementations'
+author: "John Zobolas"
+date: "`r Sys.Date()`"
+knit: bookdown::render_book # to render the whole book not just this chapter
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+description: "This is John's thesis (or will be :)"
+url: 'https\://bookdown.org/john/my-phd-thesis/'
+github-repo: "john/my-phs-thesis"
+documentclass: book
+#classoption: oneside
+bibliography: library.bib
+biblio-style: apalike
+link-citations: true
+colorlinks: true
+linkcolor: black # internal links, e.g. cross-ref
+urlcolor: blue # for URLs
+geometry: "left=4cm, right=4cm, top=2.5cm, bottom=2.5cm"
+fontsize: 12pt
+linestretch: 1.3
+toc-depth: 1
+lof: true
+lot: true
+---
+
+# Preface
+
+What is this thesis about?
+
+
+## Introduction
+
+
+How man became interested in modeling... 

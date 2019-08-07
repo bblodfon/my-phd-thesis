@@ -1,0 +1,92 @@
+# (APPENDIX) Appendix {-} 
+
+# Bookdown features
+
+Testing stuff!  
+Nice [link](https://eddjberry.netlify.com/post/writing-your-thesis-with-bookdown/) 
+for reference on how to write a thesis with bookdown.
+
+## References
+
+- Important to remember: Label can be: fig:foo, thm:foo
+- Appendix won't have references (figures, tables, equations ain't gonna be 
+there)
+- Examples
+  - [VSM], [Compare fixpoint tools]
+  - [A link to Pipeline][Pipeline]
+  - [Table stuff](#tables)
+  - A paper citation: @Albert2008
+  - Same paper citation: [@Albert2008]
+  
+## Markdown examples
+
+An epigram: 
+
+> "I thoroughly disapprove of duels. If a man should challenge me,
+  I would take him kindly and forgivingly by the hand and lead him
+  to a quiet place and kill him."
+>
+> --- Mark Twain
+
+$f = a$
+
+\begin{equation} 
+  f=a
+  (\#eq:binom)
+\end{equation} 
+
+
+See Equation \@ref(eq:binom).
+
+```{theorem, name="Pythagorean theorem", label = "pyth"}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+$$a^2 + b^2 = c^2$$
+```
+
+See Theorem \@ref(thm:pyth).
+
+```{definition, pyth-def, name="Pythagorean theorem"}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+$$a^2 + b^2 = c^2$$
+```
+
+See Definition \@ref(def:pyth-def).
+
+## Figures
+
+A normal paragraph.
+
+(ref:foo) A scatterplot of the data `cars` using **base** R graphics. 
+
+```{r foo, fig.cap='(ref:foo)', echo=FALSE}
+plot(cars)  # a scatterplot
+```
+
+```{r question, fig.cap="A Big Question", echo=FALSE, fig.align='center', out.width='45%'}
+knitr::include_graphics("img/questions.jpeg")
+```
+
+See Figure \@ref(fig:question)!
+
+## Tables
+
+```{r table1, echo=FALSE}
+knitr::kable(
+  head(mtcars[, 1:8], 5), booktabs = TRUE,
+  caption = 'A table of the first 5 rows of the mtcars data.'
+)
+```
+
+See Table \@ref(tab:table1)
+
+```{r exam}
+DT::datatable(iris)
+```
+
+# Another appendix!!!
+
+Software used, inspirations, etc.
+
+# References {-}
