@@ -1,17 +1,17 @@
 ---
-title: "John's PhD Thesis"
-subtitle: 'A subtitle of software implementations'
+title: "Software implementations allowing new approaches toward data analysis, modeling and integration / curation of biological knowledge for Systems Medicine"
+subtitle: "Subtitle: Title may as well change!"
 author: "John Zobolas"
-date: "`r Sys.Date()`"
+date: "August 2019"
 knit: bookdown::render_book # to render the whole book not just this chapter
 site: bookdown::bookdown_site
 output: bookdown::gitbook
-description: "This is John's thesis (or will be :)"
-url: 'https\://bookdown.org/john/my-phd-thesis/'
-github-repo: "john/my-phs-thesis"
+description: "John Zobolas's PhD thesis, NTNU"
+url: 'https\://bblodfon.github.io/my-phd-thesis/'
+github-repo: "bblodfon/my-phd-thesis"
 documentclass: book
 #classoption: oneside
-bibliography: library.bib
+bibliography: ["references.bib", "packages.bib"]
 biblio-style: apalike
 link-citations: true
 colorlinks: true
@@ -25,12 +25,36 @@ lof: true
 lot: true
 ---
 
-# Preface
+```{r include = FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
 
-What is this thesis about?
+# Structure {-}
 
+**Keywords:**  
+*curation/knowledge management, VSM, causal statements, DrugLogics pipeline 
+(model parameterization/calibration and prediction of synergistic drug combinations), 
+biomarker analysis, synergy assesement*
 
-## Introduction
+Right now we are in a preliminary stage, so in order to make a plan that I can
+follow for the rest of the PhD, I have to make my best to *combine the technologies
+within our group, the expertise from other people and of course my own work* to
+produce (research) results. In the end I will need some papers with me as first 
+author and a coherent story to tell, and this will be the culmination of my work 
+at NTNU.
 
+Chapters are currently split as:
 
-How man became interested in modeling... 
+- Work I have done (see [Chapter 1](#work)) 
+- Future plans (see [Chapter 2](#plans)). This includes the list of 
+proposed papers for my PhD.
+- For more experimental/future ideas see [Chapter 3](#ideas).
+
+<br/>
+
+```{r ntnu-logo, echo=FALSE, fig.align='center', out.width='50%'}
+knitr::include_graphics("img/NTNU-logo.png")
+```

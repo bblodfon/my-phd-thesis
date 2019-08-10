@@ -1,36 +1,53 @@
-# PhD work finished
+# PhD work {#work}
 
-Just a summary of all the work (the "real" results - investigations/"secondary" 
-things are not included - that I have achieved in my PhD until now (to write 
-in bookdown soon).
+This is a summary of all the work that I have done in my PhD until now. 
+(mainly it's about software implementations related to the core technologies 
+within the group). There is going to be at least a mention of these in the 
+thesis text.
+
+Note though that not all of these will be part of the main thesis (maybe include the 
+rest in a section like 'Funny PhD side-quests').
 
 ## Pipeline
 
-- First refactoring, bug fixing, source code documentation on Gitsbe, Drabme, 
-druglogics2 (druglogics-synergy) modules and most important parallel simulations 
-enabled (my first 2-3 months of my PhD)
-- Second refactoring, transport modules to maven packaging, added support
-for many features (Ongoing work - see [dev_plan_doc](https://docs.google.com/document/d/1OUupR0b-28YB9pVAww77RMecnFN6A39MYjXMjljmvG4/edit?usp=sharing)). 
-Most important things achieved:
-  - Added tests to modules Gitsbe, Drabme usign JUnit5, mockito, assertJ libraries
-  - [druglogics-roc-generator](https://github.com/bblodfon/druglogics-roc-generator)
-R shiny app
-  - Export support using [BioLQM](https://github.com/colomoto/bioLQM): the 
+- Lots of refactoring to increase the readability, maintainability and 
+extendability of the source code (complete restructure of classes, addition of
+others)
+- Bug fixing
+- Enable maven packaging for easier source compilation, testing, 
+installation, management and executing of the code
+- Added tests to modules `gitsbe` and `drabme` using JUnit5, mockito and assertJ libraries
+- Source code documentation + proper README files on `gitsbe`, `drabme` and `druglogics-synergy` modules
+- Enabling *parallel simulations* in Gitsbe
+- Added support for many features (ongoing work - see [dev_plan_doc](https://docs.google.com/document/d/1OUupR0b-28YB9pVAww77RMecnFN6A39MYjXMjljmvG4/edit?usp=sharing))
+- [druglogics-roc-generator](https://github.com/bblodfon/druglogics-roc-generator):
+R shiny app to assess the performance of the Drabme results in the form of a 
+ROC curve
+- Export support using [BioLQM](https://github.com/colomoto/bioLQM): the 
 initial model + best generation models can now be exported through configuration 
-options to GINML, SBML-Qual and BoolNet community formats
+options to **GINML, SBML-Qual and BoolNet** community formats
 
 ## VSM
 
-- [VSM Dictionary Bioportal](https://github.com/vsmjs/vsm-dictionary-bioportal/) module
+**Building VSM-dictionaries** in order to 
+connect/translate the data from various databases and ontology providers to 
+proper VSM-terms. Most of this work is done in order to support Vasundra's 
+[causalBuilder Tool](https://vtoure.github.io/causalBuilder/) which is the 
+first application of VSM after SciCura v1.
+
+The vsm-dictionaries (code +documentation) can be found on the [VSM Github page](https://github.com/vsmjs). They translate to VSM-terms data from BioPortal, UniProt, Ensembl, EnsemblGenomes, RNACentral and ComplexPortal. We have also released the respective 
+packages on [npmjs](https://www.npmjs.com/). See for example the [npm package for
+BioPortal](https://www.npmjs.com/package/vsm-dictionary-bioportal).
 
 ## PSICQUIC
 
-- miTab 2.8 support added to psicquic web service
-  - See [psicquic doc here](http://psicquic.github.io/MITAB28Format.html)
-  - [miTab 2.8/causalTab paper ]( https://doi.org/10.1093/bioinformatics/btz132)
-- Update [JAMI](https://github.com/MICommunity/psi-jami) library to support 
-miTab 2.8 - results of the [BioHackathon 2018, Paris](http://bh2018paris.info/)
-and the [Marseille GREEKC hackathon event](https://github.com/GREEKC/hackathon-marseille/tree/master/project_descriptions/causal_psicquic).
+My work at the EBI with IntAct and Noemi Del Toro to extend the PSICQUIC web service to support the
+miTab 2.8 data format/standard. See the [psicquic doc](http://psicquic.github.io/MITAB28Format.html) and the casualTab paper [@Perfetto2019].
+
+I also worked with Noemi on the update of the [JAMI](https://github.com/MICommunity/psi-jami) 
+library to also support miTab 2.8 - this is the culmination of results from the 
+[BioHackathon 2018, in Paris](https://2018.biohackathon-europe.org/) and the 
+[Marseille GREEKC hackathon event](https://github.com/GREEKC/hackathon-marseille/tree/master/project_descriptions/causal_psicquic).
 
 ## Others
 
