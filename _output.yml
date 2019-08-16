@@ -11,7 +11,11 @@ bookdown::gitbook:
     download:
       - ["phd-thesis.pdf", "PDF"]
       - ["phd-thesis.docx", "WORD"]
-    sharing: no
+    sharing:
+      github: yes
+      facebook: no
+      twitter: no
+      all: no
 
 # Because of typesetting details, use this format after finishing the book content
 bookdown::pdf_book:
