@@ -62,6 +62,13 @@ where to go from there... this whole knowledge semantics and reasoning stuff
 seem to be a PhD on its own :) There are a lot of things that should
 be investigated for this idea to materialize properly (lots of reading).
 
+An idea by Steven:  
+
+Mapping / inferring different forms of representing interactions (molecular 
+and/vs. causal) using a VSM sentence presentation as a graph diagram. A first 
+step to reasoning would be to make some rules like, if you have VSM-sentences 
+A and B, then you can infer C from that.
+
 ## Use Logical modeling to predict single-drug data
 
 Asmund's proposal idea that he sent to my email once. Has to do about *mechanistic drug response prediction analysis*:

@@ -34,24 +34,34 @@ knitr::write_bib(c(
 
 # Structure {-}
 
-**Keywords:**  
-*curation/knowledge management, VSM, causal statements, DrugLogics pipeline 
-(model parameterization/calibration and prediction of synergistic drug combinations), 
-biomarker analysis, synergy assesement*
-
-Right now we are in a preliminary stage, so in order to make a plan that I can
-follow for the rest of the PhD, I have to make my best to *combine the technologies
-within our group, the expertise from other people and of course my own work* to
-produce (research) results. In the end I will need some papers with me as first 
-author and a coherent story to tell, and this will be the culmination of my work 
-at NTNU.
-
 Chapters are currently split as:
 
 - Work I have done (see [Chapter 1](#work)) 
-- Future plans (see [Chapter 2](#plans)). This includes the list of 
-proposed papers for my PhD.
+- Future plans (see [Chapter 2](#plans)). This includes the list of papers for my PhD.
 - For more experimental/future ideas see [Chapter 3](#ideas).
+
+### Keywords {-}
+
+*curation/knowledge management, VSM, causal statements, DrugLogics pipeline 
+(model parameterization/calibration and prediction of synergistic drug combinations), 
+biomarker analysis, synergy assessment*
+
+### PhD Plan chart {-}
+
+In my effort to *combine the technologies within our group, the expertise from other people and of course my own work* to produce (research) results, I have come with the following action plan + papers for an organicly grown thesis:
+
+Literature => Curation => Causal Statements => Models => Predicting Synergies => Finding mechanisms
+
+Why and when?
+
+### Phd Midterm
+
+Sections of presentation:
+
+- Background
+- Description
+- Publication Plan
+- Progress
 
 <br/>
 

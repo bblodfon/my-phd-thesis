@@ -2,8 +2,7 @@
 
 This is a summary of all the work that I have done in my PhD until now. 
 (mainly it's about software implementations related to the core technologies 
-within the group). There is going to be at least a mention of these in the 
-thesis text.
+within the group). **To include in the thesis text**.
 
 Note though that not all of these will be part of the main thesis (maybe include the 
 rest in a section like 'Funny PhD side-quests').
@@ -12,7 +11,8 @@ rest in a section like 'Funny PhD side-quests').
 
 - Lots of refactoring to increase the readability, maintainability and 
 extendability of the source code (complete restructure of classes, addition of
-others)
+others). 
+This has **RRI extensions**, because cleaning and re-structuring software code has a social aspect to it in the sense that other people can now contribute more easily, extend the code, use it (user perspective can bring changes and further improvements to software pipeline even though they may be used for research purposes) - how can you expect users to actually use a piece of code when it's not substantially documented and it's internal logics made obscure because nobody gave attention to detail and structure? How can anybody care for a (software and any) product that you have not cared enough so as to present it in an way that is acceptable, managable and proper?
 - Bug fixing
 - Enable maven packaging for easier source compilation, testing, 
 installation, management and executing of the code
@@ -27,7 +27,7 @@ ROC curve
 initial model + best generation models can now be exported through configuration 
 options to **GINML, SBML-Qual and BoolNet** community formats
 
-## VSM
+## VSM {#vsm-dict}
 
 **Building VSM-dictionaries** in order to 
 connect/translate the data from various databases and ontology providers to 

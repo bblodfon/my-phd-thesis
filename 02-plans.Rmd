@@ -1,6 +1,6 @@
 # PhD Tasks and Plans {#plans}
 
-## Tasks
+## Programming Tasks TODO
 
 Tasks that I have promised that I will do to different people within the group. 
 These tasks enable other workflows/collaborations, etc. so they are very 
@@ -10,8 +10,8 @@ those:
 - Pipeline (see the [dev_plan_doc](https://docs.google.com/document/d/1OUupR0b-28YB9pVAww77RMecnFN6A39MYjXMjljmvG4/edit?usp=sharing) for what is left). Most important:
     - Full BioLQM support: stable state calculation and trap spaces
     - Do comparison between Aurelien's BioLQM stable state algorithm and 
-BNReduction using M2 or without (a small step for [this comparing idea paper](#comp) or
-maybe this could be turned to a small paper also? To decide!)
+BNReduction using M2 or without (Asmund already says that it BNReductions is faster
+but it's good to prove it once again)
 - VSM
   - Make the `vsm-pub-dictionaries` module
 
@@ -21,37 +21,59 @@ Note that the titles and the details for each paper are liable to change though 
 
 The papers dictate my future work for this PhD (and in that order!).
 
-### Paper I: emba: an R package for ensemble boolean model biomarker analysis
+### Paper I: *emba*: an R package for ensemble boolean model biomarker analysis {-}
 
-The idea here is to analyse the models produced by `Gitsbe` in order to find 
-important nodes (biomarkers) responsible for either better performance (based on a metric score
-like TP or MCC) or for specific synergy(ies) prediction. I am making an R package for this kind
-of analyses and subsequent Rmarkdown or bookdown documents that will show the 
-analyses themselves and the use of the R package.
+#### Authors {-}
 
-The R package should be publishable by itself, so **that makes one paper**.
+John, Asmund?
+
+#### Idea {-}
+
+The idea here is to analyse the models produced by `Gitsbe` in order to find important nodes (biomarkers) responsible for either better performance (based on a metric score like TP or MCC) or for specific synergy(ies) prediction. 
+I am making an R package for this kind of analyses and subsequent Rmarkdown or bookdown documents that will show the analyses themselves and the use of the R package.
+
+The R package is publishable by itself as an **application note paper**.
 The package will also be used for an analysis that will probably be included in 
-Asmund's automated pipeline paper (on the cascade topology). 
+Asmund's automated pipeline paper (on the cascade topology).
 
-I also want to try different ML (Machine Learning) methods for feature importance/biomarker 
-selection (things that I learned from the ML course in Sweeden + others things to try). So, there are 3 possibilities for papers in this:
+#### Extensions {-}
+
+I also want to try different ML (Machine Learning) methods for feature importance/biomarker selection (things that I learned from the ML course in Sweeden + others things to try). Thus this work can be also used to other projects (and linked to papers as well):
 
 1. Compare ML results with my method (on cascade/atopo results of the pipeline 
-paper or other). Paper would be titled something along the lines of
+paper or other). Paper could be titled something along the lines of
 **"Ensemble model analysis vs Machine Learning for unraveling drug synergy mechanisms"**.
 Depends only on me.
 2. The ML analysis could be used as part of the work that Asmund includes in his NKI project (he mentions such a paper in his project proposal for COLOGIC, titled **"Computational dissection of drug synergy mechanisms in colorectal cancer cell lines"**). Depends on me, Asmund and NKI
 people perhaps.
 3. Combine Vasundra's and Barbara's computational work on the biomarker analysis with mine and the ML methods to create a nice combo paper about
 **"Unraveling drug mechanisms on CRC cell lines using various computational methods"**. 
-Depends mostly on me and Vasundra.
+Depends mostly on me, Vasundra! A similar idea here is about the 
+**identification of optimal training data size**, in the sense that we can use various methods to derive a node (biomarker) set for the training data. Eirini and Kath are into this as well.
 
-Only future will tell us which one of the above will be done. But my
-aim is to have **a total of 2 papers** from the search for biomarkers and drug synergy mechanisms related-work.
+Goal is to have **a total of 2 papers (one with me as main author)** from the search for biomarkers and drug 
+synergy mechanisms related-work.
 
-### Paper II: From causal data to building logical models
+### Paper II: *VSM-dictionaries*: common access to biological dictionaries {-}
 
-This idea is like a continuation of the causalBuilder tool by Vasundra coupled with the
+#### Authors {-}
+
+John, Steven, Martin?
+
+#### Idea/Implementation {-}
+
+A short **application note** paper for my work on [VSM-dictionaries](#vsm-dict).
+
+### Paper III: From causal statements to building logical models compliant with biological knowledge {-}
+
+#### Authors {-}
+
+John, others (to decide)
+
+#### Idea {-}
+
+This paper will be the main **research paper of my PhD**.
+This idea is like a continuation of the `causalBuilder` tool by Vasundra coupled with the
 need to have a more proper representation of complexes (and families) in our 
 logical models (better models, better predictions). Asmund had *manually* changed some logical equations in his paper 
 [@Flobak2015], in order to make the model more compliant with biology knowledge 
@@ -63,6 +85,8 @@ depends on the dataset and the representation of complexes ^[There is actually a
 should be connected with an *AND*]. 
 
 Only Signor has some complexes + interaction data but they are seperate files, making it thus difficult (and non-elegant computationally-wise) to integrate such knowledge/data to boolean models. Also Vasundra's experience with Reactome data in miTab2.8 showed us the difficulty to match binary interactions to a data model flexible enough to represent complexes and their internal components. Causal-JSON and the recursive schema that we thought allows the curator to put both the complex ID and it's constituents in the same data structure. And what's best than using a proper tool to annotate such causal statements like VSM!
+
+#### Proposed Workflow {-}
 
 So, the general semi-automated web-application (web only if VSM comes into play) pipeline for this paper that I am thinking will be as follows ^[My goal here is to combine as much as possible different things within our group,
 so each point or package should be small, their combination effect large]:
@@ -90,29 +114,44 @@ discussion here, but I already know what to do pretty much] the complexes and fa
     The main thing here would be of course better prediction performance results based on a better logical model representation. 
     I could tweak `atopo` to choose actually not all of Signor's data but specific pathways to include in the analysis and this will help I believe to build smaller topologies for specific drug combinations that we want to test.
 
-### Paper III: Extending `SynergyFinder` for the use of multiple reference models for the assement of synergy in screening datasets
+## Other Paper Ideas
+
+### Paper IV (Deprecated) {-}
+
+#### Title {-}
+
+Extending `SynergyFinder` for the use of multiple reference models for the assement of synergy in screening datasets
+
+#### Idea {-}
 
 The core idea here is to extend an existing R package for calculating synergy 
-reference models in order to include Wim's generalized Bliss method and the mean synergy score by Simone Laderer! Then I will test all the null reference models (Loewe, Bliss, ZIP, +2 new, others?) on dose-response matrix datasets (could be from Ladere's paper, from Asmund's paper,
-our own - Barbara's/Evelina's dataset, etc.) and see which is best at finding the 
-synergies in each dataset. 
+reference models in order to include Wim's generalized Bliss method and the mean synergy score by Simone Laderer! Then I will test all the null reference models (Loewe, Bliss, ZIP, +2 new, others?) on dose-response matrix datasets (could be from Ladere's paper, from Asmund's paper, our own - Barbara's/Evelina's dataset, etc.) and see which is best at finding the synergies in each dataset.
 
 R package to use:
 
 - SynergyFinder from Finland group [code here](https://github.com/google/synergyfinderengineered/)
-- Also I have to check this software: [R package COMBIA](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5732778/) as well as others
-at the time I will be tackling this
+- Also I have to check this software: [R package COMBIA](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5732778/) as well as others at the time I will be tackling this
 
 Also, I should investigate if my own idea for a mathematical 
 formulation of the volume-based synergy score as general method for describing 3-wise 
 or more combinations as synergistic, could be part of this implementation (or could be another paper by itself).
 
-### Paper 4?
+### Paper V (Why not?!) {-}
 
-I had the idea of writing a small paper that describes the *eye-ball* or 
+#### Authors {-}
+
+John, others (to decide)
+
+#### Title {-}
+
+On eye-balling synergy mechanisms: What is a ~~mountain~~ synergy?
+
+#### Idea {-}
+
+I had the idea of writing a small paper (send to Science Signaling) that describes the *eye-ball* or 
 *visual inspection* technique that is used so much in computational Biology and 
 Medicine. It is used pretty much in any paper I have seen but nobody has actually
-defined or named it (as I am aware of - I could be wrong!). 
+defined or named it.
 
 A characteristic example is the *call for synergy* when you see some 
 experimental data in dose-response curves (show mostly when you see figures). Another is the threshold that data analysts put when defining output to classifiers or the parameterization that is used and the general human intuition/engineering that is shared in all these.
@@ -124,5 +163,6 @@ As Asmund once said:
 So, I just want to discuss this in a small paper cause it seems to be a
 thing that everybody is aware of in their everyday job, but everyone keeps out 
 when talking about results, etc and I haven't found a paper that discusses this
-one way or another! Could have RRI extensions...
+one way or another!
+A very RRI-related paper...
 
