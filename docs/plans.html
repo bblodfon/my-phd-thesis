@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 PhD Tasks and Plans | Software implementations allowing new approaches toward data analysis, modeling and integration / curation of biological knowledge for Systems Medicine</title>
   <meta name="description" content="John Zobolas’s PhD thesis, NTNU" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 PhD Tasks and Plans | Software implementations allowing new approaches toward data analysis, modeling and integration / curation of biological knowledge for Systems Medicine" />
   <meta property="og:type" content="book" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="work.html">
-<link rel="next" href="ideas.html">
+<link rel="prev" href="work.html"/>
+<link rel="next" href="ideas.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -67,7 +70,7 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Structure</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#keywords"><i class="fa fa-check"></i>Keywords</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#phd-plan-chart"><i class="fa fa-check"></i>PhD Plan chart</a></li>
-<li class="chapter" data-level="0.0.1" data-path="index.html"><a href="index.html#phd-midterm"><i class="fa fa-check"></i><b>0.0.1</b> Phd Midterm</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#phd-midterm"><i class="fa fa-check"></i>Phd Midterm</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="work.html"><a href="work.html"><i class="fa fa-check"></i><b>1</b> PhD work</a><ul>
 <li class="chapter" data-level="1.1" data-path="work.html"><a href="work.html#pipeline"><i class="fa fa-check"></i><b>1.1</b> Pipeline</a></li>
@@ -154,40 +157,32 @@ but it’s good to prove it once again)</li>
 <h3>Paper I: <em>emba</em>: an R package for ensemble boolean model biomarker analysis</h3>
 <div id="authors" class="section level4 unnumbered">
 <h4>Authors</h4>
-<p>John, Asmund?</p>
+<p>John, Asmund</p>
 </div>
 <div id="idea" class="section level4 unnumbered">
 <h4>Idea</h4>
-<p>The idea here is to analyse the models produced by <code>Gitsbe</code> in order to find important nodes (biomarkers) responsible for either better performance (based on a metric score like TP or MCC) or for specific synergy(ies) prediction.
-I am making an R package for this kind of analyses and subsequent Rmarkdown or bookdown documents that will show the analyses themselves and the use of the R package.</p>
-<p>The R package is publishable by itself as an <strong>application note paper</strong>.
-The package will also be used for an analysis that will probably be included in
-Asmund’s automated pipeline paper (on the cascade topology).</p>
-</div>
-<div id="extensions" class="section level4 unnumbered">
-<h4>Extensions</h4>
-<p>I also want to try different ML (Machine Learning) methods for feature importance/biomarker selection (things that I learned from the ML course in Sweeden + others things to try). Thus this work can be also used to other projects (and linked to papers as well):</p>
-<ol style="list-style-type: decimal">
-<li>Compare ML results with my method (on cascade/atopo results of the pipeline
+<p>The idea here is to analyse the models produced by <code>Gitsbe</code> in order to find important nodes (biomarkers) responsible for either better performance (based on a metric score like TP or MCC) or for specific synergy(ies) prediction.</p>
+<p>The R package emba <span class="citation">(Zobolas <a href="#ref-R-emba">2019</a>)</span> is publishable by itself as an <strong>application note paper</strong>,
+but we decided with Asmund that is best to present with an analysis on some dataset
+to show it’s use. The package is also used for analyses that will be included in
+Asmund’s automated pipeline paper (on the cascade topology mostly).</p>
+<p>An idea is to compare ML results with my method (on cascade/atopo results of the pipeline
 paper or other). Paper could be titled something along the lines of
 <strong>“Ensemble model analysis vs Machine Learning for unraveling drug synergy mechanisms”</strong>.
-Depends only on me.</li>
-<li>The ML analysis could be used as part of the work that Asmund includes in his NKI project (he mentions such a paper in his project proposal for COLOGIC, titled <strong>“Computational dissection of drug synergy mechanisms in colorectal cancer cell lines”</strong>). Depends on me, Asmund and NKI
-people perhaps.</li>
-<li>Combine Vasundra’s and Barbara’s computational work on the biomarker analysis with mine and the ML methods to create a nice combo paper about
-<strong>“Unraveling drug mechanisms on CRC cell lines using various computational methods”</strong>.
-Depends mostly on me, Vasundra! A similar idea here is about the
-<strong>identification of optimal training data size</strong>, in the sense that we can use various methods to derive a node (biomarker) set for the training data. Eirini and Kath are into this as well.</li>
-</ol>
-<p>Goal is to have <strong>a total of 2 papers (one with me as main author)</strong> from the search for biomarkers and drug
-synergy mechanisms related-work.</p>
+(which depends only on me). Could also be that I combine Vasundra’s and
+Barbara’s computational work on the biomarker analysis with mine and the ML
+methods (so more generic even) to create a nice combo paper about <strong>“Unraveling drug mechanisms on CRC
+cell lines using various computational methods”</strong>.</p>
+<p>A research question here (with similar kind of work) is about the
+<strong>identification of optimal training data size</strong>, in the sense that we can use
+various methods to derive a node (biomarker) set for the training data (with Eirini).</p>
 </div>
 </div>
 <div id="paper-ii-vsm-dictionaries-common-access-to-biological-dictionaries" class="section level3 unnumbered">
 <h3>Paper II: <em>VSM-dictionaries</em>: common access to biological dictionaries</h3>
 <div id="authors-1" class="section level4 unnumbered">
 <h4>Authors</h4>
-<p>John, Steven, Martin?</p>
+<p>John, Steven, Vasundra, Martin</p>
 </div>
 <div id="ideaimplementation" class="section level4 unnumbered">
 <h4>Idea/Implementation</h4>
@@ -242,6 +237,12 @@ The main thing here would be of course better prediction performance results bas
 I could tweak <code>atopo</code> to choose actually not all of Signor’s data but specific pathways to include in the analysis and this will help I believe to build smaller topologies for specific drug combinations that we want to test.</li>
 </ul></li>
 </ol>
+<p>Interesting resources:</p>
+<ul>
+<li>Signor Pathway data</li>
+<li>CausalBuilder</li>
+<li><a href="https://doi.org/10.1093/nar/gkz871">CancerGeneNet</a></li>
+</ul>
 </div>
 </div>
 </div>
@@ -307,6 +308,9 @@ A very RRI-related paper…</p>
 <div id="ref-Flobak2015">
 <p>Flobak, Åsmund, Anaïs Baudot, Elisabeth Remy, Liv Thommesen, Denis Thieffry, Martin Kuiper, and Astrid Lægreid. 2015. “Discovery of Drug Synergies in Gastric Cancer Cells Predicted by Logical Modeling.” Edited by Ioannis Xenarios. <em>PLOS Computational Biology</em> 11 (8): e1004426. <a href="https://doi.org/10.1371/journal.pcbi.1004426">https://doi.org/10.1371/journal.pcbi.1004426</a>.</p>
 </div>
+<div id="ref-R-emba">
+<p>Zobolas, John. 2019. <em>Emba: Ensemble Boolean Model Biomarker Analysis</em>. <a href="https://github.com/bblodfon/emba">https://github.com/bblodfon/emba</a>.</p>
+</div>
 </div>
 <div class="footnotes">
 <hr />
@@ -331,11 +335,13 @@ discussion here, but I already know what to do pretty much<a href="plans.html#fn
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

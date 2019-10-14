@@ -142,14 +142,15 @@ biomarker analysis, synergy assessment}
 \subsection*{PhD Plan chart}\label{phd-plan-chart}}
 \addcontentsline{toc}{subsection}{PhD Plan chart}
 
-In my effort to \emph{combine the technologies within our group, the expertise from other people and of course my own work} to produce (research) results, I have come with the following action plan + papers for an organicly grown thesis:
+In my effort to \emph{combine the technologies within our group, the expertise from other people and of course my own work} to produce (research) results, I have come with the following action plan + papers for an organically grown thesis:
 
 Literature =\textgreater{} Curation =\textgreater{} Causal Statements =\textgreater{} Models =\textgreater{} Predicting Synergies =\textgreater{} Finding mechanisms
 
 Why and when?
 
 \hypertarget{phd-midterm}{%
-\subsection{Phd Midterm}\label{phd-midterm}}
+\subsection*{Phd Midterm}\label{phd-midterm}}
+\addcontentsline{toc}{subsection}{Phd Midterm}
 
 Sections of presentation:
 
@@ -293,45 +294,30 @@ The papers dictate my future work for this PhD (and in that order!).
 \subsubsection*{Authors}\label{authors}}
 \addcontentsline{toc}{subsubsection}{Authors}
 
-John, Asmund?
+John, Asmund
 
 \hypertarget{idea}{%
 \subsubsection*{Idea}\label{idea}}
 \addcontentsline{toc}{subsubsection}{Idea}
 
 The idea here is to analyse the models produced by \texttt{Gitsbe} in order to find important nodes (biomarkers) responsible for either better performance (based on a metric score like TP or MCC) or for specific synergy(ies) prediction.
-I am making an R package for this kind of analyses and subsequent Rmarkdown or bookdown documents that will show the analyses themselves and the use of the R package.
 
-The R package is publishable by itself as an \textbf{application note paper}.
-The package will also be used for an analysis that will probably be included in
-Asmund's automated pipeline paper (on the cascade topology).
+The R package emba (Zobolas \protect\hyperlink{ref-R-emba}{2019}) is publishable by itself as an \textbf{application note paper},
+but we decided with Asmund that is best to present with an analysis on some dataset
+to show it's use. The package is also used for analyses that will be included in
+Asmund's automated pipeline paper (on the cascade topology mostly).
 
-\hypertarget{extensions}{%
-\subsubsection*{Extensions}\label{extensions}}
-\addcontentsline{toc}{subsubsection}{Extensions}
+An idea is to compare ML results with my method (on cascade/atopo results of the pipeline
+paper or other). Paper could be titled something along the lines of
+\textbf{``Ensemble model analysis vs Machine Learning for unraveling drug synergy mechanisms''}.
+(which depends only on me). Could also be that I combine Vasundra's and
+Barbara's computational work on the biomarker analysis with mine and the ML
+methods (so more generic even) to create a nice combo paper about \textbf{``Unraveling drug mechanisms on CRC
+cell lines using various computational methods''}.
 
-I also want to try different ML (Machine Learning) methods for feature importance/biomarker selection (things that I learned from the ML course in Sweeden + others things to try). Thus this work can be also used to other projects (and linked to papers as well):
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Compare ML results with my method (on cascade/atopo results of the pipeline
-  paper or other). Paper could be titled something along the lines of
-  \textbf{``Ensemble model analysis vs Machine Learning for unraveling drug synergy mechanisms''}.
-  Depends only on me.
-\item
-  The ML analysis could be used as part of the work that Asmund includes in his NKI project (he mentions such a paper in his project proposal for COLOGIC, titled \textbf{``Computational dissection of drug synergy mechanisms in colorectal cancer cell lines''}). Depends on me, Asmund and NKI
-  people perhaps.
-\item
-  Combine Vasundra's and Barbara's computational work on the biomarker analysis with mine and the ML methods to create a nice combo paper about
-  \textbf{``Unraveling drug mechanisms on CRC cell lines using various computational methods''}.
-  Depends mostly on me, Vasundra! A similar idea here is about the
-  \textbf{identification of optimal training data size}, in the sense that we can use various methods to derive a node (biomarker) set for the training data. Eirini and Kath are into this as well.
-\end{enumerate}
-
-Goal is to have \textbf{a total of 2 papers (one with me as main author)} from the search for biomarkers and drug
-synergy mechanisms related-work.
+A research question here (with similar kind of work) is about the
+\textbf{identification of optimal training data size}, in the sense that we can use
+various methods to derive a node (biomarker) set for the training data (with Eirini).
 
 \hypertarget{paper-ii-vsm-dictionaries-common-access-to-biological-dictionaries}{%
 \subsection*{\texorpdfstring{Paper II: \emph{VSM-dictionaries}: common access to biological dictionaries}{Paper II: VSM-dictionaries: common access to biological dictionaries}}\label{paper-ii-vsm-dictionaries-common-access-to-biological-dictionaries}}
@@ -341,7 +327,7 @@ synergy mechanisms related-work.
 \subsubsection*{Authors}\label{authors-1}}
 \addcontentsline{toc}{subsubsection}{Authors}
 
-John, Steven, Martin?
+John, Steven, Vasundra, Martin
 
 \hypertarget{ideaimplementation}{%
 \subsubsection*{Idea/Implementation}\label{ideaimplementation}}
@@ -422,6 +408,18 @@ So, the general semi-automated web-application (web only if VSM comes into play)
     I could tweak \texttt{atopo} to choose actually not all of Signor's data but specific pathways to include in the analysis and this will help I believe to build smaller topologies for specific drug combinations that we want to test.
   \end{itemize}
 \end{enumerate}
+
+Interesting resources:
+
+\begin{itemize}
+\tightlist
+\item
+  Signor Pathway data
+\item
+  CausalBuilder
+\item
+  \href{https://doi.org/10.1093/nar/gkz871}{CancerGeneNet}
+\end{itemize}
 
 \hypertarget{other-paper-ideas}{%
 \section{Other Paper Ideas}\label{other-paper-ideas}}
@@ -655,7 +653,7 @@ Asmund's proposal idea that he sent to my email once. Has to do about \emph{mech
 \textbf{My idea} is more like this:\\
 Predict drug-response curves from drug combination datasets (GDSC, CCLE),
 using logical modeling for singaling network analysis or translation from
-logical to ODE modeling. Aslo try to predict drug combinations datasets
+logical to ODE modeling. Also try to predict drug combinations datasets
 (dose-response matrices?). Pretty much what is done in this paper (Fröhlich et al. \protect\hyperlink{ref-Frohlich2018}{2018})
 with help from (Wittmann et al. \protect\hyperlink{ref-Wittmann2009}{2009}) for converting boolean models to continuous.
 
@@ -722,7 +720,7 @@ Papers that will probably be published and I will probably be in the list of aut
 \begin{itemize}
 \tightlist
 \item
-  \href{www.tinyurl.com/bh2018write}{The Biohackathon 2018 paper}
+  \href{https://www.tinyurl.com/bh2018write}{The Biohackathon 2018 paper}
 \item
   Asmund's automated pipeline paper: \emph{A novel and versatile drug synergy prediction pipeline with single sample resolution for discovery of potent drug combinations in pre-clinical and clinical datasets}
 \item
@@ -779,6 +777,9 @@ Perfetto, L, M L Acencio, G Bradley, G Cesareni, N Del Toro, D Fazekas, H Hermja
 
 \leavevmode\hypertarget{ref-Wittmann2009}{}%
 Wittmann, Dominik M, Jan Krumsiek, Julio Saez-Rodriguez, Douglas A Lauffenburger, Steffen Klamt, and Fabian J Theis. 2009. ``Transforming Boolean models to continuous models: methodology and application to T-cell receptor signaling.'' \emph{BMC Systems Biology} 3 (1): 98. \url{https://doi.org/10.1186/1752-0509-3-98}.
+
+\leavevmode\hypertarget{ref-R-emba}{}%
+Zobolas, John. 2019. \emph{Emba: Ensemble Boolean Model Biomarker Analysis}. \url{https://github.com/bblodfon/emba}.
 
 
 \end{document}
