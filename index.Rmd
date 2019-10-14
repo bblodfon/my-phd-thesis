@@ -28,7 +28,7 @@ lot: true
 ```{r include = FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'emba'
 ), 'packages.bib')
 ```
 
@@ -48,13 +48,13 @@ biomarker analysis, synergy assessment*
 
 ### PhD Plan chart {-}
 
-In my effort to *combine the technologies within our group, the expertise from other people and of course my own work* to produce (research) results, I have come with the following action plan + papers for an organicly grown thesis:
+In my effort to *combine the technologies within our group, the expertise from other people and of course my own work* to produce (research) results, I have come with the following action plan + papers for an organically grown thesis:
 
 Literature => Curation => Causal Statements => Models => Predicting Synergies => Finding mechanisms
 
 Why and when?
 
-### Phd Midterm
+### Phd Midterm {-}
 
 Sections of presentation:
 

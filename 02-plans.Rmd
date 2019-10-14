@@ -25,40 +25,34 @@ The papers dictate my future work for this PhD (and in that order!).
 
 #### Authors {-}
 
-John, Asmund?
+John, Asmund
 
 #### Idea {-}
 
 The idea here is to analyse the models produced by `Gitsbe` in order to find important nodes (biomarkers) responsible for either better performance (based on a metric score like TP or MCC) or for specific synergy(ies) prediction. 
-I am making an R package for this kind of analyses and subsequent Rmarkdown or bookdown documents that will show the analyses themselves and the use of the R package.
 
-The R package is publishable by itself as an **application note paper**.
-The package will also be used for an analysis that will probably be included in 
-Asmund's automated pipeline paper (on the cascade topology).
+The R package emba [@R-emba] is publishable by itself as an **application note paper**,
+but we decided with Asmund that is best to present with an analysis on some dataset
+to show it's use. The package is also used for analyses that will be included in 
+Asmund's automated pipeline paper (on the cascade topology mostly).
 
-#### Extensions {-}
-
-I also want to try different ML (Machine Learning) methods for feature importance/biomarker selection (things that I learned from the ML course in Sweeden + others things to try). Thus this work can be also used to other projects (and linked to papers as well):
-
-1. Compare ML results with my method (on cascade/atopo results of the pipeline 
+An idea is to compare ML results with my method (on cascade/atopo results of the pipeline 
 paper or other). Paper could be titled something along the lines of
 **"Ensemble model analysis vs Machine Learning for unraveling drug synergy mechanisms"**.
-Depends only on me.
-2. The ML analysis could be used as part of the work that Asmund includes in his NKI project (he mentions such a paper in his project proposal for COLOGIC, titled **"Computational dissection of drug synergy mechanisms in colorectal cancer cell lines"**). Depends on me, Asmund and NKI
-people perhaps.
-3. Combine Vasundra's and Barbara's computational work on the biomarker analysis with mine and the ML methods to create a nice combo paper about
-**"Unraveling drug mechanisms on CRC cell lines using various computational methods"**. 
-Depends mostly on me, Vasundra! A similar idea here is about the 
-**identification of optimal training data size**, in the sense that we can use various methods to derive a node (biomarker) set for the training data. Eirini and Kath are into this as well.
+(which depends only on me). Could also be that I combine Vasundra's and 
+Barbara's computational work on the biomarker analysis with mine and the ML 
+methods (so more generic even) to create a nice combo paper about **"Unraveling drug mechanisms on CRC 
+cell lines using various computational methods"**. 
 
-Goal is to have **a total of 2 papers (one with me as main author)** from the search for biomarkers and drug 
-synergy mechanisms related-work.
+A research question here (with similar kind of work) is about the 
+**identification of optimal training data size**, in the sense that we can use 
+various methods to derive a node (biomarker) set for the training data (with Eirini).
 
 ### Paper II: *VSM-dictionaries*: common access to biological dictionaries {-}
 
 #### Authors {-}
 
-John, Steven, Martin?
+John, Steven, Vasundra, Martin
 
 #### Idea/Implementation {-}
 
@@ -113,6 +107,12 @@ discussion here, but I already know what to do pretty much] the complexes and fa
     - extend `atopo` module to use the main (3) package and use it for finding drug combinations (comparing attractors or prediction results of automated topology building without complexes vs automated topology built from causal-JSON with complexes and families in each case). 
     The main thing here would be of course better prediction performance results based on a better logical model representation. 
     I could tweak `atopo` to choose actually not all of Signor's data but specific pathways to include in the analysis and this will help I believe to build smaller topologies for specific drug combinations that we want to test.
+
+Interesting resources:
+
+- Signor Pathway data
+- CausalBuilder
+- [CancerGeneNet](https://doi.org/10.1093/nar/gkz871)
 
 ## Other Paper Ideas
 

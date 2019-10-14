@@ -91,7 +91,7 @@ Asmund's proposal idea that he sent to my email once. Has to do about *mechanist
 **My idea** is more like this:  
 Predict drug-response curves from drug combination datasets (GDSC, CCLE), 
 using logical modeling for singaling network analysis or translation from 
-logical to ODE modeling. Aslo try to predict drug combinations datasets 
+logical to ODE modeling. Also try to predict drug combinations datasets 
 (dose-response matrices?). Pretty much what is done in this paper [@Frohlich2018] 
 with help from [@Wittmann2009] for converting boolean models to continuous.
 
