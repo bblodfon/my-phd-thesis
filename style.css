@@ -1,0 +1,17 @@
+.blue-box {                                                                     
+  background-color: #e6f0ff;                                                    
+  border-radius: 5px;                                                           
+  padding: 20px;                                                                
+}                                                                               
+                                                                                
+.green-box {                                                                    
+  background-color: #d9ffe9;                                                    
+  border-radius: 5px;                                                           
+  padding: 20px;                                                                
+}                                                                               
+                                                                                
+.orange-box {                                                                   
+  background-color: #ffeedf;                                                    
+  border-radius: 5px;                                                           
+  padding: 20px;                                                                
+}
