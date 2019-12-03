@@ -1,41 +1,58 @@
-\documentclass[12pt,]{book}
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[
+  12pt,
+]{book}
 \usepackage{lmodern}
 \usepackage{setspace}
 \setstretch{1.3}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
 \else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage[left=4cm, right=4cm, top=2.5cm, bottom=2.5cm]{geometry}
-\usepackage{hyperref}
-\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
-\hypersetup{unicode=true,
-            pdftitle={Software implementations allowing new approaches toward data analysis, modeling and integration / curation of biological knowledge for Systems Medicine},
-            pdfauthor={John Zobolas},
-            colorlinks=true,
-            linkcolor=black,
-            citecolor=Blue,
-            urlcolor=blue,
-            breaklinks=true}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={The PhD Thesis you don't deserve but you need to read},
+  pdfauthor={John Zobolas},
+  colorlinks=true,
+  linkcolor=black,
+  filecolor=Maroon,
+  citecolor=Blue,
+  urlcolor=blue,
+  breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage[left=4cm, right=4cm, top=2.5cm, bottom=2.5cm]{geometry}
 \usepackage{longtable,booktabs}
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -48,52 +65,24 @@
 \usepackage[normalem]{ulem}
 % avoid problems with \sout in headers with hyperref:
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 % Redefines (sub)paragraphs to behave more like sections
 \ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
 \fi
 \ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-%%% Change title format to be more compact
-\usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\providecommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
-}
-
-\setlength{\droptitle}{-2em}
-
-  \title{Software implementations allowing new approaches toward data analysis, modeling and integration / curation of biological knowledge for Systems Medicine}
-    \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-  \subtitle{Subtitle: Title may as well change!}
-  \author{John Zobolas}
-    \preauthor{\centering\large\emph}
-  \postauthor{\par}
-      \predate{\centering\large\emph}
-  \postdate{\par}
-    \date{August 2019}
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
 
 % for figures to fit (sometimes works well)
 %\renewcommand{\textfraction}{0.05}
@@ -103,20 +92,47 @@
 
 % removes section headings from the top of pages
 \pagestyle{plain}
+% https://github.com/rstudio/rmarkdown/issues/337
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+% https://github.com/rstudio/rmarkdown/pull/252
+\usepackage{titling}
+\setlength{\droptitle}{-2em}
+
+\pretitle{\vspace{\droptitle}\centering\huge}
+\posttitle{\par}
+
+\preauthor{\centering\large\emph}
+\postauthor{\par}
+
+\predate{\centering\large\emph}
+\postdate{\par}
+
+\title{The PhD Thesis you don't deserve but you need to read}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{You absolutely don't want to read this!}
+\author{John Zobolas}
+\date{Last updated: 03 December, 2019}
 
 \begin{document}
 \maketitle
 
 {
-\hypersetup{linkcolor=black}
+\hypersetup{linkcolor=}
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
 \listoftables
 \listoffigures
-\hypertarget{structure}{%
-\chapter*{Structure}\label{structure}}
-\addcontentsline{toc}{chapter}{Structure}
+\hypertarget{intro}{%
+\chapter*{Intro}\label{intro}}
+\addcontentsline{toc}{chapter}{Intro}
 
 Chapters are currently split as:
 
@@ -128,43 +144,58 @@ Chapters are currently split as:
   Future plans (see \protect\hyperlink{plans}{Chapter 2}). This includes the list of papers for my PhD.
 \item
   For more experimental/future ideas see \protect\hyperlink{ideas}{Chapter 3}.
+\item
+  Various text that I have been writing here and there \protect\hyperlink{text}{Chapter 4}.
 \end{itemize}
+
+\hypertarget{introduction}{%
+\subsection*{Introduction}\label{introduction}}
+\addcontentsline{toc}{subsection}{Introduction}
+
+Plan???:
+
+Literature =\textgreater{} Curation =\textgreater{} Causal Statements =\textgreater{} Models =\textgreater{} Predicting Synergies =\textgreater{} Finding mechanisms
+
+\hypertarget{about-the-title}{%
+\subsection*{About the title}\label{about-the-title}}
+\addcontentsline{toc}{subsection}{About the title}
+
+Original title in my PhD plan was:
+
+\textbf{Software implementations allowing new approaches toward data analysis, modeling and integration / curation of biological knowledge for Systems Medicine}
+
+I am thinking that we may need to change it a little bit.
+The reason: it started as something very general and abstract and in the end it seems I did some specific things but in various areas which still remain abstractly connected.
+Alternative titles that I am thinking of currently:
+
+\begin{itemize}
+\tightlist
+\item
+  How to Engineer your way through a Systems Medicine PhD thesis!
+\item
+  Software Engineering enables optimized Systems Medicine approaches toward data analysis, modeling and curation of biological knowledge
+\end{itemize}
+
+And some for fun:
+
+\begin{itemize}
+\tightlist
+\item
+  Neural transformations and hydrothermal aperture in deterministic radar hydrothermal decompositions
+\item
+  Hydro-thermal applications and kinematic eigenvalues in exponential reliability inflationary amplitudes
+\item
+  Non-isothermal trellises of time-varying transmembrane and quantitative poly-and-mono-phonemes in locally capacitive hypermultiplets
+\end{itemize}
+
+\textbf{To be decided what will be the end title!}
 
 \hypertarget{keywords}{%
 \subsection*{Keywords}\label{keywords}}
 \addcontentsline{toc}{subsection}{Keywords}
 
 \emph{curation/knowledge management, VSM, causal statements, DrugLogics pipeline
-(model parameterization/calibration and prediction of synergistic drug combinations),
-biomarker analysis, synergy assessment}
-
-\hypertarget{phd-plan-chart}{%
-\subsection*{PhD Plan chart}\label{phd-plan-chart}}
-\addcontentsline{toc}{subsection}{PhD Plan chart}
-
-In my effort to \emph{combine the technologies within our group, the expertise from other people and of course my own work} to produce (research) results, I have come with the following action plan + papers for an organically grown thesis:
-
-Literature =\textgreater{} Curation =\textgreater{} Causal Statements =\textgreater{} Models =\textgreater{} Predicting Synergies =\textgreater{} Finding mechanisms
-
-Why and when?
-
-\hypertarget{phd-midterm}{%
-\subsection*{Phd Midterm}\label{phd-midterm}}
-\addcontentsline{toc}{subsection}{Phd Midterm}
-
-Sections of presentation:
-
-\begin{itemize}
-\tightlist
-\item
-  Background
-\item
-  Description
-\item
-  Publication Plan
-\item
-  Progress
-\end{itemize}
+(model parameterization/calibration and prediction of synergistic drug combinations, performance optimization), biomarker analysis, synergy assessment}
 
 \begin{center}\includegraphics[width=0.5\linewidth]{img/NTNU-logo} \end{center}
 
@@ -178,8 +209,8 @@ within the group). \textbf{To include in the thesis text}.
 Note though that not all of these will be part of the main thesis (maybe include the
 rest in a section like `Funny PhD side-quests').
 
-\hypertarget{pipeline}{%
-\section{Pipeline}\label{pipeline}}
+\hypertarget{dlpipe}{%
+\section{Druglogics Pipeline}\label{dlpipe}}
 
 \begin{itemize}
 \tightlist
@@ -198,7 +229,7 @@ rest in a section like `Funny PhD side-quests').
 \item
   Source code documentation + proper README files on \texttt{gitsbe}, \texttt{drabme} and \texttt{druglogics-synergy} modules
 \item
-  Enabling \emph{parallel simulations} in Gitsbe
+  Enabling \emph{parallel simulations} in Gitsbe (performance optimization)
 \item
   Added support for many features (ongoing work - see \href{https://docs.google.com/document/d/1OUupR0b-28YB9pVAww77RMecnFN6A39MYjXMjljmvG4/edit?usp=sharing}{dev\_plan\_doc})
 \item
@@ -214,15 +245,13 @@ rest in a section like `Funny PhD side-quests').
 \hypertarget{vsm-dict}{%
 \section{VSM}\label{vsm-dict}}
 
-\textbf{Building VSM-dictionaries} in order to
-connect/translate the data from various databases and ontology providers to
-proper VSM-terms. Most of this work is done in order to support Vasundra's
-\href{https://vtoure.github.io/causalBuilder/}{causalBuilder Tool} which is the
-first application of VSM after SciCura v1.
+\textbf{Building VSM-dictionaries} in order to connect/translate the data from various databases and ontology providers to proper VSM-terms.
+Most of this work is done in order to support Vasundra's \href{https://vtoure.github.io/causalBuilder/}{causalBuilder Tool} which is the first application of VSM after SciCura v1.
 
-The vsm-dictionaries (code +documentation) can be found on the \href{https://github.com/vsmjs}{VSM Github page}. They translate to VSM-terms data from BioPortal, UniProt, Ensembl, EnsemblGenomes, RNACentral and ComplexPortal. We have also released the respective
-packages on \href{https://www.npmjs.com/}{npmjs}. See for example the \href{https://www.npmjs.com/package/vsm-dictionary-bioportal}{npm package for
-BioPortal}.
+The vsm-dictionaries (code + documentation) can be found on the \href{https://github.com/vsmjs}{VSM Github page}.
+They translate to VSM-terms data from BioPortal, UniProt, Ensembl, EnsemblGenomes, RNACentral, ComplexPortal and Noctua Entity Ontology.
+We have also released the respective packages on \href{https://www.npmjs.com/}{npmjs}.
+See for example the \href{https://www.npmjs.com/package/vsm-dictionary-bioportal}{npm package for BioPortal}.
 
 \hypertarget{psicquic}{%
 \section{PSICQUIC}\label{psicquic}}
@@ -286,9 +315,9 @@ Note that the titles and the details for each paper are liable to change though 
 
 The papers dictate my future work for this PhD (and in that order!).
 
-\hypertarget{paper-i-emba-an-r-package-for-ensemble-boolean-model-biomarker-analysis}{%
-\subsection*{\texorpdfstring{Paper I: \emph{emba}: an R package for ensemble boolean model biomarker analysis}{Paper I: emba: an R package for ensemble boolean model biomarker analysis}}\label{paper-i-emba-an-r-package-for-ensemble-boolean-model-biomarker-analysis}}
-\addcontentsline{toc}{subsection}{Paper I: \emph{emba}: an R package for ensemble boolean model biomarker analysis}
+\hypertarget{paper-i-emba---an-r-package-for-ensemble-boolean-model-biomarker-analysis}{%
+\subsection*{\texorpdfstring{Paper I: \texttt{emba} - an R package for ensemble boolean model biomarker analysis}{Paper I: emba - an R package for ensemble boolean model biomarker analysis}}\label{paper-i-emba---an-r-package-for-ensemble-boolean-model-biomarker-analysis}}
+\addcontentsline{toc}{subsection}{Paper I: \texttt{emba} - an R package for ensemble boolean model biomarker analysis}
 
 \hypertarget{authors}{%
 \subsubsection*{Authors}\label{authors}}
@@ -300,24 +329,29 @@ John, Asmund
 \subsubsection*{Idea}\label{idea}}
 \addcontentsline{toc}{subsubsection}{Idea}
 
-The idea here is to analyse the models produced by \texttt{Gitsbe} in order to find important nodes (biomarkers) responsible for either better performance (based on a metric score like TP or MCC) or for specific synergy(ies) prediction.
+This whole thing started when we questioned the predictive performance of the models generated by \texttt{Gitsbe}.
+What kind of insights can we get from such a dataset by looking at each individual model's boolean equations, stable states and predictive performance?
+How can we take back such knowledge and use it in order to understand more about how to generate better models in our pipeline?
+How can we analyse each model's data to find nodes whose activity state or boolean model parameterization affects the manifestation of specific observed synergies?
+These questions and more of the same kind lead to a large data exploration and analyses, me writing a lot of \texttt{R} code, which I ended up splitting to two packages: (J. Zobolas \protect\hyperlink{ref-R-usefun}{2019}\protect\hyperlink{ref-R-usefun}{b}) and (J. Zobolas \protect\hyperlink{ref-R-emba}{2019}\protect\hyperlink{ref-R-emba}{a}).
 
-The R package emba (Zobolas \protect\hyperlink{ref-R-emba}{2019}) is publishable by itself as an \textbf{application note paper},
-but we decided with Asmund that is best to present with an analysis on some dataset
-to show it's use. The package is also used for analyses that will be included in
-Asmund's automated pipeline paper (on the cascade topology mostly).
+The idea behind the \texttt{emba} R package is to have simple functions that will help us analyse the models produced by \texttt{Gitsbe} in order to find important nodes (biomarkers) responsible for either better performance (based on a metric score like MCC) or for specific synergy(ies) prediction.
 
-An idea is to compare ML results with my method (on cascade/atopo results of the pipeline
-paper or other). Paper could be titled something along the lines of
-\textbf{``Ensemble model analysis vs Machine Learning for unraveling drug synergy mechanisms''}.
-(which depends only on me). Could also be that I combine Vasundra's and
-Barbara's computational work on the biomarker analysis with mine and the ML
-methods (so more generic even) to create a nice combo paper about \textbf{``Unraveling drug mechanisms on CRC
-cell lines using various computational methods''}.
+\hypertarget{what-might-come-of-this}{%
+\subsubsection*{What might come of this?}\label{what-might-come-of-this}}
+\addcontentsline{toc}{subsubsection}{What might come of this?}
 
-A research question here (with similar kind of work) is about the
-\textbf{identification of optimal training data size}, in the sense that we can use
-various methods to derive a node (biomarker) set for the training data (with Eirini).
+\begin{itemize}
+\item
+  The R package emba (J. Zobolas \protect\hyperlink{ref-R-emba}{2019}\protect\hyperlink{ref-R-emba}{a}) is publishable by itself as an \textbf{application note paper}, but we decided with Asmund that is best to present it with an analysis on some dataset to show its use.
+  For example, the package is used for analyses that will be included in Asmund's paper(s), e.g.~\emph{AGS Story: Part I} among others.
+\item
+  Another idea is to compare Machine Learning results with my method (on cascade/atopo results of the pipeline paper or other).
+  Paper could be titled something along the lines of \textbf{``Ensemble model analysis vs Machine Learning for unraveling drug synergy mechanisms''}.
+\item
+  Another idea here is the results of the project \textbf{Optimize the predictive performance of the Druglogics pipeline}.
+  One of the research questions here is about the \textbf{identification of optimal training data size and included nodes which are essential for good performance} (with Eirini, I am leading it).
+\end{itemize}
 
 \hypertarget{paper-ii-vsm-dictionaries-common-access-to-biological-dictionaries}{%
 \subsection*{\texorpdfstring{Paper II: \emph{VSM-dictionaries}: common access to biological dictionaries}{Paper II: VSM-dictionaries: common access to biological dictionaries}}\label{paper-ii-vsm-dictionaries-common-access-to-biological-dictionaries}}
@@ -335,135 +369,32 @@ John, Steven, Vasundra, Martin
 
 A short \textbf{application note} paper for my work on \protect\hyperlink{vsm-dict}{VSM-dictionaries}.
 
-\hypertarget{paper-iii-from-causal-statements-to-building-logical-models-compliant-with-biological-knowledge}{%
-\subsection*{Paper III: From causal statements to building logical models compliant with biological knowledge}\label{paper-iii-from-causal-statements-to-building-logical-models-compliant-with-biological-knowledge}}
-\addcontentsline{toc}{subsection}{Paper III: From causal statements to building logical models compliant with biological knowledge}
+\hypertarget{synergy-paper-ideas}{%
+\section{Synergy Paper Ideas}\label{synergy-paper-ideas}}
 
-\hypertarget{authors-2}{%
-\subsubsection*{Authors}\label{authors-2}}
-\addcontentsline{toc}{subsubsection}{Authors}
-
-John, others (to decide)
-
-\hypertarget{idea-1}{%
-\subsubsection*{Idea}\label{idea-1}}
-\addcontentsline{toc}{subsubsection}{Idea}
-
-This paper will be the main \textbf{research paper of my PhD}.
-This idea is like a continuation of the \texttt{causalBuilder} tool by Vasundra coupled with the
-need to have a more proper representation of complexes (and families) in our
-logical models (better models, better predictions). Asmund had \emph{manually} changed some logical equations in his paper
-(Flobak et al. \protect\hyperlink{ref-Flobak2015}{2015}), in order to make the model more compliant with biology knowledge
-and literature findings. One of them was about the beta-catenin complex and its
-constituents (connected with \emph{AND's} instead of \emph{OR's}) and the rest were about changing the link operators of the logical
-equations (from \emph{AND NOT} to \emph{OR NOT}). The latter is something that is enabled
-through the mutations introduced by the genetic algorithm of \texttt{Gitsbe}. The former
-depends on the dataset and the representation of complexes.\footnote{There is actually a mutation that can change this but not in the way that we want - i.e.~all components of a complex
-  should be connected with an \emph{AND}}
-
-Only Signor has some complexes + interaction data but they are seperate files, making it thus difficult (and non-elegant computationally-wise) to integrate such knowledge/data to boolean models. Also Vasundra's experience with Reactome data in miTab2.8 showed us the difficulty to match binary interactions to a data model flexible enough to represent complexes and their internal components. Causal-JSON and the recursive schema that we thought allows the curator to put both the complex ID and it's constituents in the same data structure. And what's best than using a proper tool to annotate such causal statements like VSM!
-
-\hypertarget{proposed-workflow}{%
-\subsubsection*{Proposed Workflow}\label{proposed-workflow}}
-\addcontentsline{toc}{subsubsection}{Proposed Workflow}
-
-So, the general semi-automated web-application (web only if VSM comes into play) pipeline for this paper that I am thinking will be as follows:\footnote{My goal here is to combine as much as possible different things within our group,
-  so each point or package should be small, their combination effect large}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Get interaction + complexes/families data (Signor most probably or a form of Cascade + complexes???). Note that for the reason I explained above miTab 2.8 is out of the question, so the Signor
-  data I am refering to is the .tsv files they offer (interaction data, complexes, families). And
-  most probably I am referring to a \textbf{pathway interaction dataset} not the whole Signor data. For example, the \href{https://signor.uniroma2.it/pathway_browser.php?organism=human\&pathway_list=SIGNOR-WNT\&level=1}{Wnt Signaling pathway}.
-\item
-  Build a small module that translates the (Signor) data to Causal-JSON.
-\item
-  Optionally\footnote{might actually take a lot more effort than what I am planning that's why it's optional}
-  there can be support for (re-)curation of the data with VSM template(s) for proper annotation of complexes (the templates will be automatically pre-filled to match Signor's data model). Note that this implies causal-JSON =\textgreater{} VSM-box JSON format, which is the reverse
-  of what causalBuilder will do. It will be nice if such interface supports addition
-  of one more template of the same thing to curate one new sentence and add it to the data.
-  The thing is that I want to include VSM into this, but I don't yet know how to really support
-  its place in this pipeline since the curation is already done from Signor. It can be
-  part of a showcase though: an example causal statement from the pathway with a complex
-  and how it could be cureated with VSM.
-\item
-  \textbf{Main:} Build a package that translates the causal-JSON data to a logical model with
-  some filtering and parameterization included (e.g.~filter based on cell line (so \emph{cell-line} specific topologies), conditions on the biological state: `by phoshorylation', exp. evidence, assertion/confidence score, species, compartment).
-  So, \textbf{causal-JSON to .bnet files (logical equations)}, while substituting nicely\footnote{huge
-    discussion here, but I already know what to do pretty much} the complexes and families.
-\item
-  Showcase some small application of this logical model end-product:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    use for example the \href{https://github.com/colomoto/colomoto-docker}{colomoto notebook}, do some small trapspace analysis and show that some results from literature or from previous logical or other models can now be reproduced with a better biological representation in the model itself
-  \item
-    make many logical models of the pathways in Signor with simple attractor analysis and put them into the GinSim model repository for reference for the logical community.
-  \item
-    extend \texttt{atopo} module to use the main (3) package and use it for finding drug combinations (comparing attractors or prediction results of automated topology building without complexes vs automated topology built from causal-JSON with complexes and families in each case).
-    The main thing here would be of course better prediction performance results based on a better logical model representation.
-    I could tweak \texttt{atopo} to choose actually not all of Signor's data but specific pathways to include in the analysis and this will help I believe to build smaller topologies for specific drug combinations that we want to test.
-  \end{itemize}
-\end{enumerate}
-
-Interesting resources:
-
-\begin{itemize}
-\tightlist
-\item
-  Signor Pathway data
-\item
-  CausalBuilder
-\item
-  \href{https://doi.org/10.1093/nar/gkz871}{CancerGeneNet}
-\end{itemize}
-
-\hypertarget{other-paper-ideas}{%
-\section{Other Paper Ideas}\label{other-paper-ideas}}
-
-\hypertarget{paper-iv-deprecated}{%
-\subsection*{Paper IV (Deprecated)}\label{paper-iv-deprecated}}
-\addcontentsline{toc}{subsection}{Paper IV (Deprecated)}
+\hypertarget{synergy-paper-i}{%
+\subsection*{Synergy Paper I}\label{synergy-paper-i}}
+\addcontentsline{toc}{subsection}{Synergy Paper I}
 
 \hypertarget{title}{%
 \subsubsection*{Title}\label{title}}
 \addcontentsline{toc}{subsubsection}{Title}
 
-Extending \texttt{SynergyFinder} for the use of multiple reference models for the assement of synergy in screening datasets
+Extending \texttt{SynergyFinder} for the use of multiple reference models for the assement of synergy in screening datasets.
+A computational/mathematical paper.
 
-\hypertarget{idea-2}{%
-\subsubsection*{Idea}\label{idea-2}}
+\hypertarget{idea-1}{%
+\subsubsection*{Idea}\label{idea-1}}
 \addcontentsline{toc}{subsubsection}{Idea}
 
-The core idea here is to extend an existing R package for calculating synergy
-reference models in order to include Wim's generalized Bliss method and the mean synergy score by Simone Laderer! Then I will test all the null reference models (Loewe, Bliss, ZIP, +2 new, others?) on dose-response matrix datasets (could be from Ladere's paper, from Asmund's paper, our own - Barbara's/Evelina's dataset, etc.) and see which is best at finding the synergies in each dataset.
+The core idea here is to extend an existing R package (Ianevski et al. \protect\hyperlink{ref-Ianevski2017}{2017}) for calculating synergy reference models in order to include Wim's generalized Bliss method and the mean synergy score by Simone Laderer (Lederer, Dijkstra, and Heskes \protect\hyperlink{ref-Lederer2018}{2018})!
+Then I will test all the null reference models (Loewe, Bliss, ZIP + others) on dose-response matrix datasets (could be from Ladere's paper, from Asmund's paper, the SINTEF dataset) and see which is best at finding the synergies in each dataset.
 
-R package to use:
+Also, I should investigate if my own idea for a mathematical formulation of the volume-based synergy score as general method for describing 3-wise or more combinations as synergistic, could be part of this implementation.
 
-\begin{itemize}
-\tightlist
-\item
-  SynergyFinder from Finland group \href{https://github.com/google/synergyfinderengineered/}{code here}
-\item
-  Also I have to check this software: \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5732778/}{R package COMBIA} as well as others at the time I will be tackling this
-\end{itemize}
-
-Also, I should investigate if my own idea for a mathematical
-formulation of the volume-based synergy score as general method for describing 3-wise
-or more combinations as synergistic, could be part of this implementation (or could be another paper by itself).
-
-\hypertarget{paper-v-why-not}{%
-\subsection*{Paper V (Why not?!)}\label{paper-v-why-not}}
-\addcontentsline{toc}{subsection}{Paper V (Why not?!)}
-
-\hypertarget{authors-3}{%
-\subsubsection*{Authors}\label{authors-3}}
-\addcontentsline{toc}{subsubsection}{Authors}
-
-John, others (to decide)
+\hypertarget{synergy-paper-ii}{%
+\subsection*{Synergy Paper II}\label{synergy-paper-ii}}
+\addcontentsline{toc}{subsection}{Synergy Paper II}
 
 \hypertarget{title-1}{%
 \subsubsection*{Title}\label{title-1}}
@@ -471,17 +402,20 @@ John, others (to decide)
 
 On eye-balling synergy mechanisms: What is a \sout{mountain} synergy?
 
-\hypertarget{idea-3}{%
-\subsubsection*{Idea}\label{idea-3}}
+\hypertarget{idea-2}{%
+\subsubsection*{Idea}\label{idea-2}}
 \addcontentsline{toc}{subsubsection}{Idea}
 
-I had the idea of writing a small paper (send to Science Signaling) that describes the \emph{eye-ball} or
-\emph{visual inspection} technique that is used so much in computational Biology and
-Medicine. It is used pretty much in any paper I have seen but nobody has actually
-defined or named it.
+I had the idea of writing a small paper that describes the \emph{eye-balling} or \emph{visual inspection} technique that is used so much in computational Biology and Medicine.
+It is used pretty much in any paper I have seen but nobody has actually defined or named it.
 
-A characteristic example is the \emph{call for synergy} when you see some
-experimental data in dose-response curves (show mostly when you see figures). Another is the threshold that data analysts put when defining output to classifiers or the parameterization that is used and the general human intuition/engineering that is shared in all these.
+\begin{itemize}
+\tightlist
+\item
+  A characteristic example is \emph{eye-balling} synergies from dose-response curves, like we did in our group for the SINTEF screen data (Flobak et al. \protect\hyperlink{ref-Flobak2019}{2019}).
+\item
+  Another example is the thresholds that data analysts put when defining output to classifiers or the parameterization that is used and the general human intuition/engineering that is shared in all these.
+\end{itemize}
 
 As Asmund once said:
 
@@ -489,11 +423,11 @@ As Asmund once said:
 What is a mountain? What is a synergy?
 \end{quote}
 
-So, I just want to discuss this in a small paper cause it seems to be a
-thing that everybody is aware of in their everyday job, but everyone keeps out
-when talking about results, etc and I haven't found a paper that discusses this
-one way or another!
-A very RRI-related paper\ldots{}
+\begin{itemize}
+\tightlist
+\item
+  Asmund proposed that we should contact many people to curate large drug combination screens (various datasets) and combine this with Martin's idea of \textbf{creating curation guidelines for drug combination screening}.
+\end{itemize}
 
 \hypertarget{part-miscellaneous-stuff}{%
 \part*{Miscellaneous Stuff}\label{part-miscellaneous-stuff}}
@@ -699,6 +633,98 @@ over these models and continue the proliferation). You end up with super cancer
 resistant models and methods to achieve them or reasons why this cannot happen
 at all.
 
+\hypertarget{causal-json-or-mi-json-to-boolean-model-converter}{%
+\subsection*{Causal-JSON or MI-JSON to boolean model converter}\label{causal-json-or-mi-json-to-boolean-model-converter}}
+\addcontentsline{toc}{subsection}{Causal-JSON or MI-JSON to boolean model converter}
+
+\hypertarget{idea-3}{%
+\subsubsection*{Idea}\label{idea-3}}
+\addcontentsline{toc}{subsubsection}{Idea}
+
+This idea is like a continuation of the \texttt{causalBuilder} tool by Vasundra coupled with the need to have a more proper representation of complexes (and families) in our logical models (better models, better predictions).
+Asmund had \emph{manually} changed some logical equations in his paper (Flobak et al. \protect\hyperlink{ref-Flobak2015}{2015}), in order to make the model more compliant with biology knowledge and literature findings.
+One of them was about the beta-catenin complex and its constituents (connected with \emph{AND's} instead of \emph{OR's}) and the rest were about changing the link operators of the logical equations (from \emph{AND NOT} to \emph{OR NOT}).
+The latter is something that is enabled through the mutations introduced by the genetic algorithm of \texttt{Gitsbe}.
+The former depends on the dataset and the representation of complexes.\footnote{There is actually a mutation that can change this but not in the way that we want - i.e.~all components of a complex should be connected with an \emph{AND}}
+
+Only Signor (Licata et al. \protect\hyperlink{ref-Licata2019}{2019}) has some complexes + interaction data but they are seperate files, making it thus difficult (and non-elegant computationally-wise) to integrate such knowledge/data to boolean models.
+Also Vasundra's experience with Reactome data in miTab2.8 showed us the difficulty to match binary interactions to a data model flexible enough to represent complexes and their internal components. Causal-JSON and the recursive schema that we thought allows the curator to put both the complex ID and it's constituents in the same data structure.
+
+\hypertarget{proposed-workflow}{%
+\subsubsection*{Proposed Workflow}\label{proposed-workflow}}
+\addcontentsline{toc}{subsubsection}{Proposed Workflow}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Get interaction + complexes/families data (Signor most probably or a form of CASCADE + complexes).
+  Note that for the reason I explained above miTab 2.8 is out of the question, so the Signor data I am refering to is the .tsv files they offer (interaction data, complexes, families).
+  And most probably I am referring to a \textbf{pathway interaction dataset} not the whole Signor data.
+  For example, the \href{https://signor.uniroma2.it/pathway_browser.php?organism=human\&pathway_list=SIGNOR-WNT\&level=1}{Wnt Signaling pathway}.
+\item
+  Build a small module that translates the (Signor) data to Causal-JSON.
+\item
+  \hypertarget{causalJSONPoint3}{}
+
+  \textbf{Main:} Build a package that translates the causal-JSON data to a logical model with some filtering and parameterization included (e.g.~filter based on cell line (so \emph{cell-line} specific topologies), conditions on the biological state: `by phoshorylation', exp. evidence, assertion/confidence score, species, compartment). So, \textbf{causal-JSON to .bnet files (logical equations)}, while substituting/extending nicely the complexes and families.
+\item
+  Showcase some small application of this logical model end-product:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    use for example the \href{https://github.com/colomoto/colomoto-docker}{colomoto notebook}, do some small trapspace analysis and show that some results from literature or from previous logical or other models can now be reproduced with a better biological representation in the model itself, AUTOMATICALLY!
+  \item
+    make many logical models of the pathways in Signor with simple attractor analysis and put them into the GinSim model repository for reference for the logical community.
+  \item
+    extend \texttt{atopo} module to use the main package (see \protect\hyperlink{causalJSONPoint3}{point No.~3}) and use it for finding drug combinations (comparing attractors or prediction results of automated topology building without complexes vs automated topology built from causal-JSON with complexes and families in each case).
+    The main thing here would be of course better prediction performance results based on a better logical model representation.
+    I could tweak \texttt{atopo} to choose actually not all of Signor's data but specific pathways to include in the analysis and this will help I believe to build smaller topologies for specific drug combinations that we want to test.
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{text}{%
+\chapter{Text}\label{text}}
+
+Here I have various text the I write at times and I will include most probably in my completed thesis report:
+
+\hypertarget{why-automated-topology}{%
+\section{Why automated topology?}\label{why-automated-topology}}
+
+My take on this:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Yes, one of the reasons is advantage in the simulations in the sense that when you have logical models that have no inputs you are statistically more able to have models with a few/less (even better: 1) stable state(s).
+  See it like this: if a logical model has one input (let's say node X) then it's sure that this logical model will have one attractor with X:0 and one with X:1, be it a stable state or a more complex attractor.
+  Two inputs, 4 attractors, etc. (Denis helped me realise this actually on a talk in Athen's ECCB, great times)
+\item
+  The second reason that Asmund told me about when I asked him the same thing, was one of the most basic hypothesis behind his modeling - which sums up to \emph{where cancer comes from}.
+  By using a no-inputs topology we adhere to the principle that cancer is something that relates to the system itself and not to the external interactions of the system.
+  It comes from dysregulations within related to ``broken'' circuits, etc.
+  It is in contrast with the traditional view on the same thing that experimentalists used to understand cancer: I perturb the system (cell) by inhibiting a specific hormone/receptor (input) and see how it reacts (and where most modeling approaches are based on).
+\end{enumerate}
+
+Asmund's take on this:
+1. few stable states
+2. cancer is a system disease in itself (not related to e.g.~external hormones, they are present also for healthy cells, it is something in the cancer cell that allows it to sense the external hormone differently than healthy cells).
+
+In addition (and maybe related to point 1):
+3. In `traditional' modeling a system is defined to respond in a certain way to a set of specified `inputs' (I mean not here model input nodes but rather a configuration of the model, e.g.~ERK is active).
+A self-contained topology merges the input condition and the output response in a single observable entity: When the system is initialized in its stable state it will remain there.
+Therefore observation of baseline signaling is both the input and the output, reduces need for perturbations.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  In addition to few stable states (point 1) I believe a self contained topology also means few possible parmeterizations.
+  I don't have any mathematical proof of this but it seems reasonable to me.
+\end{enumerate}
+
 \hypertarget{appendix-appendix}{%
 \appendix}
 
@@ -722,7 +748,7 @@ Papers that will probably be published and I will probably be in the list of aut
 \item
   \href{https://www.tinyurl.com/bh2018write}{The Biohackathon 2018 paper}
 \item
-  Asmund's automated pipeline paper: \emph{A novel and versatile drug synergy prediction pipeline with single sample resolution for discovery of potent drug combinations in pre-clinical and clinical datasets}
+  Asmund's papers (2)
 \item
   Vasundra's causalBuilder tool paper
 \end{itemize}
@@ -760,14 +786,26 @@ Dubrova, Elena, and Maxim Teslenko. 2009. ``A SAT-Based Algorithm for Computing 
 \leavevmode\hypertarget{ref-Flobak2015}{}%
 Flobak, Åsmund, Anaïs Baudot, Elisabeth Remy, Liv Thommesen, Denis Thieffry, Martin Kuiper, and Astrid Lægreid. 2015. ``Discovery of Drug Synergies in Gastric Cancer Cells Predicted by Logical Modeling.'' Edited by Ioannis Xenarios. \emph{PLOS Computational Biology} 11 (8): e1004426. \url{https://doi.org/10.1371/journal.pcbi.1004426}.
 
+\leavevmode\hypertarget{ref-Flobak2019}{}%
+Flobak, Åsmund, Barbara Niederdorfer, Vu To Nakstad, Liv Thommesen, Geir Klinkenberg, and Astrid Lægreid. 2019. ``A high-throughput drug combination screen of targeted small molecule inhibitors in cancer cell lines.'' \emph{Scientific Data} 6 (1): 237. \url{https://doi.org/10.1038/s41597-019-0255-7}.
+
 \leavevmode\hypertarget{ref-Frohlich2018}{}%
 Fröhlich, Fabian, Thomas Kessler, Daniel Weindl, Alexey Shadrin, Leonard Schmiester, Hendrik Hache, Artur Muradyan, et al. 2018. ``Efficient Parameter Estimation Enables the Prediction of Drug Response Using a Mechanistic Pan-Cancer Pathway Model.'' \emph{Cell Systems} 7 (6): 567--579.e6. \url{https://doi.org/10.1016/J.CELS.2018.10.013}.
 
 \leavevmode\hypertarget{ref-Holbeck2017}{}%
 Holbeck, Susan L, Richard Camalier, James A Crowell, Jeevan Prasaad Govindharajulu, Melinda Hollingshead, Lawrence W Anderson, Eric Polley, et al. 2017. ``The National Cancer Institute ALMANAC: A Comprehensive Screening Resource for the Detection of Anticancer Drug Pairs with Enhanced Therapeutic Activity.'' \emph{Cancer Research}. \url{https://doi.org/10.1158/0008-5472.CAN-17-0489}.
 
+\leavevmode\hypertarget{ref-Ianevski2017}{}%
+Ianevski, Aleksandr, Liye He, Tero Aittokallio, and Jing Tang. 2017. ``SynergyFinder: a web application for analyzing drug combination dose--response matrix data.'' \emph{Bioinformatics} 33 (15): 2413--5. \url{https://doi.org/10.1093/bioinformatics/btx162}.
+
 \leavevmode\hypertarget{ref-Klaeger2017}{}%
 Klaeger, Susan, Stephanie Heinzlmeir, Mathias Wilhelm, Harald Polzer, Binje Vick, Paul-Albert Koenig, Maria Reinecke, et al. 2017. ``The target landscape of clinical kinase drugs.'' \emph{Science (New York, N.Y.)} 358 (6367): eaan4368. \url{https://doi.org/10.1126/science.aan4368}.
+
+\leavevmode\hypertarget{ref-Lederer2018}{}%
+Lederer, Simone, Tjeerd M H Dijkstra, and Tom Heskes. 2018. ``Additive Dose Response Models: Explicit Formulation and the Loewe Additivity Consistency Condition.'' \emph{Frontiers in Pharmacology} 9: 31. \url{https://doi.org/10.3389/fphar.2018.00031}.
+
+\leavevmode\hypertarget{ref-Licata2019}{}%
+Licata, Luana, Prisca Lo~Surdo, Marta Iannuccelli, Alessandro Palma, Elisa Micarelli, Livia Perfetto, Daniele Peluso, Alberto Calderone, Luisa Castagnoli, and Gianni Cesareni. 2019. ``SIGNOR 2.0, the SIGnaling Network Open Resource 2.0: 2019 update.'' \emph{Nucleic Acids Research}, October. \url{https://doi.org/10.1093/nar/gkz949}.
 
 \leavevmode\hypertarget{ref-ONeil2016}{}%
 O'Neil, Jennifer, Yair Benita, Igor Feldman, Melissa Chenard, Brian Roberts, Yaping Liu, Jing Li, et al. 2016. ``An Unbiased Oncology Compound Screen to Identify Novel Combination Strategies.'' \emph{Molecular Cancer Therapeutics} 15 (6): 1155--62. \url{https://doi.org/10.1158/1535-7163.MCT-15-0843}.
@@ -779,7 +817,9 @@ Perfetto, L, M L Acencio, G Bradley, G Cesareni, N Del Toro, D Fazekas, H Hermja
 Wittmann, Dominik M, Jan Krumsiek, Julio Saez-Rodriguez, Douglas A Lauffenburger, Steffen Klamt, and Fabian J Theis. 2009. ``Transforming Boolean models to continuous models: methodology and application to T-cell receptor signaling.'' \emph{BMC Systems Biology} 3 (1): 98. \url{https://doi.org/10.1186/1752-0509-3-98}.
 
 \leavevmode\hypertarget{ref-R-emba}{}%
-Zobolas, John. 2019. \emph{Emba: Ensemble Boolean Model Biomarker Analysis}. \url{https://github.com/bblodfon/emba}.
+Zobolas, John. 2019a. \emph{Emba: Ensemble Boolean Model Biomarker Analysis}. \url{https://github.com/bblodfon/emba}.
 
+\leavevmode\hypertarget{ref-R-usefun}{}%
+---------. 2019b. \emph{Usefun: A Collection of Useful Functions by John}. \url{https://github.com/bblodfon/usefun}.
 
 \end{document}

@@ -7,7 +7,7 @@ within the group). **To include in the thesis text**.
 Note though that not all of these will be part of the main thesis (maybe include the 
 rest in a section like 'Funny PhD side-quests').
 
-## Pipeline
+## Druglogics Pipeline {#dlpipe}
 
 - Lots of refactoring to increase the readability, maintainability and 
 extendability of the source code (complete restructure of classes, addition of
@@ -18,7 +18,7 @@ This has **RRI extensions**, because cleaning and re-structuring software code h
 installation, management and executing of the code
 - Added tests to modules `gitsbe` and `drabme` using JUnit5, mockito and assertJ libraries
 - Source code documentation + proper README files on `gitsbe`, `drabme` and `druglogics-synergy` modules
-- Enabling *parallel simulations* in Gitsbe
+- Enabling *parallel simulations* in Gitsbe (performance optimization)
 - Added support for many features (ongoing work - see [dev_plan_doc](https://docs.google.com/document/d/1OUupR0b-28YB9pVAww77RMecnFN6A39MYjXMjljmvG4/edit?usp=sharing))
 - [druglogics-roc-generator](https://github.com/bblodfon/druglogics-roc-generator):
 R shiny app to assess the performance of the Drabme results in the form of a 
@@ -29,15 +29,13 @@ options to **GINML, SBML-Qual and BoolNet** community formats
 
 ## VSM {#vsm-dict}
 
-**Building VSM-dictionaries** in order to 
-connect/translate the data from various databases and ontology providers to 
-proper VSM-terms. Most of this work is done in order to support Vasundra's 
-[causalBuilder Tool](https://vtoure.github.io/causalBuilder/) which is the 
-first application of VSM after SciCura v1.
+**Building VSM-dictionaries** in order to connect/translate the data from various databases and ontology providers to proper VSM-terms. 
+Most of this work is done in order to support Vasundra's [causalBuilder Tool](https://vtoure.github.io/causalBuilder/) which is the first application of VSM after SciCura v1.
 
-The vsm-dictionaries (code +documentation) can be found on the [VSM Github page](https://github.com/vsmjs). They translate to VSM-terms data from BioPortal, UniProt, Ensembl, EnsemblGenomes, RNACentral and ComplexPortal. We have also released the respective 
-packages on [npmjs](https://www.npmjs.com/). See for example the [npm package for
-BioPortal](https://www.npmjs.com/package/vsm-dictionary-bioportal).
+The vsm-dictionaries (code + documentation) can be found on the [VSM Github page](https://github.com/vsmjs). 
+They translate to VSM-terms data from BioPortal, UniProt, Ensembl, EnsemblGenomes, RNACentral, ComplexPortal and Noctua Entity Ontology. 
+We have also released the respective packages on [npmjs](https://www.npmjs.com/). 
+See for example the [npm package for BioPortal](https://www.npmjs.com/package/vsm-dictionary-bioportal).
 
 ## PSICQUIC
 

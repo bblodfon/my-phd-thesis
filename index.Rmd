@@ -1,11 +1,9 @@
 ---
-title: "Software implementations allowing new approaches toward data analysis, modeling and integration / curation of biological knowledge for Systems Medicine"
-subtitle: "Subtitle: Title may as well change!"
+title: "The PhD Thesis you don't deserve but you need to read"
+subtitle: "You absolutely don't want to read this!"
 author: "John Zobolas"
-date: "August 2019"
-knit: bookdown::render_book # to render the whole book not just this chapter
+date: "Last updated: `r format(Sys.time(), '%d %B, %Y')`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
 description: "John Zobolas's PhD thesis, NTNU"
 url: 'https\://bblodfon.github.io/my-phd-thesis/'
 github-repo: "bblodfon/my-phd-thesis"
@@ -28,42 +26,53 @@ lot: true
 ```{r include = FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'emba'
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'emba', 'usefun'
 ), 'packages.bib')
 ```
 
-# Structure {-}
+# Intro {-}
 
 Chapters are currently split as:
 
 - Work I have done (see [Chapter 1](#work)) 
 - Future plans (see [Chapter 2](#plans)). This includes the list of papers for my PhD.
 - For more experimental/future ideas see [Chapter 3](#ideas).
+- Various text that I have been writing here and there [Chapter 4](#text).
+
+### Introduction {-}
+
+Is there a plan actually?
+
+Literature => Curation => Causal Statements => Models => Predicting Synergies => Finding mechanisms/optimizing performance
+
+### About the title {-}
+
+Original title in my PhD plan was: 
+
+**Software implementations allowing new approaches toward data analysis, modeling and integration / curation of biological knowledge for Systems Medicine**
+
+I am thinking that we may need to change it a little bit. 
+The reason: it started as something very general and abstract and in the end it seems I did some specific things but in various areas which still remain abstractly connected. 
+Alternative titles that I am thinking of currently:
+
+- How to Engineer your way through a Systems Medicine PhD thesis!
+- Software Engineering enables optimized Systems Medicine approaches toward data analysis, modeling and curation of biological knowledge
+
+And some for fun:
+
+- Neural transformations and hydrothermal aperture in deterministic radar hydrothermal decompositions
+- Hydro-thermal applications and kinematic eigenvalues in exponential reliability inflationary amplitudes
+- Non-isothermal trellises of time-varying transmembrane and quantitative poly-and-mono-phonemes in locally capacitive hypermultiplets
+
+**To be decided what will be the end title!**
 
 ### Keywords {-}
 
+<div class="blue-box">
 *curation/knowledge management, VSM, causal statements, DrugLogics pipeline 
-(model parameterization/calibration and prediction of synergistic drug combinations), 
-biomarker analysis, synergy assessment*
-
-### PhD Plan chart {-}
-
-In my effort to *combine the technologies within our group, the expertise from other people and of course my own work* to produce (research) results, I have come with the following action plan + papers for an organically grown thesis:
-
-Literature => Curation => Causal Statements => Models => Predicting Synergies => Finding mechanisms
-
-Why and when?
-
-### Phd Midterm {-}
-
-Sections of presentation:
-
-- Background
-- Description
-- Publication Plan
-- Progress
-
-<br/>
+(model parameterization/calibration and prediction of synergistic drug combinations, performance optimization), biomarker analysis, synergy assessment*
+</div>
+</br>
 
 ```{r ntnu-logo, echo=FALSE, fig.align='center', out.width='50%'}
 knitr::include_graphics("img/NTNU-logo.png")

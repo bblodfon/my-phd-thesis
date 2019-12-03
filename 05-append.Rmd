@@ -9,7 +9,7 @@ Papers that are already published and I am in the list of authors:
 Papers that will probably be published and I will probably be in the list of authors:
 
 - [The Biohackathon 2018 paper](https://www.tinyurl.com/bh2018write)
-- Asmund's automated pipeline paper: *A novel and versatile drug synergy prediction pipeline with single sample resolution for discovery of potent drug combinations in pre-clinical and clinical datasets*
+- Asmund's papers (2)
 - Vasundra's causalBuilder tool paper
 
 # Bookdown useful links {-}

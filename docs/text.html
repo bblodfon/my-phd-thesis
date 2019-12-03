@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Papers | The PhD Thesis you don’t deserve but you need to read</title>
+  <title>Chapter 4 Text | The PhD Thesis you don’t deserve but you need to read</title>
   <meta name="description" content="John Zobolas’s PhD thesis, NTNU" />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Papers | The PhD Thesis you don’t deserve but you need to read" />
+  <meta property="og:title" content="Chapter 4 Text | The PhD Thesis you don’t deserve but you need to read" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bblodfon.github.io/my-phd-thesis/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="bblodfon/my-phd-thesis" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Papers | The PhD Thesis you don’t deserve but you need to read" />
+  <meta name="twitter:title" content="Chapter 4 Text | The PhD Thesis you don’t deserve but you need to read" />
   
   <meta name="twitter:description" content="John Zobolas’s PhD thesis, NTNU" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="text.html"/>
-<link rel="next" href="bookdown-useful-links.html"/>
+<link rel="prev" href="ideas.html"/>
+<link rel="next" href="papers-1.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -131,32 +131,45 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="papers-1" class="section level1 unnumbered">
-<h1>Papers</h1>
-<p>Papers that are already published and I am in the list of authors:</p>
-<ul>
-<li><span class="citation">(Perfetto et al. <a href="#ref-Perfetto2019">2019</a>)</span></li>
-</ul>
-<p>Papers that will probably be published and I will probably be in the list of authors:</p>
-<ul>
-<li><a href="https://www.tinyurl.com/bh2018write">The Biohackathon 2018 paper</a></li>
-<li>Asmund’s papers (2)</li>
-<li>Vasundra’s causalBuilder tool paper</li>
-</ul>
+<div id="text" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Text</h1>
+<p>Here I have various text the I write at times and I will include most probably in my completed thesis report:</p>
+<div id="why-automated-topology" class="section level2">
+<h2><span class="header-section-number">4.1</span> Why automated topology?</h2>
+<p>My take on this:</p>
+<ol style="list-style-type: decimal">
+<li>Yes, one of the reasons is advantage in the simulations in the sense that when you have logical models that have no inputs you are statistically more able to have models with a few/less (even better: 1) stable state(s).
+See it like this: if a logical model has one input (let’s say node X) then it’s sure that this logical model will have one attractor with X:0 and one with X:1, be it a stable state or a more complex attractor.
+Two inputs, 4 attractors, etc. (Denis helped me realise this actually on a talk in Athen’s ECCB, great times)</li>
+<li>The second reason that Asmund told me about when I asked him the same thing, was one of the most basic hypothesis behind his modeling - which sums up to <em>where cancer comes from</em>.
+By using a no-inputs topology we adhere to the principle that cancer is something that relates to the system itself and not to the external interactions of the system.
+It comes from dysregulations within related to “broken” circuits, etc.
+It is in contrast with the traditional view on the same thing that experimentalists used to understand cancer: I perturb the system (cell) by inhibiting a specific hormone/receptor (input) and see how it reacts (and where most modeling approaches are based on).</li>
+</ol>
+<p>Asmund’s take on this:
+1. few stable states
+2. cancer is a system disease in itself (not related to e.g. external hormones, they are present also for healthy cells, it is something in the cancer cell that allows it to sense the external hormone differently than healthy cells).</p>
+<p>In addition (and maybe related to point 1):
+3. In ‘traditional’ modeling a system is defined to respond in a certain way to a set of specified ‘inputs’ (I mean not here model input nodes but rather a configuration of the model, e.g. ERK is active).
+A self-contained topology merges the input condition and the output response in a single observable entity: When the system is initialized in its stable state it will remain there.
+Therefore observation of baseline signaling is both the input and the output, reduces need for perturbations.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>In addition to few stable states (point 1) I believe a self contained topology also means few possible parmeterizations.
+I don’t have any mathematical proof of this but it seems reasonable to me.</li>
+</ol>
+
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-Perfetto2019">
-<p>Perfetto, L, M L Acencio, G Bradley, G Cesareni, N Del Toro, D Fazekas, H Hermjakob, et al. 2019. “CausalTAB: the PSI-MITAB 2.8 updated format for signalling data representation and dissemination.” Edited by Jonathan Wren. <em>Bioinformatics</em>, February. <a href="https://doi.org/10.1093/bioinformatics/btz132">https://doi.org/10.1093/bioinformatics/btz132</a>.</p>
 </div>
-</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="text.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bookdown-useful-links.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ideas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="papers-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -187,7 +200,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/bblodfon/my-phd-thesis/edit/master/05-append.Rmd",
+"link": "https://github.com/bblodfon/my-phd-thesis/edit/master/04-text.Rmd",
 "text": "Edit"
 },
 "history": {

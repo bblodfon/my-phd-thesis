@@ -132,3 +132,31 @@ over these models and continue the proliferation). You end up with super cancer
 resistant models and methods to achieve them or reasons why this cannot happen
 at all.
 
+
+### Causal-JSON or MI-JSON to boolean model converter {-}
+
+#### Idea {-}
+
+This idea is like a continuation of the `causalBuilder` tool by Vasundra coupled with the need to have a more proper representation of complexes (and families) in our logical models (better models, better predictions). 
+Asmund had *manually* changed some logical equations in his paper [@Flobak2015], in order to make the model more compliant with biology knowledge and literature findings. 
+One of them was about the beta-catenin complex and its constituents (connected with *AND's* instead of *OR's*) and the rest were about changing the link operators of the logical equations (from *AND NOT* to *OR NOT*). 
+The latter is something that is enabled through the mutations introduced by the genetic algorithm of `Gitsbe`. 
+The former depends on the dataset and the representation of complexes ^[There is actually a mutation that can change this but not in the way that we want - i.e. all components of a complex should be connected with an *AND*]. 
+
+Only Signor [@Licata2019] has some complexes + interaction data but they are seperate files, making it thus difficult (and non-elegant computationally-wise) to integrate such knowledge/data to boolean models. 
+Also Vasundra's experience with Reactome data in miTab2.8 showed us the difficulty to match binary interactions to a data model flexible enough to represent complexes and their internal components. Causal-JSON and the recursive schema that we thought allows the curator to put both the complex ID and it's constituents in the same data structure.
+
+#### Proposed Workflow {-}
+
+1. Get interaction + complexes/families data (Signor most probably or a form of CASCADE + complexes). 
+Note that for the reason I explained above miTab 2.8 is out of the question, so the Signor data I am refering to is the .tsv files they offer (interaction data, complexes, families). 
+And most probably I am referring to a **pathway interaction dataset** not the whole Signor data. 
+For example, the [Wnt Signaling pathway](https://signor.uniroma2.it/pathway_browser.php?organism=human&pathway_list=SIGNOR-WNT&level=1).
+2. Build a small module that translates the (Signor) data to Causal-JSON. 
+3. <div id="causalJSONPoint3"></div>**Main:** Build a package that translates the causal-JSON data to a logical model with some filtering and parameterization included (e.g. filter based on cell line (so *cell-line* specific topologies), conditions on the biological state: 'by phoshorylation', exp. evidence, assertion/confidence score, species, compartment). So, **causal-JSON to .bnet files (logical equations)**, while substituting/extending nicely the complexes and families. 
+4. Showcase some small application of this logical model end-product:  
+    - use for example the [colomoto notebook](https://github.com/colomoto/colomoto-docker), do some small trapspace analysis and show that some results from literature or from previous logical or other models can now be reproduced with a better biological representation in the model itself, AUTOMATICALLY!
+    - make many logical models of the pathways in Signor with simple attractor analysis and put them into the GinSim model repository for reference for the logical community.
+    - extend `atopo` module to use the main package (see [point No. 3](#causalJSONPoint3)) and use it for finding drug combinations (comparing attractors or prediction results of automated topology building without complexes vs automated topology built from causal-JSON with complexes and families in each case). 
+    The main thing here would be of course better prediction performance results based on a better logical model representation. 
+    I could tweak `atopo` to choose actually not all of Signor's data but specific pathways to include in the analysis and this will help I believe to build smaller topologies for specific drug combinations that we want to test.
