@@ -2,18 +2,7 @@
 
 ## Programming Tasks TODO
 
-Tasks that I have promised that I will do to different people within the group. 
-These tasks enable other workflows/collaborations, etc. so they are very 
-important to finish before I move on to other work. You see only what's left of 
-those:
-
-- Pipeline (see the [dev_plan_doc](https://docs.google.com/document/d/1OUupR0b-28YB9pVAww77RMecnFN6A39MYjXMjljmvG4/edit?usp=sharing) for what is left). Most important:
-    - Full BioLQM support: stable state calculation and trap spaces
-    - Do comparison between Aurelien's BioLQM stable state algorithm and 
-BNReduction using M2 or without (Asmund already says that it BNReductions is faster
-but it's good to prove it once again)
-- VSM
-  - Make the `vsm-pub-dictionaries` module
+- Make the `vsm-pub-dictionaries` module (maybe, if I have time)
 
 ## Papers
 

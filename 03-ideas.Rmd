@@ -19,7 +19,7 @@ to find attractors and such.
 ## Compare fixpoint tools {#comp}
 
 Idea: Compare different tools that calculate fixpoints for logical modeling. 
-Faster wins of course :)
+Faster wins of course :) Extension of this [small investigation](#attrToolCmp).
 
 Models used for testing could be of different types:
 

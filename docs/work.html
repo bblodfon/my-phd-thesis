@@ -74,7 +74,9 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#keywords"><i class="fa fa-check"></i>Keywords</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="work.html"><a href="work.html"><i class="fa fa-check"></i><b>1</b> PhD work</a><ul>
-<li class="chapter" data-level="1.1" data-path="work.html"><a href="work.html#dlpipe"><i class="fa fa-check"></i><b>1.1</b> Druglogics Pipeline</a></li>
+<li class="chapter" data-level="1.1" data-path="work.html"><a href="work.html#dlpipe"><i class="fa fa-check"></i><b>1.1</b> Druglogics Pipeline</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="work.html"><a href="work.html#attrToolCmp"><i class="fa fa-check"></i><b>1.1.1</b> Attractor Tools performance comparison</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="work.html"><a href="work.html#vsm-dict"><i class="fa fa-check"></i><b>1.2</b> VSM</a></li>
 <li class="chapter" data-level="1.3" data-path="work.html"><a href="work.html#psicquic"><i class="fa fa-check"></i><b>1.3</b> PSICQUIC</a></li>
 <li class="chapter" data-level="1.4" data-path="work.html"><a href="work.html#others"><i class="fa fa-check"></i><b>1.4</b> Others</a></li>
@@ -106,6 +108,7 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="text.html"><a href="text.html"><i class="fa fa-check"></i><b>4</b> Text</a><ul>
 <li class="chapter" data-level="4.1" data-path="text.html"><a href="text.html#why-automated-topology"><i class="fa fa-check"></i><b>4.1</b> Why automated topology?</a></li>
+<li class="chapter" data-level="4.2" data-path="text.html"><a href="text.html#vsm-related"><i class="fa fa-check"></i><b>4.2</b> VSM-related</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="papers-1.html"><a href="papers-1.html"><i class="fa fa-check"></i>Papers</a></li>
@@ -151,14 +154,33 @@ installation, management and executing of the code</li>
 <li>Added tests to modules <code>gitsbe</code> and <code>drabme</code> using JUnit5, mockito and assertJ libraries</li>
 <li>Source code documentation + proper README files on <code>gitsbe</code>, <code>drabme</code> and <code>druglogics-synergy</code> modules</li>
 <li>Enabling <em>parallel simulations</em> in Gitsbe (performance optimization)</li>
-<li>Added support for many features (ongoing work - see <a href="https://docs.google.com/document/d/1OUupR0b-28YB9pVAww77RMecnFN6A39MYjXMjljmvG4/edit?usp=sharing">dev_plan_doc</a>)</li>
+<li>Added support for many features (see <a href="https://docs.google.com/document/d/1OUupR0b-28YB9pVAww77RMecnFN6A39MYjXMjljmvG4/edit?usp=sharing">dev_plan_doc</a>)</li>
 <li><a href="https://github.com/bblodfon/druglogics-roc-generator">druglogics-roc-generator</a>:
 R shiny app to assess the performance of the Drabme results in the form of a
 ROC curve</li>
-<li>Export support using <a href="https://github.com/colomoto/bioLQM">BioLQM</a>: the
-initial model + best generation models can now be exported through configuration
-options to <strong>GINML, SBML-Qual and BoolNet</strong> community formats</li>
+<li>Export support using <a href="https://github.com/colomoto/bioLQM">BioLQM</a>: the initial model + best generation models can now be exported through configuration options to <strong>GINML, SBML-Qual and BoolNet</strong> community formats</li>
+<li><strong>Attractor calculation</strong> (stable states and minimal trapspaces) using <a href="https://github.com/colomoto/bioLQM">BioLQM</a></li>
 </ul>
+<div id="attrToolCmp" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Attractor Tools performance comparison</h3>
+<p>Some preliminary results comparing <strong>fixpoint</strong> and <strong>trapspace</strong> calculation tools using the following 2 topologies: <strong>CASCADE 1.0</strong> (77 nodes and 149 edges) and <strong>CASCADE 2.0</strong> (144 nodes, 367 edges). Both of these models are self-contained (no inputs, less attractors).</p>
+<p>Tools tested (<strong>fixpoints</strong>): <code>BNReduction</code> (full and reduced version - the second is considerably faster (main reason we were using it), but does not find more than 1 stable state which was more like a feature we wanted especially for larger self-contained networks), <code>BioLQM (BDD-based)</code>.</p>
+<p>Tools tested (<strong>trapspaces</strong>): <code>BioLQM (BDD-based)</code> vs <code>PyBoolNet</code> (I also tried the ASP-based solver of BioLQM but it was slower than the BDD-based algorithm, as Aurelien states in the <a href="http://colomoto.org/biolqm/doc/tools-trapspace.html">documentation</a>)</p>
+<ul>
+<li>FIXPOINTS
+<ul>
+<li>CASCADE 1.0: BioLQM(fixpoints) &lt;&lt; BNReduction(reduced) (~same time to calculate the trapspaces using BioLQM!) &lt;&lt; BNReduction(full).</li>
+<li>CASCADE 2.0: BNReduction(reduced) &lt;&lt; BNReduction(full) &lt; BioLQM(fixpoints)</li>
+</ul></li>
+</ul>
+<p>So, for our smaller topology, we can actually use the BioLQM stable state calculation and it will give us complete fixpoint results even faster than the BNReduction (reduced version) we are using currently. Even more: <strong>we could use the BioLQM trapspace computation for that smaller model! For the larger network though, I am afraid BioLQM does not scale as well as the BNReduction does.</strong></p>
+<ul>
+<li>TRAPSPACES
+<ul>
+<li>PyBoolNet &lt;&lt; BioLQM, no matter the model chosen. Especially for the larger network, BioLQM takes several minutes when PyBoolNet takes less than 10 seconds. For the smaller topology, it’s the same difference in scale but in millisecs (PyBoolNet: ~10msecs, BioLQM: ~200msecs per model)</li>
+</ul></li>
+</ul>
+</div>
 </div>
 <div id="vsm-dict" class="section level2">
 <h2><span class="header-section-number">1.2</span> VSM</h2>
