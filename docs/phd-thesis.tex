@@ -92,22 +92,6 @@
 
 % removes section headings from the top of pages
 \pagestyle{plain}
-% https://github.com/rstudio/rmarkdown/issues/337
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-% https://github.com/rstudio/rmarkdown/pull/252
-\usepackage{titling}
-\setlength{\droptitle}{-2em}
-
-\pretitle{\vspace{\droptitle}\centering\huge}
-\posttitle{\par}
-
-\preauthor{\centering\large\emph}
-\postauthor{\par}
-
-\predate{\centering\large\emph}
-\postdate{\par}
 
 \title{The PhD Thesis you don't deserve but you need to read}
 \usepackage{etoolbox}
@@ -118,7 +102,7 @@
 \makeatother
 \subtitle{You absolutely don't want to read this!}
 \author{John Zobolas}
-\date{Last updated: 03 December, 2019}
+\date{Last updated: 30 January, 2020}
 
 \begin{document}
 \maketitle
@@ -231,15 +215,52 @@ rest in a section like `Funny PhD side-quests').
 \item
   Enabling \emph{parallel simulations} in Gitsbe (performance optimization)
 \item
-  Added support for many features (ongoing work - see \href{https://docs.google.com/document/d/1OUupR0b-28YB9pVAww77RMecnFN6A39MYjXMjljmvG4/edit?usp=sharing}{dev\_plan\_doc})
+  Added support for many features (see \href{https://docs.google.com/document/d/1OUupR0b-28YB9pVAww77RMecnFN6A39MYjXMjljmvG4/edit?usp=sharing}{dev\_plan\_doc})
 \item
-  \href{https://github.com/bblodfon/druglogics-roc-generator}{druglogics-roc-generator}:
+  \href{https://github.com/bblodfon/druglogics-roc}{Druglogics ROC generator}:
   R shiny app to assess the performance of the Drabme results in the form of a
   ROC curve
 \item
-  Export support using \href{https://github.com/colomoto/bioLQM}{BioLQM}: the
-  initial model + best generation models can now be exported through configuration
-  options to \textbf{GINML, SBML-Qual and BoolNet} community formats
+  Export support using \href{https://github.com/colomoto/bioLQM}{BioLQM}: the initial model + best generation models can now be exported through configuration options to \textbf{GINML, SBML-Qual and BoolNet} community formats
+\item
+  \textbf{Attractor calculation} (stable states and minimal trapspaces) using \href{https://github.com/colomoto/bioLQM}{BioLQM}
+\end{itemize}
+
+\hypertarget{attrToolCmp}{%
+\subsection{Attractor Tools performance comparison}\label{attrToolCmp}}
+
+Some preliminary results comparing \textbf{fixpoint} and \textbf{trapspace} calculation tools using the following 2 topologies: \textbf{CASCADE 1.0} (77 nodes and 149 edges) and \textbf{CASCADE 2.0} (144 nodes, 367 edges). Both of these models are self-contained (no inputs, less attractors).
+
+Tools tested (\textbf{fixpoints}): \texttt{BNReduction} (full and reduced version - the second is considerably faster (main reason we were using it), but does not find more than 1 stable state which was more like a feature we wanted especially for larger self-contained networks), \texttt{BioLQM\ (BDD-based)}.
+
+Tools tested (\textbf{trapspaces}): \texttt{BioLQM\ (BDD-based)} vs \texttt{PyBoolNet} (I also tried the ASP-based solver of BioLQM but it was slower than the BDD-based algorithm, as Aurelien states in the \href{http://colomoto.org/biolqm/doc/tools-trapspace.html}{documentation})
+
+\begin{itemize}
+\tightlist
+\item
+  FIXPOINTS
+
+  \begin{itemize}
+  \tightlist
+  \item
+    CASCADE 1.0: BioLQM(fixpoints) \textless{}\textless{} BNReduction(reduced) (\textasciitilde{}same time to calculate the trapspaces using BioLQM!) \textless{}\textless{} BNReduction(full).
+  \item
+    CASCADE 2.0: BNReduction(reduced) \textless{}\textless{} BNReduction(full) \textless{} BioLQM(fixpoints)
+  \end{itemize}
+\end{itemize}
+
+So, for our smaller topology, we can actually use the BioLQM stable state calculation and it will give us complete fixpoint results even faster than the BNReduction (reduced version) we are using currently. Even more: \textbf{we could use the BioLQM trapspace computation for that smaller model! For the larger network though, I am afraid BioLQM does not scale as well as the BNReduction does.}
+
+\begin{itemize}
+\tightlist
+\item
+  TRAPSPACES
+
+  \begin{itemize}
+  \tightlist
+  \item
+    PyBoolNet \textless{}\textless{} BioLQM, no matter the model chosen. Especially for the larger network, BioLQM takes several minutes when PyBoolNet takes less than 10 seconds. For the smaller topology, it's the same difference in scale but in millisecs (PyBoolNet: \textasciitilde{}10msecs, BioLQM: \textasciitilde{}200msecs per model)
+  \end{itemize}
 \end{itemize}
 
 \hypertarget{vsm-dict}{%
@@ -279,33 +300,10 @@ library to also support miTab 2.8 - this is the culmination of results from the
 \hypertarget{programming-tasks-todo}{%
 \section{Programming Tasks TODO}\label{programming-tasks-todo}}
 
-Tasks that I have promised that I will do to different people within the group.
-These tasks enable other workflows/collaborations, etc. so they are very
-important to finish before I move on to other work. You see only what's left of
-those:
-
 \begin{itemize}
 \tightlist
 \item
-  Pipeline (see the \href{https://docs.google.com/document/d/1OUupR0b-28YB9pVAww77RMecnFN6A39MYjXMjljmvG4/edit?usp=sharing}{dev\_plan\_doc} for what is left). Most important:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Full BioLQM support: stable state calculation and trap spaces
-  \item
-    Do comparison between Aurelien's BioLQM stable state algorithm and
-    BNReduction using M2 or without (Asmund already says that it BNReductions is faster
-    but it's good to prove it once again)
-  \end{itemize}
-\item
-  VSM
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Make the \texttt{vsm-pub-dictionaries} module
-  \end{itemize}
+  Make the \texttt{vsm-pub-dictionaries} module (maybe, if I have time)
 \end{itemize}
 
 \hypertarget{papers}{%
@@ -333,7 +331,7 @@ This whole thing started when we questioned the predictive performance of the mo
 What kind of insights can we get from such a dataset by looking at each individual model's boolean equations, stable states and predictive performance?
 How can we take back such knowledge and use it in order to understand more about how to generate better models in our pipeline?
 How can we analyse each model's data to find nodes whose activity state or boolean model parameterization affects the manifestation of specific observed synergies?
-These questions and more of the same kind lead to a large data exploration and analyses, me writing a lot of \texttt{R} code, which I ended up splitting to two packages: (J. Zobolas \protect\hyperlink{ref-R-usefun}{2019}\protect\hyperlink{ref-R-usefun}{b}) and (J. Zobolas \protect\hyperlink{ref-R-emba}{2019}\protect\hyperlink{ref-R-emba}{a}).
+These questions and more of the same kind lead to a large data exploration and analyses, me writing a lot of \texttt{R} code, which I ended up splitting to two packages: (J. Zobolas \protect\hyperlink{ref-R-usefun}{2020}\protect\hyperlink{ref-R-usefun}{b}) and (J. Zobolas \protect\hyperlink{ref-R-emba}{2020}\protect\hyperlink{ref-R-emba}{a}).
 
 The idea behind the \texttt{emba} R package is to have simple functions that will help us analyse the models produced by \texttt{Gitsbe} in order to find important nodes (biomarkers) responsible for either better performance (based on a metric score like MCC) or for specific synergy(ies) prediction.
 
@@ -343,7 +341,7 @@ The idea behind the \texttt{emba} R package is to have simple functions that wil
 
 \begin{itemize}
 \item
-  The R package emba (J. Zobolas \protect\hyperlink{ref-R-emba}{2019}\protect\hyperlink{ref-R-emba}{a}) is publishable by itself as an \textbf{application note paper}, but we decided with Asmund that is best to present it with an analysis on some dataset to show its use.
+  The R package emba (J. Zobolas \protect\hyperlink{ref-R-emba}{2020}\protect\hyperlink{ref-R-emba}{a}) is publishable by itself as an \textbf{application note paper}, but we decided with Asmund that is best to present it with an analysis on some dataset to show its use.
   For example, the package is used for analyses that will be included in Asmund's paper(s), e.g.~\emph{AGS Story: Part I} among others.
 \item
   Another idea is to compare Machine Learning results with my method (on cascade/atopo results of the pipeline paper or other).
@@ -455,7 +453,7 @@ to find attractors and such.
 \section{Compare fixpoint tools}\label{comp}}
 
 Idea: Compare different tools that calculate fixpoints for logical modeling.
-Faster wins of course :)
+Faster wins of course :) Extension of this \protect\hyperlink{attrToolCmp}{small investigation}.
 
 Models used for testing could be of different types:
 
@@ -725,6 +723,23 @@ Therefore observation of baseline signaling is both the input and the output, re
   I don't have any mathematical proof of this but it seems reasonable to me.
 \end{enumerate}
 
+\hypertarget{vsm-related}{%
+\section{VSM-related}\label{vsm-related}}
+
+Steven's email about VSM and reasoning:
+
+VSM is about a drive to marry the model-driven \& the observation-driven worlds of mathematics, into real-world applications.
+This is becoming apparent in my own work on VSM: it is a pursuit to more closely emulate human thinking - as our brains clearly manage to integrate both worlds.
+To mimic this integration we need better tools.
+VSM started off as the design for a high-level, intuitive, universal Knowledge Representation, that makes it easier to manage the model-driven world when working with heterogenous, context-rich knowledge.
+(It boils down a thought (not language) onto basic conceptual structures).
+And now it appears to naturally follow from the semantics of VSM that it requires observation-based, defeasable (not-only-logical) reasoning.
+I.e. it invites for a mechanism whereby ``hard''-ish prior semantic knowledge (rules) gets extended with ``soft'' tentative assumptions, prioritized based on collected episodic knowledge (formalized observations).
+And perhaps, these observations may even be synthesized into new guiding rules as well.
+
+I think that biological systems are extreme in their magnitude of complexity, where hundreds of thousands of diverse causalities can all work together.
+To understand them, we need not only big-data machine learning to interpret large-scale data (from new, more local observations), but also defeasible symbolic-like reasoning, as a guide through our diverse and large-scale prior knowledge.
+
 \hypertarget{appendix-appendix}{%
 \appendix}
 
@@ -817,9 +832,9 @@ Perfetto, L, M L Acencio, G Bradley, G Cesareni, N Del Toro, D Fazekas, H Hermja
 Wittmann, Dominik M, Jan Krumsiek, Julio Saez-Rodriguez, Douglas A Lauffenburger, Steffen Klamt, and Fabian J Theis. 2009. ``Transforming Boolean models to continuous models: methodology and application to T-cell receptor signaling.'' \emph{BMC Systems Biology} 3 (1): 98. \url{https://doi.org/10.1186/1752-0509-3-98}.
 
 \leavevmode\hypertarget{ref-R-emba}{}%
-Zobolas, John. 2019a. \emph{Emba: Ensemble Boolean Model Biomarker Analysis}. \url{https://github.com/bblodfon/emba}.
+Zobolas, John. 2020a. \emph{Emba: Ensemble Boolean Model Biomarker Analysis}. \url{https://github.com/bblodfon/emba}.
 
 \leavevmode\hypertarget{ref-R-usefun}{}%
----------. 2019b. \emph{Usefun: A Collection of Useful Functions by John}. \url{https://github.com/bblodfon/usefun}.
+---------. 2020b. \emph{Usefun: A Collection of Useful Functions by John}. \url{https://github.com/bblodfon/usefun}.
 
 \end{document}
