@@ -20,7 +20,7 @@ installation, management and executing of the code
 - Source code documentation + proper README files on `gitsbe`, `drabme` and `druglogics-synergy` modules
 - Enabling *parallel simulations* in Gitsbe (performance optimization)
 - Added support for many features (see [dev_plan_doc](https://docs.google.com/document/d/1OUupR0b-28YB9pVAww77RMecnFN6A39MYjXMjljmvG4/edit?usp=sharing))
-- [druglogics-roc-generator](https://github.com/bblodfon/druglogics-roc-generator):
+- [Druglogics ROC generator](https://github.com/bblodfon/druglogics-roc):
 R shiny app to assess the performance of the Drabme results in the form of a 
 ROC curve
 - Export support using [BioLQM](https://github.com/colomoto/bioLQM): the initial model + best generation models can now be exported through configuration options to **GINML, SBML-Qual and BoolNet** community formats
