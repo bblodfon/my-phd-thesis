@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 PhD work | The PhD Thesis you don’t deserve but you need to read</title>
+  <title>Chapter 2 PhD Papers | The PhD Thesis you don’t deserve but you need to read</title>
   <meta name="description" content="John Zobolas’s PhD thesis, NTNU" />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 PhD work | The PhD Thesis you don’t deserve but you need to read" />
+  <meta property="og:title" content="Chapter 2 PhD Papers | The PhD Thesis you don’t deserve but you need to read" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bblodfon.github.io/my-phd-thesis/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="bblodfon/my-phd-thesis" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 PhD work | The PhD Thesis you don’t deserve but you need to read" />
+  <meta name="twitter:title" content="Chapter 2 PhD Papers | The PhD Thesis you don’t deserve but you need to read" />
   
   <meta name="twitter:description" content="John Zobolas’s PhD thesis, NTNU" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="phd-papers.html"/>
+<link rel="prev" href="work.html"/>
+<link rel="next" href="ideas.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -134,102 +134,58 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="work" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> PhD work</h1>
-<p>This is a summary of all the work that I have done in my PhD until now.
-(mainly it’s about software implementations related to the core technologies
-within the group). <strong>To include in the thesis text</strong>.</p>
-<p>Note though that not all of these will be part of the main thesis (maybe include the
-rest in a section like ‘Funny PhD side-quests’).</p>
-<div id="druglogics-pipeline" class="section level2 unnumbered">
-<h2>Druglogics Pipeline</h2>
-<ul>
-<li>Lots of refactoring to increase the readability, maintainability and
-extendability of the source code (complete restructure of classes, addition of
-others).
-This has <strong>RRI extensions</strong>, because cleaning and re-structuring software code has a social aspect to it in the sense that other people can now contribute more easily, extend the code, use it (user perspective can bring changes and further improvements to software pipeline even though they may be used for research purposes) - how can you expect users to actually use a piece of code when it’s not substantially documented and it’s internal logics made obscure because nobody gave attention to detail and structure? How can anybody care for a (software and any) product that you have not cared enough so as to present it in an way that is acceptable, managable and proper?</li>
-<li>Bug fixing</li>
-<li>Enable maven packaging for easier source compilation, testing,
-installation, management and executing of the code</li>
-<li>Added tests to modules <code>gitsbe</code> and <code>drabme</code> using JUnit5, mockito and assertJ libraries</li>
-<li>Source code documentation + proper README files on <code>gitsbe</code>, <code>drabme</code> and <code>druglogics-synergy</code> modules</li>
-<li>Enabling <em>parallel simulations</em> in Gitsbe (performance optimization)</li>
-<li>Added support for many features (see <a href="http://tiny.cc/DLDevPlan">dev_plan_doc</a>)</li>
-<li><a href="https://github.com/bblodfon/druglogics-roc">Druglogics ROC generator</a>:
-R shiny app to assess the performance of the Drabme results in the form of a
-ROC curve</li>
-<li>Export support using <a href="https://github.com/colomoto/bioLQM">BioLQM</a>: the initial model + best generation models can now be exported through configuration options to <strong>GINML, SBML-Qual and BoolNet</strong> community formats</li>
-<li><strong>Attractor calculation</strong> (stable states and minimal trapspaces) using <a href="https://github.com/colomoto/bioLQM">BioLQM</a></li>
-</ul>
-<div id="r-packages" class="section level3 unnumbered">
-<h3>R packages</h3>
-<ul>
-<li><code>emba</code> <span class="citation">(J. Zobolas <a href="#ref-R-emba">2020</a><a href="#ref-R-emba">a</a>)</span>.
-See <a href="https://github.com/bblodfon/gitsbe-model-analysis/">gitsbe-model-analysis repository</a> with various analysis using this package (input is files from <code>gitsbe</code>).</li>
-<li><code>usefun</code> <span class="citation">(J. Zobolas <a href="#ref-R-usefun">2020</a><a href="#ref-R-usefun">c</a>)</span></li>
-<li><code>rtemps</code> <span class="citation">(J. Zobolas <a href="#ref-R-rtemps">2020</a><a href="#ref-R-rtemps">b</a>)</span></li>
-</ul>
+<div id="phd-papers" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> PhD Papers</h1>
+<p>Note that the titles and the details for each paper are liable to change though the core ideas behind should not.</p>
+<div id="paper-i-emba---an-r-package-for-ensemble-boolean-model-biomarker-analysis" class="section level3 unnumbered">
+<h3>Paper I: <code>emba</code> - an R package for ensemble boolean model biomarker analysis</h3>
+<div id="authors" class="section level4 unnumbered">
+<h4>Authors</h4>
+<p>John, Asmund</p>
 </div>
-<div id="attrToolCmp" class="section level3 unnumbered">
-<h3>Attractor Tools performance comparison</h3>
-<p>Some preliminary results comparing <strong>fixpoint</strong> and <strong>trapspace</strong> calculation tools using the following 2 topologies: <strong>CASCADE 1.0</strong> (77 nodes and 149 edges) and <strong>CASCADE 2.0</strong> (144 nodes, 367 edges). Both of these models are self-contained (no inputs, less attractors).</p>
-<p>Tools tested (<strong>fixpoints</strong>): <code>BNReduction</code> (full and reduced version - the second is considerably faster (main reason we were using it), but does not find more than 1 stable state which was more like a feature we wanted especially for larger self-contained networks), <code>BioLQM (BDD-based)</code>.</p>
-<p>Tools tested (<strong>trapspaces</strong>): <code>BioLQM (BDD-based)</code> vs <code>PyBoolNet</code> (I also tried the ASP-based solver of BioLQM but it was slower than the BDD-based algorithm, as Aurelien states in the <a href="http://colomoto.org/biolqm/doc/tools-trapspace.html">documentation</a>)</p>
+<div id="idea" class="section level4 unnumbered">
+<h4>Idea</h4>
+<p>This whole thing started when we questioned the predictive performance of the models generated by <code>Gitsbe</code>:</p>
 <ul>
-<li>FIXPOINTS
-<ul>
-<li>CASCADE 1.0: BioLQM(fixpoints) &lt;&lt; BNReduction(reduced) (~same time to calculate the trapspaces using BioLQM!) &lt;&lt; BNReduction(full).</li>
-<li>CASCADE 2.0: BNReduction(reduced) &lt;&lt; BNReduction(full) &lt; BioLQM(fixpoints)</li>
-</ul></li>
+<li>What kind of insights can we get from such a dataset by looking at each individual model’s boolean equations, stable states and predictive performance?</li>
+<li>How can we take back such knowledge and use it in order to understand more about how to generate better models in our pipeline?</li>
+<li>How can we analyse each model’s data to find nodes whose activity state or boolean model parameterization affects the manifestation of specific observed synergies?</li>
 </ul>
-<p>So, for our smaller topology, we can actually use the BioLQM stable state calculation and it will give us complete fixpoint results even faster than the BNReduction (reduced version) we are using currently. Even more: <strong>we could use the BioLQM trapspace computation for that smaller model! For the larger network though, I am afraid BioLQM does not scale as well as the BNReduction does.</strong></p>
+<p>These questions and more of the same kind lead to a large data exploration and analyses, me writing a lot of <code>R</code> code, which I ended up splitting to two packages: <span class="citation">(J. Zobolas <a href="#ref-R-usefun">2020</a><a href="#ref-R-usefun">c</a>)</span> and <span class="citation">(J. Zobolas <a href="#ref-R-emba">2020</a><a href="#ref-R-emba">a</a>)</span>.</p>
+<p>The idea behind the <code>emba</code> R package is to have simple functions that will help us analyse the models produced by <code>Gitsbe</code> in order to find important nodes (biomarkers) responsible for either better performance (based on a metric score like MCC) or for specific synergy(ies) prediction.</p>
+</div>
+<div id="what-might-come-of-this" class="section level4 unnumbered">
+<h4>What might come of this?</h4>
 <ul>
-<li>TRAPSPACES
-<ul>
-<li>PyBoolNet &lt;&lt; BioLQM, no matter the model chosen. Especially for the larger network, BioLQM takes several minutes when PyBoolNet takes less than 10 seconds. For the smaller topology, it’s the same difference in scale but in millisecs (PyBoolNet: ~10msecs, BioLQM: ~200msecs per model)</li>
-</ul></li>
+<li><p>The R package emba <span class="citation">(J. Zobolas <a href="#ref-R-emba">2020</a><a href="#ref-R-emba">a</a>)</span> is publishable by itself as an <strong>application note paper</strong>, but we decided with Asmund that is best to present it with an analysis on some dataset to show its use.
+For example, the package is used for analyses that will be included in Asmund’s paper(s), e.g. <em>AGS Story: Part I</em> among others.</p></li>
+<li><p>Another idea is to compare Machine Learning results with my method (on cascade/atopo results of the pipeline paper or other).
+Paper could be titled something along the lines of <strong>“Ensemble model analysis vs Machine Learning for unraveling drug synergy mechanisms”</strong>.</p></li>
+<li><p>Another idea here is the results of the project <strong>Optimize the predictive performance of the Druglogics pipeline</strong>.
+One of the research questions here is about the <strong>identification of optimal training data size and included nodes which are essential for good performance</strong> (with Eirini, I am leading it).</p></li>
 </ul>
 </div>
 </div>
-<div id="vsm" class="section level2 unnumbered">
-<h2>VSM</h2>
-<p>I made <code>vsm-dictionaries</code> with a focus on the biological domain.
-We called them UBD’s: <em>Unified Biological Dictionaries</em>.
-See <a href="https://github.com/UniBioDicts">UBD GitHub organisation page</a>.
-See <a href="http://tiny.cc/ubds">manuscript</a>.</p>
-<p>Most of this work is done in order to support Vasundra’s <a href="https://mi2cast.github.io/causalBuilder/">causalBuilder Tool</a> which is the first application of VSM after SciCura v1.</p>
-<p>THe UBD’s translate various online data resources to a unified (VSM-enabled) dictionary data format.
-Sources include BioPortal, UniProt, Ensembl, EnsemblGenomes, RNACentral, ComplexPortal among others.
-We have also released the respective packages on <a href="https://www.npmjs.com/">npmjs</a>.
-See for example the <a href="https://www.npmjs.com/package/vsm-dictionary-bioportal">npm package for BioPortal</a>.</p>
+<div id="paper-ii-unibiodicts-unified-access-to-biological-dictionaries" class="section level3 unnumbered">
+<h3>Paper II: <em>UniBioDicts</em>: Unified access to biological dictionaries</h3>
+<div id="authors-1" class="section level4 unnumbered">
+<h4>Authors</h4>
+<p>John, Vasundra, Martin, Steven</p>
 </div>
-<div id="psicquic" class="section level2 unnumbered">
-<h2>PSICQUIC</h2>
-<p>My work at the EBI with IntAct and Noemi Del Toro to extend the PSICQUIC web service to support the
-miTab 2.8 data format/standard. See the <a href="http://psicquic.github.io/MITAB28Format.html">psicquic doc</a> and the casualTab paper <span class="citation">(Perfetto et al. <a href="#ref-Perfetto2019">2019</a>)</span>.</p>
-<p>I also worked with Noemi on the update of the <a href="https://github.com/MICommunity/psi-jami">JAMI</a>
-library to also support miTab 2.8 - this is the culmination of results from the
-<a href="https://2018.biohackathon-europe.org/">BioHackathon 2018, in Paris</a> and the
-<a href="https://github.com/GREEKC/hackathon-marseille/tree/master/project_descriptions/causal_psicquic">Marseille GREEKC hackathon event</a>.</p>
-</div>
-<div id="others" class="section level2 unnumbered">
-<h2>Others</h2>
-<ul>
-<li>Java Client for RSAT tool <a href="https://github.com/bblodfon/rsat-rest-java-clients">fetch-sequences</a></li>
-</ul>
+<div id="ideaimplementation" class="section level4 unnumbered">
+<h4>Idea/Implementation</h4>
+<p>A short <strong>application note</strong> paper for my work on the <a href="work.html#vsm">UniBioDicts</a>.</p>
 
 </div>
 </div>
+</div>
+
+
+
 <h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-Perfetto2019">
-<p>Perfetto, L, M L Acencio, G Bradley, G Cesareni, N Del Toro, D Fazekas, H Hermjakob, et al. 2019. “CausalTAB: the PSI-MITAB 2.8 updated format for signalling data representation and dissemination.” Edited by Jonathan Wren. <em>Bioinformatics</em>, February. <a href="https://doi.org/10.1093/bioinformatics/btz132">https://doi.org/10.1093/bioinformatics/btz132</a>.</p>
-</div>
 <div id="ref-R-emba">
 <p>Zobolas, John. 2020a. <em>Emba: Ensemble Boolean Model Biomarker Analysis</em>. <a href="https://github.com/bblodfon/emba">https://github.com/bblodfon/emba</a>.</p>
-</div>
-<div id="ref-R-rtemps">
-<p>Zobolas, John. 2020b. <em>Rtemps: R Templates for Reproducible Data Analyses</em>. <a href="https://github.com/bblodfon/rtemps">https://github.com/bblodfon/rtemps</a>.</p>
 </div>
 <div id="ref-R-usefun">
 <p>Zobolas, John. 2020c. <em>Usefun: A Collection of Useful Functions by John</em>. <a href="https://github.com/bblodfon/usefun">https://github.com/bblodfon/usefun</a>.</p>
@@ -240,8 +196,8 @@ library to also support miTab 2.8 - this is the culmination of results from the
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="phd-papers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="work.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ideas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -272,7 +228,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/bblodfon/my-phd-thesis/edit/master/01-work.Rmd",
+"link": "https://github.com/bblodfon/my-phd-thesis/edit/master/02-papers.Rmd",
 "text": "Edit"
 },
 "history": {

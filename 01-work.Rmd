@@ -7,7 +7,7 @@ within the group). **To include in the thesis text**.
 Note though that not all of these will be part of the main thesis (maybe include the 
 rest in a section like 'Funny PhD side-quests').
 
-## Druglogics Pipeline {#dlpipe}
+## Druglogics Pipeline {-}
 
 - Lots of refactoring to increase the readability, maintainability and 
 extendability of the source code (complete restructure of classes, addition of
@@ -19,14 +19,21 @@ installation, management and executing of the code
 - Added tests to modules `gitsbe` and `drabme` using JUnit5, mockito and assertJ libraries
 - Source code documentation + proper README files on `gitsbe`, `drabme` and `druglogics-synergy` modules
 - Enabling *parallel simulations* in Gitsbe (performance optimization)
-- Added support for many features (see [dev_plan_doc](https://docs.google.com/document/d/1OUupR0b-28YB9pVAww77RMecnFN6A39MYjXMjljmvG4/edit?usp=sharing))
+- Added support for many features (see [dev_plan_doc](http://tiny.cc/DLDevPlan))
 - [Druglogics ROC generator](https://github.com/bblodfon/druglogics-roc):
 R shiny app to assess the performance of the Drabme results in the form of a 
 ROC curve
 - Export support using [BioLQM](https://github.com/colomoto/bioLQM): the initial model + best generation models can now be exported through configuration options to **GINML, SBML-Qual and BoolNet** community formats
 - **Attractor calculation** (stable states and minimal trapspaces) using [BioLQM](https://github.com/colomoto/bioLQM)
 
-### Attractor Tools performance comparison {#attrToolCmp}
+### R packages  {-}
+
+- `emba` [@R-emba].
+See [gitsbe-model-analysis repository](https://github.com/bblodfon/gitsbe-model-analysis/) with various analysis using this package (input is files from `gitsbe`).
+- `usefun` [@R-usefun]
+- `rtemps` [@R-rtemps]
+
+### Attractor Tools performance comparison {-#attrToolCmp}
 
 Some preliminary results comparing **fixpoint** and **trapspace** calculation tools using the following 2 topologies: **CASCADE 1.0** (77 nodes and 149 edges) and **CASCADE 2.0** (144 nodes, 367 edges). Both of these models are self-contained (no inputs, less attractors). 
 
@@ -43,17 +50,21 @@ So, for our smaller topology, we can actually use the BioLQM stable state calcul
 - TRAPSPACES
   - PyBoolNet << BioLQM, no matter the model chosen. Especially for the larger network, BioLQM takes several minutes when PyBoolNet takes less than 10 seconds. For the smaller topology, it's the same difference in scale but in millisecs (PyBoolNet: ~10msecs, BioLQM: ~200msecs per model)
 
-## VSM {#vsm-dict}
+## VSM {-}
 
-**Building VSM-dictionaries** in order to connect/translate the data from various databases and ontology providers to proper VSM-terms. 
-Most of this work is done in order to support Vasundra's [causalBuilder Tool](https://vtoure.github.io/causalBuilder/) which is the first application of VSM after SciCura v1.
+I made `vsm-dictionaries` with a focus on the biological domain.
+We called them UBD's: *Unified Biological Dictionaries*.
+See [UBD GitHub organisation page](https://github.com/UniBioDicts).
+See [manuscript](http://tiny.cc/ubds).
 
-The vsm-dictionaries (code + documentation) can be found on the [VSM Github page](https://github.com/vsmjs). 
-They translate to VSM-terms data from BioPortal, UniProt, Ensembl, EnsemblGenomes, RNACentral, ComplexPortal and Noctua Entity Ontology. 
+Most of this work is done in order to support Vasundra's [causalBuilder Tool](https://mi2cast.github.io/causalBuilder/) which is the first application of VSM after SciCura v1.
+
+THe UBD's translate various online data resources to a unified (VSM-enabled) dictionary data format.
+Sources include BioPortal, UniProt, Ensembl, EnsemblGenomes, RNACentral, ComplexPortal among others. 
 We have also released the respective packages on [npmjs](https://www.npmjs.com/). 
 See for example the [npm package for BioPortal](https://www.npmjs.com/package/vsm-dictionary-bioportal).
 
-## PSICQUIC
+## PSICQUIC {-}
 
 My work at the EBI with IntAct and Noemi Del Toro to extend the PSICQUIC web service to support the
 miTab 2.8 data format/standard. See the [psicquic doc](http://psicquic.github.io/MITAB28Format.html) and the casualTab paper [@Perfetto2019].
@@ -63,6 +74,6 @@ library to also support miTab 2.8 - this is the culmination of results from the
 [BioHackathon 2018, in Paris](https://2018.biohackathon-europe.org/) and the 
 [Marseille GREEKC hackathon event](https://github.com/GREEKC/hackathon-marseille/tree/master/project_descriptions/causal_psicquic).
 
-## Others
+## Others {-}
 
 - Java Client for RSAT tool [fetch-sequences](https://github.com/bblodfon/rsat-rest-java-clients)

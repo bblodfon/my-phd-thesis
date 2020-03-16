@@ -5,6 +5,35 @@
 Several ideas that I may do or not in my PhD but I still keep here for my future
 investigations!
 
+## Curating Synergy
+
+### Title {-}
+
+On eye-balling/curating synergy: What is a ~~mountain~~?
+
+### John's Idea {-}
+
+I had the idea of writing a small paper that describes the *eye-balling* or *visual inspection* technique that is used so much in computational Biology and Medicine. 
+It is used pretty much in any synergy-related paper I have seen but nobody has actually defined or named it.
+A characteristic example is *eye-balling* synergies from dose-response curves, like we did in our group for the SINTEF screen data [@Flobak2019] and the output is [this online doc](http://tiny.cc/sintefGS).
+
+As Asmund once said:
+
+> What is a mountain? What is a synergy?
+
+### Asmund's idea {-}
+
+*Curate* a sample of drug combination datasets regarding their synergy assesement - a consortium paper, with partners like Sanger, O'Neill, etc.
+So a large synergy curation effort. 
+This correlates with Martin's idea of **creating curation guidelines for drug combination screening**.
+
+### Data-analysis {-}
+
+The core idea here is to extend an existing R package [@Ianevski2017] for calculating synergy reference models in order to include Wim's generalized Bliss method and the mean synergy score by Simone Laderer [@Lederer2018]!
+Then I will test all the null reference models (Loewe, Bliss, ZIP + others) on dose-response matrix datasets (could be from Ladere's paper, from Asmund's paper, the SINTEF dataset) and see which is best at finding the synergies in each dataset.
+
+Also, I should investigate if my own idea for a mathematical formulation of the volume-based synergy score as general method for describing 3-wise or more combinations as synergistic, could be part of this implementation.
+
 ## Quantum logic formalism {#quantum}
 
 My favourite! Investigate if instead of a logical modeling formalism, the idea 
@@ -50,12 +79,9 @@ Further extension/comparisons could be:
 The idea here is to use VSM to annotate sentences about some knowledge area, 
 store this information in a format like RDF or something else (graph database?) 
 and then ask questions that will enable you to learn stuff that you didn't know 
-before. 
+before.
 
-One goal would be to show the superiority of *connection-based reasoning*
-(humans and what VSM encapsulates) vs *logic reasoning* (OWL).
-
-Another thing I thought was to just translate the VSM-data to PROLOG
+Another thing I thought was to just translate the VSM-data to `PROLOG`
 and then ask questions using that logical language framework. It is a way to show
 that you *learned* something using the VSM-supported curation but I don't know 
 where to go from there... this whole knowledge semantics and reasoning stuff 
@@ -133,7 +159,7 @@ resistant models and methods to achieve them or reasons why this cannot happen
 at all.
 
 
-### Causal-JSON or MI-JSON to boolean model converter {-}
+### Causal-JSON or MI-JSON to boolean model converter
 
 #### Idea {-}
 
