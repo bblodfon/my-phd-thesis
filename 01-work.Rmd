@@ -17,7 +17,7 @@ This has **RRI extensions**, because cleaning and re-structuring software code h
 - Enable maven packaging for easier source compilation, testing, 
 installation, management and executing of the code
 - Added tests to modules `gitsbe` and `drabme` using JUnit5, mockito and assertJ libraries
-- Source code documentation + proper README files on `gitsbe`, `drabme` and `druglogics-synergy` modules
+- [Source code documentation](https://druglogics.github.io/druglogics-doc/) with bookdown for Drabme and Gitsbe
 - Enabling *parallel simulations* in Gitsbe (performance optimization)
 - Added support for many features (see [dev_plan_doc](http://tiny.cc/DLDevPlan))
 - [Druglogics ROC generator](https://github.com/bblodfon/druglogics-roc):
@@ -48,7 +48,9 @@ Tools tested (**trapspaces**): `BioLQM (BDD-based)` vs `PyBoolNet` (I also tried
 So, for our smaller topology, we can actually use the BioLQM stable state calculation and it will give us complete fixpoint results even faster than the BNReduction (reduced version) we are using currently. Even more: **we could use the BioLQM trapspace computation for that smaller model! For the larger network though, I am afraid BioLQM does not scale as well as the BNReduction does.**
 
 - TRAPSPACES
-  - PyBoolNet << BioLQM, no matter the model chosen. Especially for the larger network, BioLQM takes several minutes when PyBoolNet takes less than 10 seconds. For the smaller topology, it's the same difference in scale but in millisecs (PyBoolNet: ~10msecs, BioLQM: ~200msecs per model)
+  - PyBoolNet << BioLQM, no matter the model chosen. Especially for the larger network, BioLQM takes several minutes when PyBoolNet takes less than 10 seconds. For the smaller topology, it's the same difference in scale but in millisecs (PyBoolNet: ~10msecs, BioLQM: ~200msecs per model).
+  - MPBN(https://github.com/pauleve/mpbn/) >> PyBoolNet. 
+  The sad thing is the overhead you get when runnng the Python module through java which is actually longer for smaller networks than the calculation of the trapspaces themselves! Implemented in the pipeline now.
 
 ## VSM {-}
 
