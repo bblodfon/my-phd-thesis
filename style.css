@@ -1,17 +1,26 @@
-.blue-box {                                                                     
-  background-color: #e6f0ff;                                                    
-  border-radius: 5px;                                                           
-  padding: 20px;                                                                
-}                                                                               
-                                                                                
-.green-box {                                                                    
-  background-color: #d9ffe9;                                                    
-  border-radius: 5px;                                                           
-  padding: 20px;                                                                
-}                                                                               
-                                                                                
-.orange-box {                                                                   
-  background-color: #ffeedf;                                                    
-  border-radius: 5px;                                                           
-  padding: 20px;                                                                
+.blue-box {
+  background-color: #e6f0ff;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.green-box {
+  background-color: #d9ffe9;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.orange-box {
+  background-color: #ffeedf;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.level1 .header-section-number {
+  display: inline-block;
+  border-bottom: 3px solid;
+}
+
+.level1 h1 {
+  border-bottom: 1px solid;
 }
