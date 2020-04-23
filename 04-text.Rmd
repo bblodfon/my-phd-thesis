@@ -2,6 +2,23 @@
 
 Here I have various text the I write at times and I will include most probably in my completed thesis report:
 
+## Precision (PPV) as a metric for pharmaceutical companies
+
+I think if you say the following: I have 1000 drugs in my lab/company, that is almost 500.000 pairwise combinations. 
+I want to screen combinations for synergies, but I only have screening capacity for 100.000 combinations, so there are 400.000 combinations I can't screen. 
+
+**How do I choose the 100.000 combinations to screen?**
+
+Let's say there are in fact 50.000 synergies, meaning a prevalence of 10%.
+There are 3 alternatives (using the pipeline):
+
+1. Blindly.
+You will get a prevalence of synergies pretty close to the prevalence of synergies among the 500.000, so you will get 10.000 synergistic pairs.
+2. Screen by a **topology guided prediction (random models)**.
+You will get maybe 13% if I remember correctly for atopo, i.e. 13.000, meaning 3000 more than blinded
+3. Screen by a **simulation guided prediction (fit to steady state/calibrated models)**.
+You will get maybe 20%, i.e. 20.000, which is 10.000 (double) than blinded, and 7.000 more than guided by topology.
+
 ## Why automated topology?
 
 My take on this:
