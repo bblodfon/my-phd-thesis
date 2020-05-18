@@ -59,4 +59,15 @@ And perhaps, these observations may even be synthesized into new guiding rules a
 I think that biological systems are extreme in their magnitude of complexity, where hundreds of thousands of diverse causalities can all work together. 
 To understand them, we need not only big-data machine learning to interpret large-scale data (from new, more local observations), but also defeasible symbolic-like reasoning, as a guide through our diverse and large-scale prior knowledge.
 
+## Acknowledgements {-}
+
+To Asmund for being supervision
+To Martin, firstly for taking me in as a PhD student and giving me the opportunity to come to Norway. Secondly for his strategical advice during my PhD,  
+To Astrid Laergid, for letting me know about the RRI course!
+And subsequently to Roger Stran, Heindrun Am and all the other participants of the RRI course: mpla mpla for the expericence and making me realise the complexity of science and the beauty of its philoshophy.
+To Steven for teaching how to be a write good open-source Web developer and for some nice conversations about context, knowledge representation
+To Noemi Del Toro Ayllon,
+To IntAct and Henning for letting me be part 
+
+
 
