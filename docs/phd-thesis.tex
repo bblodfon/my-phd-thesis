@@ -1,4 +1,5 @@
-\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
 %
@@ -7,19 +8,18 @@
 ]{book}
 \usepackage{lmodern}
 \usepackage{setspace}
-\setstretch{1.3}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \IfFileExists{microtype.sty}{% use microtype if available
   \usepackage[]{microtype}
@@ -39,21 +39,26 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={The PhD Thesis you don't deserve but you need to read},
+  pdftitle={Software implementations allowing new approaches toward data analysis, modeling and integration / curation of biological knowledge for Systems Medicine},
   pdfauthor={John Zobolas},
   colorlinks=true,
   linkcolor=black,
   filecolor=Maroon,
   citecolor=Blue,
   urlcolor=blue,
-  breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage[left=4cm, right=4cm, top=2.5cm, bottom=2.5cm]{geometry}
 \usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
 % Allow footnotes in longtable head/foot
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
-\usepackage{graphicx,grffile}
+\usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -62,28 +67,14 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\usepackage[normalem]{ulem}
-% avoid problems with \sout in headers with hyperref:
-\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-  \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-  \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-% set default figure placement to htbp
+% Set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
 % for figures to fit (sometimes works well)
 %\renewcommand{\textfraction}{0.05}
 %\renewcommand{\topfraction}{0.8}
@@ -92,17 +83,16 @@
 
 % removes section headings from the top of pages
 \pagestyle{plain}
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}
 
-\title{The PhD Thesis you don't deserve but you need to read}
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-\subtitle{You absolutely don't want to read this!}
+\title{Software implementations allowing new approaches toward data analysis, modeling and integration / curation of biological knowledge for Systems Medicine}
 \author{John Zobolas}
-\date{Last updated: 30 January, 2020}
+\date{Last updated: 22 June, 2020}
 
 \begin{document}
 \maketitle
@@ -114,6 +104,7 @@
 }
 \listoftables
 \listoffigures
+\setstretch{1.3}
 \hypertarget{intro}{%
 \chapter*{Intro}\label{intro}}
 \addcontentsline{toc}{chapter}{Intro}
@@ -123,56 +114,27 @@ Chapters are currently split as:
 \begin{itemize}
 \tightlist
 \item
-  Work I have done (see \protect\hyperlink{work}{Chapter 1})
+  Work done (see \protect\hyperlink{phd-work}{Chapter 1})
 \item
-  Future plans (see \protect\hyperlink{plans}{Chapter 2}). This includes the list of papers for my PhD.
+  Papers (see \protect\hyperlink{phd-papers}{Chapter 2})
 \item
-  For more experimental/future ideas see \protect\hyperlink{ideas}{Chapter 3}.
+  Experimental/future ideas (see \protect\hyperlink{phd-ideas}{Chapter 3})
 \item
-  Various text that I have been writing here and there \protect\hyperlink{text}{Chapter 4}.
+  Various text (see \protect\hyperlink{text}{Chapter 4})
 \end{itemize}
 
-\hypertarget{introduction}{%
-\subsection*{Introduction}\label{introduction}}
-\addcontentsline{toc}{subsection}{Introduction}
-
-Is there a plan actually?
-
-Literature =\textgreater{} Curation =\textgreater{} Causal Statements =\textgreater{} Models =\textgreater{} Predicting Synergies =\textgreater{} Finding mechanisms/optimizing performance
-
-\hypertarget{about-the-title}{%
-\subsection*{About the title}\label{about-the-title}}
-\addcontentsline{toc}{subsection}{About the title}
-
-Original title in my PhD plan was:
-
-\textbf{Software implementations allowing new approaches toward data analysis, modeling and integration / curation of biological knowledge for Systems Medicine}
-
-I am thinking that we may need to change it a little bit.
-The reason: it started as something very general and abstract and in the end it seems I did some specific things but in various areas which still remain abstractly connected.
-Alternative titles that I am thinking of currently:
+\hypertarget{updates}{%
+\subsection*{Updates}\label{updates}}
+\addcontentsline{toc}{subsection}{Updates}
 
 \begin{itemize}
 \tightlist
 \item
-  How to Engineer your way through a Systems Medicine PhD thesis!
-\item
-  Software Engineering enables optimized Systems Medicine approaches toward data analysis, modeling and curation of biological knowledge
+  21/6/2020\\
+  Add paper plan.
+  See structure of \protect\hyperlink{phd-papers}{Chapter 2} for more info.
+  Clear/refine text.
 \end{itemize}
-
-And some for fun:
-
-\begin{itemize}
-\tightlist
-\item
-  Neural transformations and hydrothermal aperture in deterministic radar hydrothermal decompositions
-\item
-  Hydro-thermal applications and kinematic eigenvalues in exponential reliability inflationary amplitudes
-\item
-  Non-isothermal trellises of time-varying transmembrane and quantitative poly-and-mono-phonemes in locally capacitive hypermultiplets
-\end{itemize}
-
-\textbf{To be decided what will be the end title!}
 
 \hypertarget{keywords}{%
 \subsection*{Keywords}\label{keywords}}
@@ -183,8 +145,8 @@ And some for fun:
 
 \begin{center}\includegraphics[width=0.5\linewidth]{img/NTNU-logo} \end{center}
 
-\hypertarget{work}{%
-\chapter{PhD work}\label{work}}
+\hypertarget{phd-work}{%
+\chapter{PhD work}\label{phd-work}}
 
 This is a summary of all the work that I have done in my PhD until now.
 (mainly it's about software implementations related to the core technologies
@@ -193,8 +155,9 @@ within the group). \textbf{To include in the thesis text}.
 Note though that not all of these will be part of the main thesis (maybe include the
 rest in a section like `Funny PhD side-quests').
 
-\hypertarget{dlpipe}{%
-\section{Druglogics Pipeline}\label{dlpipe}}
+\hypertarget{druglogics-pipeline}{%
+\section*{Druglogics Pipeline}\label{druglogics-pipeline}}
+\addcontentsline{toc}{section}{Druglogics Pipeline}
 
 \begin{itemize}
 \tightlist
@@ -209,13 +172,13 @@ rest in a section like `Funny PhD side-quests').
   Enable maven packaging for easier source compilation, testing,
   installation, management and executing of the code
 \item
-  Added tests to modules \texttt{gitsbe} and \texttt{drabme} using JUnit5, mockito and assertJ libraries
+  Added tests to modules \texttt{gitsbe} and \texttt{drabme} using \href{https://junit.org/junit5/}{JUnit5}, \href{https://site.mockito.org/}{mockito} and \href{https://assertj.github.io/doc/}{assertJ} libraries
 \item
-  Source code documentation + proper README files on \texttt{gitsbe}, \texttt{drabme} and \texttt{druglogics-synergy} modules
+  \href{https://druglogics.github.io/druglogics-doc/}{Source code documentation} with bookdown for Drabme and Gitsbe
 \item
   Enabling \emph{parallel simulations} in Gitsbe (performance optimization)
 \item
-  Added support for many features (see \href{https://docs.google.com/document/d/1OUupR0b-28YB9pVAww77RMecnFN6A39MYjXMjljmvG4/edit?usp=sharing}{dev\_plan\_doc})
+  Added support for many features (see \href{http://tiny.cc/DLDevPlan}{dev\_plan\_doc})
 \item
   \href{https://github.com/bblodfon/druglogics-roc}{Druglogics ROC generator}:
   R shiny app to assess the performance of the Drabme results in the form of a
@@ -224,10 +187,16 @@ rest in a section like `Funny PhD side-quests').
   Export support using \href{https://github.com/colomoto/bioLQM}{BioLQM}: the initial model + best generation models can now be exported through configuration options to \textbf{GINML, SBML-Qual and BoolNet} community formats
 \item
   \textbf{Attractor calculation} (stable states and minimal trapspaces) using \href{https://github.com/colomoto/bioLQM}{BioLQM}
+\item
+  \href{https://github.com/druglogics/abmlog}{abmlog} package.
+\item
+  \texttt{emba} (J. Zobolas \protect\hyperlink{ref-R-emba}{2020}\protect\hyperlink{ref-R-emba}{a}).
+  See \href{https://github.com/bblodfon/gitsbe-model-analysis/}{gitsbe-model-analysis repository} with various analysis using this package (input is files from \texttt{gitsbe}).
 \end{itemize}
 
 \hypertarget{attrToolCmp}{%
-\subsection{Attractor Tools performance comparison}\label{attrToolCmp}}
+\subsection*{Attractor Tools performance comparison}\label{attrToolCmp}}
+\addcontentsline{toc}{subsection}{Attractor Tools performance comparison}
 
 Some preliminary results comparing \textbf{fixpoint} and \textbf{trapspace} calculation tools using the following 2 topologies: \textbf{CASCADE 1.0} (77 nodes and 149 edges) and \textbf{CASCADE 2.0} (144 nodes, 367 edges). Both of these models are self-contained (no inputs, less attractors).
 
@@ -243,9 +212,9 @@ Tools tested (\textbf{trapspaces}): \texttt{BioLQM\ (BDD-based)} vs \texttt{PyBo
   \begin{itemize}
   \tightlist
   \item
-    CASCADE 1.0: BioLQM(fixpoints) \textless{}\textless{} BNReduction(reduced) (\textasciitilde{}same time to calculate the trapspaces using BioLQM!) \textless{}\textless{} BNReduction(full).
+    CASCADE 1.0: BioLQM(fixpoints) \textless\textless{} BNReduction(reduced) (\textasciitilde same time to calculate the trapspaces using BioLQM!) \textless\textless{} BNReduction(full).
   \item
-    CASCADE 2.0: BNReduction(reduced) \textless{}\textless{} BNReduction(full) \textless{} BioLQM(fixpoints)
+    CASCADE 2.0: BNReduction(reduced) \textless\textless{} BNReduction(full) \textless{} BioLQM(fixpoints)
   \end{itemize}
 \end{itemize}
 
@@ -259,186 +228,116 @@ So, for our smaller topology, we can actually use the BioLQM stable state calcul
   \begin{itemize}
   \tightlist
   \item
-    PyBoolNet \textless{}\textless{} BioLQM, no matter the model chosen. Especially for the larger network, BioLQM takes several minutes when PyBoolNet takes less than 10 seconds. For the smaller topology, it's the same difference in scale but in millisecs (PyBoolNet: \textasciitilde{}10msecs, BioLQM: \textasciitilde{}200msecs per model)
+    PyBoolNet \textless\textless{} BioLQM, no matter the model chosen. Especially for the larger network, BioLQM takes several minutes when PyBoolNet takes less than 10 seconds. For the smaller topology, it's the same difference in scale but in millisecs (PyBoolNet: \textasciitilde10msecs, BioLQM: \textasciitilde200msecs per model).
+  \item
+    MPBN(\url{https://github.com/pauleve/mpbn/}) \textgreater\textgreater{} PyBoolNet.
+    The sad thing is the overhead you get when runnng the Python module through java which is actually longer for smaller networks than the calculation of the trapspaces themselves! Implemented in the pipeline now.
   \end{itemize}
 \end{itemize}
 
-\hypertarget{vsm-dict}{%
-\section{VSM}\label{vsm-dict}}
+\hypertarget{vsm}{%
+\section*{VSM}\label{vsm}}
+\addcontentsline{toc}{section}{VSM}
 
-\textbf{Building VSM-dictionaries} in order to connect/translate the data from various databases and ontology providers to proper VSM-terms.
-Most of this work is done in order to support Vasundra's \href{https://vtoure.github.io/causalBuilder/}{causalBuilder Tool} which is the first application of VSM after SciCura v1.
+I made \texttt{vsm-dictionaries} with a focus on the biological domain.
+We call them UBDs: \emph{Unified Biological Dictionaries}.
+See \href{https://github.com/UniBioDicts}{UBD GitHub organisation page}.
 
-The vsm-dictionaries (code + documentation) can be found on the \href{https://github.com/vsmjs}{VSM Github page}.
-They translate to VSM-terms data from BioPortal, UniProt, Ensembl, EnsemblGenomes, RNACentral, ComplexPortal and Noctua Entity Ontology.
-We have also released the respective packages on \href{https://www.npmjs.com/}{npmjs}.
-See for example the \href{https://www.npmjs.com/package/vsm-dictionary-bioportal}{npm package for BioPortal}.
+Most of this work is done in order to support Vasundra's \href{https://mi2cast.github.io/causalBuilder/}{causalBuilder Tool} which is the first application of VSM after SciCura v1.
 
 \hypertarget{psicquic}{%
-\section{PSICQUIC}\label{psicquic}}
+\section*{PSICQUIC}\label{psicquic}}
+\addcontentsline{toc}{section}{PSICQUIC}
 
 My work at the EBI with IntAct and Noemi Del Toro to extend the PSICQUIC web service to support the
-miTab 2.8 data format/standard. See the \href{http://psicquic.github.io/MITAB28Format.html}{psicquic doc} and the casualTab paper (Perfetto et al. \protect\hyperlink{ref-Perfetto2019}{2019}).
+MITAB 2.8 data format.
+See the \href{http://psicquic.github.io/MITAB28Format.html}{psicquic doc} and the casualTab paper (Perfetto et al. \protect\hyperlink{ref-Perfetto2019}{2019}).
 
 I also worked with Noemi on the update of the \href{https://github.com/MICommunity/psi-jami}{JAMI}
-library to also support miTab 2.8 - this is the culmination of results from the
+library to also support MITAB 2.8 - this is the culmination of results from the
 \href{https://2018.biohackathon-europe.org/}{BioHackathon 2018, in Paris} and the
 \href{https://github.com/GREEKC/hackathon-marseille/tree/master/project_descriptions/causal_psicquic}{Marseille GREEKC hackathon event}.
 
 \hypertarget{others}{%
-\section{Others}\label{others}}
+\section*{Others}\label{others}}
+\addcontentsline{toc}{section}{Others}
 
 \begin{itemize}
 \tightlist
 \item
   Java Client for RSAT tool \href{https://github.com/bblodfon/rsat-rest-java-clients}{fetch-sequences}
+\item
+  \texttt{usefun} (J. Zobolas \protect\hyperlink{ref-R-usefun}{2020}\protect\hyperlink{ref-R-usefun}{c}) (for the community!)
+\item
+  \texttt{rtemps} (J. Zobolas \protect\hyperlink{ref-R-rtemps}{2020}\protect\hyperlink{ref-R-rtemps}{b}) (for the community!)
 \end{itemize}
 
-\hypertarget{plans}{%
-\chapter{PhD Tasks and Plans}\label{plans}}
+\hypertarget{phd-papers}{%
+\chapter{PhD Papers}\label{phd-papers}}
 
-\hypertarget{programming-tasks-todo}{%
-\section{Programming Tasks TODO}\label{programming-tasks-todo}}
+\hypertarget{knowledge-managementbiocuration}{%
+\section*{Knowledge management/biocuration}\label{knowledge-managementbiocuration}}
+\addcontentsline{toc}{section}{Knowledge management/biocuration}
 
 \begin{itemize}
 \tightlist
 \item
-  Make the \texttt{vsm-pub-dictionaries} module (maybe, if I have time)
+  MITAB 2.8 paper (Perfetto et al. \protect\hyperlink{ref-Perfetto2019}{2019})\\
+  Extending the PSICQUIC Web Service platform to include causality information of molecular interactions.
+  See \href{http://tiny.cc/psicquic-mitab28}{Report} from EBI visit (July 2018).
+\item
+  \href{https://www.tinyurl.com/bh2018write}{Biohackathon 2018 paper}, still in \textbf{unknown status}!
 \end{itemize}
 
-\hypertarget{papers}{%
-\section{Papers}\label{papers}}
-
-Note that the titles and the details for each paper are liable to change though the core ideas behind should not.
-
-The papers dictate my future work for this PhD (and in that order!).
-
-\hypertarget{paper-i-emba---an-r-package-for-ensemble-boolean-model-biomarker-analysis}{%
-\subsection*{\texorpdfstring{Paper I: \texttt{emba} - an R package for ensemble boolean model biomarker analysis}{Paper I: emba - an R package for ensemble boolean model biomarker analysis}}\label{paper-i-emba---an-r-package-for-ensemble-boolean-model-biomarker-analysis}}
-\addcontentsline{toc}{subsection}{Paper I: \texttt{emba} - an R package for ensemble boolean model biomarker analysis}
-
-\hypertarget{authors}{%
-\subsubsection*{Authors}\label{authors}}
-\addcontentsline{toc}{subsubsection}{Authors}
-
-John, Asmund
-
-\hypertarget{idea}{%
-\subsubsection*{Idea}\label{idea}}
-\addcontentsline{toc}{subsubsection}{Idea}
-
-This whole thing started when we questioned the predictive performance of the models generated by \texttt{Gitsbe}.
-What kind of insights can we get from such a dataset by looking at each individual model's boolean equations, stable states and predictive performance?
-How can we take back such knowledge and use it in order to understand more about how to generate better models in our pipeline?
-How can we analyse each model's data to find nodes whose activity state or boolean model parameterization affects the manifestation of specific observed synergies?
-These questions and more of the same kind lead to a large data exploration and analyses, me writing a lot of \texttt{R} code, which I ended up splitting to two packages: (J. Zobolas \protect\hyperlink{ref-R-usefun}{2020}\protect\hyperlink{ref-R-usefun}{b}) and (J. Zobolas \protect\hyperlink{ref-R-emba}{2020}\protect\hyperlink{ref-R-emba}{a}).
-
-The idea behind the \texttt{emba} R package is to have simple functions that will help us analyse the models produced by \texttt{Gitsbe} in order to find important nodes (biomarkers) responsible for either better performance (based on a metric score like MCC) or for specific synergy(ies) prediction.
-
-\hypertarget{what-might-come-of-this}{%
-\subsubsection*{What might come of this?}\label{what-might-come-of-this}}
-\addcontentsline{toc}{subsubsection}{What might come of this?}
-
-\begin{itemize}
-\item
-  The R package emba (J. Zobolas \protect\hyperlink{ref-R-emba}{2020}\protect\hyperlink{ref-R-emba}{a}) is publishable by itself as an \textbf{application note paper}, but we decided with Asmund that is best to present it with an analysis on some dataset to show its use.
-  For example, the package is used for analyses that will be included in Asmund's paper(s), e.g.~\emph{AGS Story: Part I} among others.
-\item
-  Another idea is to compare Machine Learning results with my method (on cascade/atopo results of the pipeline paper or other).
-  Paper could be titled something along the lines of \textbf{``Ensemble model analysis vs Machine Learning for unraveling drug synergy mechanisms''}.
-\item
-  Another idea here is the results of the project \textbf{Optimize the predictive performance of the Druglogics pipeline}.
-  One of the research questions here is about the \textbf{identification of optimal training data size and included nodes which are essential for good performance} (with Eirini, I am leading it).
-\end{itemize}
-
-\hypertarget{paper-ii-vsm-dictionaries-common-access-to-biological-dictionaries}{%
-\subsection*{\texorpdfstring{Paper II: \emph{VSM-dictionaries}: common access to biological dictionaries}{Paper II: VSM-dictionaries: common access to biological dictionaries}}\label{paper-ii-vsm-dictionaries-common-access-to-biological-dictionaries}}
-\addcontentsline{toc}{subsection}{Paper II: \emph{VSM-dictionaries}: common access to biological dictionaries}
-
-\hypertarget{authors-1}{%
-\subsubsection*{Authors}\label{authors-1}}
-\addcontentsline{toc}{subsubsection}{Authors}
-
-John, Steven, Vasundra, Martin
-
-\hypertarget{ideaimplementation}{%
-\subsubsection*{Idea/Implementation}\label{ideaimplementation}}
-\addcontentsline{toc}{subsubsection}{Idea/Implementation}
-
-A short \textbf{application note} paper for my work on \protect\hyperlink{vsm-dict}{VSM-dictionaries}.
-
-\hypertarget{synergy-paper-ideas}{%
-\section{Synergy Paper Ideas}\label{synergy-paper-ideas}}
-
-\hypertarget{synergy-paper-i}{%
-\subsection*{Synergy Paper I}\label{synergy-paper-i}}
-\addcontentsline{toc}{subsection}{Synergy Paper I}
-
-\hypertarget{title}{%
-\subsubsection*{Title}\label{title}}
-\addcontentsline{toc}{subsubsection}{Title}
-
-Extending \texttt{SynergyFinder} for the use of multiple reference models for the assement of synergy in screening datasets.
-A computational/mathematical paper.
-
-\hypertarget{idea-1}{%
-\subsubsection*{Idea}\label{idea-1}}
-\addcontentsline{toc}{subsubsection}{Idea}
-
-The core idea here is to extend an existing R package (Ianevski et al. \protect\hyperlink{ref-Ianevski2017}{2017}) for calculating synergy reference models in order to include Wim's generalized Bliss method and the mean synergy score by Simone Laderer (Lederer, Dijkstra, and Heskes \protect\hyperlink{ref-Lederer2018}{2018})!
-Then I will test all the null reference models (Loewe, Bliss, ZIP + others) on dose-response matrix datasets (could be from Ladere's paper, from Asmund's paper, the SINTEF dataset) and see which is best at finding the synergies in each dataset.
-
-Also, I should investigate if my own idea for a mathematical formulation of the volume-based synergy score as general method for describing 3-wise or more combinations as synergistic, could be part of this implementation.
-
-\hypertarget{synergy-paper-ii}{%
-\subsection*{Synergy Paper II}\label{synergy-paper-ii}}
-\addcontentsline{toc}{subsection}{Synergy Paper II}
-
-\hypertarget{title-1}{%
-\subsubsection*{Title}\label{title-1}}
-\addcontentsline{toc}{subsubsection}{Title}
-
-On eye-balling synergy mechanisms: What is a \sout{mountain} synergy?
-
-\hypertarget{idea-2}{%
-\subsubsection*{Idea}\label{idea-2}}
-\addcontentsline{toc}{subsubsection}{Idea}
-
-I had the idea of writing a small paper that describes the \emph{eye-balling} or \emph{visual inspection} technique that is used so much in computational Biology and Medicine.
-It is used pretty much in any paper I have seen but nobody has actually defined or named it.
+\hypertarget{vsm-related-papers}{%
+\subsection*{VSM-related papers}\label{vsm-related-papers}}
+\addcontentsline{toc}{subsection}{VSM-related papers}
 
 \begin{itemize}
 \tightlist
 \item
-  A characteristic example is \emph{eye-balling} synergies from dose-response curves, like we did in our group for the SINTEF screen data (Flobak et al. \protect\hyperlink{ref-Flobak2019}{2019}).
+  VSM-box paper
 \item
-  Another example is the thresholds that data analysts put when defining output to classifiers or the parameterization that is used and the general human intuition/engineering that is shared in all these.
+  \protect\hyperlink{vsm}{UniBioDicts paper}
+\item
+  causalBuilder paper
 \end{itemize}
 
-As Asmund once said:
-
-\begin{quote}
-What is a mountain? What is a synergy?
-\end{quote}
+\hypertarget{logical-modelingpredicting-synergiesfinding-mechanisms}{%
+\section*{Logical Modeling/Predicting Synergies/Finding mechanisms}\label{logical-modelingpredicting-synergiesfinding-mechanisms}}
+\addcontentsline{toc}{section}{Logical Modeling/Predicting Synergies/Finding mechanisms}
 
 \begin{itemize}
 \tightlist
 \item
-  Asmund proposed that we should contact many people to curate large drug combination screens (various datasets) and combine this with Martin's idea of \textbf{creating curation guidelines for drug combination screening}.
+  \texttt{emba}: R package for analysis and visualization of biomarkers in boolean model ensembles (\href{http://tiny.cc/emba-joss}{JOSS manuscript})
+\item
+  Pipeline paper I: an AGS story (Asmund's paper, me as co-author)
+\item
+  \emph{synergy} paper - see \href{http://tiny.cc/synergy-paper}{manuscript}
+\item
+  balance mutations paper - see \href{http://tiny.cc/balance-paper}{manuscript}
 \end{itemize}
 
-\hypertarget{part-miscellaneous-stuff}{%
-\part*{Miscellaneous Stuff}\label{part-miscellaneous-stuff}}
-\addcontentsline{toc}{part}{Miscellaneous Stuff}
-
-\hypertarget{ideas}{%
-\chapter{PhD ideas}\label{ideas}}
+\hypertarget{phd-ideas}{%
+\chapter{PhD ideas}\label{phd-ideas}}
 
 Several ideas that I may do or not in my PhD but I still keep here for my future
 investigations!
 
+\hypertarget{synergy-finder}{%
+\section*{\texorpdfstring{Extend \emph{SynergyFinder}}{Extend SynergyFinder}}\label{synergy-finder}}
+\addcontentsline{toc}{section}{Extend \emph{SynergyFinder}}
+
+The core idea here is to extend an existing R package (Ianevski et al. \protect\hyperlink{ref-Ianevski2017}{2017}) for calculating synergy reference models in order to include Wim's generalized Bliss method (Mulder, Kuiper, and Flobak \protect\hyperlink{ref-Mulder2019}{2019}) and the mean synergy score by Simone Laderer (Lederer, Dijkstra, and Heskes \protect\hyperlink{ref-Lederer2018}{2018})!
+Then I will test all the null reference models (Loewe, Bliss, ZIP + others) on dose-response matrix datasets and see which is best at finding the synergies in each dataset (given some gold standards I guess).
+
+Also, I should investigate if my own idea for a mathematical formulation of the volume-based synergy score as general method for describing 3-wise or more combinations as synergistic, could be part of this implementation.
+Though SynergyFinder 2.0 (Ianevski, Giri, and Aittokallio \protect\hyperlink{ref-Ianevski2020}{2020}) has simplemented something similar for high-order combinations using tensors.
+
 \hypertarget{quantum}{%
-\section{Quantum logic formalism}\label{quantum}}
+\section*{Quantum logic formalism}\label{quantum}}
+\addcontentsline{toc}{section}{Quantum logic formalism}
 
 My favourite! Investigate if instead of a logical modeling formalism, the idea
 of (quantum) logical gates can be used to represent and analyse protein interaction
@@ -450,7 +349,8 @@ May also be worth to look at a \href{https://doi.org/10.1007/11885191_18}{game-t
 to find attractors and such.
 
 \hypertarget{comp}{%
-\section{Compare fixpoint tools}\label{comp}}
+\section*{Compare fixpoint tools}\label{comp}}
+\addcontentsline{toc}{section}{Compare fixpoint tools}
 
 Idea: Compare different tools that calculate fixpoints for logical modeling.
 Faster wins of course :) Extension of this \protect\hyperlink{attrToolCmp}{small investigation}.
@@ -486,7 +386,7 @@ Workflow for this includes:
   add support for calculating the fixpoints using the Colomoto docker (python
   interface) + BNReduction
 \item
-  then comparison between \textbf{BioLQM, Pint, MABOSS and BNReduction} could be done then
+  then comparison between \textbf{BioLQM, Pint, MABOSS, MPBNs and BNReduction} could be done then
   in a Jupiter colomoto-enabled notebook!
 \end{itemize}
 
@@ -500,35 +400,12 @@ Further extension/comparisons could be:
   (Dubrova and Teslenko \protect\hyperlink{ref-Dubrova2009}{2009}) - SAT-based
 \end{itemize}
 
-\hypertarget{reasoning-with-vsm}{%
-\section{Reasoning with VSM}\label{reasoning-with-vsm}}
-
-The idea here is to use VSM to annotate sentences about some knowledge area,
-store this information in a format like RDF or something else (graph database?)
-and then ask questions that will enable you to learn stuff that you didn't know
-before.
-
-One goal would be to show the superiority of \emph{connection-based reasoning}
-(humans and what VSM encapsulates) vs \emph{logic reasoning} (OWL).
-
-Another thing I thought was to just translate the VSM-data to PROLOG
-and then ask questions using that logical language framework. It is a way to show
-that you \emph{learned} something using the VSM-supported curation but I don't know
-where to go from there\ldots{} this whole knowledge semantics and reasoning stuff
-seem to be a PhD on its own :) There are a lot of things that should
-be investigated for this idea to materialize properly (lots of reading).
-
-An idea by Steven:
-
-Mapping / inferring different forms of representing interactions (molecular
-and/vs.~causal) using a VSM sentence presentation as a graph diagram. A first
-step to reasoning would be to make some rules like, if you have VSM-sentences
-A and B, then you can infer C from that.
-
 \hypertarget{use-logical-modeling-to-predict-single-drug-data}{%
-\section{Use Logical modeling to predict single-drug data}\label{use-logical-modeling-to-predict-single-drug-data}}
+\section*{Use Logical modeling to predict single-drug data}\label{use-logical-modeling-to-predict-single-drug-data}}
+\addcontentsline{toc}{section}{Use Logical modeling to predict single-drug data}
 
-Asmund's proposal idea that he sent to my email once. Has to do about \emph{mechanistic drug response prediction analysis}:
+Asmund's proposal idea that he sent to my email once.
+Has to do about \emph{mechanistic drug response prediction analysis}:
 
 \begin{itemize}
 \tightlist
@@ -590,53 +467,48 @@ logical to ODE modeling. Also try to predict drug combinations datasets
 with help from (Wittmann et al. \protect\hyperlink{ref-Wittmann2009}{2009}) for converting boolean models to continuous.
 
 \hypertarget{druglogics-pipeline-related}{%
-\section{Druglogics-Pipeline related}\label{druglogics-pipeline-related}}
+\section*{Druglogics-Pipeline related}\label{druglogics-pipeline-related}}
+\addcontentsline{toc}{section}{Druglogics-Pipeline related}
 
 \hypertarget{harmony-search}{%
-\subsection{Harmony Search}\label{harmony-search}}
+\subsection*{Harmony Search}\label{harmony-search}}
+\addcontentsline{toc}{subsection}{Harmony Search}
 
 Nice idea because it's related to music!
-Investigate if \href{https://doi.org/10.1016/j.proeng.2016.07.510}{this algorithm}
-could be used for optimizing the boolean equations for \texttt{gitsbe} - thus opening the
-stage for \texttt{JazzLogics}.
+Investigate if \href{https://doi.org/10.1016/j.proeng.2016.07.510}{this algorithm} could be used for optimizing the boolean equations for \texttt{gitsbe} - thus opening the stage for \textbf{JazzLogics}!
 
 \hypertarget{train-models-to-cell-specific-proliferation}{%
-\subsection{Train models to cell-specific proliferation}\label{train-models-to-cell-specific-proliferation}}
+\subsection*{Train models to cell-specific proliferation}\label{train-models-to-cell-specific-proliferation}}
+\addcontentsline{toc}{subsection}{Train models to cell-specific proliferation}
 
-Concept is that training models to proliferate provides a wider variance of models than the
-cell-specific trained ones in \texttt{gitsbe}: main directive is \textbf{proliferation},
-not just fitting to a steady state pattern. So a hybrid training approach should
-be way more advantageous.
+Concept is that training models to proliferate provides a wider variance of models than the cell-specific trained ones in \texttt{gitsbe}: main directive is \textbf{proliferation}, not just fitting to a steady state pattern.
+So a hybrid training approach should be way more advantageous in that point of view.
 
 \hypertarget{a-bottom-up-model-building-for-drug-prediction}{%
-\subsection{A bottom-up model building for drug prediction}\label{a-bottom-up-model-building-for-drug-prediction}}
+\subsection*{A bottom-up model building for drug prediction}\label{a-bottom-up-model-building-for-drug-prediction}}
+\addcontentsline{toc}{subsection}{A bottom-up model building for drug prediction}
 
-Start with a model and some observed synergies. Build/train/produce models that
-predict the first observed synergy (using Harmony Search?), from them the next
-one, etc. You end up with many models that can predict all the observed
-synergies or you try to find out why that cannot happen for example (e.g.~
-contrasting synergies?). Do the latest models' stable states or attractors
-correspond to activity of proteins from literature?
+Start with a model and some observed synergies.
+Build/train/produce models that predict the first observed synergy (using Harmony Search?), from them the next one, etc.
+You end up with many models that can predict all the observed synergies or you try to find out why that cannot happen for example (e.g.~contrasting synergies? mechanistic explanation why that happens?).
+Do the resulting models stable states or attractors correspond to activity protein profile from literature?
 
 \hypertarget{simulate-cancer-resistance}{%
-\subsection{Simulate cancer resistance}\label{simulate-cancer-resistance}}
+\subsection*{Simulate cancer resistance}\label{simulate-cancer-resistance}}
+\addcontentsline{toc}{subsection}{Simulate cancer resistance}
 
-For example, you have some models that predict some (observed) synergies or you
-just find some synergistic drug comibnations for these models or per model.
-Then, you modify these models in order to be resistant to these drugs, simulating
-thus the cancer rewiring process! Then, you apply (n+1) drug combinations to
-win over the resistance (and you do this procedure at more levels to suggest
-3-way, 4-way drug combos and why there might be cancer models that can `win'
-over these models and continue the proliferation). You end up with super cancer
-resistant models and methods to achieve them or reasons why this cannot happen
-at all.
+For example, you have some models that predict some (observed) synergies or you just find some synergistic drug combinations for these models or per model.
+Then, you modify these models in order to be resistant to these drugs, simulating thus the cancer rewiring process!
+Then, you apply (n+1) drug combinations to win over the resistance (and you do this procedure at more levels to suggest
+3-way, 4-way drug combos and why there might be cancer models that can `win' over these models and continue the proliferation).
+You end up with super cancer resistant models and methods to achieve them or reasons why this cannot happen at all (again learning about the mechanism of these).
 
 \hypertarget{causal-json-or-mi-json-to-boolean-model-converter}{%
 \subsection*{Causal-JSON or MI-JSON to boolean model converter}\label{causal-json-or-mi-json-to-boolean-model-converter}}
 \addcontentsline{toc}{subsection}{Causal-JSON or MI-JSON to boolean model converter}
 
-\hypertarget{idea-3}{%
-\subsubsection*{Idea}\label{idea-3}}
+\hypertarget{idea}{%
+\subsubsection*{Idea}\label{idea}}
 \addcontentsline{toc}{subsubsection}{Idea}
 
 This idea is like a continuation of the \texttt{causalBuilder} tool by Vasundra coupled with the need to have a more proper representation of complexes (and families) in our logical models (better models, better predictions).
@@ -686,8 +558,35 @@ Also Vasundra's experience with Reactome data in miTab2.8 showed us the difficul
 
 Here I have various text the I write at times and I will include most probably in my completed thesis report:
 
+\hypertarget{precision-ppv-as-a-metric-for-pharmaceutical-companies}{%
+\section*{Precision (PPV) as a metric for pharmaceutical companies}\label{precision-ppv-as-a-metric-for-pharmaceutical-companies}}
+\addcontentsline{toc}{section}{Precision (PPV) as a metric for pharmaceutical companies}
+
+I think if you say the following: I have 1000 drugs in my lab/company, that is almost 500.000 pairwise combinations.
+I want to screen combinations for synergies, but I only have screening capacity for 100.000 combinations, so there are 400.000 combinations I can't screen.
+
+\textbf{How do I choose the 100.000 combinations to screen?}
+
+Let's say there are in fact 50.000 synergies, meaning a prevalence of 10\%.
+There are 3 alternatives (using the pipeline):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Blindly.
+  You will get a prevalence of synergies pretty close to the prevalence of synergies among the 500.000, so you will get 10.000 synergistic pairs.
+\item
+  Screen by a \textbf{topology guided prediction (random models)}.
+  You will get maybe 13\% if I remember correctly for atopo, i.e.~13.000, meaning 3000 more than blinded
+\item
+  Screen by a \textbf{simulation guided prediction (fit to steady state/calibrated models)}.
+  You will get maybe 20\%, i.e.~20.000, which is 10.000 (double) than blinded, and 7.000 more than guided by topology.
+\end{enumerate}
+
 \hypertarget{why-automated-topology}{%
-\section{Why automated topology?}\label{why-automated-topology}}
+\section*{Why automated topology?}\label{why-automated-topology}}
+\addcontentsline{toc}{section}{Why automated topology?}
 
 My take on this:
 
@@ -724,7 +623,8 @@ Therefore observation of baseline signaling is both the input and the output, re
 \end{enumerate}
 
 \hypertarget{vsm-related}{%
-\section{VSM-related}\label{vsm-related}}
+\section*{VSM-related}\label{vsm-related}}
+\addcontentsline{toc}{section}{VSM-related}
 
 Steven's email about VSM and reasoning:
 
@@ -740,33 +640,28 @@ And perhaps, these observations may even be synthesized into new guiding rules a
 I think that biological systems are extreme in their magnitude of complexity, where hundreds of thousands of diverse causalities can all work together.
 To understand them, we need not only big-data machine learning to interpret large-scale data (from new, more local observations), but also defeasible symbolic-like reasoning, as a guide through our diverse and large-scale prior knowledge.
 
+\hypertarget{acknowledgements}{%
+\section*{Acknowledgements}\label{acknowledgements}}
+\addcontentsline{toc}{section}{Acknowledgements}
+
+To Asmund for good supervision:
+
+\begin{itemize}
+\tightlist
+\item
+  Best writing tip: Every paragraph should start with a `why', next `what done', next `what found', next `what does this mean' =\textgreater{} every paragraph is like a small paper, intro + methods + results + discussion
+\end{itemize}
+
+To Martin, firstly for taking me in as a PhD student and giving me the opportunity to come to Norway. Secondly for his strategical advice during my PhD,\\
+To Astrid Laergid, for letting me know about the RRI course!
+And subsequently to Roger Stran, Heindrun Am and all the other participants of the RRI course: mpla mpla for the expericence and making me realise the complexity of science and the beauty of its philoshophy.
+To Steven for teaching how to be a write good open-source Web developer and for some nice conversations about context, knowledge representation
+To Noemi Del Toro Ayllon,
+To IntAct and Henning for letting me be part
+
 \hypertarget{appendix-appendix}{%
 \appendix}
 
-
-\hypertarget{papers-1}{%
-\chapter*{Papers}\label{papers-1}}
-\addcontentsline{toc}{chapter}{Papers}
-
-Papers that are already published and I am in the list of authors:
-
-\begin{itemize}
-\tightlist
-\item
-  (Perfetto et al. \protect\hyperlink{ref-Perfetto2019}{2019})
-\end{itemize}
-
-Papers that will probably be published and I will probably be in the list of authors:
-
-\begin{itemize}
-\tightlist
-\item
-  \href{https://www.tinyurl.com/bh2018write}{The Biohackathon 2018 paper}
-\item
-  Asmund's papers (2)
-\item
-  Vasundra's causalBuilder tool paper
-\end{itemize}
 
 \hypertarget{bookdown-useful-links}{%
 \chapter*{Bookdown useful links}\label{bookdown-useful-links}}
@@ -789,6 +684,7 @@ Papers that will probably be published and I will probably be in the list of aut
 \addcontentsline{toc}{chapter}{References}
 
 \hypertarget{refs}{}
+\begin{cslreferences}
 \leavevmode\hypertarget{ref-Akutsu2009}{}%
 Akutsu, Tatsuya, Morihiro Hayashida, and Takeyuki Tamura. 2009. ``Integer programming-based methods for attractor detection and control of boolean networks.'' In \emph{Proceedings of the 48h Ieee Conference on Decision and Control (Cdc) Held Jointly with 2009 28th Chinese Control Conference}, 5610--7. IEEE. \url{https://doi.org/10.1109/CDC.2009.5400017}.
 
@@ -796,19 +692,19 @@ Akutsu, Tatsuya, Morihiro Hayashida, and Takeyuki Tamura. 2009. ``Integer progra
 Davis, Mindy I, Jeremy P Hunt, Sanna Herrgard, Pietro Ciceri, Lisa M Wodicka, Gabriel Pallares, Michael Hocker, Daniel K Treiber, and Patrick P Zarrinkar. 2011. ``Comprehensive analysis of kinase inhibitor selectivity.'' \emph{Nature Biotechnology} 29 (11): 1046--51. \url{https://doi.org/10.1038/nbt.1990}.
 
 \leavevmode\hypertarget{ref-Dubrova2009}{}%
-Dubrova, Elena, and Maxim Teslenko. 2009. ``A SAT-Based Algorithm for Computing Attractors in Synchronous Boolean Networks.'' \href{https://arxiv.org/pdf/0901.4448.pdf\%20https://ieeexplore.ieee.org/document/5958722/}{https://arxiv.org/pdf/0901.4448.pdf https://ieeexplore.ieee.org/document/5958722/}.
+Dubrova, Elena, and Maxim Teslenko. 2009. ``A SAT-Based Algorithm for Computing Attractors in Synchronous Boolean Networks.'' \url{https://arxiv.org/pdf/0901.4448.pdf\%20https://ieeexplore.ieee.org/document/5958722/}.
 
 \leavevmode\hypertarget{ref-Flobak2015}{}%
 Flobak, Åsmund, Anaïs Baudot, Elisabeth Remy, Liv Thommesen, Denis Thieffry, Martin Kuiper, and Astrid Lægreid. 2015. ``Discovery of Drug Synergies in Gastric Cancer Cells Predicted by Logical Modeling.'' Edited by Ioannis Xenarios. \emph{PLOS Computational Biology} 11 (8): e1004426. \url{https://doi.org/10.1371/journal.pcbi.1004426}.
-
-\leavevmode\hypertarget{ref-Flobak2019}{}%
-Flobak, Åsmund, Barbara Niederdorfer, Vu To Nakstad, Liv Thommesen, Geir Klinkenberg, and Astrid Lægreid. 2019. ``A high-throughput drug combination screen of targeted small molecule inhibitors in cancer cell lines.'' \emph{Scientific Data} 6 (1): 237. \url{https://doi.org/10.1038/s41597-019-0255-7}.
 
 \leavevmode\hypertarget{ref-Frohlich2018}{}%
 Fröhlich, Fabian, Thomas Kessler, Daniel Weindl, Alexey Shadrin, Leonard Schmiester, Hendrik Hache, Artur Muradyan, et al. 2018. ``Efficient Parameter Estimation Enables the Prediction of Drug Response Using a Mechanistic Pan-Cancer Pathway Model.'' \emph{Cell Systems} 7 (6): 567--579.e6. \url{https://doi.org/10.1016/J.CELS.2018.10.013}.
 
 \leavevmode\hypertarget{ref-Holbeck2017}{}%
 Holbeck, Susan L, Richard Camalier, James A Crowell, Jeevan Prasaad Govindharajulu, Melinda Hollingshead, Lawrence W Anderson, Eric Polley, et al. 2017. ``The National Cancer Institute ALMANAC: A Comprehensive Screening Resource for the Detection of Anticancer Drug Pairs with Enhanced Therapeutic Activity.'' \emph{Cancer Research}. \url{https://doi.org/10.1158/0008-5472.CAN-17-0489}.
+
+\leavevmode\hypertarget{ref-Ianevski2020}{}%
+Ianevski, Aleksandr, Anil K Giri, and Tero Aittokallio. 2020. ``SynergyFinder 2.0: visual analytics of multi-drug combination synergies.'' \emph{Nucleic Acids Research}. \url{https://doi.org/10.1093/nar/gkaa216}.
 
 \leavevmode\hypertarget{ref-Ianevski2017}{}%
 Ianevski, Aleksandr, Liye He, Tero Aittokallio, and Jing Tang. 2017. ``SynergyFinder: a web application for analyzing drug combination dose--response matrix data.'' \emph{Bioinformatics} 33 (15): 2413--5. \url{https://doi.org/10.1093/bioinformatics/btx162}.
@@ -822,6 +718,9 @@ Lederer, Simone, Tjeerd M H Dijkstra, and Tom Heskes. 2018. ``Additive Dose Resp
 \leavevmode\hypertarget{ref-Licata2019}{}%
 Licata, Luana, Prisca Lo~Surdo, Marta Iannuccelli, Alessandro Palma, Elisa Micarelli, Livia Perfetto, Daniele Peluso, Alberto Calderone, Luisa Castagnoli, and Gianni Cesareni. 2019. ``SIGNOR 2.0, the SIGnaling Network Open Resource 2.0: 2019 update.'' \emph{Nucleic Acids Research}, October. \url{https://doi.org/10.1093/nar/gkz949}.
 
+\leavevmode\hypertarget{ref-Mulder2019}{}%
+Mulder, Wim De, Martin Kuiper, and Åsmund Flobak. 2019. ``A reference model for the combination of an arbitrary number of drugs: A generalization of the Bliss independence model.'' \emph{bioRxiv}, May, 630616. \url{https://doi.org/10.1101/630616}.
+
 \leavevmode\hypertarget{ref-ONeil2016}{}%
 O'Neil, Jennifer, Yair Benita, Igor Feldman, Melissa Chenard, Brian Roberts, Yaping Liu, Jing Li, et al. 2016. ``An Unbiased Oncology Compound Screen to Identify Novel Combination Strategies.'' \emph{Molecular Cancer Therapeutics} 15 (6): 1155--62. \url{https://doi.org/10.1158/1535-7163.MCT-15-0843}.
 
@@ -832,9 +731,13 @@ Perfetto, L, M L Acencio, G Bradley, G Cesareni, N Del Toro, D Fazekas, H Hermja
 Wittmann, Dominik M, Jan Krumsiek, Julio Saez-Rodriguez, Douglas A Lauffenburger, Steffen Klamt, and Fabian J Theis. 2009. ``Transforming Boolean models to continuous models: methodology and application to T-cell receptor signaling.'' \emph{BMC Systems Biology} 3 (1): 98. \url{https://doi.org/10.1186/1752-0509-3-98}.
 
 \leavevmode\hypertarget{ref-R-emba}{}%
-Zobolas, John. 2020a. \emph{Emba: Ensemble Boolean Model Biomarker Analysis}. \url{https://github.com/bblodfon/emba}.
+Zobolas, John. 2020a. \emph{Emba: Ensemble Boolean Model Biomarker Analysis}.
+
+\leavevmode\hypertarget{ref-R-rtemps}{}%
+---------. 2020b. \emph{Rtemps: R Templates for Reproducible Data Analyses}. \url{https://github.com/bblodfon/rtemps}.
 
 \leavevmode\hypertarget{ref-R-usefun}{}%
----------. 2020b. \emph{Usefun: A Collection of Useful Functions by John}. \url{https://github.com/bblodfon/usefun}.
+---------. 2020c. \emph{Usefun: A Collection of Useful Functions by John}. \url{https://github.com/bblodfon/usefun}.
+\end{cslreferences}
 
 \end{document}

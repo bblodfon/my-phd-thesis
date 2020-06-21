@@ -78,7 +78,6 @@
 <ul>
 <li class="chapter" data-level="" data-path="phd-work.html"><a href="phd-work.html#druglogics-pipeline"><i class="fa fa-check"></i>Druglogics Pipeline</a>
 <ul>
-<li class="chapter" data-level="" data-path="phd-work.html"><a href="phd-work.html#r-packages"><i class="fa fa-check"></i>R packages</a></li>
 <li class="chapter" data-level="" data-path="phd-work.html"><a href="phd-work.html#attrToolCmp"><i class="fa fa-check"></i>Attractor Tools performance comparison</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="phd-work.html"><a href="phd-work.html#vsm"><i class="fa fa-check"></i>VSM</a></li>
@@ -110,9 +109,9 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="text.html"><a href="text.html"><i class="fa fa-check"></i><b>4</b> Text</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="text.html"><a href="text.html#precision-ppv-as-a-metric-for-pharmaceutical-companies"><i class="fa fa-check"></i><b>4.1</b> Precision (PPV) as a metric for pharmaceutical companies</a></li>
-<li class="chapter" data-level="4.2" data-path="text.html"><a href="text.html#why-automated-topology"><i class="fa fa-check"></i><b>4.2</b> Why automated topology?</a></li>
-<li class="chapter" data-level="4.3" data-path="text.html"><a href="text.html#vsm-related"><i class="fa fa-check"></i><b>4.3</b> VSM-related</a></li>
+<li class="chapter" data-level="" data-path="text.html"><a href="text.html#precision-ppv-as-a-metric-for-pharmaceutical-companies"><i class="fa fa-check"></i>Precision (PPV) as a metric for pharmaceutical companies</a></li>
+<li class="chapter" data-level="" data-path="text.html"><a href="text.html#why-automated-topology"><i class="fa fa-check"></i>Why automated topology?</a></li>
+<li class="chapter" data-level="" data-path="text.html"><a href="text.html#vsm-related"><i class="fa fa-check"></i>VSM-related</a></li>
 <li class="chapter" data-level="" data-path="text.html"><a href="text.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
@@ -165,16 +164,9 @@ ROC curve</li>
 <li>Export support using <a href="https://github.com/colomoto/bioLQM">BioLQM</a>: the initial model + best generation models can now be exported through configuration options to <strong>GINML, SBML-Qual and BoolNet</strong> community formats</li>
 <li><strong>Attractor calculation</strong> (stable states and minimal trapspaces) using <a href="https://github.com/colomoto/bioLQM">BioLQM</a></li>
 <li><a href="https://github.com/druglogics/abmlog">abmlog</a> package.</li>
-</ul>
-<div id="r-packages" class="section level3 unnumbered" number="">
-<h3>R packages</h3>
-<ul>
 <li><code>emba</code> <span class="citation">(J. Zobolas <a href="#ref-R-emba" role="doc-biblioref">2020</a><a href="#ref-R-emba" role="doc-biblioref">a</a>)</span>.
 See <a href="https://github.com/bblodfon/gitsbe-model-analysis/">gitsbe-model-analysis repository</a> with various analysis using this package (input is files from <code>gitsbe</code>).</li>
-<li><code>usefun</code> <span class="citation">(J. Zobolas <a href="#ref-R-usefun" role="doc-biblioref">2020</a><a href="#ref-R-usefun" role="doc-biblioref">c</a>)</span></li>
-<li><code>rtemps</code> <span class="citation">(J. Zobolas <a href="#ref-R-rtemps" role="doc-biblioref">2020</a><a href="#ref-R-rtemps" role="doc-biblioref">b</a>)</span></li>
 </ul>
-</div>
 <div id="attrToolCmp" class="section level3 unnumbered" number="">
 <h3>Attractor Tools performance comparison</h3>
 <p>Some preliminary results comparing <strong>fixpoint</strong> and <strong>trapspace</strong> calculation tools using the following 2 topologies: <strong>CASCADE 1.0</strong> (77 nodes and 149 edges) and <strong>CASCADE 2.0</strong> (144 nodes, 367 edges). Both of these models are self-contained (no inputs, less attractors).</p>
@@ -201,7 +193,7 @@ The sad thing is the overhead you get when runnng the Python module through java
 <div id="vsm" class="section level2 unnumbered" number="">
 <h2>VSM</h2>
 <p>I made <code>vsm-dictionaries</code> with a focus on the biological domain.
-We called them UBD’s: <em>Unified Biological Dictionaries</em>.
+We call them UBDs: <em>Unified Biological Dictionaries</em>.
 See <a href="https://github.com/UniBioDicts">UBD GitHub organisation page</a>.</p>
 <p>Most of this work is done in order to support Vasundra’s <a href="https://mi2cast.github.io/causalBuilder/">causalBuilder Tool</a> which is the first application of VSM after SciCura v1.</p>
 </div>
@@ -219,6 +211,8 @@ library to also support MITAB 2.8 - this is the culmination of results from the
 <h2>Others</h2>
 <ul>
 <li>Java Client for RSAT tool <a href="https://github.com/bblodfon/rsat-rest-java-clients">fetch-sequences</a></li>
+<li><code>usefun</code> <span class="citation">(J. Zobolas <a href="#ref-R-usefun" role="doc-biblioref">2020</a><a href="#ref-R-usefun" role="doc-biblioref">c</a>)</span> (for the community!)</li>
+<li><code>rtemps</code> <span class="citation">(J. Zobolas <a href="#ref-R-rtemps" role="doc-biblioref">2020</a><a href="#ref-R-rtemps" role="doc-biblioref">b</a>)</span> (for the community!)</li>
 </ul>
 
 </div>
