@@ -42,8 +42,9 @@ Chapters are currently split as:
 ### Updates {-}
 
 - 21/6/2020  
-  Plan is to have two distinct directions that I contributed during my PhD. 
-See structure of [Chapter 2](#phd-papers) for more info.
+  Add paper plan. 
+  See structure of [Chapter 2](#phd-papers) for more info. 
+  Clear/refine text.
 
 ### Keywords {-}
 

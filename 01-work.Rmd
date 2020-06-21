@@ -26,13 +26,8 @@ ROC curve
 - Export support using [BioLQM](https://github.com/colomoto/bioLQM): the initial model + best generation models can now be exported through configuration options to **GINML, SBML-Qual and BoolNet** community formats
 - **Attractor calculation** (stable states and minimal trapspaces) using [BioLQM](https://github.com/colomoto/bioLQM)
 - [abmlog](https://github.com/druglogics/abmlog) package.
-
-### R packages {-}
-
 - `emba` [@R-emba].
-See [gitsbe-model-analysis repository](https://github.com/bblodfon/gitsbe-model-analysis/) with various analysis using this package (input is files from `gitsbe`).
-- `usefun` [@R-usefun]
-- `rtemps` [@R-rtemps]
+  See [gitsbe-model-analysis repository](https://github.com/bblodfon/gitsbe-model-analysis/) with various analysis using this package (input is files from `gitsbe`).
 
 ### Attractor Tools performance comparison {-#attrToolCmp}
 
@@ -56,7 +51,7 @@ So, for our smaller topology, we can actually use the BioLQM stable state calcul
 ## VSM {-}
 
 I made `vsm-dictionaries` with a focus on the biological domain.
-We called them UBD's: *Unified Biological Dictionaries*.
+We call them UBDs: *Unified Biological Dictionaries*.
 See [UBD GitHub organisation page](https://github.com/UniBioDicts).
 
 Most of this work is done in order to support Vasundra's [causalBuilder Tool](https://mi2cast.github.io/causalBuilder/) which is the first application of VSM after SciCura v1.
@@ -75,3 +70,5 @@ library to also support MITAB 2.8 - this is the culmination of results from the
 ## Others {-}
 
 - Java Client for RSAT tool [fetch-sequences](https://github.com/bblodfon/rsat-rest-java-clients)
+- `usefun` [@R-usefun] (for the community!)
+- `rtemps` [@R-rtemps] (for the community!)
