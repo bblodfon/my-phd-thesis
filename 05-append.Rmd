@@ -1,17 +1,5 @@
 # (APPENDIX) Appendix {-}
 
-# Papers {-}
-
-Papers that are already published and I am in the list of authors:
-
-- [@Perfetto2019]
-
-Papers that will probably be published and I will probably be in the list of authors:
-
-- [The Biohackathon 2018 paper](https://www.tinyurl.com/bh2018write)
-- Asmund's papers (2)
-- Vasundra's causalBuilder tool paper
-
 # Bookdown useful links {-}
 
 - [Bookdown github repo](https://github.com/rstudio/bookdown/)

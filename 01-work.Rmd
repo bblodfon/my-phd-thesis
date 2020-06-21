@@ -1,4 +1,4 @@
-# PhD work {#work}
+# PhD work
 
 This is a summary of all the work that I have done in my PhD until now. 
 (mainly it's about software implementations related to the core technologies 
@@ -16,7 +16,7 @@ This has **RRI extensions**, because cleaning and re-structuring software code h
 - Bug fixing
 - Enable maven packaging for easier source compilation, testing, 
 installation, management and executing of the code
-- Added tests to modules `gitsbe` and `drabme` using JUnit5, mockito and assertJ libraries
+- Added tests to modules `gitsbe` and `drabme` using [JUnit5](https://junit.org/junit5/), [mockito](https://site.mockito.org/) and [assertJ](https://assertj.github.io/doc/) libraries
 - [Source code documentation](https://druglogics.github.io/druglogics-doc/) with bookdown for Drabme and Gitsbe
 - Enabling *parallel simulations* in Gitsbe (performance optimization)
 - Added support for many features (see [dev_plan_doc](http://tiny.cc/DLDevPlan))
@@ -25,8 +25,9 @@ R shiny app to assess the performance of the Drabme results in the form of a
 ROC curve
 - Export support using [BioLQM](https://github.com/colomoto/bioLQM): the initial model + best generation models can now be exported through configuration options to **GINML, SBML-Qual and BoolNet** community formats
 - **Attractor calculation** (stable states and minimal trapspaces) using [BioLQM](https://github.com/colomoto/bioLQM)
+- [abmlog](https://github.com/druglogics/abmlog) package.
 
-### R packages  {-}
+### R packages {-}
 
 - `emba` [@R-emba].
 See [gitsbe-model-analysis repository](https://github.com/bblodfon/gitsbe-model-analysis/) with various analysis using this package (input is files from `gitsbe`).
@@ -57,22 +58,17 @@ So, for our smaller topology, we can actually use the BioLQM stable state calcul
 I made `vsm-dictionaries` with a focus on the biological domain.
 We called them UBD's: *Unified Biological Dictionaries*.
 See [UBD GitHub organisation page](https://github.com/UniBioDicts).
-See [manuscript](http://tiny.cc/ubds).
 
 Most of this work is done in order to support Vasundra's [causalBuilder Tool](https://mi2cast.github.io/causalBuilder/) which is the first application of VSM after SciCura v1.
-
-THe UBD's translate various online data resources to a unified (VSM-enabled) dictionary data format.
-Sources include BioPortal, UniProt, Ensembl, EnsemblGenomes, RNACentral, ComplexPortal among others. 
-We have also released the respective packages on [npmjs](https://www.npmjs.com/). 
-See for example the [npm package for BioPortal](https://www.npmjs.com/package/vsm-dictionary-bioportal).
 
 ## PSICQUIC {-}
 
 My work at the EBI with IntAct and Noemi Del Toro to extend the PSICQUIC web service to support the
-miTab 2.8 data format/standard. See the [psicquic doc](http://psicquic.github.io/MITAB28Format.html) and the casualTab paper [@Perfetto2019].
+MITAB 2.8 data format. 
+See the [psicquic doc](http://psicquic.github.io/MITAB28Format.html) and the casualTab paper [@Perfetto2019].
 
 I also worked with Noemi on the update of the [JAMI](https://github.com/MICommunity/psi-jami) 
-library to also support miTab 2.8 - this is the culmination of results from the 
+library to also support MITAB 2.8 - this is the culmination of results from the 
 [BioHackathon 2018, in Paris](https://2018.biohackathon-europe.org/) and the 
 [Marseille GREEKC hackathon event](https://github.com/GREEKC/hackathon-marseille/tree/master/project_descriptions/causal_psicquic).
 

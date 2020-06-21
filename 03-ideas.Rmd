@@ -1,40 +1,17 @@
-# (PART\*) Miscellaneous Stuff {-}
-
-# PhD ideas {#ideas}
+# PhD ideas
 
 Several ideas that I may do or not in my PhD but I still keep here for my future
 investigations!
 
-## Curating Synergy
+## Extend *SynergyFinder* {-#synergy-finder}
 
-### Title {-}
-
-On eye-balling/curating synergy: What is a ~~mountain~~?
-
-### John's Idea {-}
-
-I had the idea of writing a small paper that describes the *eye-balling* or *visual inspection* technique that is used so much in computational Biology and Medicine. 
-It is used pretty much in any synergy-related paper I have seen but nobody has actually defined or named it.
-A characteristic example is *eye-balling* synergies from dose-response curves, like we did in our group for the SINTEF screen data [@Flobak2019] and the output is [this online doc](http://tiny.cc/sintefGS).
-
-As Asmund once said:
-
-> What is a mountain? What is a synergy?
-
-### Asmund's idea {-}
-
-*Curate* a sample of drug combination datasets regarding their synergy assesement - a consortium paper, with partners like Sanger, O'Neill, etc.
-So a large synergy curation effort. 
-This correlates with Martin's idea of **creating curation guidelines for drug combination screening**.
-
-### Data-analysis {-}
-
-The core idea here is to extend an existing R package [@Ianevski2017] for calculating synergy reference models in order to include Wim's generalized Bliss method and the mean synergy score by Simone Laderer [@Lederer2018]!
-Then I will test all the null reference models (Loewe, Bliss, ZIP + others) on dose-response matrix datasets (could be from Ladere's paper, from Asmund's paper, the SINTEF dataset) and see which is best at finding the synergies in each dataset.
+The core idea here is to extend an existing R package [@Ianevski2017] for calculating synergy reference models in order to include Wim's generalized Bliss method [@Mulder2019] and the mean synergy score by Simone Laderer [@Lederer2018]!
+Then I will test all the null reference models (Loewe, Bliss, ZIP + others) on dose-response matrix datasets and see which is best at finding the synergies in each dataset (given some gold standards I guess).
 
 Also, I should investigate if my own idea for a mathematical formulation of the volume-based synergy score as general method for describing 3-wise or more combinations as synergistic, could be part of this implementation.
+Though SynergyFinder 2.0 [@Ianevski2020] has simplemented something similar for high-order combinations using tensors.
 
-## Quantum logic formalism {#quantum}
+## Quantum logic formalism {-#quantum}
 
 My favourite! Investigate if instead of a logical modeling formalism, the idea 
 of (quantum) logical gates can be used to represent and analyse protein interaction
@@ -45,7 +22,7 @@ you measure it, only then you really know what it is.
 May also be worth to look at a [game-theoritic approach](https://doi.org/10.1007/11885191_18)
 to find attractors and such.
 
-## Compare fixpoint tools {#comp}
+## Compare fixpoint tools {-#comp}
 
 Idea: Compare different tools that calculate fixpoints for logical modeling. 
 Faster wins of course :) Extension of this [small investigation](#attrToolCmp).
@@ -66,7 +43,7 @@ Workflow for this includes:
 in BioLQM
 - add support for calculating the fixpoints using the Colomoto docker (python
 interface) + BNReduction
-- then comparison between **BioLQM, Pint, MABOSS and BNReduction** could be done then
+- then comparison between **BioLQM, Pint, MABOSS, MPBNs and BNReduction** could be done then
 in a Jupiter colomoto-enabled notebook!
 
 Further extension/comparisons could be:
@@ -74,36 +51,16 @@ Further extension/comparisons could be:
 - [@Akutsu2009] - Integer programming method
 - [@Dubrova2009] - SAT-based
 
-## Reasoning with VSM
+## Use Logical modeling to predict single-drug data {-}
 
-The idea here is to use VSM to annotate sentences about some knowledge area, 
-store this information in a format like RDF or something else (graph database?) 
-and then ask questions that will enable you to learn stuff that you didn't know 
-before.
+Asmund's proposal idea that he sent to my email once. 
+Has to do about *mechanistic drug response prediction analysis*:
 
-Another thing I thought was to just translate the VSM-data to `PROLOG`
-and then ask questions using that logical language framework. It is a way to show
-that you *learned* something using the VSM-supported curation but I don't know 
-where to go from there... this whole knowledge semantics and reasoning stuff 
-seem to be a PhD on its own :) There are a lot of things that should
-be investigated for this idea to materialize properly (lots of reading).
-
-An idea by Steven:  
-
-Mapping / inferring different forms of representing interactions (molecular 
-and/vs. causal) using a VSM sentence presentation as a graph diagram. A first 
-step to reasoning would be to make some rules like, if you have VSM-sentences 
-A and B, then you can infer C from that.
-
-## Use Logical modeling to predict single-drug data
-
-Asmund's proposal idea that he sent to my email once. Has to do about *mechanistic drug response prediction analysis*:
-
-- Automate drug target profile annotation from:  
+- Automate drug target profile annotation from:
   - [@Klaeger2017]
   - [mrc ppu](http://www.kinase-screen.mrc.ac.uk/)
   - [@Davis2011]
-- Omics data (rna, cnv etc) 
+- Omics data (rna, cnv etc)
   - COSMIC
   - CCLE
 - Drug screen data
@@ -121,45 +78,34 @@ logical to ODE modeling. Also try to predict drug combinations datasets
 (dose-response matrices?). Pretty much what is done in this paper [@Frohlich2018] 
 with help from [@Wittmann2009] for converting boolean models to continuous.
 
-## Druglogics-Pipeline related
+## Druglogics-Pipeline related {-}
 
-### Harmony Search
+### Harmony Search {-}
 
 Nice idea because it's related to music! 
-Investigate if [this algorithm](https://doi.org/10.1016/j.proeng.2016.07.510) 
-could be used for optimizing the boolean equations for `gitsbe` - thus opening the
-stage for `JazzLogics`.
+Investigate if [this algorithm](https://doi.org/10.1016/j.proeng.2016.07.510) could be used for optimizing the boolean equations for `gitsbe` - thus opening the stage for **JazzLogics**!
 
-### Train models to cell-specific proliferation
+### Train models to cell-specific proliferation {-}
 
-Concept is that training models to proliferate provides a wider variance of models than the 
-cell-specific trained ones in `gitsbe`: main directive is **proliferation**, 
-not just fitting to a steady state pattern. So a hybrid training approach should
-be way more advantageous.
+Concept is that training models to proliferate provides a wider variance of models than the cell-specific trained ones in `gitsbe`: main directive is **proliferation**, not just fitting to a steady state pattern. 
+So a hybrid training approach should be way more advantageous in that point of view.
 
-### A bottom-up model building for drug prediction
+### A bottom-up model building for drug prediction {-}
 
-Start with a model and some observed synergies. Build/train/produce models that
-predict the first observed synergy (using Harmony Search?), from them the next
-one, etc. You end up with many models that can predict all the observed 
-synergies or you try to find out why that cannot happen for example (e.g. 
-contrasting synergies?). Do the latest models' stable states or attractors 
-correspond to activity of proteins from literature?
+Start with a model and some observed synergies. 
+Build/train/produce models that predict the first observed synergy (using Harmony Search?), from them the next one, etc. 
+You end up with many models that can predict all the observed synergies or you try to find out why that cannot happen for example (e.g. contrasting synergies? mechanistic explanation why that happens?). 
+Do the resulting models stable states or attractors correspond to activity protein profile from literature?
 
-### Simulate cancer resistance
+### Simulate cancer resistance {-}
 
-For example, you have some models that predict some (observed) synergies or you
-just find some synergistic drug comibnations for these models or per model. 
-Then, you modify these models in order to be resistant to these drugs, simulating
-thus the cancer rewiring process! Then, you apply (n+1) drug combinations to
-win over the resistance (and you do this procedure at more levels to suggest 
-3-way, 4-way drug combos and why there might be cancer models that can 'win' 
-over these models and continue the proliferation). You end up with super cancer
-resistant models and methods to achieve them or reasons why this cannot happen
-at all.
+For example, you have some models that predict some (observed) synergies or you just find some synergistic drug combinations for these models or per model. 
+Then, you modify these models in order to be resistant to these drugs, simulating thus the cancer rewiring process! 
+Then, you apply (n+1) drug combinations to win over the resistance (and you do this procedure at more levels to suggest 
+3-way, 4-way drug combos and why there might be cancer models that can 'win' over these models and continue the proliferation).
+You end up with super cancer resistant models and methods to achieve them or reasons why this cannot happen at all (again learning about the mechanism of these).
 
-
-### Causal-JSON or MI-JSON to boolean model converter
+### Causal-JSON or MI-JSON to boolean model converter {-}
 
 #### Idea {-}
 
