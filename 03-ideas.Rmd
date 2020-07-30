@@ -11,17 +11,6 @@ Then I will test all the null reference models (Loewe, Bliss, ZIP + others) on d
 Also, I should investigate if my own idea for a mathematical formulation of the volume-based synergy score as general method for describing 3-wise or more combinations as synergistic, could be part of this implementation.
 Though SynergyFinder 2.0 [@Ianevski2020] has simplemented something similar for high-order combinations using tensors.
 
-## Quantum logic formalism {-#quantum}
-
-My favourite! Investigate if instead of a logical modeling formalism, the idea 
-of (quantum) logical gates can be used to represent and analyse protein interaction
-networks.
-The **core idea** makes sense: you don't know the state of a protein, but when 
-you measure it, only then you really know what it is.
-
-May also be worth to look at a [game-theoritic approach](https://doi.org/10.1007/11885191_18)
-to find attractors and such.
-
 ## Compare fixpoint tools {-#comp}
 
 Idea: Compare different tools that calculate fixpoints for logical modeling. 
