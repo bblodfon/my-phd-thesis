@@ -8,7 +8,7 @@ investigations!
 The core idea here is to extend an existing R package [@Ianevski2017] for calculating synergy reference models in order to include Wim's generalized Bliss method [@Mulder2019] and the mean synergy score by Simone Laderer [@Lederer2018]!
 Then I will test all the null reference models (Loewe, Bliss, ZIP + others) on dose-response matrix datasets and see which is best at finding the synergies in each dataset (given some gold standards I guess).
 
-Also, I should investigate if my own idea for a mathematical formulation of the volume-based synergy score as general method for describing 3-wise or more combinations as synergistic, could be part of this implementation.
+Also, I should investigate if my own idea for a mathematical formulation of the volume-based synergy score (see also VISAGE [@Patterson2019]) as general method for describing 3-wise or more combinations as synergistic, could be part of this implementation.
 Though SynergyFinder 2.0 [@Ianevski2020] has simplemented something similar for high-order combinations using tensors.
 
 ## Compare fixpoint tools {-#comp}
@@ -45,10 +45,13 @@ Further extension/comparisons could be:
 Asmund's proposal idea that he sent to my email once. 
 Has to do about *mechanistic drug response prediction analysis*:
 
-- Automate drug target profile annotation from:
+- **Automate drug target profile annotation** from (hard to *digest*) data sources from papers:
   - [@Klaeger2017]
   - [mrc ppu](http://www.kinase-screen.mrc.ac.uk/)
   - [@Davis2011]
+- More easy/direct methods to get target annotation profiles would be using: 
+  - Drug Target annotation [@Tang2018] (https://drugtargetcommons.fimm.fi/)
+  - Drug Combo effect digested [@Zagidullin2019] (https://drugcomb.fimm.fi/)
 - Omics data (rna, cnv etc)
   - COSMIC
   - CCLE
