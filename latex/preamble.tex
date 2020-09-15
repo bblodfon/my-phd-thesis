@@ -6,3 +6,26 @@
 
 % removes section headings from the top of pages
 \pagestyle{plain}
+
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{tcolorbox}
+
+% define color boxes
+\setlength{\fboxsep}{.8em}
+
+\newenvironment{blackbox}{
+  \definecolor{shadecolor}{rgb}{0, 0, 0}  % black
+  \color{white}
+  \begin{shaded}}
+ {\end{shaded}}
+
+\definecolor{lightblue}{HTML}{E6F0FF}
+
+\newtcolorbox{blue-box}{
+  colback=lightblue,
+  colframe=white,
+  coltext=black,
+  boxsep=5pt,
+  arc=4pt}
