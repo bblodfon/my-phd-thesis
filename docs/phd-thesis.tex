@@ -39,7 +39,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Software implementations allowing new approaches toward data analysis, modeling and integration / curation of biological knowledge for Systems Medicine},
+  pdftitle={Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine},
   pdfauthor={John Zobolas},
   colorlinks=true,
   linkcolor=black,
@@ -83,6 +83,29 @@
 
 % removes section headings from the top of pages
 \pagestyle{plain}
+
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{tcolorbox}
+
+% define color boxes
+\setlength{\fboxsep}{.8em}
+
+\newenvironment{blackbox}{
+  \definecolor{shadecolor}{rgb}{0, 0, 0}  % black
+  \color{white}
+  \begin{shaded}}
+ {\end{shaded}}
+
+\definecolor{lightblue}{HTML}{E6F0FF}
+
+\newtcolorbox{blue-box}{
+  colback=lightblue,
+  colframe=white,
+  coltext=black,
+  boxsep=5pt,
+  arc=4pt}
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newenvironment{cslreferences}%
@@ -90,9 +113,9 @@
   \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
   {\par}
 
-\title{Software implementations allowing new approaches toward data analysis, modeling and integration / curation of biological knowledge for Systems Medicine}
+\title{Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine}
 \author{John Zobolas}
-\date{Last updated: 02 July, 2020}
+\date{Last updated: 15 September, 2020}
 
 \begin{document}
 \maketitle
@@ -140,8 +163,12 @@ Chapters are currently split as:
 \subsection*{Keywords}\label{keywords}}
 \addcontentsline{toc}{subsection}{Keywords}
 
+\begin{blue-box}
+
 \emph{curation/knowledge management, VSM, causal statements, DrugLogics pipeline
 (model parameterization/calibration and prediction of synergistic drug combinations, performance optimization), biomarker analysis, synergy assessment}
+
+\end{blue-box}
 
 \begin{center}\includegraphics[width=0.5\linewidth]{img/NTNU-logo} \end{center}
 
@@ -332,21 +359,8 @@ investigations!
 The core idea here is to extend an existing R package (Ianevski et al. \protect\hyperlink{ref-Ianevski2017}{2017}) for calculating synergy reference models in order to include Wim's generalized Bliss method (Mulder, Kuiper, and Flobak \protect\hyperlink{ref-Mulder2019}{2019}) and the mean synergy score by Simone Laderer (Lederer, Dijkstra, and Heskes \protect\hyperlink{ref-Lederer2018}{2018})!
 Then I will test all the null reference models (Loewe, Bliss, ZIP + others) on dose-response matrix datasets and see which is best at finding the synergies in each dataset (given some gold standards I guess).
 
-Also, I should investigate if my own idea for a mathematical formulation of the volume-based synergy score as general method for describing 3-wise or more combinations as synergistic, could be part of this implementation.
+Also, I should investigate if my own idea for a mathematical formulation of the volume-based synergy score (see also VISAGE (Patterson et al. \protect\hyperlink{ref-Patterson2019}{2019})) as general method for describing 3-wise or more combinations as synergistic, could be part of this implementation.
 Though SynergyFinder 2.0 (Ianevski, Giri, and Aittokallio \protect\hyperlink{ref-Ianevski2020}{2020}) has simplemented something similar for high-order combinations using tensors.
-
-\hypertarget{quantum}{%
-\section*{Quantum logic formalism}\label{quantum}}
-\addcontentsline{toc}{section}{Quantum logic formalism}
-
-My favourite! Investigate if instead of a logical modeling formalism, the idea
-of (quantum) logical gates can be used to represent and analyse protein interaction
-networks.
-The \textbf{core idea} makes sense: you don't know the state of a protein, but when
-you measure it, only then you really know what it is.
-
-May also be worth to look at a \href{https://doi.org/10.1007/11885191_18}{game-theoritic approach}
-to find attractors and such.
 
 \hypertarget{comp}{%
 \section*{Compare fixpoint tools}\label{comp}}
@@ -410,7 +424,7 @@ Has to do about \emph{mechanistic drug response prediction analysis}:
 \begin{itemize}
 \tightlist
 \item
-  Automate drug target profile annotation from:
+  \textbf{Automate drug target profile annotation} from (hard to \emph{digest}) data sources from papers:
 
   \begin{itemize}
   \tightlist
@@ -420,6 +434,16 @@ Has to do about \emph{mechanistic drug response prediction analysis}:
     \href{http://www.kinase-screen.mrc.ac.uk/}{mrc ppu}
   \item
     (Davis et al. \protect\hyperlink{ref-Davis2011}{2011})
+  \end{itemize}
+\item
+  More easy/direct methods to get target annotation profiles would be using:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Drug Target annotation (Tang et al. \protect\hyperlink{ref-Tang2018}{2018}) (\url{https://drugtargetcommons.fimm.fi/})
+  \item
+    Drug Combo effect digested (Zagidullin et al. \protect\hyperlink{ref-Zagidullin2019}{2019}) (\url{https://drugcomb.fimm.fi/})
   \end{itemize}
 \item
   Omics data (rna, cnv etc)
@@ -724,11 +748,20 @@ Mulder, Wim De, Martin Kuiper, and Åsmund Flobak. 2019. ``A reference model for
 \leavevmode\hypertarget{ref-ONeil2016}{}%
 O'Neil, Jennifer, Yair Benita, Igor Feldman, Melissa Chenard, Brian Roberts, Yaping Liu, Jing Li, et al. 2016. ``An Unbiased Oncology Compound Screen to Identify Novel Combination Strategies.'' \emph{Molecular Cancer Therapeutics} 15 (6): 1155--62. \url{https://doi.org/10.1158/1535-7163.MCT-15-0843}.
 
+\leavevmode\hypertarget{ref-Patterson2019}{}%
+Patterson, Jesse C., Brian A. Joughin, Andrea E. Prota, Tobias Mühlethaler, Oliver H. Jonas, Matthew A. Whitman, Shohreh Varmeh, et al. 2019. ``VISAGE Reveals a Targetable Mitotic Spindle Vulnerability in Cancer Cells.'' \emph{Cell Systems} 9 (1): 74--92.e8. \url{https://doi.org/10.1016/J.CELS.2019.05.009}.
+
 \leavevmode\hypertarget{ref-Perfetto2019}{}%
 Perfetto, L, M L Acencio, G Bradley, G Cesareni, N Del Toro, D Fazekas, H Hermjakob, et al. 2019. ``CausalTAB: the PSI-MITAB 2.8 updated format for signalling data representation and dissemination.'' Edited by Jonathan Wren. \emph{Bioinformatics}, February. \url{https://doi.org/10.1093/bioinformatics/btz132}.
 
+\leavevmode\hypertarget{ref-Tang2018}{}%
+Tang, Jing, Zia ur Rehman Tanoli, Balaguru Ravikumar, Zaid Alam, Anni Rebane, Markus Vähä-Koskela, Gopal Peddinti, et al. 2018. ``Drug Target Commons: A Community Effort to Build a Consensus Knowledge Base for Drug-Target Interactions.'' \emph{Cell Chemical Biology} 25 (2): 224--229.e2. \url{https://doi.org/10.1016/j.chembiol.2017.11.009}.
+
 \leavevmode\hypertarget{ref-Wittmann2009}{}%
 Wittmann, Dominik M, Jan Krumsiek, Julio Saez-Rodriguez, Douglas A Lauffenburger, Steffen Klamt, and Fabian J Theis. 2009. ``Transforming Boolean models to continuous models: methodology and application to T-cell receptor signaling.'' \emph{BMC Systems Biology} 3 (1): 98. \url{https://doi.org/10.1186/1752-0509-3-98}.
+
+\leavevmode\hypertarget{ref-Zagidullin2019}{}%
+Zagidullin, Bulat, Jehad Aldahdooh, Shuyu Zheng, Wenyu Wang, Yinyin Wang, Joseph Saad, Alina Malyutina, et al. 2019. ``DrugComb: an integrative cancer drug combination data portal.'' \emph{Nucleic Acids Research} 47 (W1): W43--W51. \url{https://doi.org/10.1093/nar/gkz337}.
 
 \leavevmode\hypertarget{ref-R-emba}{}%
 Zobolas, John. 2020a. \emph{Emba: Ensemble Boolean Model Biomarker Analysis}.
