@@ -48,11 +48,11 @@ Chapters are currently split as:
 
 ### Keywords {-}
 
-<div class="blue-box">
+:::{.blue-box}
 *curation/knowledge management, VSM, causal statements, DrugLogics pipeline 
 (model parameterization/calibration and prediction of synergistic drug combinations, performance optimization), biomarker analysis, synergy assessment*
-</div>
-</br>
+:::
+<br>
 
 ```{r ntnu-logo, echo=FALSE, fig.align='center', out.width='50%'}
 knitr::include_graphics("img/NTNU-logo.png")
