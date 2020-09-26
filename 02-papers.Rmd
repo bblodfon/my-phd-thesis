@@ -9,13 +9,12 @@ See [Report](http://tiny.cc/psicquic-mitab28) from EBI visit (July 2018).
 
 ### VSM-related papers {-}
 
-- VSM-box paper
+- VSM-box paper [@vercruysse2020vsm]
 - [UniBioDicts paper](#vsm)
-- causalBuilder paper
+- causalBuilder paper (soon to be published in Database)
 
 ## Logical Modeling/Predicting Synergies/Finding mechanisms {-}
 
-- `emba`: R package for analysis and visualization of biomarkers in boolean model ensembles ([JOSS manuscript](http://tiny.cc/emba-joss))
-- Pipeline paper I: an AGS story (Asmund's paper, me as co-author)
-- *synergy* paper - see [manuscript](http://tiny.cc/synergy-paper)
-- balance mutations paper - see [manuscript](http://tiny.cc/balance-paper)
+- emba [@Zobolas2020]
+- Pipeline paper I: an AGS story (Asmund's paper, me as co-author, hopefully soon!!!)
+- **Goal is 2 more papers**, related to link operator function bias and the CASCADE 1.0 [dataset](https://doi.org/10.5281/zenodo.4022783)
