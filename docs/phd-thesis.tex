@@ -115,7 +115,7 @@
 
 \title{Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine}
 \author{John Zobolas}
-\date{Last updated: 15 September, 2020}
+\date{Last updated: 26 September, 2020}
 
 \begin{document}
 \maketitle
@@ -144,19 +144,6 @@ Chapters are currently split as:
   Experimental/future ideas (see \protect\hyperlink{phd-ideas}{Chapter 3})
 \item
   Various text (see \protect\hyperlink{text}{Chapter 4})
-\end{itemize}
-
-\hypertarget{updates}{%
-\subsection*{Updates}\label{updates}}
-\addcontentsline{toc}{subsection}{Updates}
-
-\begin{itemize}
-\tightlist
-\item
-  21/6/2020\\
-  Add paper plan.
-  See structure of \protect\hyperlink{phd-papers}{Chapter 2} for more info.
-  Clear/refine text.
 \end{itemize}
 
 \hypertarget{keywords}{%
@@ -217,49 +204,8 @@ rest in a section like `Funny PhD side-quests').
 \item
   \href{https://github.com/druglogics/abmlog}{abmlog} package.
 \item
-  \texttt{emba} (J. Zobolas \protect\hyperlink{ref-R-emba}{2020}\protect\hyperlink{ref-R-emba}{a}).
+  \texttt{emba} R package (J. Zobolas, Kuiper, and Flobak \protect\hyperlink{ref-Zobolas2020}{2020}).
   See \href{https://github.com/bblodfon/gitsbe-model-analysis/}{gitsbe-model-analysis repository} with various analysis using this package (input is files from \texttt{gitsbe}).
-\end{itemize}
-
-\hypertarget{attrToolCmp}{%
-\subsection*{Attractor Tools performance comparison}\label{attrToolCmp}}
-\addcontentsline{toc}{subsection}{Attractor Tools performance comparison}
-
-Some preliminary results comparing \textbf{fixpoint} and \textbf{trapspace} calculation tools using the following 2 topologies: \textbf{CASCADE 1.0} (77 nodes and 149 edges) and \textbf{CASCADE 2.0} (144 nodes, 367 edges). Both of these models are self-contained (no inputs, less attractors).
-
-Tools tested (\textbf{fixpoints}): \texttt{BNReduction} (full and reduced version - the second is considerably faster (main reason we were using it), but does not find more than 1 stable state which was more like a feature we wanted especially for larger self-contained networks), \texttt{BioLQM\ (BDD-based)}.
-
-Tools tested (\textbf{trapspaces}): \texttt{BioLQM\ (BDD-based)} vs \texttt{PyBoolNet} (I also tried the ASP-based solver of BioLQM but it was slower than the BDD-based algorithm, as Aurelien states in the \href{http://colomoto.org/biolqm/doc/tools-trapspace.html}{documentation})
-
-\begin{itemize}
-\tightlist
-\item
-  FIXPOINTS
-
-  \begin{itemize}
-  \tightlist
-  \item
-    CASCADE 1.0: BioLQM(fixpoints) \textless\textless{} BNReduction(reduced) (\textasciitilde same time to calculate the trapspaces using BioLQM!) \textless\textless{} BNReduction(full).
-  \item
-    CASCADE 2.0: BNReduction(reduced) \textless\textless{} BNReduction(full) \textless{} BioLQM(fixpoints)
-  \end{itemize}
-\end{itemize}
-
-So, for our smaller topology, we can actually use the BioLQM stable state calculation and it will give us complete fixpoint results even faster than the BNReduction (reduced version) we are using currently. Even more: \textbf{we could use the BioLQM trapspace computation for that smaller model! For the larger network though, I am afraid BioLQM does not scale as well as the BNReduction does.}
-
-\begin{itemize}
-\tightlist
-\item
-  TRAPSPACES
-
-  \begin{itemize}
-  \tightlist
-  \item
-    PyBoolNet \textless\textless{} BioLQM, no matter the model chosen. Especially for the larger network, BioLQM takes several minutes when PyBoolNet takes less than 10 seconds. For the smaller topology, it's the same difference in scale but in millisecs (PyBoolNet: \textasciitilde10msecs, BioLQM: \textasciitilde200msecs per model).
-  \item
-    MPBN(\url{https://github.com/pauleve/mpbn/}) \textgreater\textgreater{} PyBoolNet.
-    The sad thing is the overhead you get when runnng the Python module through java which is actually longer for smaller networks than the calculation of the trapspaces themselves! Implemented in the pipeline now.
-  \end{itemize}
 \end{itemize}
 
 \hypertarget{vsm}{%
@@ -271,6 +217,8 @@ We call them UBDs: \emph{Unified Biological Dictionaries}.
 See \href{https://github.com/UniBioDicts}{UBD GitHub organisation page}.
 
 Most of this work is done in order to support Vasundra's \href{https://mi2cast.github.io/causalBuilder/}{causalBuilder Tool} which is the first application of VSM after SciCura v1.
+
+Soon to be published in Bioinformatics (I hope!)
 
 \hypertarget{psicquic}{%
 \section*{PSICQUIC}\label{psicquic}}
@@ -294,9 +242,9 @@ library to also support MITAB 2.8 - this is the culmination of results from the
 \item
   Java Client for RSAT tool \href{https://github.com/bblodfon/rsat-rest-java-clients}{fetch-sequences}
 \item
-  \texttt{usefun} (J. Zobolas \protect\hyperlink{ref-R-usefun}{2020}\protect\hyperlink{ref-R-usefun}{c}) (for the community!)
+  \texttt{usefun} (J. Zobolas \protect\hyperlink{ref-R-usefun}{2020}\protect\hyperlink{ref-R-usefun}{b}) (for the community!)
 \item
-  \texttt{rtemps} (J. Zobolas \protect\hyperlink{ref-R-rtemps}{2020}\protect\hyperlink{ref-R-rtemps}{b}) (for the community!)
+  \texttt{rtemps} (J. Zobolas \protect\hyperlink{ref-R-rtemps}{2020}\protect\hyperlink{ref-R-rtemps}{a}) (for the community!)
 \end{itemize}
 
 \hypertarget{phd-papers}{%
@@ -323,11 +271,11 @@ library to also support MITAB 2.8 - this is the culmination of results from the
 \begin{itemize}
 \tightlist
 \item
-  VSM-box paper
+  VSM-box paper (Vercruysse et al. \protect\hyperlink{ref-vercruysse2020vsm}{2020})
 \item
   \protect\hyperlink{vsm}{UniBioDicts paper}
 \item
-  causalBuilder paper
+  causalBuilder paper (soon to be published in Database)
 \end{itemize}
 
 \hypertarget{logical-modelingpredicting-synergiesfinding-mechanisms}{%
@@ -337,13 +285,11 @@ library to also support MITAB 2.8 - this is the culmination of results from the
 \begin{itemize}
 \tightlist
 \item
-  \texttt{emba}: R package for analysis and visualization of biomarkers in boolean model ensembles (\href{http://tiny.cc/emba-joss}{JOSS manuscript})
+  emba (J. Zobolas, Kuiper, and Flobak \protect\hyperlink{ref-Zobolas2020}{2020})
 \item
-  Pipeline paper I: an AGS story (Asmund's paper, me as co-author)
+  Pipeline paper I: an AGS story (Asmund's paper, me as co-author, hopefully soon!!!)
 \item
-  \emph{synergy} paper - see \href{http://tiny.cc/synergy-paper}{manuscript}
-\item
-  balance mutations paper - see \href{http://tiny.cc/balance-paper}{manuscript}
+  \textbf{Goal is 2 more papers}, related to link operator function bias and the CASCADE 1.0 \href{https://doi.org/10.5281/zenodo.4022783}{dataset}
 \end{itemize}
 
 \hypertarget{phd-ideas}{%
@@ -367,7 +313,7 @@ Though SynergyFinder 2.0 (Ianevski, Giri, and Aittokallio \protect\hyperlink{ref
 \addcontentsline{toc}{section}{Compare fixpoint tools}
 
 Idea: Compare different tools that calculate fixpoints for logical modeling.
-Faster wins of course :) Extension of this \protect\hyperlink{attrToolCmp}{small investigation}.
+Faster wins of course :) Extension of this \protect\hyperlink{http:ux2fux2ftiny.ccux2fattr-tool-cmp}{small investigation}.
 
 Models used for testing could be of different types:
 
@@ -443,7 +389,7 @@ Has to do about \emph{mechanistic drug response prediction analysis}:
   \item
     Drug Target annotation (Tang et al. \protect\hyperlink{ref-Tang2018}{2018}) (\url{https://drugtargetcommons.fimm.fi/})
   \item
-    Drug Combo effect digested (Zagidullin et al. \protect\hyperlink{ref-Zagidullin2019}{2019}) (\url{https://drugcomb.fimm.fi/})
+    Drug Combo effect digested (``DrugComb: an integrative cancer drug combination data portal'' \protect\hyperlink{ref-Zagidullin2019}{2019}) (\url{https://drugcomb.fimm.fi/})
   \end{itemize}
 \item
   Omics data (rna, cnv etc)
@@ -715,6 +661,9 @@ Akutsu, Tatsuya, Morihiro Hayashida, and Takeyuki Tamura. 2009. ``Integer progra
 \leavevmode\hypertarget{ref-Davis2011}{}%
 Davis, Mindy I, Jeremy P Hunt, Sanna Herrgard, Pietro Ciceri, Lisa M Wodicka, Gabriel Pallares, Michael Hocker, Daniel K Treiber, and Patrick P Zarrinkar. 2011. ``Comprehensive analysis of kinase inhibitor selectivity.'' \emph{Nature Biotechnology} 29 (11): 1046--51. \url{https://doi.org/10.1038/nbt.1990}.
 
+\leavevmode\hypertarget{ref-Zagidullin2019}{}%
+``DrugComb: an integrative cancer drug combination data portal.'' 2019. \emph{Nucleic Acids Research} 47 (W1): W43--W51. \url{https://doi.org/10.1093/nar/gkz337}.
+
 \leavevmode\hypertarget{ref-Dubrova2009}{}%
 Dubrova, Elena, and Maxim Teslenko. 2009. ``A SAT-Based Algorithm for Computing Attractors in Synchronous Boolean Networks.'' \url{https://arxiv.org/pdf/0901.4448.pdf\%20https://ieeexplore.ieee.org/document/5958722/}.
 
@@ -757,20 +706,20 @@ Perfetto, L, M L Acencio, G Bradley, G Cesareni, N Del Toro, D Fazekas, H Hermja
 \leavevmode\hypertarget{ref-Tang2018}{}%
 Tang, Jing, Zia ur Rehman Tanoli, Balaguru Ravikumar, Zaid Alam, Anni Rebane, Markus Vähä-Koskela, Gopal Peddinti, et al. 2018. ``Drug Target Commons: A Community Effort to Build a Consensus Knowledge Base for Drug-Target Interactions.'' \emph{Cell Chemical Biology} 25 (2): 224--229.e2. \url{https://doi.org/10.1016/j.chembiol.2017.11.009}.
 
+\leavevmode\hypertarget{ref-vercruysse2020vsm}{}%
+Vercruysse, Steven, John Zobolas, Vasundra Touré, Maria K Andersen, and Martin Kuiper. 2020. ``VSM-box: general-purpose interface for biocuration and knowledge representation.'' \url{https://doi.org/10.20944/preprints202007.0557.v1}.
+
 \leavevmode\hypertarget{ref-Wittmann2009}{}%
 Wittmann, Dominik M, Jan Krumsiek, Julio Saez-Rodriguez, Douglas A Lauffenburger, Steffen Klamt, and Fabian J Theis. 2009. ``Transforming Boolean models to continuous models: methodology and application to T-cell receptor signaling.'' \emph{BMC Systems Biology} 3 (1): 98. \url{https://doi.org/10.1186/1752-0509-3-98}.
 
-\leavevmode\hypertarget{ref-Zagidullin2019}{}%
-Zagidullin, Bulat, Jehad Aldahdooh, Shuyu Zheng, Wenyu Wang, Yinyin Wang, Joseph Saad, Alina Malyutina, et al. 2019. ``DrugComb: an integrative cancer drug combination data portal.'' \emph{Nucleic Acids Research} 47 (W1): W43--W51. \url{https://doi.org/10.1093/nar/gkz337}.
-
-\leavevmode\hypertarget{ref-R-emba}{}%
-Zobolas, John. 2020a. \emph{Emba: Ensemble Boolean Model Biomarker Analysis}.
-
 \leavevmode\hypertarget{ref-R-rtemps}{}%
----------. 2020b. \emph{Rtemps: R Templates for Reproducible Data Analyses}. \url{https://github.com/bblodfon/rtemps}.
+Zobolas, John. 2020a. \emph{Rtemps: R Templates for Reproducible Data Analyses}. \url{https://github.com/bblodfon/rtemps}.
 
 \leavevmode\hypertarget{ref-R-usefun}{}%
----------. 2020c. \emph{Usefun: A Collection of Useful Functions by John}. \url{https://github.com/bblodfon/usefun}.
+---------. 2020b. \emph{Usefun: A Collection of Useful Functions by John}. \url{https://github.com/bblodfon/usefun}.
+
+\leavevmode\hypertarget{ref-Zobolas2020}{}%
+Zobolas, John, Martin Kuiper, and Åsmund Flobak. 2020. ``emba: R package for analysis and visualization of biomarkers in boolean model ensembles.'' \emph{Journal of Open Source Software} 5 (53): 2583. \url{https://doi.org/10.21105/joss.02583}.
 \end{cslreferences}
 
 \end{document}
