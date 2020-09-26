@@ -26,7 +26,7 @@ lot: true
 ```{r include = FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'emba', 'usefun', 'rtemps'
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'usefun', 'rtemps'
 ), 'packages.bib')
 ```
 
@@ -38,13 +38,6 @@ Chapters are currently split as:
 - Papers (see [Chapter 2](#phd-papers))
 - Experimental/future ideas (see [Chapter 3](#phd-ideas))
 - Various text (see [Chapter 4](#text))
-
-### Updates {-}
-
-- 21/6/2020  
-  Add paper plan. 
-  See structure of [Chapter 2](#phd-papers) for more info. 
-  Clear/refine text.
 
 ### Keywords {-}
 
