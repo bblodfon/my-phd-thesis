@@ -14,7 +14,7 @@ Though SynergyFinder 2.0 [@Ianevski2020] has simplemented something similar for 
 ## Compare fixpoint tools {-#comp}
 
 Idea: Compare different tools that calculate fixpoints for logical modeling. 
-Faster wins of course :) Extension of this [small investigation](#attrToolCmp).
+Faster wins of course :) Extension of this [small investigation](#http://tiny.cc/attr-tool-cmp).
 
 Models used for testing could be of different types:
 

@@ -26,27 +26,8 @@ ROC curve
 - Export support using [BioLQM](https://github.com/colomoto/bioLQM): the initial model + best generation models can now be exported through configuration options to **GINML, SBML-Qual and BoolNet** community formats
 - **Attractor calculation** (stable states and minimal trapspaces) using [BioLQM](https://github.com/colomoto/bioLQM)
 - [abmlog](https://github.com/druglogics/abmlog) package.
-- `emba` [@R-emba].
+- `emba` R package [@Zobolas2020].
   See [gitsbe-model-analysis repository](https://github.com/bblodfon/gitsbe-model-analysis/) with various analysis using this package (input is files from `gitsbe`).
-
-### Attractor Tools performance comparison {-#attrToolCmp}
-
-Some preliminary results comparing **fixpoint** and **trapspace** calculation tools using the following 2 topologies: **CASCADE 1.0** (77 nodes and 149 edges) and **CASCADE 2.0** (144 nodes, 367 edges). Both of these models are self-contained (no inputs, less attractors). 
-
-Tools tested (**fixpoints**): `BNReduction` (full and reduced version - the second is considerably faster (main reason we were using it), but does not find more than 1 stable state which was more like a feature we wanted especially for larger self-contained networks), `BioLQM (BDD-based)`.
-
-Tools tested (**trapspaces**): `BioLQM (BDD-based)` vs `PyBoolNet` (I also tried the ASP-based solver of BioLQM but it was slower than the BDD-based algorithm, as Aurelien states in the [documentation](http://colomoto.org/biolqm/doc/tools-trapspace.html))
-
-- FIXPOINTS
-  - CASCADE 1.0: BioLQM(fixpoints) << BNReduction(reduced) (~same time to calculate the trapspaces using BioLQM!) << BNReduction(full).
-  - CASCADE 2.0: BNReduction(reduced) << BNReduction(full) < BioLQM(fixpoints)
-
-So, for our smaller topology, we can actually use the BioLQM stable state calculation and it will give us complete fixpoint results even faster than the BNReduction (reduced version) we are using currently. Even more: **we could use the BioLQM trapspace computation for that smaller model! For the larger network though, I am afraid BioLQM does not scale as well as the BNReduction does.**
-
-- TRAPSPACES
-  - PyBoolNet << BioLQM, no matter the model chosen. Especially for the larger network, BioLQM takes several minutes when PyBoolNet takes less than 10 seconds. For the smaller topology, it's the same difference in scale but in millisecs (PyBoolNet: ~10msecs, BioLQM: ~200msecs per model).
-  - MPBN(https://github.com/pauleve/mpbn/) >> PyBoolNet. 
-  The sad thing is the overhead you get when runnng the Python module through java which is actually longer for smaller networks than the calculation of the trapspaces themselves! Implemented in the pipeline now.
 
 ## VSM {-}
 
@@ -55,6 +36,8 @@ We call them UBDs: *Unified Biological Dictionaries*.
 See [UBD GitHub organisation page](https://github.com/UniBioDicts).
 
 Most of this work is done in order to support Vasundra's [causalBuilder Tool](https://mi2cast.github.io/causalBuilder/) which is the first application of VSM after SciCura v1.
+
+Soon to be published in Bioinformatics (I hope!)
 
 ## PSICQUIC {-}
 
