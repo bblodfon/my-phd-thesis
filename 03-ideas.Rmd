@@ -82,7 +82,7 @@ Test implementation on different networks:
 - Fission yeast paper? (write sif!)
 - CASCADE 1.0? (AND-NOT results in all dashes trapspace, and no fixed point obviously)
 
-**Optimization problem**: find β (inhibitor weight, different per target boolean function) that makes a system of boolean threshold function (a model that is) exhibit a specific FP.
+**Optimization problem**: find $\beta$ (inhibitor weight, different per target boolean function) that makes a system of boolean threshold function (a model that is) exhibit a specific FP.
 See from the list of previously tested networks which ones found a fixpoint, how that closely matches biological reality and **what do the beta values correspond to (their meaning so to speak)**.
 
 ## Druglogics-Pipeline related {-}
