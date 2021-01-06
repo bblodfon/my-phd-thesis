@@ -41,7 +41,7 @@ Chapters are currently split as:
 
 ### Keywords {-}
 
-:::{.blue-box}
+:::{.blue-box data-latex=""}
 *curation/knowledge management, VSM, causal statements, DrugLogics pipeline 
 (model parameterization/calibration and prediction of synergistic drug combinations, performance optimization), biomarker analysis, synergy assessment*
 :::
