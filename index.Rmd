@@ -15,7 +15,7 @@ link-citations: true
 colorlinks: true
 linkcolor: black # internal links, e.g. cross-ref
 urlcolor: blue # for URLs
-geometry: "left=4cm, right=4cm, top=2.5cm, bottom=2.5cm"
+geometry: "left=2cm, right=2cm, top=2.5cm, bottom=2.5cm"
 fontsize: 12pt
 linestretch: 1.3
 toc-depth: 1
