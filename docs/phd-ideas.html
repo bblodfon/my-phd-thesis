@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 PhD ideas | Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine</title>
   <meta name="description" content="John Zobolas’s PhD thesis, NTNU" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 PhD ideas | Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="phd-papers.html"/>
 <link rel="next" href="text.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -230,7 +230,7 @@ with help from <span class="citation">(Wittmann et al. <a href="references.html#
 <li>Fission yeast paper? (write sif!)</li>
 <li>CASCADE 1.0? (AND-NOT results in all dashes trapspace, and no fixed point obviously)</li>
 </ul>
-<p><strong>Optimization problem</strong>: find β (inhibitor weight, different per target boolean function) that makes a system of boolean threshold function (a model that is) exhibit a specific FP.
+<p><strong>Optimization problem</strong>: find <span class="math inline">\(\beta\)</span> (inhibitor weight, different per target boolean function) that makes a system of boolean threshold function (a model that is) exhibit a specific FP.
 See from the list of previously tested networks which ones found a fixpoint, how that closely matches biological reality and <strong>what do the beta values correspond to (their meaning so to speak)</strong>.</p>
 </div>
 <div id="druglogics-pipeline-related" class="section level2 unnumbered" number="">
@@ -374,6 +374,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

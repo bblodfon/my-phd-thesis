@@ -48,7 +48,7 @@
   urlcolor=blue,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\usepackage[left=4cm, right=4cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage[left=2cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry}
 \usepackage{longtable,booktabs}
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -115,7 +115,7 @@
 
 \title{Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine}
 \author{John Zobolas}
-\date{Last updated: 26 September, 2020}
+\date{Last updated: 06 January, 2021}
 
 \begin{document}
 \maketitle
@@ -150,12 +150,8 @@ Chapters are currently split as:
 \subsection*{Keywords}\label{keywords}}
 \addcontentsline{toc}{subsection}{Keywords}
 
-\begin{blue-box}
-
 \emph{curation/knowledge management, VSM, causal statements, DrugLogics pipeline
 (model parameterization/calibration and prediction of synergistic drug combinations, performance optimization), biomarker analysis, synergy assessment}
-
-\end{blue-box}
 
 \begin{center}\includegraphics[width=0.5\linewidth]{img/NTNU-logo} \end{center}
 
@@ -436,9 +432,62 @@ logical to ODE modeling. Also try to predict drug combinations datasets
 (dose-response matrices?). Pretty much what is done in this paper (Fröhlich et al. \protect\hyperlink{ref-Frohlich2018}{2018})
 with help from (Wittmann et al. \protect\hyperlink{ref-Wittmann2009}{2009}) for converting boolean models to continuous.
 
+\hypertarget{attractors-with-threshold-boolean-functions}{%
+\section*{Attractors with Threshold Boolean Functions}\label{attractors-with-threshold-boolean-functions}}
+\addcontentsline{toc}{section}{Attractors with Threshold Boolean Functions}
+
+\begin{itemize}
+\tightlist
+\item
+  Fixpoint (FP) calculation of threshold function using ASP
+\item
+  Write \texttt{Python} code/package
+\item
+  Check if keeping the same state in the equality case is beneficial/proper/possible or not (put it as an option? Or have the two different balance-sum functions?)
+\end{itemize}
+
+Test implementation on different networks:
+
+\begin{itemize}
+\tightlist
+\item
+  Cell cycle network from (Li et al. \protect\hyperlink{ref-Li2004}{2004}) (I wrote the .sif)
+\item
+  Fission yeast paper? (write sif!)
+\item
+  CASCADE 1.0? (AND-NOT results in all dashes trapspace, and no fixed point obviously)
+\end{itemize}
+
+\textbf{Optimization problem}: find \(\beta\) (inhibitor weight, different per target boolean function) that makes a system of boolean threshold function (a model that is) exhibit a specific FP.
+See from the list of previously tested networks which ones found a fixpoint, how that closely matches biological reality and \textbf{what do the beta values correspond to (their meaning so to speak)}.
+
 \hypertarget{druglogics-pipeline-related}{%
 \section*{Druglogics-Pipeline related}\label{druglogics-pipeline-related}}
 \addcontentsline{toc}{section}{Druglogics-Pipeline related}
+
+\hypertarget{py_drabme-module}{%
+\subsection*{py\_drabme module}\label{py_drabme-module}}
+\addcontentsline{toc}{subsection}{py\_drabme module}
+
+Idea is to have a more general \texttt{Drabme} written in Python with these features:
+
+\begin{itemize}
+\tightlist
+\item
+  Can be used in CoLoMoTo Jupyter Notebook
+\item
+  All types of boolean models are allowed (not just the standardized format equations and using the gitsbe format)
+\item
+  Outputs a data frame (rows = models, columns = single, double, etc. drug perturbations, values =\textgreater{} normalized global output)
+\item
+  No synergy scores =\textgreater{} easily done afterwards in \emph{Python} or \emph{R} given the output data frame, keep it simple.
+  So it's more like \emph{drug response calculation} and not a \emph{drug response analysis} package.
+\item
+  Use \texttt{BioLQM} or the \texttt{MPBN} framework for attractors (fixpoints and terminal trapspaces) or \texttt{MaBoSS} (find Survival probability from global outputs for WT?, A, B and A+B drugs)
+\end{itemize}
+
+Then I could use this software to do similar work as in (Calzone, Barillot, and Zinovyev \protect\hyperlink{ref-Calzone2015}{2015}) (but not for all possible knockouts or over expressions) - on the CASCADE 1.0 (1 stable state models) I can get with \texttt{MaBoSS} \textbf{continuous values for the synergy scores} and make the synergy maps with the UMAP dimension reduction method.
+Also an idea is to make (as done in Traynard et al. (\protect\hyperlink{ref-Traynard2017}{2017}), Figure 6 and Calzone, Barillot, and Zinovyev (\protect\hyperlink{ref-Calzone2015}{2015}){]}) a graph of synergy strengths between different perturbed nodes.
 
 \hypertarget{harmony-search}{%
 \subsection*{Harmony Search}\label{harmony-search}}
@@ -658,6 +707,9 @@ To IntAct and Henning for letting me be part
 \leavevmode\hypertarget{ref-Akutsu2009}{}%
 Akutsu, Tatsuya, Morihiro Hayashida, and Takeyuki Tamura. 2009. ``Integer programming-based methods for attractor detection and control of boolean networks.'' In \emph{Proceedings of the 48h Ieee Conference on Decision and Control (Cdc) Held Jointly with 2009 28th Chinese Control Conference}, 5610--7. IEEE. \url{https://doi.org/10.1109/CDC.2009.5400017}.
 
+\leavevmode\hypertarget{ref-Calzone2015}{}%
+Calzone, Laurence, Emmanuel Barillot, and Andrei Zinovyev. 2015. ``Predicting genetic interactions from Boolean models of biological networks.'' \emph{Integrative Biology (United Kingdom)} 7 (8): 921--29. \url{https://doi.org/10.1039/c5ib00029g}.
+
 \leavevmode\hypertarget{ref-Davis2011}{}%
 Davis, Mindy I, Jeremy P Hunt, Sanna Herrgard, Pietro Ciceri, Lisa M Wodicka, Gabriel Pallares, Michael Hocker, Daniel K Treiber, and Patrick P Zarrinkar. 2011. ``Comprehensive analysis of kinase inhibitor selectivity.'' \emph{Nature Biotechnology} 29 (11): 1046--51. \url{https://doi.org/10.1038/nbt.1990}.
 
@@ -688,6 +740,9 @@ Klaeger, Susan, Stephanie Heinzlmeir, Mathias Wilhelm, Harald Polzer, Binje Vick
 \leavevmode\hypertarget{ref-Lederer2018}{}%
 Lederer, Simone, Tjeerd M H Dijkstra, and Tom Heskes. 2018. ``Additive Dose Response Models: Explicit Formulation and the Loewe Additivity Consistency Condition.'' \emph{Frontiers in Pharmacology} 9: 31. \url{https://doi.org/10.3389/fphar.2018.00031}.
 
+\leavevmode\hypertarget{ref-Li2004}{}%
+Li, Fangting, Tao Long, Ying Lu, Qi Ouyang, and Chao Tang. 2004. ``The yeast cell-cycle network is robustly designed.'' \emph{Proceedings of the National Academy of Sciences of the United States of America} 101 (14): 4781--6. \url{https://doi.org/10.1073/pnas.0305937101}.
+
 \leavevmode\hypertarget{ref-Licata2019}{}%
 Licata, Luana, Prisca Lo~Surdo, Marta Iannuccelli, Alessandro Palma, Elisa Micarelli, Livia Perfetto, Daniele Peluso, Alberto Calderone, Luisa Castagnoli, and Gianni Cesareni. 2019. ``SIGNOR 2.0, the SIGnaling Network Open Resource 2.0: 2019 update.'' \emph{Nucleic Acids Research}, October. \url{https://doi.org/10.1093/nar/gkz949}.
 
@@ -705,6 +760,9 @@ Perfetto, L, M L Acencio, G Bradley, G Cesareni, N Del Toro, D Fazekas, H Hermja
 
 \leavevmode\hypertarget{ref-Tang2018}{}%
 Tang, Jing, Zia ur Rehman Tanoli, Balaguru Ravikumar, Zaid Alam, Anni Rebane, Markus Vähä-Koskela, Gopal Peddinti, et al. 2018. ``Drug Target Commons: A Community Effort to Build a Consensus Knowledge Base for Drug-Target Interactions.'' \emph{Cell Chemical Biology} 25 (2): 224--229.e2. \url{https://doi.org/10.1016/j.chembiol.2017.11.009}.
+
+\leavevmode\hypertarget{ref-Traynard2017}{}%
+Traynard, Pauline, Luis Tobalina, Federica Eduati, Laurence Calzone, and Julio Saez-Rodriguez. 2017. ``Logic Modeling in Quantitative Systems Pharmacology.'' \emph{CPT: Pharmacometrics \& Systems Pharmacology} 6 (8): 499--511. \url{https://doi.org/10.1002/psp4.12225}.
 
 \leavevmode\hypertarget{ref-vercruysse2020vsm}{}%
 Vercruysse, Steven, John Zobolas, Vasundra Touré, Maria K Andersen, and Martin Kuiper. 2020. ``VSM-box: general-purpose interface for biocuration and knowledge representation.'' \url{https://doi.org/10.20944/preprints202007.0557.v1}.
