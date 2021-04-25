@@ -7,10 +7,9 @@ bookdown::gitbook:
         <li><a href="./">John Zobolas's PhD Thesis</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/bblodfon/my-phd-thesis/edit/master/%s
     download:
       - ["phd-thesis.pdf", "PDF"]
-      - ["phd-thesis.docx", "WORD"]
+      #- ["phd-thesis.docx", "WORD"]
     sharing:
       github: yes
       facebook: no
@@ -26,20 +25,3 @@ bookdown::pdf_book:
     # citation_package: natbib
   keep_tex: yes
   # number_sections: no
-
-# Word file
-bookdown::word_document2:
-  default
-
-# E-book
-# bookdown::epub_book: default
-
-# RMarkdown to HTML (not nice compared to gitbook!)
-# bookdown::html_book:
-#   toc: yes
-#   css: css/toc.css
-
-# Markdown to Tufte style (looks good, needs a lot of config+fixes)
-# bookdown::tufte_html_book:
-#   toc: yes
-#   split_by: none
