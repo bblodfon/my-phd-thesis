@@ -1,0 +1,12 @@
+## Acknowledgements {-}
+
+To Asmund for good supervision: 
+
+- Best writing tip: Every paragraph should start with a 'why', next 'what done', next 'what found', next 'what does this mean' => every paragraph is like a small paper, intro + methods + results + discussion
+
+To Martin, firstly for taking me in as a PhD student and giving me the opportunity to come to Norway. Secondly for his strategical advice during my PhD,  
+To Astrid Laergid, for letting me know about the RRI course!
+And subsequently to Roger Stran, Heindrun Am and all the other participants of the RRI course: mpla mpla for the expericence and making me realise the complexity of science and the beauty of its philoshophy.
+To Steven for teaching how to be a write good open-source Web developer and for some nice conversations about context, knowledge representation
+To Noemi Del Toro Ayllon,
+To IntAct and Henning for letting me be part 

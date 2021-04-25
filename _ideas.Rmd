@@ -1,0 +1,155 @@
+# PhD ideas
+
+Several ideas that I may do or not in my PhD but I still keep here for my future
+investigations!
+
+## Extend *SynergyFinder* {-#synergy-finder}
+
+The core idea here is to extend an existing R package [@Ianevski2017] for calculating synergy reference models in order to include Wim's generalized Bliss method [@Mulder2019] and the mean synergy score by Simone Laderer [@Lederer2018]!
+Then I will test all the null reference models (Loewe, Bliss, ZIP + others) on dose-response matrix datasets and see which is best at finding the synergies in each dataset (given some gold standards I guess).
+
+Also, I should investigate if my own idea for a mathematical formulation of the volume-based synergy score (see also VISAGE [@Patterson2019]) as general method for describing 3-wise or more combinations as synergistic, could be part of this implementation.
+Though SynergyFinder 2.0 [@Ianevski2020] has simplemented something similar for high-order combinations using tensors.
+
+## Compare fixpoint tools {-#comp}
+
+Idea: Compare different tools that calculate fixpoints for logical modeling. 
+Faster wins of course :) Extension of this [small investigation](#http://tiny.cc/attr-tool-cmp).
+
+Models used for testing could be of different types:
+
+- self-contained
+- varying the number of input nodes (1-n)
+- small to large number of nodes
+- small to large number of edges
+- scale-free (boolnet generated) vs random (varying K connectivity)
+- play with form of the boolean equations
+- others ???
+
+Workflow for this includes:
+
+- support BNReduction data format by [Veliz-Cuba](https://doi.org/10.1186/1471-2105-15-221) 
+in BioLQM
+- add support for calculating the fixpoints using the Colomoto docker (python
+interface) + BNReduction
+- then comparison between **BioLQM, Pint, MABOSS, MPBNs and BNReduction** could be done then
+in a Jupiter colomoto-enabled notebook!
+
+Further extension/comparisons could be:
+
+- [@Akutsu2009] - Integer programming method
+- [@Dubrova2009] - SAT-based
+
+## Use Logical modeling to predict single-drug data {-}
+
+Asmund's proposal idea that he sent to my email once. 
+Has to do about *mechanistic drug response prediction analysis*:
+
+- **Automate drug target profile annotation** from (hard to *digest*) data sources from papers:
+  - [@Klaeger2017]
+  - [mrc ppu](http://www.kinase-screen.mrc.ac.uk/)
+  - [@Davis2011]
+- More easy/direct methods to get target annotation profiles would be using: 
+  - Drug Target annotation [@Tang2018] (https://drugtargetcommons.fimm.fi/)
+  - Drug Combo effect digested [@Zagidullin2019] (https://drugcomb.fimm.fi/)
+- Omics data (rna, cnv etc)
+  - COSMIC
+  - CCLE
+- Drug screen data
+  - Single drug
+    - COSMIC/GDSC
+    - CCLE
+  - Combo
+    - [@ONeil2016]
+    - [@Holbeck2017]
+
+**My idea** is more like this:  
+Predict drug-response curves from drug combination datasets (GDSC, CCLE), 
+using logical modeling for singaling network analysis or translation from 
+logical to ODE modeling. Also try to predict drug combinations datasets 
+(dose-response matrices?). Pretty much what is done in this paper [@Frohlich2018] 
+with help from [@Wittmann2009] for converting boolean models to continuous.
+
+## Attractors with Threshold Boolean Functions {-}
+
+- Fixpoint (FP) calculation of threshold function using ASP
+- Write `Python` code/package
+- Check if keeping the same state in the equality case is beneficial/proper/possible or not (put it as an option? Or have the two different balance-sum functions?)
+
+Test implementation on different networks:
+
+- Cell cycle network from [@Li2004] (I wrote the .sif)
+- Fission yeast paper? (write sif!)
+- CASCADE 1.0? (AND-NOT results in all dashes trapspace, and no fixed point obviously)
+
+**Optimization problem**: find $\beta$ (inhibitor weight, different per target boolean function) that makes a system of boolean threshold function (a model that is) exhibit a specific FP.
+See from the list of previously tested networks which ones found a fixpoint, how that closely matches biological reality and **what do the beta values correspond to (their meaning so to speak)**.
+
+## Druglogics-Pipeline related {-}
+
+### py_drabme module {-}
+
+Idea is to have a more general `Drabme` written in Python with these features:
+
+- Can be used in CoLoMoTo Jupyter Notebook
+- All types of boolean models are allowed (not just the standardized format equations and using the gitsbe format)
+- Outputs a data frame (rows = models, columns = single, double, etc. drug perturbations, values => normalized global output)
+- No synergy scores => easily done afterwards in *Python* or *R* given the output data frame, keep it simple.
+So it’s more like *drug response calculation* and not a *drug response analysis* package.
+- Use `BioLQM` or the `MPBN` framework for attractors (fixpoints and terminal trapspaces) or `MaBoSS` (find Survival probability from global outputs for WT?, A, B and A+B drugs)
+
+Then I could use this software to do similar work as in [@Calzone2015] (but not for all possible knockouts or over expressions) - on the CASCADE 1.0 (1 stable state models) I can get with `MaBoSS` **continuous values for the synergy scores** and make the synergy maps with the UMAP dimension reduction method.
+Also an idea is to make (as done in @Traynard2017, Figure 6 and @Calzone2015]) a graph of synergy strengths between different perturbed nodes.
+
+### Harmony Search {-}
+
+Nice idea because it's related to music! 
+Investigate if [this algorithm](https://doi.org/10.1016/j.proeng.2016.07.510) could be used for optimizing the boolean equations for `gitsbe` - thus opening the stage for **JazzLogics**!
+
+### Train models to cell-specific proliferation {-}
+
+Concept is that training models to proliferate provides a wider variance of models than the cell-specific trained ones in `gitsbe`: main directive is **proliferation**, not just fitting to a steady state pattern. 
+So a hybrid training approach should be way more advantageous in that point of view.
+
+### A bottom-up model building for drug prediction {-}
+
+Start with a model and some observed synergies. 
+Build/train/produce models that predict the first observed synergy (using Harmony Search?), from them the next one, etc. 
+You end up with many models that can predict all the observed synergies or you try to find out why that cannot happen for example (e.g. contrasting synergies? mechanistic explanation why that happens?). 
+Do the resulting models stable states or attractors correspond to activity protein profile from literature?
+
+### Simulate cancer resistance {-}
+
+For example, you have some models that predict some (observed) synergies or you just find some synergistic drug combinations for these models or per model. 
+Then, you modify these models in order to be resistant to these drugs, simulating thus the cancer rewiring process! 
+Then, you apply (n+1) drug combinations to win over the resistance (and you do this procedure at more levels to suggest 
+3-way, 4-way drug combos and why there might be cancer models that can 'win' over these models and continue the proliferation).
+You end up with super cancer resistant models and methods to achieve them or reasons why this cannot happen at all (again learning about the mechanism of these).
+
+### Causal-JSON or MI-JSON to boolean model converter {-}
+
+#### Idea {-}
+
+This idea is like a continuation of the `causalBuilder` tool by Vasundra coupled with the need to have a more proper representation of complexes (and families) in our logical models (better models, better predictions). 
+Asmund had *manually* changed some logical equations in his paper [@Flobak2015], in order to make the model more compliant with biology knowledge and literature findings. 
+One of them was about the beta-catenin complex and its constituents (connected with *AND's* instead of *OR's*) and the rest were about changing the link operators of the logical equations (from *AND NOT* to *OR NOT*). 
+The latter is something that is enabled through the mutations introduced by the genetic algorithm of `Gitsbe`. 
+The former depends on the dataset and the representation of complexes ^[There is actually a mutation that can change this but not in the way that we want - i.e. all components of a complex should be connected with an *AND*]. 
+
+Only Signor [@Licata2019] has some complexes + interaction data but they are seperate files, making it thus difficult (and non-elegant computationally-wise) to integrate such knowledge/data to boolean models. 
+Also Vasundra's experience with Reactome data in miTab2.8 showed us the difficulty to match binary interactions to a data model flexible enough to represent complexes and their internal components. Causal-JSON and the recursive schema that we thought allows the curator to put both the complex ID and it's constituents in the same data structure.
+
+#### Proposed Workflow {-}
+
+1. Get interaction + complexes/families data (Signor most probably or a form of CASCADE + complexes). 
+Note that for the reason I explained above miTab 2.8 is out of the question, so the Signor data I am refering to is the .tsv files they offer (interaction data, complexes, families). 
+And most probably I am referring to a **pathway interaction dataset** not the whole Signor data. 
+For example, the [Wnt Signaling pathway](https://signor.uniroma2.it/pathway_browser.php?organism=human&pathway_list=SIGNOR-WNT&level=1).
+2. Build a small module that translates the (Signor) data to Causal-JSON. 
+3. <div id="causalJSONPoint3"></div>**Main:** Build a package that translates the causal-JSON data to a logical model with some filtering and parameterization included (e.g. filter based on cell line (so *cell-line* specific topologies), conditions on the biological state: 'by phoshorylation', exp. evidence, assertion/confidence score, species, compartment). So, **causal-JSON to .bnet files (logical equations)**, while substituting/extending nicely the complexes and families. 
+4. Showcase some small application of this logical model end-product:  
+    - use for example the [colomoto notebook](https://github.com/colomoto/colomoto-docker), do some small trapspace analysis and show that some results from literature or from previous logical or other models can now be reproduced with a better biological representation in the model itself, AUTOMATICALLY!
+    - make many logical models of the pathways in Signor with simple attractor analysis and put them into the GinSim model repository for reference for the logical community.
+    - extend `atopo` module to use the main package (see [point No. 3](#causalJSONPoint3)) and use it for finding drug combinations (comparing attractors or prediction results of automated topology building without complexes vs automated topology built from causal-JSON with complexes and families in each case). 
+    The main thing here would be of course better prediction performance results based on a better logical model representation. 
+    I could tweak `atopo` to choose actually not all of Signor's data but specific pathways to include in the analysis and this will help I believe to build smaller topologies for specific drug combinations that we want to test.
