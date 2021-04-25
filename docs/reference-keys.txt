@@ -1,4 +1,0 @@
-phd-work
-phd-papers
-phd-ideas
-text
