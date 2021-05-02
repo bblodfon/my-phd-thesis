@@ -1,32 +1,64 @@
 ---
 title: "Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine"
-subtitle: ""
+subtitle: |
+  \   
+  Doctoral thesis  
+  \   
+  Norwegian University of Science and Technology  
+  Faculty of Natural Sciences  
+  Department of Biology  
 author: "John Zobolas"
-date: "Last updated: `r format(Sys.time(), '%d %B, %Y')`"
+date: "Trondheim, May 2021"
 site: bookdown::bookdown_site
 description: "John Zobolas's PhD thesis, NTNU"
 url: 'https\://bblodfon.github.io/my-phd-thesis/'
 github-repo: "bblodfon/my-phd-thesis"
 documentclass: book
-#classoption: oneside
-bibliography: ["references.bib", "packages.bib"]
-biblio-style: apalike
+#documentclass: ntnuthesis
+geometry: "left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm" # conflicts with ntnuthesis geometry
+bibliography: "references.bib"
+#csl: "csls/apa-numeric-superscript.csl" # nice
+csl: "csls/my_apa.csl" # nice
 link-citations: true
-colorlinks: true
-linkcolor: black # internal links, e.g. cross-ref
+#citecolor: blue
+linkcolor: blue # internal links, e.g. cross-ref, citation colors
 urlcolor: blue # for URLs
-geometry: "left=2cm, right=2cm, top=2.5cm, bottom=2.5cm"
 fontsize: 12pt
-linestretch: 1.3
+linestretch: 1.2
 toc-depth: 1
-lof: false
-lot: false
+#lof: false
+#lot: false
 ---
 
-# Preface {-}
+# Acknowledgements {-}
 
-<img src='https://media.giphy.com/media/dWa2rUaiahx1FB3jor/giphy.gif'></img>
+Let's first acknowledge funding from the **ERACoSysMed project COLOSYS**. Now to people, the most important part. **I would like to thank all the people** that interacted with me during the years I conducted my PhD research (2017-2021), even for a tiny bit. A person is only a small node in a complex network of interactions, which only when considered together, make up the person. So, you were **all important** for me! Importance though is measured in varying degrees. Therefore now, I will proceed to give some personal credits (the part that most of you came here to read :)
 
-```{r ntnu-logo, echo=FALSE, include=FALSE, fig.align='center', out.width='50%'}
-knitr::include_graphics("img/NTNU-logo.png")
+A big **THANK YOU** to my supervisor, Prof. Martin Kuiper. He gave me the opportunity to come to Norway, which opened a world of possibilities. The dream supervisor everyone should have and a caring human being above all.
+
+To Dr. Åsmund Flobak for excellent co-supervision, the nice scientific discussions we had and for introducing me into `R`, which largely influenced the way I do science. Spending time with his lively family was always a nice change of pace. The day we spend at Amsterdam's zoo and I saw my first penguins, will remain unforgettable.
+
+To Dr. Steven Vercruysse for our discussions and for teaching me and ins and outs of the software business. I will never forget the ELIXIR Biohackathon 2020, great laughs and great work, all in one.
+
+To Noemi Del Toro Ayllon, for introducing me to the professional world of software development and project management with Java. Visiting the IntAct team at EBI during the summer of 2018 was a memorable experience and when she came in Trondheim later in 2019, we had such a great time, so thank you Noe!
+
+To Prof. Astrid Laergid, for suggesting to me to participate in the Responsible Research and Innovation (RRI) course, which allowed me to think more broadly about my research and the world we live in, and of course meet several wonderful people! As a direct consequence, I had the opportunity to be part of a Walkshop in Jotunheimen (September 2019), which was a truly wonderful experience. Good times, good times.
+
+Special thanks go to Liv Eggset Falkenberg, for being an excellent coordinator of the Digital Life Norway Research School initiative, allowing me to participate in various conferences across Norway and for the opportunity to do an industry internship in Sweden during the cold winter of 2021.
+
+To Henning Hermjacob, not for just being the scientific lead host for my visits to EBI, but also for hosting me in his lovely Airbnb house each time! Spending a few months in Cambridge during my PhD was a truly marvelous.
+
+To Prof. Denis Thieffry, for the nice scientific discussions and for distilling some of his passion for logical modeling into me, resulting in one of the papers in this thesis.
+
+And of course, to my colleagues from the DrugLogics group, for the good times we spent inside and outside of work! I am especially grateful to Dr. Barbara Niederdorfer for our piano-voice collaboration. Rafel Riudavets Puig has been a really close friend - we will continue our random walks that somehow always end up in McDonalds, I am sure of it! Marcio Luis Acencio has been a good friend as well with a wonderful family that gained two new members that I got to meet before he left! Dr. Vasundra Touré has been a wonderful colleague, spending time with me at our office in Gloshaugen, making a little bit nicer with her presence. Wine, cheese, standards and good memories!
+
+To all coffee shops I've been working throughout my PhD! Diverse working environment is extremely important and as it was perfectly stated:
+
+```{r depresso-img, fig.align='center', echo=FALSE, out.width="40%"}
+knitr::include_graphics("img/depresso.jpg")
 ```
+
+:::{.right-align data-latex=""}
+John Zobolas,
+May 2021
+:::
