@@ -11,6 +11,7 @@
 \usepackage{xcolor}
 \usepackage{framed}
 \usepackage{tcolorbox}
+\usepackage{pdfpages}
 
 % define color boxes
 \setlength{\fboxsep}{.8em}
@@ -29,3 +30,25 @@
   coltext=black,
   boxsep=5pt,
   arc=4pt}
+
+% to right align
+\newenvironment{right-align}{
+  \begin{flushright}}
+ {\end{flushright}}
+
+% Nice font styleing for pdf text
+\usepackage{type1cm}
+%% Replace the standard Computer Modern Typewriter font LaTeX uses
+%% for monospace text with the PostScript font Adobe Courier.
+%\usepackage{courier}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{ae,aecompl}
+\usepackage{times}
+%% Redefine the font used for the section headings to
+%% Helvetica-Narrow Bold.
+\usepackage{sectsty}
+\allsectionsfont{\usefont{OT1}{phv}{bc}{n}\selectfont}
+
+% for numbering
+\frontmatter
