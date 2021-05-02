@@ -1,10 +1,11 @@
 bookdown::gitbook:
   css: style.css
   split_bib: false
+  split_by: rmd # every .Rmd file to 1 HTML page
   config:
     toc:
       before: |
-        <li><a href="./">John Zobolas's PhD Thesis</a></li>
+        <li><a href="./index.html">John Zobolas's PhD Thesis</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     download:
@@ -18,10 +19,11 @@ bookdown::gitbook:
 
 # Because of typesetting details, use this format after finishing the book content
 bookdown::pdf_book:
+  #latex_engine: pdflatex
   includes:
     in_header: latex/preamble.tex
-    # before_body: latex/before_body.tex
-    # latex_engine: xelatex
-    # citation_package: natbib
+    after_body: latex/after_body.tex
+    #before_body: latex/before_body.tex
+  #citation_package: natbib
   keep_tex: yes
   # number_sections: no
