@@ -1,0 +1,19 @@
+# Paper list {-}
+
+## Primary {-}
+
+Papers that I am first author:
+
+- **Paper 1**: UniBioDicts: Unified access to Biological Dictionaries [@UBDs]
+- **Paper 2**: Linking PubDictionaries with UniBioDicts to support Community Curation [@Zobolas2020-pubdict]
+- **Paper 3**: emba: R package for analysis and visualization of biomarkers in Boolean model ensembles [@Zobolas2020]
+- **Paper 4**: Boolean function metrics can assist modelers to check and choose logical rules ^[Preprint, to be submitted to the Journal of Theoretical Biology] [@Zobolas2021-bias]
+- **Paper 5**: AGS paper manuscript ^[Shared first co-authorship, to be submitted to Molecular Systems Biology Journal]
+
+## Additional {-}
+
+In the following papers I have contributed to the underlying software and manuscript text:
+
+1. VSM-box: General-purpose Interface for Biocuration and Knowledge Representation [@vsm-box]
+2. CausalBuilder: Bringing the MI2CAST Causal Interaction Annotation Standard to the Curator [@Toure2021]
+3. CausalTAB: the PSI-MITAB 2.8 updated format for signalling data representation and dissemination [@Perfetto2019]
