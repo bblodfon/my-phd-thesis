@@ -4,6 +4,7 @@ bookdown::gitbook:
   split_by: rmd # every .Rmd file to 1 HTML page
   config:
     toc:
+      collapse: section
       before: |
         <li><a href="./index.html">John Zobolas's PhD Thesis</a></li>
       after: |
