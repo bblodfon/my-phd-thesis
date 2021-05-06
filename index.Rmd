@@ -30,29 +30,41 @@ toc-depth: 1
 #lot: false
 ---
 
+```{=html}
+<p>Any <strong>raw</strong> HTML content works here and not in LATEX\PDF, so use it!!!!!!
+For example, here is a Youtube video:</p>
+
+<iframe width="100%" height="400"
+  src="https://www.youtube.com/embed/s3JldKoA0zw?rel=0"
+  frameborder="0" allow="autoplay; encrypted-media"
+  allowfullscreen></iframe>
+
+<p> And Some GIF why not! </p>
+<img src='https://media.giphy.com/media/1AahaJhw4y4kE/giphy.gif'></img>
+<img src='https://thecodinglove.com/content/044/1Q0QIvX.gif' width="75%" height="400"></img>
+```
+
 # Acknowledgements {-}
 
-Let's first acknowledge funding from the **ERACoSysMed project COLOSYS**. Now to people, the most important part. **I would like to thank all the people** that interacted with me during the years I conducted my PhD research (2017-2021), even for a tiny bit. A person is only a small node in a complex network of interactions, which only when considered together, make up the person. So, you were **all important** for me! Importance though is measured in varying degrees. Therefore now, I will proceed to give some personal credits (the part that most of you came here to read :)
+Let's first acknowledge funding from the **ERACoSysMed project COLOSYS**. Now to people, the most important part: **I would like to thank everyone** that interacted with me during the years I conducted my PhD research (2017-2021), even for a tiny bit. A person is only a small node in a complex network of interactions, which only when considered together, make up the person. So, you were **all important** for me! Importance though is measured in varying degrees. Therefore now, I will proceed to give some personal credits (the part that most of you came here to read :)
 
-A big **THANK YOU** to my supervisor, Prof. Martin Kuiper. He gave me the opportunity to come to Norway, which opened a world of possibilities. The dream supervisor everyone should have and a caring human being above all.
+A big **THANK YOU** to my supervisor, Prof. Martin Kuiper. He gave me the opportunity to come to Norway, which opened a world of possibilities. The dream supervisor everyone should have and a caring human being above all. A true gentleman and an excellent cook as well!
 
-To Dr. Åsmund Flobak for excellent co-supervision, the nice scientific discussions we had and for introducing me into `R`, which largely influenced the way I do science. Spending time with his lively family was always a nice change of pace. The day we spend at Amsterdam's zoo and I saw my first penguins, will remain unforgettable.
+To Dr. Åsmund Flobak for excellent co-supervision, the nice scientific discussions we had and for introducing me into `R`, which largely influenced the way I do science. Spending time with his lively family was always a nice change of pace. That day we were all together at Amsterdam's zoo and I saw my first penguins, will remain unforgettable!
 
-To Dr. Steven Vercruysse for our discussions and for teaching me and ins and outs of the software business. I will never forget the ELIXIR Biohackathon 2020, great laughs and great work, all in one.
+To Dr. Steven Vercruysse for our discussions and for teaching me and ins and outs of web software development. I will never forget the ELIXIR Biohackathon 2020, great laughs and great work, all in one.
 
-To Noemi Del Toro Ayllon, for introducing me to the professional world of software development and project management with Java. Visiting the IntAct team at EBI during the summer of 2018 was a memorable experience and when she came in Trondheim later in 2019, we had such a great time, so thank you Noe!
+To Prof. Astrid Laegreid, for suggesting to me to participate in the Responsible Research and Innovation (RRI) course, which inspired me to think more broadly about my research and the world we live in, and of course meet several wonderful people! That's also how I became acquainted with Digital Life Norway (DLN). Liv Eggset Falkenberg did an excellent job at coordinating the DLN Research School and she was co-organizer of the Walkshop in Jotunheimen (September 2019), which was a truly wonderful experience. With DLN, I had the benefit of participating in various conferences across Norway and the opportunity to do an industry internship in Sweden during the cold winter of 2021, so thanks DLN and Liv!
 
-To Prof. Astrid Laergid, for suggesting to me to participate in the Responsible Research and Innovation (RRI) course, which allowed me to think more broadly about my research and the world we live in, and of course meet several wonderful people! As a direct consequence, I had the opportunity to be part of a Walkshop in Jotunheimen (September 2019), which was a truly wonderful experience. Good times, good times.
+To Noemi Del Toro Ayllon, for introducing me to the professional world of software development and project management with Java. Visiting the IntAct team at EBI during the summer of 2018 was a memorable experience and when she came to Trondheim later in 2019, we had such a great time, so thank you Noe!
 
-Special thanks go to Liv Eggset Falkenberg, for being an excellent coordinator of the Digital Life Norway Research School initiative, allowing me to participate in various conferences across Norway and for the opportunity to do an industry internship in Sweden during the cold winter of 2021.
-
-To Henning Hermjacob, not for just being the scientific lead host for my visits to EBI, but also for hosting me in his lovely Airbnb house each time! Spending a few months in Cambridge during my PhD was a truly marvelous.
+To Henning Hermjacob, for not just being the scientific host for my visits to EBI in England, but also for hosting me in his lovely Airbnb house each time! Spending a few months in Cambridge during my PhD was a truly marvelous experience, so thanks Henning!
 
 To Prof. Denis Thieffry, for the nice scientific discussions and for distilling some of his passion for logical modeling into me, resulting in one of the papers in this thesis.
 
-And of course, to my colleagues from the DrugLogics group, for the good times we spent inside and outside of work! I am especially grateful to Dr. Barbara Niederdorfer for our piano-voice collaboration. Rafel Riudavets Puig has been a really close friend - we will continue our random walks that somehow always end up in McDonalds, I am sure of it! Marcio Luis Acencio has been a good friend as well with a wonderful family that gained two new members that I got to meet before he left! Dr. Vasundra Touré has been a wonderful colleague, spending time with me at our office in Gloshaugen, making a little bit nicer with her presence. Wine, cheese, standards and good memories!
+And of course, to my colleagues from the DrugLogics group, for the good times we spent inside and outside of work! I am especially grateful to Dr. Barbara Niederdorfer for our piano-voice collaboration. Rafel Riudavets Puig has been a really close friend - I hope that in the future we get to continue our random walks that somehow always end up in McDonalds! Dr. Marcio Luis Acencio has been a good friend as well with a wonderful family that gained two new members that I got to meet before he left! Dr. Vasundra Touré has been a wonderful colleague, a beam of light for the time we spend at our office in Gloshaugen, making a little bit nicer with her presence. Wine, cheese, standards and good memories!
 
-To all coffee shops I've been working throughout my PhD! Diverse working environment is extremely important and as it was perfectly stated:
+Last but not least, a big **THANKS** to the beautiful city of Trondheim! I've had some really inspirational walks in these historic roads. And to its nice coffee shops I've been working throughout my PhD! Diverse working environment is extremely important and as it was perfectly stated:
 
 ```{r depresso-img, fig.align='center', echo=FALSE, out.width="40%"}
 knitr::include_graphics("img/depresso.jpg")
