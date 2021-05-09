@@ -7,8 +7,8 @@ Papers that I am first author:
 - **Paper 1**: UniBioDicts: Unified access to Biological Dictionaries [@UBDs]
 - **Paper 2**: Linking PubDictionaries with UniBioDicts to support Community Curation [@Zobolas2020-pubdict]
 - **Paper 3**: emba: R package for analysis and visualization of biomarkers in Boolean model ensembles [@Zobolas2020]
-- **Paper 4**: Boolean function metrics can assist modelers to check and choose logical rules ^[Preprint, to be submitted to the Journal of Theoretical Biology] [@Zobolas2021-bias]
-- **Paper 5**: AGS paper manuscript ^[Shared first co-authorship, to be submitted to Molecular Systems Biology Journal]
+- **Paper 4**: Fine tuning a logical model of cancer cells to predict drug synergies: combining manual curation and automated parameterization ^[(Manuscript) Shared first co-authorship, to be submitted to the Molecular Systems Biology Journal]
+- **Paper 5**: Boolean function metrics can assist modelers to check and choose logical rules ^[(Preprint) To be submitted to the Journal of Theoretical Biology] [@Zobolas2021-bias]
 
 ## Additional {-}
 
