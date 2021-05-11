@@ -1,8 +1,10 @@
 # Abstract {-}
 
+\vspace{-20pt}
+
 Cancer is one the most prevalent human diseases. 
-There has been considerable effort from the scientific community to understand the mechanisms behind this disease and search for treatments that promise a better quality of life for patients. 
-In order to accomplish this goal, Biology and Medicine have joined forces with Computer Sciences, using the power of Computational modeling, Mathematics, Machine Learning and Statistics. 
+The scientific community has devoted considerable efforts to understand the mechanisms behind this disease and search for treatments that promise a better quality of life for patients. 
+To accomplish this goal, Biology and Medicine have joined forces with Computer Sciences, using the power of Computational modeling, Mathematics, Machine Learning and Statistics. 
 This interdisciplinary effort to address the cancer problem, constitutes the basis upon which this thesis was formed. 
 We present several contributions to this effort, consisting of software, data analyses and mathematical investigations, which have enabled the more efficient curation of biological knowledge, the use of computer models to prioritize drug treatments for cancer and the derivation of molecular mechanistic insights from the simulation results.
 
@@ -37,6 +39,8 @@ These models are then analyzed to suggest possible synergistic drug combinations
 We demonstrated that our pipeline could prioritize specific drug combinations, reducing the number of drugs that need to be tested in experiments, before a viable treatment is found for a patient. 
 Moreover, several analyses indicated that our models can be used to derive mechanistic insights about the diseased model and generate novel biological hypotheses. 
 Lastly, we showed the significance of the PKN quality, where even small modifications to the cancer signaling network could severely affect our pipeline’s drug prediction performance.
+
+\newpage
 
 To exploit the range of parameterizations present in the Boolean models produced by our pipeline, we devised several strategies to split and compare the different models in a dedicated R package (emba). 
 This supplementary effort allowed us to find potential biomarkers, which are nodes whose state is decisive for the global behavior of the models and can indicate parts of the PKN that are responsible for a drug combination to be synergistic. 
