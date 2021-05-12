@@ -31,20 +31,18 @@ toc-depth: 1
 ---
 
 ```{=html}
-<p> Welcome to my e-thesis! Feel free to use the code if you need it. You can download the pdf that also includes the primary papers from the top toolbar if you like.
+<div id="html-intro" class="section level1 unnumbered">
+<h1 class="hasAnchor">HTML Preface<a href="#html-intro" class="anchor-section"></a></h1>
+<p> Welcome to my e-thesis! Here's is a reward for you that chose this format to read my thesis: </p>
+
+<img src='https://media.giphy.com/media/dXckBa1HDG86RqUh19/giphy.gif' width='50%'></img>
+
+<p>
+You may see some more of these around the HTML text to make your reading experience more enjoyable! You can download from the <strong>top toolbar</strong> the more serious PDF that also includes the primary papers  if you like. 
+<br><br>
+Btw, feel free to use the code if you like! Enjoy (^-^) 
 </p>
-
-<p>Any <strong>raw</strong> HTML content works here and not in LATEX\PDF, so use it!!!!!!
-For example, here is a Youtube video:</p>
-
-<iframe width="100%" height="400"
-  src="https://www.youtube.com/embed/s3JldKoA0zw?rel=0"
-  frameborder="0" allow="autoplay; encrypted-media"
-  allowfullscreen></iframe>
-
-<p> And Some GIF why not! </p>
-<img src='https://media.giphy.com/media/1AahaJhw4y4kE/giphy.gif'></img>
-<img src='https://thecodinglove.com/content/044/1Q0QIvX.gif' width="75%" height="400"></img>
+</div>
 ```
 
 # Acknowledgements {-}
@@ -55,7 +53,7 @@ A big **THANK YOU** to my supervisor, Prof. Martin Kuiper. He gave me the opport
 
 To Dr. Åsmund Flobak for excellent co-supervision, the nice scientific discussions we had and for introducing me into `R`, which largely influenced the way I do science. Spending time with his lively family was always a nice change of pace. That day we were all together at Amsterdam's zoo and I saw my first penguins, will remain unforgettable!
 
-To Dr. Steven Vercruysse for our scientific discussions and for teaching me and ins and outs of web software development. I will never forget the ELIXIR Biohackathon 2020, great laughs and great work, all in one. And of course, I will never forget the 'tour'. Thanks Steven!
+To Dr. Steven Vercruysse for our scientific discussions and for teaching me and ins and outs of web software development. I will never forget the ELIXIR Biohackathon 2020, great laughs and great work, all in one. And of course, I will never forget the "tour" . Thanks Steven!
 
 To Prof. Astrid Laegreid, for suggesting to me to participate in the Responsible Research and Innovation (RRI) course, which inspired me to think more broadly about my research and the world we live in, and of course meet several wonderful people! That's also how I became acquainted with Digital Life Norway (DLN). Liv Eggset Falkenberg did an excellent job at coordinating the DLN Research School and she was co-organizer of the Walkshop in Jotunheimen (September 2019), which was a truly wonderful experience. With DLN, I had the benefit of participating in various conferences across Norway and the opportunity to do an industry internship in Sweden during the cold winter of 2021, so thanks DLN and Liv!
 
