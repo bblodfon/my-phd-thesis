@@ -4,16 +4,38 @@
 
 Papers that I am first author:
 
-- **Paper 1**: UniBioDicts: Unified access to Biological Dictionaries [@UBDs]
-- **Paper 2**: Linking PubDictionaries with UniBioDicts to support Community Curation [@Zobolas2020-pubdict]
-- **Paper 3**: emba: R package for analysis and visualization of biomarkers in Boolean model ensembles [@Zobolas2020]
-- **Paper 4**: Fine tuning a logical model of cancer cells to predict drug synergies: combining manual curation and automated parameterization ^[(Manuscript) Shared first co-authorship, to be submitted to the Molecular Systems Biology Journal]
-- **Paper 5**: Boolean function metrics can assist modelers to check and choose logical rules ^[(Preprint) To be submitted to the Journal of Theoretical Biology] [@Zobolas2021-bias]
+- **Paper 1**: *UniBioDicts: Unified access to Biological Dictionaries*  
+**Zobolas, J.**, Touré, V., Kuiper, M., & Vercruysse, S. [@UBDs]
+
+  SV and VT identified the need for software to connect with the resources listed in MI2CAST used in the CausalBuilder tool. JZ implemented the software and wrote the manuscript. All co-authors revised and provided inputs to the manuscript.
+
+- **Paper 2**: *Linking PubDictionaries with UniBioDicts to support Community Curation*  
+**Zobolas, J.**, Kim, J.-D., Kuiper, M., & Vercruysse, S. [@Zobolas2020-pubdict]
+
+  MK and SV developed the original idea for this project. JZ wrote the application for a BioHackathon project and invited JDK to collaborate. JZ implemented the client side, JDK the server side. JZ wrote the manuscript. All co-authors revised and provided inputs to the manuscript.
+
+- **Paper 3**: *emba: R package for analysis and visualization of biomarkers in Boolean model ensembles*  
+**Zobolas, J.**, Kuiper, M., & Flobak, Å. [@Zobolas2020]
+
+  AF developed the idea of this project. JZ wrote the software and the manuscript. All co-authors revised and provided inputs to the manuscript.
+
+- **Paper 4**: *Fine tuning a logical model of cancer cells to predict drug synergies: combining manual curation and automated parameterization* ^[(Manuscript) Shared first co-authorship, to be submitted to the Molecular Systems Biology Journal]  
+Flobak, Å., **Zobolas J.**, Vazquez M., Steigedal T., Grislingås A., Niederdorfer B., Folkesson E., Kuiper M.
+
+  AF designed the project, developed initial software and executed experiments. JZ extended the software, ran all simulations, produced and analyzed results. AF and MK added biological interpretation and wrote the manuscript. JZ provided various inputs and text to the manuscript. TS and AG helped AF with experiments. MV developed prototype software. BN and EF did curation work and performed experiments.
+
+- **Paper 5**: *Boolean function metrics can assist modelers to check and choose logical rules* ^[(Preprint) To be submitted to the Journal of Theoretical Biology]  
+**Zobolas, J.**, Monteiro, P. T., Kuiper, M., & Flobak, Å. [@Zobolas2021-bias]
+
+  JZ designed this project and wrote the manuscript. PTM and AF provided feedback and ideas to better shape the content of the manuscript. All co-authors revised and provided inputs to the manuscript.
 
 ## Additional {-}
 
 In the following papers I have contributed to the underlying software and manuscript text:
 
-1. VSM-box: General-purpose Interface for Biocuration and Knowledge Representation [@vsm-box]
-2. CausalBuilder: Bringing the MI2CAST Causal Interaction Annotation Standard to the Curator [@Toure2021]
-3. CausalTAB: the PSI-MITAB 2.8 updated format for signalling data representation and dissemination [@Perfetto2019]
+1. *VSM-box: General-purpose Interface for Biocuration and Knowledge Representation*  
+Vercruysse, S., **Zobolas, J.**, Touré, V., Andersen, M. K., & Kuiper, M. [@vsm-box]
+2. *CausalBuilder: Bringing the MI2CAST Causal Interaction Annotation Standard to the Curator*  
+Touré, V., **Zobolas, J.**, Kuiper, M., & Vercruysse, S. [@Toure2021]
+3. *CausalTAB: the PSI-MITAB 2.8 updated format for signalling data representation and dissemination*  
+Perfetto, L., Acencio, M. L., Bradley, G., Cesareni, G., Del Toro, N., Fazekas, D., Hermjakob, H., Korcsmaros, T., Kuiper, M., Lægreid, A., Lo Surdo, P., Lovering, R. C., Orchard, S., Porras, P., Thomas, P. D., Touré, V., **Zobolas, J.**, & Licata, L. [@Perfetto2019]
