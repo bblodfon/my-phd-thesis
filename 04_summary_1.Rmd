@@ -4,3 +4,13 @@
 
 ## One for all {-}
 
+Scientific and technological progress has been the foundation for some of the most astounding achievements of humankind.
+In the last century in particular, discoveries were made that contributed to the sustainable development of the economy and society, affecting our lives in an unprecedented manner and making possible what was considered impossible.
+The invention of the digital computer and the Internet for example, revolutionized the access, dissemination and analysis of information [@Abbate2000; @Naughton2016].
+We have been to the Moon, a breakthrough that has opened up the possibilities of space exploration and interstellar travel.
+The industrial revolution of the latest century has enabled us to design machines for every conceivable need.
+Human well-being has become significantly better: compare a middle class household and the appliances within, with one from 60 years ago.
+With a higher standard of living and the ongoing efforts to alleviate hunger, poverty and inequality on a global scale, people have started caring more about the planet, paving the way for sustainable economic and environmental growth [@Polasky2019].
+Due to advancements in Biology and Medicine, the application of public health interventions such as vaccinations and hygiene measures has become common practice, causing a rapid increase in the global life expectancy during the last century [@Roser2013].
+The genome-editing technology CRISPR [@Jinek2012] has enabled the discovery of new therapeutic solutions for a variety of genetic diseases and has been beneficially used in several agriculture and plant biotechnology applications [@Zhu2020].
+The list of achievements is truly endless and all the data points to the fact that the world is getting better [@Bailey2020].
