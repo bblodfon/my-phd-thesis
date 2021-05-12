@@ -17,6 +17,7 @@ bookdown::gitbook:
       facebook: no
       twitter: no
       all: no
+    view: https://github.com/bblodfon/my-phd-thesis/blob/main/%s
 
 # Because of typesetting details, use this format after finishing the book content
 bookdown::pdf_book:
