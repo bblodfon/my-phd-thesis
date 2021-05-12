@@ -31,6 +31,9 @@ toc-depth: 1
 ---
 
 ```{=html}
+<p> Welcome to my e-thesis! Feel free to use the code if you need it. You can download the pdf that also includes the primary papers from the top toolbar if you like.
+</p>
+
 <p>Any <strong>raw</strong> HTML content works here and not in LATEX\PDF, so use it!!!!!!
 For example, here is a Youtube video:</p>
 
