@@ -2,6 +2,8 @@
 
 # Links to software, documentation and data analyses {-}
 
+\vspace{-10pt}
+
 ## GitHub organizations {-#github-org-links}
 
 - UniBioDicts: https://github.com/UniBioDicts/ 
