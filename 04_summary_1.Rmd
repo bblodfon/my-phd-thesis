@@ -35,3 +35,5 @@ This knowledge has been the culmination of years of scientific knowledge, built 
 So, only by using every possible method and knowledge at our disposal and by working together, we can achieve the solution to complex problems such as human diseases.
 When these conditions are met, societal challenges can be addressed and science stands as one unified body for the good and progress of all mankind.
 The field of Systems Medicine has been the direct embodiment of this notion, promising improved prevention, prognosis, diagnosis and treatment of patients via an integrative, interdisciplinary approach [@Apweiler2018].
+
+\newpage
