@@ -32,26 +32,31 @@ toc-depth: 1
 
 ```{=html}
 <div id="html-intro" class="section level1 unnumbered">
-<h1 class="hasAnchor">HTML Preface<a href="#html-intro" class="anchor-section"></a></h1>
-<p> Welcome to my e-thesis! Here's is a reward for you that chose this format to read my thesis: </p>
+  <h1 class="hasAnchor">HTML Preface<a href="#html-intro" class="anchor-section"></a></h1>
+  <p> 
+    Welcome to my e-thesis! Here's is a reward for you that chose this format to read my thesis: 
+  </p>
 
-<img src='https://media.giphy.com/media/dXckBa1HDG86RqUh19/giphy.gif' width='50%'></img>
+  <img src='https://media.giphy.com/media/dXckBa1HDG86RqUh19/giphy.gif' width='50%' style='display: block; margin-left: auto; margin-right: auto;'></img>
 
-<p>
-You may see some more of these around the HTML text to make your reading experience more enjoyable! You can download from the <strong>top toolbar</strong> the more serious PDF that also includes the primary papers  if you like. 
-<br><br>
-Btw, feel free to use the code if you like! Enjoy (^-^) 
-</p>
+  <p>
+    You may see some more of these around the HTML text to make your reading experience more enjoyable! You can download from the <strong>top toolbar</strong> the more serious PDF that also includes the papers if you'd like. <br><br> Btw, feel free to use the code if you like! Enjoy (^-^)
+  </p>
 </div>
 ```
 
 # Acknowledgements {-}
 
-Let's first acknowledge funding from the **ERACoSysMed project COLOSYS**. Now to people, the most important part: **I would like to thank everyone** that interacted with me during the years I conducted my PhD research (2017-2021), even for a tiny bit. A person is only a small node in a complex network of interactions, which only when considered together, make up the person. So, you were **all important** for me! Importance though is measured in varying degrees. Therefore now, I will proceed to give some personal credits (the part that most of you came here to read :)
+Let's first acknowledge funding from the **ERACoSysMed project COLOSYS**. Now to people, the most important part: **I would like to thank everyone** that interacted with me during the years I conducted my PhD research (2017-2021), even for a tiny bit. A person is only a small node in a complex network of interactions, which only when considered together, make up the person. In other words, you are not just you! So, you were **all important** for me! Importance though is measured in varying degrees. Therefore now, I will proceed to give some personal credits (the part that most of you came here to read :)
 
 A big **THANK YOU** to my supervisor, Prof. Martin Kuiper. He gave me the opportunity to come to Norway, which opened a world of possibilities. The dream supervisor everyone should have and a caring human being above all. A true gentleman and an unsurpassed cook as well!
 
 To Dr. Åsmund Flobak for excellent co-supervision, the nice scientific discussions we had and for introducing me into `R`, which largely influenced the way I do science. Spending time with his lively family was always a nice change of pace. That day we were all together at Amsterdam's zoo and I saw my first penguins, will remain unforgettable!
+
+```{=html}
+<img src='https://media.giphy.com/media/zHokhPIy6lwas/giphy.gif' style='display: block; margin-left: auto;
+  margin-right: auto;'></img>
+```
 
 To Dr. Steven Vercruysse for our scientific discussions and for teaching me and ins and outs of web software development. I will never forget the ELIXIR Biohackathon 2020, great laughs and great work, all in one. And of course, I will never forget the "tour" . Thanks Steven!
 
