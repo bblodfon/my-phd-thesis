@@ -14,3 +14,24 @@ With a higher standard of living and the ongoing efforts to alleviate hunger, po
 Due to advancements in Biology and Medicine, the application of public health interventions such as vaccinations and hygiene measures has become common practice, causing a rapid increase in the global life expectancy during the last century [@Roser2013].
 The genome-editing technology CRISPR [@Jinek2012] has enabled the discovery of new therapeutic solutions for a variety of genetic diseases and has been beneficially used in several agriculture and plant biotechnology applications [@Zhu2020].
 The list of achievements is truly endless and all the data points to the fact that the world is getting better [@Bailey2020].
+
+There are three factors that have made technological progress possible.
+Firstly, every human innovation is based on basic scientific research, without which the development of new technologies would have been impossible.
+Secondly, society is developing new contracts with science [@Gibbons1999], where researchers can only be trusted to continue their work (and get funding for it), if they tackle real-world problems and produce knowledge characterized by a fully transparent and participative spirit.
+Practically, this means that better communication skills are a necessity for today's scientists and that their research should have translational potential to deliver on society's expectations.
+But solving these real-world problems is incredibly hard, and so, they cannot be addressed by applying knowledge from specific fields only, e.g. either from the Computer or the Biological Sciences alone.
+This brings us to the third factor: in order for science to deliver on its promises to society, collaboration across fields of science is the only way forward.
+
+Medicine, from research to develop new therapies up to delivering the actual product or services to the patients, constitutes the perfect example that encompasses all three reasons that have enabled progress to transpire in its domain.
+It first starts with a real-life problem: people get sick.
+The existence of diseases is a societal problem and a hard one at that, since people usually lack the necessary knowledge or the means to deal with it on their own.
+They have in fact exchanged some of their freedom to have a place in society, and ensure that they receive proper treatment when needed (along with other forms of security, access to free education, etc.).
+To manage such a complex problem, society provides healthcare services, which have significantly increased across the world in recent years [@HAQ2015].
+For most people, the single most applied healthcare interaction is the use of drugs, prescribed by medical doctors.
+Drugs are the translational product of the pharmaceutical industry, which is the result of basic interdisciplinary research.
+Medical doctors alone wouldn't be able to find the cause and understand the mechanisms behind many of the diseases that exist today.
+This knowledge has been the culmination of years of scientific knowledge, built atop collaboration across fields, from Medicine and Biology to Computer Science and Engineering.
+
+So, only by using every possible method and knowledge at our disposal and by working together, we can achieve the solution to complex problems such as human diseases.
+When these conditions are met, societal challenges can be addressed and science stands as one unified body for the good and progress of all mankind.
+The field of Systems Medicine has been the direct embodiment of this notion, promising improved prevention, prognosis, diagnosis and treatment of patients via an integrative, interdisciplinary approach [@Apweiler2018].
