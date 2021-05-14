@@ -1,0 +1,8 @@
+## Clean Code {-}
+
+```{=html}
+<p style='text-align:center;'>
+  Even a small bug can have <strong>severe cascading effects<strong>...
+ </p>
+<img src='https://thecodinglove.com/content/044/1Q0QIvX.gif' style='display: block; margin-left: auto; margin-right: auto;' width='60%'></img>
+```
