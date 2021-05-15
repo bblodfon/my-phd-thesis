@@ -32,6 +32,10 @@ Epidemiologists use graph-based methods to model the spread of diseases like COV
 Molecular biologists study intra- and intercellular signaling networks to understand the mechanisms behind biological processes and investigate the causes of network dysregulation, often leading to the emergence of particular disease phenotypes.
 Such network-based approaches have significant clinical applications since they have the potential to assist in the discovery of new disease genes and modules, and the identification of drug targets and biomarkers for complex diseases.
 
+```{=html}
+<img src='https://media.giphy.com/media/eljCVpMrhepUSgZaVP/source.gif' style='display: block; margin-left: auto; margin-right: auto;' width='75%'></img>
+```
+
 The work presented in this thesis is heavily based on this network medicine paradigm, with causal molecular interaction networks as the main object of study.
 Our primary focus is on protein-protein interaction (PPI) networks, with proteins as nodes and their physical contacts and interactions as links, and gene regulatory networks, represented for example by directed regulatory relationships between transcription factors and genes (TF-TG networks).
 These types of networks demonstrate a system of signal transduction pathways connected by crosstalk and embedded in feedback loops, forming what is known as the *Prior Knowledge Network* (PKN).
