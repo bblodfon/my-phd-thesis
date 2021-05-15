@@ -1,2 +1,43 @@
 ## Dots and lines {-}
 
+One of the simplest ways to conceptualize complex systems, either man-made or existing freely in nature, is using the notion of a *network* or *graph*.
+The idea is that any system is composed of individual entities or components of interest (nodes) and these components interact with each other in various, usually non-obvious ways (links).
+These two properties, namely having some objects to study, and relationships between these objects, form the basis for the conceptualization of a network (Figure \@ref(fig:fig1)).
+From a cognitive point of view, the conceptualization of a network manifests as a visual representation in our brain, consisting of a bunch of dots (nodes) connected with numerous lines (links) [@Trudeau1976].
+Such a projection is usually close to what people instinctively draw on paper when they attempt to describe their knowledge about a system and its inner workings (thereby "connecting the dots").
+Simple schematics that are abstractly similar to dots and lines, along with further contextual information (e.g. node labels, coloring, directed links, etc.), seem to be able to capture and render information derived from our thought processes, in a unique and comprehensible way.
+
+(ref:caption-fig1) Two examples of networks, composed of dots and lines. The left network is a random graph based on the Erdős–Rényi model [@Erdos1960] and the one on the right is created using the preferential attachment principle that characterizes scale-free networks with hub nodes, such as the World Wide Web [@Barabasi1999].
+
+```{r fig1, cache = TRUE, fig.height=5, fig.width=5, echo = FALSE, out.width='50%', fig.show='hold', fig.cap='(ref:caption-fig1)'}
+library(igraph, quietly = TRUE)
+
+set.seed(40)
+g1 = erdos.renyi.game(n = 200, p.or.m = 0.033, type = "gnp", directed = FALSE)
+g2 = sample_pa(n = 100, directed = FALSE, power = 1.3, zero.appeal = 1)
+
+plot(g1, vertex.label = NA, vertex.size = 5, vertex.color = 'steelblue')
+plot(g2, vertex.label = NA, vertex.size = 5, vertex.color = 'steelblue')
+```
+
+Since studying complex systems falls intro the domain of science's responsibilities, and graphs seem to be an intuitive way of representing such systems, the emergence of a new field called network science was inevitable [@Barabasi2013].
+Its purpose is to establish a unified set of tools and methods to study the properties of any type of network that emerges across disparate fields.
+A variety of software tools for network visualization and analysis have been released throughout the years, ranging from generic-purpose [@Csardi2006; @Bastian2009; @Mrvar2016; @Shannon2003], to tools more suitable for studying biological [@Dahlquist2002; @Breitkreutz2003; @Funahashi2003; @Sidiropoulos2017] or social networks [@Smith2009; @Kalamaras2014].
+The use of such tools enables the discovery of fundamental laws that characterize the function of systems represented by networks.
+In addition, it allows us to study in detail the network's systemic structure and derive key principles that drive their evolution and emergent behavior. 
+Anthropological research for example uses network theory to study people and their relationships, and explain emergent complex phenomena such as human behavior.
+Neuroscience uses network analysis methods to detect anomalies in diseased human brains.
+The impact of online social networks is studied to understand and predict future personal and profit-oriented communication (online marketing).
+Epidemiologists use graph-based methods to model the spread of diseases like COVID-19, predict the future course of outbreaks and evaluate strategies to control epidemics.
+Molecular biologists study intra- and intercellular signaling networks to understand the mechanisms behind biological processes and investigate the causes of network dysregulation, often leading to the emergence of particular disease phenotypes.
+Such network-based approaches have significant clinical applications since they have the potential to assist in the discovery of new disease genes and modules, and the identification of drug targets and biomarkers for complex diseases.
+
+The work presented in this thesis is heavily based on this network medicine paradigm, with causal molecular interaction networks as the main object of study.
+Our primary focus is on protein-protein interaction (PPI) networks, with proteins as nodes and their physical contacts and interactions as links, and gene regulatory networks, represented for example by directed regulatory relationships between transcription factors and genes (TF-TG networks).
+These types of networks demonstrate a system of signal transduction pathways connected by crosstalk and embedded in feedback loops, forming what is known as the *Prior Knowledge Network* (PKN).
+The causality property of the PKN stems from the fact that the network links are directed (i.e. protein X affects protein Y) and signed (Y is inhibited or activated as a result).
+It's exactly this causality information that allows the investigation of behaviors from a systems perspective.
+Such networks form the basis for the study and computational modeling of cancer, which is another subject of investigation in this thesis.
+In the subsequent chapters, we will discuss how we addressed problems related to the formalization, access and public sharing of the knowledge encoded in the PKN.
+
+\newpage
