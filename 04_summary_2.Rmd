@@ -1,5 +1,9 @@
 ## Dots and lines {-}
 
+```{=html}
+<blockquote>"Mankind invented a system to cope with the fact that we are so intrinsically lousy at manipulating numbers. It's called the graph." ~ Charlie Munger</blockquote>
+```
+
 One of the simplest ways to conceptualize complex systems, either man-made or existing freely in nature, is using the notion of a *network* or *graph*.
 The idea is that any system is composed of individual entities or components of interest (nodes) and these components interact with each other in various, usually non-obvious ways (links).
 These two properties, namely having some objects to study, and relationships between these objects, form the basis for the conceptualization of a network (Figure \@ref(fig:fig1)).
