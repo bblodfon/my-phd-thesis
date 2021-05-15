@@ -54,8 +54,7 @@ A big **THANK YOU** to my supervisor, Prof. Martin Kuiper. He gave me the opport
 To Dr. Åsmund Flobak for excellent co-supervision, the nice scientific discussions we had and for introducing me into `R`, which largely influenced the way I do science. Spending time with his lively family was always a nice change of pace. That day we were all together at Amsterdam's zoo and I saw my first penguins, will remain unforgettable!
 
 ```{=html}
-<img src='https://media.giphy.com/media/zHokhPIy6lwas/giphy.gif' style='display: block; margin-left: auto;
-  margin-right: auto;'></img>
+<img src='https://media.giphy.com/media/zHokhPIy6lwas/giphy.gif' style='display: block; margin-left: auto; margin-right: auto;'></img>
 ```
 
 To Dr. Steven Vercruysse for our scientific discussions and for teaching me and ins and outs of web software development. I will never forget the ELIXIR Biohackathon 2020, great laughs and great work, all in one. And of course, I will never forget the "tour" . Thanks Steven!
