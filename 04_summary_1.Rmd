@@ -4,6 +4,10 @@
 
 ## One for all {-}
 
+```{=html}
+<blockquote>"While the future is unknowable, the winds always blow in the direction of human progress." ~ Barack Obama</blockquote>
+```
+
 Scientific and technological progress has been the foundation for some of the most astounding achievements of humankind.
 In the last century in particular, discoveries were made that contributed to the sustainable development of the economy and society, affecting our lives in an unprecedented manner and making possible what was considered impossible.
 The invention of the digital computer and the Internet for example, revolutionized the access, dissemination and analysis of information [@Abbate2000; @Naughton2016].
