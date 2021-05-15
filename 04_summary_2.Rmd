@@ -24,13 +24,13 @@ Since studying complex systems falls intro the domain of science's responsibilit
 Its purpose is to establish a unified set of tools and methods to study the properties of any type of network that emerges across disparate fields.
 A variety of software tools for network visualization and analysis have been released throughout the years, ranging from generic-purpose [@Csardi2006; @Bastian2009; @Mrvar2016; @Shannon2003], to tools more suitable for studying biological [@Dahlquist2002; @Breitkreutz2003; @Funahashi2003; @Sidiropoulos2017] or social networks [@Smith2009; @Kalamaras2014].
 The use of such tools enables the discovery of fundamental laws that characterize the function of systems represented by networks.
-In addition, it allows us to study in detail the network's systemic structure and derive key principles that drive their evolution and emergent behavior. 
+In addition, it allows us to study in detail the networks' systemic structure and derive key principles that drive their evolution and emergent behavior.
 Anthropological research for example uses network theory to study people and their relationships, and explain emergent complex phenomena such as human behavior.
-Neuroscience uses network analysis methods to detect anomalies in diseased human brains.
-The impact of online social networks is studied to understand and predict future personal and profit-oriented communication (online marketing).
-Epidemiologists use graph-based methods to model the spread of diseases like COVID-19, predict the future course of outbreaks and evaluate strategies to control epidemics.
+Neuroscience uses network analysis methods to detect anomalies in diseased human brains [@Chatterjee2021].
+The impact of online social networks is studied to understand and predict future personal and profit-oriented communication (online marketing) [@Mislove2007].
+Epidemiologists use graph-based methods to model the spread of diseases like COVID-19, predict the future course of outbreaks and evaluate strategies to control epidemics [@Maheshwari2020].
 Molecular biologists study intra- and intercellular signaling networks to understand the mechanisms behind biological processes and investigate the causes of network dysregulation, often leading to the emergence of particular disease phenotypes.
-Such network-based approaches have significant clinical applications since they have the potential to assist in the discovery of new disease genes and modules, and the identification of drug targets and biomarkers for complex diseases.
+Such network-based approaches have significant clinical applications since they have the potential to assist in the discovery of new disease genes and modules, and the identification of drug targets and biomarkers for complex diseases [@Barabasi2011].
 
 ```{=html}
 <img src='https://media.giphy.com/media/eljCVpMrhepUSgZaVP/source.gif' style='display: block; margin-left: auto; margin-right: auto;' width='75%'></img>
