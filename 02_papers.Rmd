@@ -19,6 +19,8 @@ Papers that I am first author:
 
   AF developed the idea of this project. JZ wrote the software and the manuscript. All co-authors revised and provided inputs to the manuscript.
 
+\newpage
+
 - **Paper 4**: *Fine tuning a logical model of cancer cells to predict drug synergies: combining manual curation and automated parameterization* ^[(Manuscript) Shared first co-authorship, to be submitted to the Molecular Systems Biology Journal]  
 Flobak, Å., **Zobolas J.**, Vazquez M., Steigedal T., Thommesen L., Grislingås A., Niederdorfer B., Folkesson E., Kuiper M.
 
