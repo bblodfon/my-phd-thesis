@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Dots and lines | Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine</title>
+  <meta name="description" content="John Zobolas’s PhD thesis, NTNU" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Dots and lines | Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bblodfon.github.io/my-phd-thesis/" />
+  
+  <meta property="og:description" content="John Zobolas’s PhD thesis, NTNU" />
+  <meta name="github-repo" content="bblodfon/my-phd-thesis" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Dots and lines | Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine" />
+  
+  <meta name="twitter:description" content="John Zobolas’s PhD thesis, NTNU" />
+  
+
+<meta name="author" content="John Zobolas" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="04_summary_1.html"/>
+<link rel="next" href="04_summary_3.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">John Zobolas's PhD Thesis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="01_abstract.html"><a href="01_abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="02_papers.html"><a href="02_papers.html"><i class="fa fa-check"></i>Paper list</a>
+<ul>
+<li class="chapter" data-level="" data-path="02_papers.html"><a href="02_papers.html#primary"><i class="fa fa-check"></i>Primary</a></li>
+<li class="chapter" data-level="" data-path="02_papers.html"><a href="02_papers.html#additional"><i class="fa fa-check"></i>Additional</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="03_abbrev.html"><a href="03_abbrev.html"><i class="fa fa-check"></i>Abbreviations</a></li>
+<li class="chapter" data-level="" data-path="04_summary_1.html"><a href="04_summary_1.html"><i class="fa fa-check"></i>Summary</a>
+<ul>
+<li class="chapter" data-level="" data-path="04_summary_1.html"><a href="04_summary_1.html#one-for-all"><i class="fa fa-check"></i>One for all</a></li>
+<li class="chapter" data-level="" data-path="04_summary_2.html"><a href="04_summary_2.html"><i class="fa fa-check"></i>Dots and lines</a></li>
+<li class="chapter" data-level="" data-path="04_summary_3.html"><a href="04_summary_3.html"><i class="fa fa-check"></i>Knowledge from a stack of papers</a></li>
+<li class="chapter" data-level="" data-path="04_summary_4.html"><a href="04_summary_4.html"><i class="fa fa-check"></i>Biological Dictionaries aid in the curation of complex knowledge</a></li>
+<li class="chapter" data-level="" data-path="04_summary_5.html"><a href="04_summary_5.html"><i class="fa fa-check"></i>Sharing causal interactions with PSICQUIC</a></li>
+<li class="chapter" data-level="" data-path="04_summary_6.html"><a href="04_summary_6.html"><i class="fa fa-check"></i>Biological modeling: a Prelude</a></li>
+<li class="chapter" data-level="" data-path="04_summary_7.html"><a href="04_summary_7.html"><i class="fa fa-check"></i>Clean Code</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html"><i class="fa fa-check"></i>Links to software, documentation and data analyses</a>
+<ul>
+<li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html#github-org-links"><i class="fa fa-check"></i>GitHub organizations</a></li>
+<li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html#doc-links"><i class="fa fa-check"></i>Documentation</a></li>
+<li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html#druglogics-soft-links"><i class="fa fa-check"></i>DrugLogics software modules</a></li>
+<li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html#r-community-packages"><i class="fa fa-check"></i>R community packages</a></li>
+<li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html#misc-links"><i class="fa fa-check"></i>Miscellaneous data analyses and repositories</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="06_refs.html"><a href="06_refs.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dots-and-lines" class="section level2 unnumbered">
+<h2>Dots and lines</h2>
+<blockquote>"Mankind invented a system to cope with the fact that we are so intrinsically lousy at manipulating numbers. It's called the graph." ~ Charlie Munger</blockquote>
+<p>One of the simplest ways to conceptualize complex systems, either man-made or existing freely in nature, is using the notion of a <em>network</em> or <em>graph</em>.
+The idea is that any system is composed of individual entities or components of interest (nodes) and these components interact with each other in various, usually non-obvious ways (links).
+These two properties, namely having some objects to study, and relationships between these objects, form the basis for the conceptualization of a network (Figure <a href="04_summary_2.html#fig:fig1">1</a>).
+From a cognitive point of view, the conceptualization of a network manifests as a visual representation in our brain, consisting of a bunch of dots (nodes) connected with numerous lines (links) <span class="citation">[<a href="06_refs.html#ref-Trudeau1976" role="doc-biblioref">18</a>]</span>.
+Such a projection is usually close to what people instinctively draw on paper when they attempt to describe their knowledge about a system and its inner workings (thereby “connecting the dots”).
+Simple schematics that are abstractly similar to dots and lines, along with further contextual information (e.g. node labels, coloring, directed links, etc.), seem to be able to capture and render information derived from our thought processes, in a unique and comprehensible way.</p>
+
+<div class="figure"><span id="fig:fig1"></span>
+<img src="phd-thesis_files/figure-html/fig1-1.png" alt="Two examples of networks, composed of dots and lines. The left network is a random graph based on the Erdős–Rényi model [19] and the one on the right is created using the preferential attachment principle that characterizes scale-free networks with hub nodes, such as the World Wide Web [20]." width="50%" /><img src="phd-thesis_files/figure-html/fig1-2.png" alt="Two examples of networks, composed of dots and lines. The left network is a random graph based on the Erdős–Rényi model [19] and the one on the right is created using the preferential attachment principle that characterizes scale-free networks with hub nodes, such as the World Wide Web [20]." width="50%" />
+<p class="caption">
+Figure 1: Two examples of networks, composed of dots and lines. The left network is a random graph based on the Erdős–Rényi model <span class="citation">[<a href="06_refs.html#ref-Erdos1960" role="doc-biblioref">19</a>]</span> and the one on the right is created using the preferential attachment principle that characterizes scale-free networks with hub nodes, such as the World Wide Web <span class="citation">[<a href="06_refs.html#ref-Barabasi1999" role="doc-biblioref">20</a>]</span>.
+</p>
+</div>
+<p>Since studying complex systems falls intro the domain of science’s responsibilities, and graphs seem to be an intuitive way of representing such systems, the emergence of a new field called network science was inevitable <span class="citation">[<a href="06_refs.html#ref-Barabasi2013" role="doc-biblioref">21</a>]</span>.
+Its purpose is to establish a unified set of tools and methods to study the properties of any type of network that emerges across disparate fields.
+A variety of software tools for network visualization and analysis have been released throughout the years, ranging from generic-purpose <span class="citation">[<a href="06_refs.html#ref-Csardi2006" role="doc-biblioref">22</a>–<a href="06_refs.html#ref-Shannon2003" role="doc-biblioref">25</a>]</span>, to tools more suitable for studying biological <span class="citation">[<a href="06_refs.html#ref-Dahlquist2002" role="doc-biblioref">26</a>–<a href="06_refs.html#ref-Sidiropoulos2017" role="doc-biblioref">29</a>]</span> or social networks <span class="citation">[<a href="06_refs.html#ref-Smith2009" role="doc-biblioref">30</a>,<a href="06_refs.html#ref-Kalamaras2014" role="doc-biblioref">31</a>]</span>.
+The use of such tools enables the discovery of fundamental laws that characterize the function of systems represented by networks.
+In addition, it allows us to study in detail the networks’ systemic structure and derive key principles that drive their evolution and emergent behavior.
+Anthropological research for example uses network theory to study people and their relationships, and explain emergent complex phenomena such as human behavior.
+Neuroscience uses network analysis methods to detect anomalies in diseased human brains <span class="citation">[<a href="06_refs.html#ref-Chatterjee2021" role="doc-biblioref">32</a>]</span>.
+The impact of online social networks is studied to understand and predict future personal and profit-oriented communication (online marketing) <span class="citation">[<a href="06_refs.html#ref-Mislove2007" role="doc-biblioref">33</a>]</span>.
+Epidemiologists use graph-based methods to model the spread of diseases like COVID-19, predict the future course of outbreaks and evaluate strategies to control epidemics <span class="citation">[<a href="06_refs.html#ref-Maheshwari2020" role="doc-biblioref">34</a>]</span>.
+Molecular biologists study intra- and intercellular signaling networks to understand the mechanisms behind biological processes and investigate the causes of network dysregulation, often leading to the emergence of particular disease phenotypes.
+Such network-based approaches have significant clinical applications since they have the potential to assist in the discovery of new disease genes and modules, and the identification of drug targets and biomarkers for complex diseases <span class="citation">[<a href="06_refs.html#ref-Barabasi2011" role="doc-biblioref">35</a>]</span>.</p>
+<img src='https://media.giphy.com/media/eljCVpMrhepUSgZaVP/source.gif' style='display: block; margin-left: auto; margin-right: auto;' width='75%'></img>
+<p>The work presented in this thesis is heavily based on this network medicine paradigm, with causal molecular interaction networks as the main object of study.
+Our primary focus is on protein-protein interaction (PPI) networks, with proteins as nodes and their physical contacts and interactions as links, and gene regulatory networks, represented for example by directed regulatory relationships between transcription factors and genes (TF-TG networks).
+These types of networks demonstrate a system of signal transduction pathways connected by crosstalk and embedded in feedback loops, forming what is known as the <em>Prior Knowledge Network</em> (PKN).
+The causality property of the PKN stems from the fact that the network links are directed (i.e. protein X affects protein Y) and signed (Y is inhibited or activated as a result).
+It’s exactly this causality information that allows the investigation of behaviors from a systems perspective.
+Such networks form the basis for the study and computational modeling of cancer, which is another subject of investigation in this thesis.
+In the subsequent chapters, we will discuss how we addressed problems related to the formalization, access and public sharing of the knowledge encoded in the PKN.</p>
+<div style="page-break-after: always;"></div>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="04_summary_1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="04_summary_3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/bblodfon/my-phd-thesis/blob/main/04_summary_2.Rmd",
+"text": null
+},
+"download": [["phd-thesis.pdf", "PDF"]],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

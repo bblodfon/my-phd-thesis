@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>References | Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine</title>
+  <meta name="description" content="John Zobolas’s PhD thesis, NTNU" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="References | Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bblodfon.github.io/my-phd-thesis/" />
+  
+  <meta property="og:description" content="John Zobolas’s PhD thesis, NTNU" />
+  <meta name="github-repo" content="bblodfon/my-phd-thesis" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="References | Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine" />
+  
+  <meta name="twitter:description" content="John Zobolas’s PhD thesis, NTNU" />
+  
+
+<meta name="author" content="John Zobolas" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="05_links.html"/>
+
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">John Zobolas's PhD Thesis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="01_abstract.html"><a href="01_abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="02_papers.html"><a href="02_papers.html"><i class="fa fa-check"></i>Paper list</a>
+<ul>
+<li class="chapter" data-level="" data-path="02_papers.html"><a href="02_papers.html#primary"><i class="fa fa-check"></i>Primary</a></li>
+<li class="chapter" data-level="" data-path="02_papers.html"><a href="02_papers.html#additional"><i class="fa fa-check"></i>Additional</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="03_abbrev.html"><a href="03_abbrev.html"><i class="fa fa-check"></i>Abbreviations</a></li>
+<li class="chapter" data-level="" data-path="04_summary_1.html"><a href="04_summary_1.html"><i class="fa fa-check"></i>Summary</a>
+<ul>
+<li class="chapter" data-level="" data-path="04_summary_1.html"><a href="04_summary_1.html#one-for-all"><i class="fa fa-check"></i>One for all</a></li>
+<li class="chapter" data-level="" data-path="04_summary_2.html"><a href="04_summary_2.html"><i class="fa fa-check"></i>Dots and lines</a></li>
+<li class="chapter" data-level="" data-path="04_summary_3.html"><a href="04_summary_3.html"><i class="fa fa-check"></i>Knowledge from a stack of papers</a></li>
+<li class="chapter" data-level="" data-path="04_summary_4.html"><a href="04_summary_4.html"><i class="fa fa-check"></i>Biological Dictionaries aid in the curation of complex knowledge</a></li>
+<li class="chapter" data-level="" data-path="04_summary_5.html"><a href="04_summary_5.html"><i class="fa fa-check"></i>Sharing causal interactions with PSICQUIC</a></li>
+<li class="chapter" data-level="" data-path="04_summary_6.html"><a href="04_summary_6.html"><i class="fa fa-check"></i>Biological modeling: a Prelude</a></li>
+<li class="chapter" data-level="" data-path="04_summary_7.html"><a href="04_summary_7.html"><i class="fa fa-check"></i>Clean Code</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html"><i class="fa fa-check"></i>Links to software, documentation and data analyses</a>
+<ul>
+<li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html#github-org-links"><i class="fa fa-check"></i>GitHub organizations</a></li>
+<li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html#doc-links"><i class="fa fa-check"></i>Documentation</a></li>
+<li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html#druglogics-soft-links"><i class="fa fa-check"></i>DrugLogics software modules</a></li>
+<li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html#r-community-packages"><i class="fa fa-check"></i>R community packages</a></li>
+<li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html#misc-links"><i class="fa fa-check"></i>Miscellaneous data analyses and repositories</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="06_refs.html"><a href="06_refs.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-UBDs" class="csl-entry">
+1. Zobolas, J., Touré, V., Kuiper, M., &amp; Vercruysse, S. (2020). <span class="nocase">UniBioDicts: Unified access to Biological Dictionaries</span>. <em>Bioinformatics</em>, <em>37</em>(1), 143–144. <a href="https://doi.org/10.1093/bioinformatics/btaa1065">https://doi.org/10.1093/bioinformatics/btaa1065</a>
+</div>
+<div id="ref-Zobolas2020-pubdict" class="csl-entry">
+2. Zobolas, J., Kim, J.-D., Kuiper, M., &amp; Vercruysse, S. (2020). <em><span class="nocase">Linking PubDictionaries with UniBioDicts to support Community Curation</span></em>. BioHackrXiv. <a href="https://doi.org/10.37044/osf.io/gzfa8">https://doi.org/10.37044/osf.io/gzfa8</a>
+</div>
+<div id="ref-Zobolas2020" class="csl-entry">
+3. Zobolas, J., Kuiper, M., &amp; Flobak, Å. (2020). <span class="nocase">emba: R package for analysis and visualization of biomarkers in boolean model ensembles</span>. <em>Journal of Open Source Software</em>, <em>5</em>(53), 2583. <a href="https://doi.org/10.21105/joss.02583">https://doi.org/10.21105/joss.02583</a>
+</div>
+<div id="ref-Zobolas2021-bias" class="csl-entry">
+4. Zobolas, J., Monteiro, P. T., Kuiper, M., &amp; Flobak, Å. (2021). <em><span class="nocase">Boolean function metrics can assist modelers to check and choose logical rules</span></em>. <a href="http://arxiv.org/abs/2104.01279">http://arxiv.org/abs/2104.01279</a>
+</div>
+<div id="ref-vsm-box" class="csl-entry">
+5. Vercruysse, S., Zobolas, J., Touré, V., Andersen, M. K., &amp; Kuiper, M. (2020). <span class="nocase">VSM-box: general-purpose interface for biocuration and knowledge representation</span>. <em>Preprints</em>. <a href="https://doi.org/10.20944/preprints202007.0557.v1">https://doi.org/10.20944/preprints202007.0557.v1</a>
+</div>
+<div id="ref-Toure2021" class="csl-entry">
+6. Touré, V., Zobolas, J., Kuiper, M., &amp; Vercruysse, S. (2021). <span class="nocase">CausalBuilder: bringing the MI2CAST causal interaction annotation standard to the curator</span>. <em>Database</em>, <em>2021</em>. <a href="https://doi.org/10.1093/database/baaa107">https://doi.org/10.1093/database/baaa107</a>
+</div>
+<div id="ref-Perfetto2019" class="csl-entry">
+7. Perfetto, L., Acencio, M. L., Bradley, G., Cesareni, G., Del Toro, N., Fazekas, D., Hermjakob, H., Korcsmaros, T., Kuiper, M., Lægreid, A., Lo Surdo, P., Lovering, R. C., Orchard, S., Porras, P., Thomas, P. D., Touré, V., Zobolas, J., &amp; Licata, L. (2019). <span class="nocase">CausalTAB: the PSI-MITAB 2.8 updated format for signalling data representation and dissemination</span>. <em>Bioinformatics</em>. <a href="https://doi.org/10.1093/bioinformatics/btz132">https://doi.org/10.1093/bioinformatics/btz132</a>
+</div>
+<div id="ref-Abbate2000" class="csl-entry">
+8. Abbate, J. (2000). <em><span class="nocase">Inventing the internet</span></em>. MIT press.
+</div>
+<div id="ref-Naughton2016" class="csl-entry">
+9. Naughton, J. (2016). <span class="nocase">The evolution of the Internet: from military experiment to General Purpose Technology</span>. <em>Journal of Cyber Policy</em>, <em>1</em>(1), 5–28. <a href="https://doi.org/10.1080/23738871.2016.1157619">https://doi.org/10.1080/23738871.2016.1157619</a>
+</div>
+<div id="ref-Polasky2019" class="csl-entry">
+10. Polasky, S., Kling, C. L., Levin, S. A., Carpenter, S. R., Daily, G. C., Ehrlich, P. R., Heal, G. M., &amp; Lubchenco, J. (2019). <span class="nocase">Role of economics in analyzing the environment and sustainable development</span>. <em>Proceedings of the National Academy of Sciences of the United States of America</em>, <em>116</em>(12), 5233–5238. <a href="https://doi.org/10.1073/pnas.1901616116">https://doi.org/10.1073/pnas.1901616116</a>
+</div>
+<div id="ref-Roser2013" class="csl-entry">
+11. Roser, M., Ortiz-Ospina, E., &amp; Ritchie, H. (2013). <em><span>Life Expectancy</span></em>. <a href="https://ourworldindata.org/life-expectancy">https://ourworldindata.org/life-expectancy</a>
+</div>
+<div id="ref-Jinek2012" class="csl-entry">
+12. Jinek, M., Chylinski, K., Fonfara, I., Hauer, M., Doudna, J. A., &amp; Charpentier, E. (2012). <span class="nocase">A programmable dual-RNA–guided DNA endonuclease in adaptive bacterial immunity</span>. <em>Science</em>, <em>337</em>(6096), 816–821.
+</div>
+<div id="ref-Zhu2020" class="csl-entry">
+13. Zhu, H., Li, C., &amp; Gao, C. (2020). <span class="nocase">Applications of CRISPR–Cas in agriculture and plant biotechnology</span>. <em>Nature Reviews Molecular Cell Biology</em>, <em>21</em>(11), 661–677. <a href="https://doi.org/10.1038/s41580-020-00288-9">https://doi.org/10.1038/s41580-020-00288-9</a>
+</div>
+<div id="ref-Bailey2020" class="csl-entry">
+14. Bailey, R., &amp; Tupy, M. L. (2020). <em><span>Ten Global Trends Every Smart Person Should Know: And Many Others You Will Find Interesting</span></em>. Cato Institute.
+</div>
+<div id="ref-Gibbons1999" class="csl-entry">
+15. Gibbons, M. (1999). <span class="nocase">Science’s new social contract with society</span>. <em>Nature</em>, <em>402</em>, C81–C84. <a href="https://doi.org/10.1038/35011576">https://doi.org/10.1038/35011576</a>
+</div>
+<div id="ref-HAQ2015" class="csl-entry">
+16. <em><span class="nocase">Healthcare Access and Quality Index</span></em>. (2015). <a href="https://ourworldindata.org/grapher/healthcare-access-and-quality-index">https://ourworldindata.org/grapher/healthcare-access-and-quality-index</a>
+</div>
+<div id="ref-Apweiler2018" class="csl-entry">
+17. Apweiler, R., Beissbarth, T., Berthold, M. R., Blüthgen, N., Burmeister, Y., Dammann, O., Deutsch, A., Feuerhake, F., Franke, A., Hasenauer, J., Hoffmann, S., Höfer, T., Jansen, P. L., Kaderali, L., Klingmüller, U., Koch, I., Kohlbacher, O., Kuepfer, L., Lammert, F., … Wolkenhauer, O. (2018). <span class="nocase">Whither systems medicine?</span> <em>Experimental <span>&amp;</span> Molecular Medicine</em>, <em>50</em>(3), e453. <a href="https://doi.org/10.1038/emm.2017.290">https://doi.org/10.1038/emm.2017.290</a>
+</div>
+<div id="ref-Trudeau1976" class="csl-entry">
+18. Trudeau, R. J. (1976). <em><span class="nocase">Dots and lines</span></em>. Kent State University Press.
+</div>
+<div id="ref-Erdos1960" class="csl-entry">
+19. Erdos, P., &amp; Rényi, A. (1960). <span class="nocase">On the evolution of random graphs</span>. <em>Publ. Math. Inst. Hung. Acad. Sci</em>, <em>5</em>(1), 17–60.
+</div>
+<div id="ref-Barabasi1999" class="csl-entry">
+20. Barabási, A. L., &amp; Albert, R. (1999). <span class="nocase">Emergence of scaling in random networks</span>. <em>Science</em>, <em>286</em>(5439), 509–512. <a href="https://doi.org/10.1126/science.286.5439.509">https://doi.org/10.1126/science.286.5439.509</a>
+</div>
+<div id="ref-Barabasi2013" class="csl-entry">
+21. Barabási, A. L. (2013). <span class="nocase">Network science</span>. <em>Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences</em>, <em>371</em>(1987). <a href="https://doi.org/10.1098/rsta.2012.0375">https://doi.org/10.1098/rsta.2012.0375</a>
+</div>
+<div id="ref-Csardi2006" class="csl-entry">
+22. Csardi, G., &amp; Nepusz, T. (2006). <span class="nocase">The igraph software package for complex network research</span>. <em>InterJournal, Complex Systems</em>, <em>1695</em>(5), 1–9. <a href="http://igraph.org">http://igraph.org</a>
+</div>
+<div id="ref-Bastian2009" class="csl-entry">
+23. Bastian, M., Heymann, S., &amp; Jacomy, M. (2009). <span class="nocase">Gephi: an open source software for exploring and manipulating networks</span>. <em>Proceedings of the International AAAI Conference on Web and Social Media</em>.
+</div>
+<div id="ref-Mrvar2016" class="csl-entry">
+24. Mrvar, A., &amp; Batagelj, V. (2016). <em><span class="nocase">Analysis and visualization of large networks with program package Pajek</span></em> (No. 1; Vol. 4, pp. 1–8). Springer. <a href="https://doi.org/10.1186/s40294-016-0017-8">https://doi.org/10.1186/s40294-016-0017-8</a>
+</div>
+<div id="ref-Shannon2003" class="csl-entry">
+25. Shannon, P., Markiel, A., Ozier, O., Baliga, N. S., Wang, J. T., Ramage, D., Amin, N., Schwikowski, B., &amp; Ideker, T. (2003). <span class="nocase">Cytoscape: a software environment for integrated models of biomolecular interaction networks</span>. <em>Genome Research</em>, <em>13</em>(11), 2498–2504.
+</div>
+<div id="ref-Dahlquist2002" class="csl-entry">
+26. Dahlquist, K. D., Salomonis, N., Vranizan, K., Lawlor, S. C., &amp; Conklin, B. R. (2002). <span class="nocase">GenMAPP, a new tool for viewing and analyzing microarray data on biological pathways</span>. <em>Nature Genetics</em>, <em>31</em>(1), 19–20. <a href="https://doi.org/10.1038/ng0502-19">https://doi.org/10.1038/ng0502-19</a>
+</div>
+<div id="ref-Breitkreutz2003" class="csl-entry">
+27. Breitkreutz, B.-J., Stark, C., &amp; Tyers, M. (2003). <span class="nocase">Osprey: a network visualization system</span>. <em>Genome Biology</em>, <em>4</em>(3), R22. <a href="https://doi.org/10.1186/gb-2003-4-3-r22">https://doi.org/10.1186/gb-2003-4-3-r22</a>
+</div>
+<div id="ref-Funahashi2003" class="csl-entry">
+28. Funahashi, A., Morohashi, M., Kitano, H., &amp; Tanimura, N. (2003). <span class="nocase">CellDesigner: a process diagram editor for gene-regulatory and biochemical networks</span>. <em>BIOSILICO</em>, <em>1</em>(5), 159–162. <a href="https://doi.org/10.1016/s1478-5382(03)02370-9">https://doi.org/10.1016/s1478-5382(03)02370-9</a>
+</div>
+<div id="ref-Sidiropoulos2017" class="csl-entry">
+29. Sidiropoulos, K., Viteri, G., Sevilla, C., Jupe, S., Webber, M., Orlic-Milacic, M., Jassal, B., May, B., Shamovsky, V., Duenas, C., Rothfels, K., Matthews, L., Song, H., Stein, L., Haw, R., D’Eustachio, P., Ping, P., Hermjakob, H., &amp; Fabregat, A. (2017). <span class="nocase">Reactome enhanced pathway visualization</span>. <em>Bioinformatics</em>, <em>33</em>(21), 3461–3467. <a href="https://doi.org/10.1093/bioinformatics/btx441">https://doi.org/10.1093/bioinformatics/btx441</a>
+</div>
+<div id="ref-Smith2009" class="csl-entry">
+30. Smith, M. A., Shneiderman, B., Milic-Frayling, N., Mendes Rodrigues, E., Barash, V., Dunne, C., Capone, T., Perer, A., &amp; Gleave, E. (2009). <span class="nocase">Analyzing (social media) networks with NodeXL</span>. <em>Proceedings of the Fourth International Conference on Communities and Technologies - c<span>&amp;</span>t ’09</em>, 255. <a href="https://doi.org/10.1145/1556460.1556497">https://doi.org/10.1145/1556460.1556497</a>
+</div>
+<div id="ref-Kalamaras2014" class="csl-entry">
+31. Kalamaras, D. (2014). <span class="nocase">Social Networks Visualizer (SocNetV): Social network analysis and visualization software</span>. <em>Social Networks Visualizer</em>. <a href="http://socnetv.org">http://socnetv.org</a>
+</div>
+<div id="ref-Chatterjee2021" class="csl-entry">
+32. Chatterjee, T., Albert, R., Thapliyal, S., Azarhooshang, N., &amp; DasGupta, B. (2021). <span class="nocase">Detecting network anomalies using Forman–Ricci curvature and a case study for human brain networks</span>. <em>Scientific Reports</em>, <em>11</em>(1), 8121. <a href="https://doi.org/10.1038/s41598-021-87587-z">https://doi.org/10.1038/s41598-021-87587-z</a>
+</div>
+<div id="ref-Mislove2007" class="csl-entry">
+33. Mislove, A., Marcon, M., Gummadi, K. P., Druschel, P., &amp; Bhattacharjee, B. (2007). <span class="nocase">Measurement and analysis of online social networks</span>. <em>Proceedings of the ACM SIGCOMM Internet Measurement Conference, IMC</em>, 29–42. <a href="https://doi.org/10.1145/1298306.1298311">https://doi.org/10.1145/1298306.1298311</a>
+</div>
+<div id="ref-Maheshwari2020" class="csl-entry">
+34. Maheshwari, P., &amp; Albert, R. (2020). <span class="nocase">Network model and analysis of the spread of Covid-19 with social distancing</span>. <em>Applied Network Science</em>, <em>5</em>(1), 1–13. <a href="https://doi.org/10.1007/s41109-020-00344-5">https://doi.org/10.1007/s41109-020-00344-5</a>
+</div>
+<div id="ref-Barabasi2011" class="csl-entry">
+35. Barabási, A.-L., Gulbahce, N., &amp; Loscalzo, J. (2011). <span class="nocase">Network medicine: a network-based approach to human disease.</span> <em>Nature Reviews. Genetics</em>, <em>12</em>(1), 56–68. <a href="https://doi.org/10.1038/nrg2918">https://doi.org/10.1038/nrg2918</a>
+</div>
+<div id="ref-rtemps" class="csl-entry">
+36. Zobolas, J. (2020). <em><span class="nocase">Rtemps: R Templates for Reproducible Data Analyses</span></em>. GitHub. <a href="https://github.com/bblodfon/rtemps">https://github.com/bblodfon/rtemps</a>
+</div>
+<div id="ref-Flobak2019" class="csl-entry">
+37. Flobak, Å., Niederdorfer, B., Nakstad, V. T., Thommesen, L., Klinkenberg, G., &amp; Lægreid, A. (2019). <span class="nocase">A high-throughput drug combination screen of targeted small molecule inhibitors in cancer cell lines</span>. <em>Scientific Data</em>, <em>6</em>(1), 237. <a href="https://doi.org/10.1038/s41597-019-0255-7">https://doi.org/10.1038/s41597-019-0255-7</a>
+</div>
+<div id="ref-Vazquez2010" class="csl-entry">
+38. Vázquez, M., Nogales, R., Carmona, P., Pascual, A., &amp; Pavón, J. (2010). <em><span class="nocase">Rbbt: A Framework for Fast Bioinformatics Development with Ruby</span></em> (pp. 201–208). Springer, Berlin, Heidelberg. <a href="https://doi.org/10.1007/978-3-642-13214-8_26">https://doi.org/10.1007/978-3-642-13214-8_26</a>
+</div>
+<div id="ref-Flobak2017" class="csl-entry">
+39. Flobak, Å., Vazquez, M., Lægreid, A., &amp; Valencia, A. (2017). <span class="nocase">CImbinator: a web-based tool for drug synergy analysis in small- and large-scale datasets</span>. <em>Bioinformatics</em>, <em>33</em>(15), 2410–2412. <a href="https://doi.org/10.1093/bioinformatics/btx161">https://doi.org/10.1093/bioinformatics/btx161</a>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="05_links.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/bblodfon/my-phd-thesis/blob/main/06_refs.Rmd",
+"text": null
+},
+"download": [["phd-thesis.pdf", "PDF"]],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

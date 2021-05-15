@@ -43,3 +43,11 @@ body {
   font-size: 1.6rem;
   text-align: justify;
 }
+
+.right-align {
+  text-align: right;
+}
+
+p.caption {
+  font-size: 0.8em;
+}
