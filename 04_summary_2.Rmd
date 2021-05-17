@@ -1,7 +1,7 @@
 ## Dots and lines {-}
 
 ```{=html}
-<blockquote>"Mankind invented a system to cope with the fact that we are so intrinsically lousy at manipulating numbers. It's called the graph." ~ Charlie Munger</blockquote>
+<blockquote>&ldquo;Mankind invented a system to cope with the fact that we are so intrinsically lousy at manipulating numbers. It's called the graph.&rdquo; ~ Charlie Munger</blockquote>
 ```
 
 One of the simplest ways to conceptualize complex systems, either man-made or existing freely in nature, is using the notion of a *network* or *graph*.

@@ -1,2 +1,5 @@
 ## Sharing causal interactions with PSICQUIC {-}
 
+```{=html}
+<blockquote>&ldquo;Knowledge shared = knowledge<sup>2</sup>.&rdquo; ~ Anonymous</blockquote>
+```
