@@ -4,6 +4,7 @@
 <blockquote>&ldquo;We know more than we can tell.&rdquo; ~ Michael Polanyi</blockquote>
 ```
 
+\indent
 Where does the information that is used to build knowledge networks originate from?
 One of the most widely adopted ways to record and share knowledge, has been the publication of scientific findings in specialized journals.
 This has resulted in a major challenge that researchers in the life sciences face, which is to stay updated with the huge amount of information that is published on a daily basis (Figure \@ref(fig:fig2)).
