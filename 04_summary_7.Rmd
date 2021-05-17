@@ -1,8 +1,12 @@
 ## Clean Code {-}
 
 ```{=html}
+<blockquote>"If you can't even clean up your own room, who the hell are you to give advice to the world?" ~ Jordan B. Peterson</blockquote>
+```
+
+```{=html}
 <p style='text-align:center;'>
-  Even a small bug can have <strong>severe cascading effects<strong>...
- </p>
+  <i>Even a small bug can have <strong>severe cascading effects<strong>...</i>
+</p>
 <img src='https://thecodinglove.com/content/044/1Q0QIvX.gif' style='display: block; margin-left: auto; margin-right: auto;' width='60%'></img>
 ```
