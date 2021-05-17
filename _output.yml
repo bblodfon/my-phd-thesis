@@ -26,6 +26,5 @@ bookdown::pdf_book:
     in_header: latex/preamble.tex
     after_body: latex/after_body.tex
     #before_body: latex/before_body.tex
-  #citation_package: natbib
   keep_tex: yes
   # number_sections: no
