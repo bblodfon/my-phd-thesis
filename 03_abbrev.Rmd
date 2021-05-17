@@ -8,5 +8,5 @@ b = c('Prior Knowledge Network','Visual Syntax Method','Application Programming 
 library(dplyr, quietly = TRUE)
 abbrev_df = tibble::tibble(abbrev = a, name = b)
 
-knitr::kable(x = abbrev_df %>% arrange(abbrev), col.names = NULL, longtable = TRUE)
+knitr::kable(x = abbrev_df %>% arrange(abbrev), col.names = NULL, longtable = TRUE, booktabs = TRUE)
 ```
