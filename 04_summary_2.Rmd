@@ -37,7 +37,7 @@ Molecular biologists study intra- and intercellular signaling networks to unders
 Such network-based approaches have significant clinical applications since they have the potential to assist in the discovery of new disease genes and modules, and the identification of drug targets and biomarkers for complex diseases [@Barabasi2011].
 
 ```{=html}
-<img src='https://media.giphy.com/media/eljCVpMrhepUSgZaVP/source.gif' style='display: block; margin-left: auto; margin-right: auto;' width='75%'></img>
+<img src='https://media.giphy.com/media/eljCVpMrhepUSgZaVP/source.gif' style='display: block; margin-left: auto; margin-right: auto;' width='75%' onError="this.style.display='none'"></img>
 ```
 
 The work presented in this thesis is heavily based on this network medicine paradigm, with causal molecular interaction networks as the main object of study.
