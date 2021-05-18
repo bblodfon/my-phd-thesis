@@ -19,19 +19,19 @@ Papers that I am first author:
 :::
 
 :::{#Paper3}
-- **Paper 3**: *emba: R package for analysis and visualization of biomarkers in Boolean model ensembles*  
-**Zobolas, J.**, Kuiper, M., & Flobak, Å. [@Zobolas2020]
+- **Paper 3**: *Fine tuning a logical model of cancer cells to predict drug synergies: combining manual curation and automated parameterization* ^[(Manuscript) Shared first co-authorship, to be submitted to the Molecular Systems Biology Journal]  
+Flobak, Å., **Zobolas J.**, Vazquez M., Steigedal T., Thommesen L., Grislingås A., Niederdorfer B., Folkesson E., Kuiper M.
 
-  AF developed the idea of this project. JZ wrote the software and the manuscript. All co-authors revised and provided inputs to the manuscript.
+  AF designed the project, developed initial software and executed experiments. JZ extended the software, ran all simulations, produced and analyzed results. AF and MK added biological interpretation and wrote the manuscript. JZ provided various inputs and text to the manuscript. TS, LT and AG helped AF with experiments. MV developed prototype software. BN and EF did curation work and performed experiments.
 :::
 
 \newpage
 
 :::{#Paper4}
-- **Paper 4**: *Fine tuning a logical model of cancer cells to predict drug synergies: combining manual curation and automated parameterization* ^[(Manuscript) Shared first co-authorship, to be submitted to the Molecular Systems Biology Journal]  
-Flobak, Å., **Zobolas J.**, Vazquez M., Steigedal T., Thommesen L., Grislingås A., Niederdorfer B., Folkesson E., Kuiper M.
+- **Paper 4**: *emba: R package for analysis and visualization of biomarkers in Boolean model ensembles*  
+**Zobolas, J.**, Kuiper, M., & Flobak, Å. [@Zobolas2020]
 
-  AF designed the project, developed initial software and executed experiments. JZ extended the software, ran all simulations, produced and analyzed results. AF and MK added biological interpretation and wrote the manuscript. JZ provided various inputs and text to the manuscript. TS, LT and AG helped AF with experiments. MV developed prototype software. BN and EF did curation work and performed experiments.
+  AF developed the idea of this project. JZ wrote the software and the manuscript. All co-authors revised and provided inputs to the manuscript.
 :::
 
 :::{#Paper5}
