@@ -51,7 +51,7 @@ VSM enables scientists to capture any type of knowledge with any type of context
 ```{=html}
 <img src='https://raw.githubusercontent.com/vsm/vsm-box/master/imgs/vsm-box-example.gif' style='display: block; margin-left: auto; margin-right: auto;' onError="this.style.display='none'"></img>
 <p style='text-align:center;'>
-  <i>A little bit VSM in action...</i>
+  <i>A little bit <a href='https://vsm.github.io/'>VSM</a> in action...</i>
 </p>
 ```
 
