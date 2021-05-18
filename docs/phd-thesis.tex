@@ -136,6 +136,9 @@
 \usepackage{longtable}
 \usepackage{booktabs}
 
+% indent paragraphs
+\setlength{\parindent}{7ex}
+
 % for numbering
 \frontmatter
 \ifluatex
@@ -191,6 +194,9 @@ Department of Biology}
 \chapter*{Acknowledgements}\label{acknowledgements}}
 \addcontentsline{toc}{chapter}{Acknowledgements}
 
+\vspace{-30pt}
+\indent
+
 I first acknowledge funding from the \textbf{ERACoSysMed project COLOSYS}. Now to people, the most important part: \textbf{I would like to thank everyone} that interacted with me during the years I conducted my PhD research (2017-2021), even for a tiny bit. A person is only a small node in a complex network of interactions, which only when considered together, make up the person. In other words, you are not just you! So, you were \textbf{all important} for me (and for others I am sure)! Importance though is measured in varying degrees. Therefore now, I will proceed to give some personal credits (the part that most of you came here to read :)
 
 A big \textbf{THANK YOU} to my supervisor, Prof.~Martin Kuiper. He gave me the opportunity to come to Norway, which opened a world of possibilities. The dream supervisor everyone should have and a caring human being above all. A true gentleman and an unsurpassed cook as well!
@@ -223,7 +229,9 @@ May 2021
 \chapter*{Abstract}\label{abstract}}
 \addcontentsline{toc}{chapter}{Abstract}
 
-\vspace{-20pt}
+\vspace{-30pt}
+
+\indent
 
 Cancer is one the most prevalent human diseases.
 The scientific community has devoted considerable efforts to understand the mechanisms behind this disease and search for treatments that promise a better quality of life for patients.
@@ -281,32 +289,46 @@ Finally, results from a study of diverse Boolean functions indicated that these 
 
 Papers that I am first author:
 
+\hypertarget{Paper1}{}
 \begin{itemize}
 \item
   \textbf{Paper 1}: \emph{UniBioDicts: Unified access to Biological Dictionaries}\\
   \textbf{Zobolas, J.}, Touré, V., Kuiper, M., \& Vercruysse, S. {[}\protect\hyperlink{ref-UBDs}{1}{]}
 
   SV and VT identified the need for software to connect with the resources listed in MI2CAST used in the CausalBuilder tool. JZ implemented the software and wrote the manuscript. All co-authors revised and provided inputs to the manuscript.
+\end{itemize}
+
+\hypertarget{Paper2}{}
+\begin{itemize}
 \item
   \textbf{Paper 2}: \emph{Linking PubDictionaries with UniBioDicts to support Community Curation}\\
   \textbf{Zobolas, J.}, Kim, J.-D., Kuiper, M., \& Vercruysse, S. {[}\protect\hyperlink{ref-Zobolas2020-pubdict}{2}{]}
 
   MK and SV developed the original idea for this project. JZ wrote the application for a BioHackathon project and invited JDK to collaborate. JZ implemented the client side, JDK the server side. JZ wrote the manuscript. All co-authors revised and provided inputs to the manuscript.
+\end{itemize}
+
+\hypertarget{Paper3}{}
+\begin{itemize}
 \item
-  \textbf{Paper 3}: \emph{emba: R package for analysis and visualization of biomarkers in Boolean model ensembles}\\
+  \textbf{Paper 3}: \emph{Fine tuning a logical model of cancer cells to predict drug synergies: combining manual curation and automated parameterization}\footnote{(Manuscript) Shared first co-authorship, to be submitted to the Molecular Systems Biology Journal}\\
+  Flobak, Å., \textbf{Zobolas J.}, Vazquez M., Steigedal T., Thommesen L., Grislingås A., Niederdorfer B., Folkesson E., Kuiper M.
+
+  AF designed the project, developed initial software and executed experiments. JZ extended the software, ran all simulations, produced and analyzed results. AF and MK added biological interpretation and wrote the manuscript. JZ provided various inputs and text to the manuscript. TS, LT and AG helped AF with experiments. MV developed prototype software. BN and EF did curation work and performed experiments.
+\end{itemize}
+
+\newpage
+
+\hypertarget{Paper4}{}
+\begin{itemize}
+\item
+  \textbf{Paper 4}: \emph{emba: R package for analysis and visualization of biomarkers in Boolean model ensembles}\\
   \textbf{Zobolas, J.}, Kuiper, M., \& Flobak, Å. {[}\protect\hyperlink{ref-Zobolas2020}{3}{]}
 
   AF developed the idea of this project. JZ wrote the software and the manuscript. All co-authors revised and provided inputs to the manuscript.
 \end{itemize}
 
-\newpage
-
+\hypertarget{Paper5}{}
 \begin{itemize}
-\item
-  \textbf{Paper 4}: \emph{Fine tuning a logical model of cancer cells to predict drug synergies: combining manual curation and automated parameterization}\footnote{(Manuscript) Shared first co-authorship, to be submitted to the Molecular Systems Biology Journal}\\
-  Flobak, Å., \textbf{Zobolas J.}, Vazquez M., Steigedal T., Thommesen L., Grislingås A., Niederdorfer B., Folkesson E., Kuiper M.
-
-  AF designed the project, developed initial software and executed experiments. JZ extended the software, ran all simulations, produced and analyzed results. AF and MK added biological interpretation and wrote the manuscript. JZ provided various inputs and text to the manuscript. TS, LT and AG helped AF with experiments. MV developed prototype software. BN and EF did curation work and performed experiments.
 \item
   \textbf{Paper 5}: \emph{Boolean function metrics can assist modelers to check and choose logical rules}\footnote{(Preprint) To be submitted to the Journal of Theoretical Biology}\\
   \textbf{Zobolas, J.}, Monteiro, P. T., Kuiper, M., \& Flobak, Å. {[}\protect\hyperlink{ref-Zobolas2021-bias}{4}{]}
@@ -390,6 +412,8 @@ XML & Extensible Markup Language\\
 \section*{One for all}\label{one-for-all}}
 \addcontentsline{toc}{section}{One for all}
 
+\indent
+
 Scientific and technological progress has been the foundation for some of the most astounding achievements of humankind.
 In the last century in particular, discoveries were made that contributed to the sustainable development of the economy and society, affecting our lives in an unprecedented manner and making possible what was considered impossible.
 The invention of the digital computer and the Internet for example, revolutionized the access, dissemination and analysis of information {[}\protect\hyperlink{ref-Abbate2000}{8},\protect\hyperlink{ref-Naughton2016}{9}{]}.
@@ -427,6 +451,8 @@ The field of Systems Medicine has been the direct embodiment of this notion, pro
 \hypertarget{dots-and-lines}{%
 \section*{Dots and lines}\label{dots-and-lines}}
 \addcontentsline{toc}{section}{Dots and lines}
+
+\indent
 
 One of the simplest ways to conceptualize complex systems, either man-made or existing freely in nature, is using the notion of a \emph{network} or \emph{graph}.
 The idea is that any system is composed of individual entities or components of interest (nodes) and these components interact with each other in various, usually non-obvious ways (links).
@@ -466,6 +492,8 @@ In the subsequent chapters, we will discuss how we addressed problems related to
 \hypertarget{knowledge-from-a-stack-of-papers}{%
 \section*{Knowledge from a stack of papers}\label{knowledge-from-a-stack-of-papers}}
 \addcontentsline{toc}{section}{Knowledge from a stack of papers}
+
+\indent
 
 Where does the information that is used to build knowledge networks originate from?
 One of the most widely adopted ways to record and share knowledge, has been the publication of scientific findings in specialized journals.
@@ -528,6 +556,56 @@ All in all, CausalBuilder provides biologists and curators with a simple user in
 \hypertarget{biological-dictionaries-aid-in-the-curation-of-complex-knowledge}{%
 \section*{Biological Dictionaries aid in the curation of complex knowledge}\label{biological-dictionaries-aid-in-the-curation-of-complex-knowledge}}
 \addcontentsline{toc}{section}{Biological Dictionaries aid in the curation of complex knowledge}
+
+\indent
+
+During the design process of the VSM-box tool and its application, CausalBuilder, we came across a critical technical issue that needed to be addressed, and whose resolution had ramifications outside of the intended scope of our work.
+Due to the high degree of complexity within the domain of biology, biocurators need to annotate diverse information, taken from a plethora of biological resources and vocabularies.
+To enable a wider expressiveness in the annotation of causal statements, the recommended list of ontologies and vocabularies of the MI2CAST standard had to be rather extensive {[}\protect\hyperlink{ref-mi2cast-doc}{48}{]}.
+Since CausalBuilder conforms to the MI2CAST standard, a unified way to retrieve, format and display vocabulary terms from different databases was needed.
+We illustrate this with an example: in Figure \ref{fig:fig3}, a simple VSM-template that a curator can use to annotate a causal statement with CausalBuilder is shown.
+Following the MI2CAST guidelines, the source entity of the causal statement (first box in Figure \ref{fig:fig3}) must always be specified and a list of recommended resources where the annotation could potentially originate from is provided {[}\protect\hyperlink{ref-mi2cast-doc}{48}{]}.
+We limit the number of these resources to three in this example, making it so that the source biological entity can be annotated as a protein (from UniProt {[}\protect\hyperlink{ref-TheUniProtConsortium2019}{49}{]}), a complex (from Complex Portal {[}\protect\hyperlink{ref-Meldal2019}{50}{]}), or an RNA transcript (from RNAcentral {[}\protect\hyperlink{ref-RNACentral2018}{51}{]}).
+The intended use case is that the curator will type in a string (e.g.~``tp53'') and a list of terms and descriptive metadata from the three respective standard databases will be returned.
+This information can be displayed by VSM-box in an autocomplete drop-down menu to ease the selection of the appropriate term by the curator.
+
+
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{img/causalBuilder_screenshot} \caption{Querying multiple data resources using the VSM-box technology in CausalBuilder. The user enters a string of interest and selects a list of resource types (not shown here) for the source entity, following the MI2CAST curation guidelines. The UBDs stand as a hidden translator between the query launched from the curator interface and the respective database data, returning a list of uniformly-structured matches, shown as a drop-down list to the user. The matches consist of a curator-friendly main term (shown in blue) and metadata like identifier, name of species, textual description, resource name etc., that a user can use to disambiguate between the different concepts.}\label{fig:fig3}
+\end{figure}
+
+\newpage
+
+We can now clearly state the heart of the problem: the resources that offer protein, RNA and multiprotein complex data, have different online APIs to serve their information, and it is usually structured in diverse formats.
+Therefore, it was necessary to design a generic solution that would translate all the necessary information from the recommended resources of the MI2CAST standard into a unified representation schema.
+Then, we could implement modules that ``talk'' to the databases and translate the provided information into this uniform data format.
+As a result of having a standardized way to represent data from various disparate resources, VSM-box and other curation tools could easily process the returned data load and create drop-down menus to help users in their annotation tasks (as shown in Figure \ref{fig:fig3}).
+The outcome of all this effort was the implementation of UBDs (Unified Biological Dictionaries, see \textbf{\protect\hyperlink{Paper1}{Paper 1}}).
+The reason for the name \emph{dictionaries} originates from the abstract data type called \emph{associative array} (also known as \emph{map} or \emph{dictionary}), which is a collection of (\emph{key, value}) pairs, and is an integrated feature of many programming languages.
+For our application, we reasoned that the minimum information that is needed for the unique identification of concepts for curation tasks is a computer-friendly ID and a human-friendly term, precisely matching the \emph{key} and \emph{value} of the associative array's data structure.
+
+An unforeseen consequence of the UBDs implementation was that by covering most of the vocabularies and ontologies recommended by the MI2CAST standard, we ended up mapping into a unified format a large amount of diverse terminologies across life sciences.
+This happened because our solution encapsulated and extended other similar efforts, such as the BioPortal {[}\protect\hyperlink{ref-Whetzel2011}{52}{]} and EBI Search {[}\protect\hyperlink{ref-Madeira2019}{53}{]} web services.
+We therefore managed to bring even more biomedical ontologies and biological data resources under one umbrella, and subsequently increase the accessibility, interoperability and reusability of the provided data {[}\protect\hyperlink{ref-Wilkinson2016}{54}{]}.
+So, even though UBDs main user is the software engineer building curation tools (as we were at the beginning of this effort with CausalBuilder), several computational researchers can benefit from our implementation, if they need to query disparate biological resources for lightweight information (i.e.~terms, identifiers and some metadata) using a single programmatic interface.
+In the end, the feedback we got from biocurators who tested the CausalBuilder tool was very encouraging, pointing out that we had proceeded in the right direction with our efforts to build UBDs, the hidden machinery enabling all the autocomplete ``magic'' to happen in VSM-box's user interface.
+
+The implementation of UBDs put us in a position to confront problems that biocurators face during their annotation tasks, which haven't yet been properly addressed by any existing technology.
+One of these challenges is that biocurators often need to annotate terms in a specific domain or novel field, for which there is still no authoritative database or ontology nor a community consensus about the respective terminology {[}\protect\hyperlink{ref-Hartmann2019}{55}{]}.
+A similar challenge manifests when new knowledge is discovered or similarly, further contextual information related to existing knowledge comes into light, as a result of scientists' constant drive for progress.
+This eventually leads to the constant refactoring of ontologies and identifiers, subsequently making biocurators life even more difficult.
+To respond to these challenges, biocurators create project-specific, \emph{ad-hoc} vocabularies that aren't openly accessible and usually become obsolete after some time passes.
+We reasoned that with the UBDs infrastructure in place, we could do better.
+
+In summary, the core of the problem is two-fold: first, biocurators need a simple way to annotate new information that does not yet exist in any resource and second, this information needs to be shared publicly for further review and management by expert communities.
+To tackle this problem, we collaborated with experts from PubDictionaries, an online repository of publicly accessible and editable dictionaries {[}\protect\hyperlink{ref-Kim2019}{56}{]}.
+Using the online interface of PubDictionaries, curators can create simple dictionaries, consisting of terms and identifiers of their own choice, solving the second part of the problem.
+Additionally, by updating the PubDictionaries API and connecting all existing and future public dictionaries with UBDs and their underlying unified format, we streamlined their use in annotation tools and solved the first part of the problem.
+The technical work was carried out during an intense hacking week at the ELIXIR Biohackathon 2021 event and the implementation details are described in \textbf{\protect\hyperlink{Paper2}{Paper 2}} of this thesis.
+As a final result, we showcased a demo in which curators could use their public, ad-hoc terminologies from PubDictionaries, to annotate a simple sentence using the VSM-box interface.
+
+\newpage
 
 \hypertarget{sharing-causal-interactions-with-psicquic}{%
 \section*{Sharing causal interactions with PSICQUIC}\label{sharing-causal-interactions-with-psicquic}}
@@ -610,7 +688,7 @@ All in all, CausalBuilder provides biologists and curators with a simple user in
 \item
   \href{https://github.com/bblodfon/usefun}{\texttt{usefun}}: various useful \texttt{R} functions
 \item
-  \href{https://github.com/bblodfon/rtemps}{\texttt{rtemps}}: templates for reproducible data analyses with \texttt{R} {[}\protect\hyperlink{ref-rtemps}{48}{]}
+  \href{https://github.com/bblodfon/rtemps}{\texttt{rtemps}}: templates for reproducible data analyses with \texttt{R} {[}\protect\hyperlink{ref-rtemps}{57}{]}
 \end{itemize}
 
 \hypertarget{misc-links}{%
@@ -627,7 +705,7 @@ Each repository has a \texttt{README.md} file with a brief description of the an
 \item
   \href{https://github.com/druglogics/ags-paper}{\texttt{ags-paper}}: simulation results and data analyses related to the AGS paper manuscript
 \item
-  \href{https://github.com/druglogics/sintef-obs-synergies}{\texttt{sintef-obs-synergies}}: synergy assessment of the Flobak et al.~(2019) {[}\protect\hyperlink{ref-Flobak2019}{49}{]} drug combination dataset using rbbt {[}\protect\hyperlink{ref-Vazquez2010}{50}{]} and the CImbinator tool {[}\protect\hyperlink{ref-Flobak2017}{51}{]}
+  \href{https://github.com/druglogics/sintef-obs-synergies}{\texttt{sintef-obs-synergies}}: synergy assessment of the Flobak et al.~(2019) {[}\protect\hyperlink{ref-Flobak2019}{58}{]} drug combination dataset using rbbt {[}\protect\hyperlink{ref-Vazquez2010}{59}{]} and the CImbinator tool {[}\protect\hyperlink{ref-Flobak2017}{60}{]}
 \item
   \href{https://github.com/druglogics/brf-bias}{\texttt{brf-bias}}: data analyses related to truth density bias in standardized Boolean regulatory functions (results are part of the Boolean function metrics paper)
 \item
@@ -783,17 +861,44 @@ Each repository has a \texttt{README.md} file with a brief description of the an
 \leavevmode\hypertarget{ref-Toure2020}{}%
 47. Touré, V., Vercruysse, S., Acencio, M. L., Lovering, R., Orchard, S., Bradley, G., Casals-Casas, C., Chaouiya, C., Del-Toro, N., Flobak, Å., Gaudet, P., Hermjakob, H., Licata, L., Lægreid, A., Mungall, C., Niknejad, A., Panni, S., Perfetto, L., Porras, P., \ldots{} Kuiper, M. (2020). {The Minimum Information about a Molecular Interaction Causal Statement (MI2CAST)}. \emph{Bioinformatics}. \url{https://doi.org/10.1093/bioinformatics/btaa622}
 
+\leavevmode\hypertarget{ref-mi2cast-doc}{}%
+48. Vasundra, T. (2020). \emph{{MI2CAST Documentation}}. \url{https://github.com/MI2CAST/MI2CAST/blob/master/docs/MI2CAST_guideline.md} (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-TheUniProtConsortium2019}{}%
+49. The UniProt Consortium. (2019). {UniProt: a worldwide hub of protein knowledge}. \emph{Nucleic Acids Research}, \emph{47}(D1), D506--D515. \url{https://doi.org/10.1093/nar/gky1049}
+
+\leavevmode\hypertarget{ref-Meldal2019}{}%
+50. Meldal, B. H. M., Bye-A-Jee, H., Gajdoš, L., Hammerová, Z., Horáčková, A., Melicher, F., Perfetto, L., Pokorný, D., Lopez, M. R., Türková, A., Wong, E. D., Xie, Z., Casanova, E. B., Del-Toro, N., Koch, M., Porras, P., Hermjakob, H., \& Orchard, S. (2019). {Complex Portal 2018: extended content and enhanced visualization tools for macromolecular complexes}. \emph{Nucleic Acids Research}, \emph{47}(D1), D550--D558. \url{https://doi.org/10.1093/nar/gky1001}
+
+\leavevmode\hypertarget{ref-RNACentral2018}{}%
+51. The RNAcentral Consortium. (2018). {RNAcentral: a hub of information for non-coding RNA sequences}. \emph{Nucleic Acids Research}, \emph{47}(D1), D1250--D1251. \url{https://doi.org/10.1093/nar/gky1206}
+
+\leavevmode\hypertarget{ref-Whetzel2011}{}%
+52. Whetzel, P. L., Noy, N. F., Shah, N. H., Alexander, P. R., Nyulas, C., Tudorache, T., \& Musen, M. A. (2011). {BioPortal: enhanced functionality via new Web services from the National Center for Biomedical Ontology to access and use ontologies in software applications.} \emph{Nucleic Acids Research}, \emph{39}(Web Server issue), W541--5. \url{https://doi.org/10.1093/nar/gkr469}
+
+\leavevmode\hypertarget{ref-Madeira2019}{}%
+53. Madeira, F., Park, Y. mi, Lee, J., Buso, N., Gur, T., Madhusoodanan, N., Basutkar, P., Tivey, A. R. N., Potter, S. C., Finn, R. D., \& Lopez, R. (2019). {The EMBL-EBI search and sequence analysis tools APIs in 2019}. \emph{Nucleic Acids Research}, \emph{47}(W1), W636--W641. \url{https://doi.org/10.1093/nar/gkz268}
+
+\leavevmode\hypertarget{ref-Wilkinson2016}{}%
+54. Wilkinson, M. D., Dumontier, M., Aalbersberg, Ij. J., Appleton, G., Axton, M., Baak, A., Blomberg, N., Boiten, J. W., da Silva Santos, L. B., Bourne, P. E., Bouwman, J., Brookes, A. J., Clark, T., Crosas, M., Dillo, I., Dumon, O., Edmunds, S., Evelo, C. T., Finkers, R., \ldots{} Mons, B. (2016). {The FAIR Guiding Principles for scientific data management and stewardship}. \emph{Scientific Data}, \emph{3}(1), 1--9. \url{https://doi.org/10.1038/sdata.2016.18}
+
+\leavevmode\hypertarget{ref-Hartmann2019}{}%
+55. Hartmann, N. B., Hüffer, T., Thompson, R. C., Hassellöv, M., Verschoor, A., Daugaard, A. E., Rist, S., Karlsson, T., Brennholt, N., Cole, M., Herrling, M. P., Hess, M. C., Ivleva, N. P., Lusher, A. L., \& Wagner, M. (2019). {Are We Speaking the Same Language? Recommendations for a Definition and Categorization Framework for Plastic Debris}. \emph{Environmental Science and Technology}, \emph{53}(3), 1039--1047. \url{https://doi.org/10.1021/acs.est.8b05297}
+
+\leavevmode\hypertarget{ref-Kim2019}{}%
+56. Kim, J.-D., Wang, Y., Fujiwara, T., Okuda, S., Callahan, T. J., \& Cohen, K. B. (2019). {Open Agile text mining for bioinformatics: the PubAnnotation ecosystem}. \emph{Bioinformatics}, \emph{35}(21), 4372--4380. \url{https://doi.org/10.1093/bioinformatics/btz227}
+
 \leavevmode\hypertarget{ref-rtemps}{}%
-48. Zobolas, J. (2020). \emph{{Rtemps: R Templates for Reproducible Data Analyses}}. GitHub. \url{https://github.com/bblodfon/rtemps}
+57. Zobolas, J. (2020). \emph{{Rtemps: R Templates for Reproducible Data Analyses}}. GitHub. \url{https://github.com/bblodfon/rtemps}
 
 \leavevmode\hypertarget{ref-Flobak2019}{}%
-49. Flobak, Å., Niederdorfer, B., Nakstad, V. T., Thommesen, L., Klinkenberg, G., \& Lægreid, A. (2019). {A high-throughput drug combination screen of targeted small molecule inhibitors in cancer cell lines}. \emph{Scientific Data}, \emph{6}(1), 237. \url{https://doi.org/10.1038/s41597-019-0255-7}
+58. Flobak, Å., Niederdorfer, B., Nakstad, V. T., Thommesen, L., Klinkenberg, G., \& Lægreid, A. (2019). {A high-throughput drug combination screen of targeted small molecule inhibitors in cancer cell lines}. \emph{Scientific Data}, \emph{6}(1), 237. \url{https://doi.org/10.1038/s41597-019-0255-7}
 
 \leavevmode\hypertarget{ref-Vazquez2010}{}%
-50. Vázquez, M., Nogales, R., Carmona, P., Pascual, A., \& Pavón, J. (2010). \emph{{Rbbt: A Framework for Fast Bioinformatics Development with Ruby}} (pp. 201--208). Springer, Berlin, Heidelberg. \url{https://doi.org/10.1007/978-3-642-13214-8_26}
+59. Vázquez, M., Nogales, R., Carmona, P., Pascual, A., \& Pavón, J. (2010). \emph{{Rbbt: A Framework for Fast Bioinformatics Development with Ruby}} (pp. 201--208). Springer, Berlin, Heidelberg. \url{https://doi.org/10.1007/978-3-642-13214-8_26}
 
 \leavevmode\hypertarget{ref-Flobak2017}{}%
-51. Flobak, Å., Vazquez, M., Lægreid, A., \& Valencia, A. (2017). {CImbinator: a web-based tool for drug synergy analysis in small- and large-scale datasets}. \emph{Bioinformatics}, \emph{33}(15), 2410--2412. \url{https://doi.org/10.1093/bioinformatics/btx161}
+60. Flobak, Å., Vazquez, M., Lægreid, A., \& Valencia, A. (2017). {CImbinator: a web-based tool for drug synergy analysis in small- and large-scale datasets}. \emph{Bioinformatics}, \emph{33}(15), 2410--2412. \url{https://doi.org/10.1093/bioinformatics/btx161}
 
 \end{CSLReferences}
 
@@ -809,7 +914,6 @@ Each repository has a \texttt{README.md} file with a brief description of the an
 \end{center}
 
 \includepdf[pages=-]{papers/ubds.pdf}
-\includepdf[pages=-]{papers/ubds_supp.pdf}
 
 \begin{center}
 \vspace*{\stretch{1}}
@@ -835,7 +939,11 @@ Each repository has a \texttt{README.md} file with a brief description of the an
 
 \includepdf[pages=-]{papers/bias.pdf}
 
-\centering{-- End of Thesis --}
+\begin{center}
+\vspace*{\stretch{1}}
+\textbf{\fontsize{70}{1} \selectfont End of Thesis}
+\vspace*{\stretch{1}}
+\end{center}
 
 % list of other candidates at NTNU
 %\includepdf[pages=-]{dr_ntnu.pdf}

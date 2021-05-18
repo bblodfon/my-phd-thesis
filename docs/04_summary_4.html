@@ -144,6 +144,53 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="biological-dictionaries-aid-in-the-curation-of-complex-knowledge" class="section level2 unnumbered">
 <h2>Biological Dictionaries aid in the curation of complex knowledge</h2>
+<blockquote>&ldquo;Dictionaries are like watches; the worst is better than none, and the best cannot be expected to go quite true&rdquo; ~ Samuel Johnson</blockquote>
+<p>During the design process of the VSM-box tool and its application, CausalBuilder, we came across a critical technical issue that needed to be addressed, and whose resolution had ramifications outside of the intended scope of our work.
+Due to the high degree of complexity within the domain of biology, biocurators need to annotate diverse information, taken from a plethora of biological resources and vocabularies.
+To enable a wider expressiveness in the annotation of causal statements, the recommended list of ontologies and vocabularies of the MI2CAST standard had to be rather extensive <span class="citation">[<a href="06_refs.html#ref-mi2cast-doc" role="doc-biblioref">48</a>]</span>.
+Since CausalBuilder conforms to the MI2CAST standard, a unified way to retrieve, format and display vocabulary terms from different databases was needed.
+We illustrate this with an example: in Figure <a href="04_summary_4.html#fig:fig3">3</a>, a simple VSM-template that a curator can use to annotate a causal statement with CausalBuilder is shown.
+Following the MI2CAST guidelines, the source entity of the causal statement (first box in Figure <a href="04_summary_4.html#fig:fig3">3</a>) must always be specified and a list of recommended resources where the annotation could potentially originate from is provided <span class="citation">[<a href="06_refs.html#ref-mi2cast-doc" role="doc-biblioref">48</a>]</span>.
+We limit the number of these resources to three in this example, making it so that the source biological entity can be annotated as a protein (from UniProt <span class="citation">[<a href="06_refs.html#ref-TheUniProtConsortium2019" role="doc-biblioref">49</a>]</span>), a complex (from Complex Portal <span class="citation">[<a href="06_refs.html#ref-Meldal2019" role="doc-biblioref">50</a>]</span>), or an RNA transcript (from RNAcentral <span class="citation">[<a href="06_refs.html#ref-RNACentral2018" role="doc-biblioref">51</a>]</span>).
+The intended use case is that the curator will type in a string (e.g. “tp53”) and a list of terms and descriptive metadata from the three respective standard databases will be returned.
+This information can be displayed by VSM-box in an autocomplete drop-down menu to ease the selection of the appropriate term by the curator.</p>
+
+<div class="figure"><span id="fig:fig3"></span>
+<img src="img/causalBuilder_screenshot.png" alt="Querying multiple data resources using the VSM-box technology in CausalBuilder. The user enters a string of interest and selects a list of resource types (not shown here) for the source entity, following the MI2CAST curation guidelines. The UBDs stand as a hidden translator between the query launched from the curator interface and the respective database data, returning a list of uniformly-structured matches, shown as a drop-down list to the user. The matches consist of a curator-friendly main term (shown in blue) and metadata like identifier, name of species, textual description, resource name etc., that a user can use to disambiguate between the different concepts." width="100%" />
+<p class="caption">
+Figure 3: Querying multiple data resources using the VSM-box technology in CausalBuilder. The user enters a string of interest and selects a list of resource types (not shown here) for the source entity, following the MI2CAST curation guidelines. The UBDs stand as a hidden translator between the query launched from the curator interface and the respective database data, returning a list of uniformly-structured matches, shown as a drop-down list to the user. The matches consist of a curator-friendly main term (shown in blue) and metadata like identifier, name of species, textual description, resource name etc., that a user can use to disambiguate between the different concepts.
+</p>
+</div>
+<div style="page-break-after: always;"></div>
+<p>We can now clearly state the heart of the problem: the resources that offer protein, RNA and multiprotein complex data, have different online APIs to serve their information, and it is usually structured in diverse formats.
+Therefore, it was necessary to design a generic solution that would translate all the necessary information from the recommended resources of the MI2CAST standard into a unified representation schema.
+Then, we could implement modules that “talk” to the databases and translate the provided information into this uniform data format.
+As a result of having a standardized way to represent data from various disparate resources, VSM-box and other curation tools could easily process the returned data load and create drop-down menus to help users in their annotation tasks (as shown in Figure <a href="04_summary_4.html#fig:fig3">3</a>).
+The outcome of all this effort was the implementation of UBDs (Unified Biological Dictionaries, see <strong><a href="02_papers.html#Paper1">Paper 1</a></strong>).
+The reason for the name <em>dictionaries</em> originates from the abstract data type called <em>associative array</em> (also known as <em>map</em> or <em>dictionary</em>), which is a collection of (<em>key, value</em>) pairs, and is an integrated feature of many programming languages.
+For our application, we reasoned that the minimum information that is needed for the unique identification of concepts for curation tasks is a computer-friendly ID and a human-friendly term, precisely matching the <em>key</em> and <em>value</em> of the associative array’s data structure.</p>
+<p>An unforeseen consequence of the UBDs implementation was that by covering most of the vocabularies and ontologies recommended by the MI2CAST standard, we ended up mapping into a unified format a large amount of diverse terminologies across life sciences.
+This happened because our solution encapsulated and extended other similar efforts, such as the BioPortal <span class="citation">[<a href="06_refs.html#ref-Whetzel2011" role="doc-biblioref">52</a>]</span> and EBI Search <span class="citation">[<a href="06_refs.html#ref-Madeira2019" role="doc-biblioref">53</a>]</span> web services.
+We therefore managed to bring even more biomedical ontologies and biological data resources under one umbrella, and subsequently increase the accessibility, interoperability and reusability of the provided data <span class="citation">[<a href="06_refs.html#ref-Wilkinson2016" role="doc-biblioref">54</a>]</span>.
+So, even though UBDs main user is the software engineer building curation tools (as we were at the beginning of this effort with CausalBuilder), several computational researchers can benefit from our implementation, if they need to query disparate biological resources for lightweight information (i.e. terms, identifiers and some metadata) using a single programmatic interface.
+In the end, the feedback we got from biocurators who tested the CausalBuilder tool was very encouraging, pointing out that we had proceeded in the right direction with our efforts to build UBDs, the hidden machinery enabling all the autocomplete “magic” to happen in VSM-box’s user interface.</p>
+<p>The implementation of UBDs put us in a position to confront problems that biocurators face during their annotation tasks, which haven’t yet been properly addressed by any existing technology.
+One of these challenges is that biocurators often need to annotate terms in a specific domain or novel field, for which there is still no authoritative database or ontology nor a community consensus about the respective terminology <span class="citation">[<a href="06_refs.html#ref-Hartmann2019" role="doc-biblioref">55</a>]</span>.
+A similar challenge manifests when new knowledge is discovered or similarly, further contextual information related to existing knowledge comes into light, as a result of scientists’ constant drive for progress.
+This eventually leads to the constant refactoring of ontologies and identifiers, subsequently making biocurators life even more difficult.
+To respond to these challenges, biocurators create project-specific, <em>ad-hoc</em> vocabularies that aren’t openly accessible and usually become obsolete after some time passes.
+We reasoned that with the UBDs infrastructure in place, we could do better.</p>
+<img src='https://media.giphy.com/media/3o6ZtqOtvEQ7U3WeYw/giphy.gif' style='display: block; margin-left: auto; margin-right: auto;' width='75%' onError="this.style.display='none'"></img>
+<br>
+<p>In summary, the core of the problem is two-fold: first, biocurators need a simple way to annotate new information that does not yet exist in any resource and second, this information needs to be shared publicly for further review and management by expert communities.
+To tackle this problem, we collaborated with experts from PubDictionaries, an online repository of publicly accessible and editable dictionaries <span class="citation">[<a href="06_refs.html#ref-Kim2019" role="doc-biblioref">56</a>]</span>.
+Using the online interface of PubDictionaries, curators can create simple dictionaries, consisting of terms and identifiers of their own choice, solving the second part of the problem.
+Additionally, by updating the PubDictionaries API and connecting all existing and future public dictionaries with UBDs and their underlying unified format, we streamlined their use in annotation tools and solved the first part of the problem.
+The technical work was carried out during an intense hacking week at the ELIXIR Biohackathon 2021 event and the implementation details are described in <strong><a href="02_papers.html#Paper2">Paper 2</a></strong> of this thesis.
+As a final result, we showcased a demo in which curators could use their public, ad-hoc terminologies from PubDictionaries, to annotate a simple sentence using the VSM-box interface.</p>
+<p style='text-align:center;'><i>The following video is the presentation of the demo during the last day of the ELIXIR Biohackathon 2020:</i><br>
+<iframe src="https://drive.google.com/file/d/1A_Kfz90hll1N6gUBNL5Uxcub_wBziqUJ/preview" width="640" height="480" ></iframe><p>
+<div style="page-break-after: always;"></div>
 
 </div>
             </section>
