@@ -19,6 +19,8 @@ In order to help biocurators be more efficient in their annotation tasks, we pro
 In particular, we implemented a user interface component (VSM-box) that enables curators to annotate any type of information, no matter its complexity, and translate it into an intuitive, flexible sentence-like format.
 This software was used to build a prototype curation interface (CausalBuilder) for the annotation of molecular causal interactions, which constitute the cornerstone of a model's PKN.
 
+\newpage
+
 The second problem concerns the availability and ease of access of causal molecular interaction data for modeling or other scientific endeavors. 
 A standard format for the representation of such signaling information was developed (CausalTAB), and we supported the export of the causality statements from CausalBuilder’s interface to this format. 
 But there exist several other molecular interaction databases that could update their data to fit the new CausalTAB standard. 
