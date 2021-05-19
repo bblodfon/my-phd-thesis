@@ -114,7 +114,7 @@
   \begin{flushright}}
  {\end{flushright}}
 
-% Nice font styleing for pdf text
+% Nice font styling for pdf text
 \usepackage{type1cm}
 %% Replace the standard Computer Modern Typewriter font LaTeX uses
 %% for monospace text with the PostScript font Adobe Courier.
@@ -136,8 +136,9 @@
 \usepackage{longtable}
 \usepackage{booktabs}
 
-% indent paragraphs
+% indent paragraphs and space between paragraphs
 \setlength{\parindent}{7ex}
+\setlength{\parskip}{0.2em}
 
 % for numbering
 \frontmatter
@@ -211,9 +212,9 @@ To Noemi Del Toro Ayllon, for introducing me to the professional world of softwa
 
 To Henning Hermjacob, for not just being the scientific host for my visits to EBI in England, but also for hosting me in his lovely Airbnb house each time! Spending a few months in Cambridge during my PhD was a truly marvelous experience, so thanks Henning!
 
-To Prof.~Denis Thieffry, for the nice scientific discussions and for distilling some of his passion for logical modeling into me, resulting in one of the papers in this thesis.
+To Professors Denis Thieffry, Pedro T. Monteiro and Jin-Dong Kim for the nice discussions we had, resulting in excellent collaborations.
 
-And of course, \textbf{to my colleagues from the DrugLogics group}, for the good times we spent inside and outside of work! I am especially grateful to Barbara Niederdorfer and Evelina Folkesson for our music collaborations. Eirini Tsirvouli has been a very positive, dynamic presence. Rafel Riudavets Puig has been a really close friend - I hope that in the future we get to continue our random walks that somehow always end up in McDonalds! Marcio Luis Acencio has been a good friend as well, with a wonderful family that gained two new members I got to meet before he left our group! Vasundra Touré has been a wonderful colleague, a true source of light for the time we spend at our office in Gloshaugen. Wine, cheese, standards and good memories! Also, favorite cafe buddies with Anamika Chatterjee - we certainly made Espresso House richer!
+And of course, \textbf{to my colleagues from the DrugLogics group}, for the good times we spent inside and outside of work! I am especially grateful to Barbara Niederdorfer and Evelina Folkesson for our music collaborations. Eirini Tsirvouli has been a very positive, dynamic presence. Rafel Riudavets Puig has been a really close friend - I hope that in the future we get to continue our random walks that somehow always end up in McDonalds! Marcio Luis Acencio has been a good friend as well, with a wonderful family that gained two new members I got to meet before he left our group! Vasundra Touré has been a wonderful colleague, a true source of light for the time we spend at our office in Gloshaugen. Wine, cheese, standards and good memories! Also, favorite cafe buddies with Anamika Chatterjee - we certainly made Espresso House richer (though I later switched to Dromedar, say sorry)!
 
 Last but not least, a big \textbf{THANKS} to the beautiful city of Trondheim! I've had some really inspirational walks in these historic roads. And to its nice coffee shops I've been working throughout my PhD! Diverse working environment is extremely important and as it was perfectly stated:
 
@@ -248,6 +249,8 @@ The translation of scientific knowledge from publications into such a computable
 In order to help biocurators be more efficient in their annotation tasks, we proposed the Visual Syntax Method (VSM) as an alternative approach for general-purpose knowledge formalization.
 In particular, we implemented a user interface component (VSM-box) that enables curators to annotate any type of information, no matter its complexity, and translate it into an intuitive, flexible sentence-like format.
 This software was used to build a prototype curation interface (CausalBuilder) for the annotation of molecular causal interactions, which constitute the cornerstone of a model's PKN.
+
+\newpage
 
 The second problem concerns the availability and ease of access of causal molecular interaction data for modeling or other scientific endeavors.
 A standard format for the representation of such signaling information was developed (CausalTAB), and we supported the export of the causality statements from CausalBuilder's interface to this format.
@@ -611,6 +614,61 @@ As a final result, we showcased a demo in which curators could use their public,
 \section*{Sharing causal interactions with PSICQUIC}\label{sharing-causal-interactions-with-psicquic}}
 \addcontentsline{toc}{section}{Sharing causal interactions with PSICQUIC}
 
+\indent
+
+Defining standards is a very important initiative across scientific disciplines, since it facilitates the accessibility and sharing of information amongst data users as well as the interoperability of software tools that produce or process the respective data, thereby increasing the quality of research findings {[}\protect\hyperlink{ref-Wilkinson2016}{54}{]}.
+Following this logic, after the curation of causal molecular interactions from scientific literature has been achieved, the next step is to store this information to a standard data format.
+One of the most detailed, community-standard formats for representing molecular interaction data is the PSI molecular interaction (MI) XML format, released by the Human Proteome Organization Proteomics Standards Initiative (HUPO-PSI) {[}\protect\hyperlink{ref-Hermjakob2004}{57}{]}.
+The newest version of this standard is the PSI-MI XML 3.0 {[}\protect\hyperlink{ref-Sivade2018}{58}{]}.
+A simplified format for interaction data was provided by the same organization, called the Molecular Interaction Tabular format (PSI-MITAB).
+PSI-MITAB has become popular amongst the scientific community since it is more user-friendly and Microsoft Excel-compatible, compared to the respective XML-based format {[}\protect\hyperlink{ref-Kerrien2007}{59}{]}.
+PSI-MITAB version 2.7 in particular, encapsulated many details of interest regarding a molecular interaction in a total of 42 columns, but it did not include information about its causality.
+This resulted in an effort to standardize the signaling information and subsequent vocabulary terminology for causal molecular interactions, originally led by SIGNOR's database curators {[}\protect\hyperlink{ref-Licata2019}{60}{]}.
+The new PSI-MITAB version 2.8 (also called \textbf{CausalTAB}), included four new columns to incorporate additional details related to a molecular interaction's directionality (defining the biological roles of the regulator and target, one column each), regulatory mechanism (e.g.~indirect causal regulation or post-translational modification) and resulting effect (up or down regulation of the target) {[}\protect\hyperlink{ref-Perfetto2019}{7}{]}.
+
+After having a signaling data format for molecular interactions in place, the next challenge was to find a way to share such information efficiently.
+The heart of the problem was the same even without the addition of causality information: a large number of molecular interaction databases exist, each one with different APIs to access the respective data.
+Since no single database can incorporate the totality of molecular interactions pertaining to a specific biological system of interest, users have to collect data from diverse databases by launching queries in different websites or by directly downloading the respective files, which might not always be offered in standardized formats.
+To ease the computational access and retrieval of molecular interaction data from various resources, a web service with a common query interface (PSICQUIC) and language (MIQL) was developed {[}\protect\hyperlink{ref-Aranda2011}{61}{]}.
+Using the PSICQUIC web service, users can now download all relevant data files from their databases of interest in different PSI-MI compliant formats, suitable for further analysis (Figure \ref{fig:fig4}).
+
+
+
+\newpage
+
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{img/psicquic} \caption{PSICQUIC architecture. Molecular interaction knowledge about a biological system, supported by different experimental methods, is being reported in publications. Each of these publications reports part of the actual truth about the studied system. This knowledge is curated from the respective publications and inserted to diverse molecular interaction databases. The databases share their data in standard formats (e.g.~PSI-MITAB) via the PSICQUIC web service and are part of a registry list. Users launch queries via a PSICQUIC web client to retrieve the distributed molecular interaction data and synthesize the complete observed knowledge of the studied system, suitable for further analysis and visualization.}\label{fig:fig4}
+\end{figure}
+
+With a new signaling data format established by the relevant scientific community and the PSICQUIC web service contributing to the accessibility of molecular interaction data, the next step was to support the PSI-MITAB 2.8 format in PSICQUIC.
+A software project to extend the PSICQUIC platform and include causality information of molecular interactions was thus formed.\footnote{This project was funded by the GREEKC (Gene Regulation Ensemble Effort for the Knowledge Commons) COST action (\url{https://www.greekc.org/}) and was realized as a Short Term Scientific Mission (STSM) in cooperation with engineers from the IntAct team at the European Bioinformatics Institute (EBI).}
+Our contribution to this effort was the development of the underlying PSICQUIC software (version 1.4) that indexes CausalTAB files provided by the respective data providers, enabling the query and subsequent download of causality-enriched interactions.
+The PSICQUIC website source code was updated to show the four new columns in the HTML table results.
+Additionally, several clients that enable programmatic access to the distributed signaling data (written in Java, Python and Perl programming languages), were refactored to comply with data fitting the new standard format.
+Lastly, the relevant PSICQUIC documentation was improved and reformatted to enhance user readability {[}\protect\hyperlink{ref-mitab28-doc}{62}{]}.
+
+The aforementioned development effort spurred a series of actions that led to several improvements in the PSICQUIC platform.
+The Molecular Interactions Community, is an open source community providing tools, standard formats, ontologies and modules for manipulating molecular interaction data {[}\protect\hyperlink{ref-mi-github}{63}{]}.
+For example, some of these modules are used to read and write PSI-MITAB files across different versions.
+Since these modules hadn't been updated for years (showing signs of software rot {[}\protect\hyperlink{ref-wiki-soft-rot}{64}{]}), we had to refactor the codebase and add tests to ensure it's future reliability and quality.
+In the end, even though we managed to complete the task and support CausalTAB in PSICQUIC via updating these modules, the need to replace them with a newer library was imminent.
+JAMI is such a library, integrating all standard molecular interaction data formats such as the PSI-MI XML and PSI-MITAB, into a unified implementation, hiding the complex details of each format from the developers and thereby making their work easier {[}\protect\hyperlink{ref-Sivade2018a}{65}{]}.
+The implementation work was initiated in a GREEKC workshop {[}\protect\hyperlink{ref-Hinxton2018}{66}{]} and continued during the first ELIXIR BioHackathon in Paris {[}\protect\hyperlink{ref-biohack2018}{67}{]}.
+Upon finishing the support for CausalTAB in JAMI,\footnote{During the GREEKC Marseille Hackathon 2019 event, see more info on the project here: \url{https://github.com/GREEKC/hackathon-marseille/tree/master/project_descriptions/causal_psicquic}} we provided the first PSICQUIC service indexing SIGNOR's CausalTAB data at the time, made available through a development server {[}\protect\hyperlink{ref-psicquic-causalTAB-dataset}{68}{]}.
+
+During the ELIXIR BioHackathon, the architecture details of a new cloud-based, distributed PSICQUIC service were discussed and documented for future development efforts.
+The goal is to enable the data providers to upload their molecular interaction data in a fully automated process and add support for data validation.
+This service will minimize the long-term commitment and maintenance from the data providers, which they cannot always afford (e.g.~deployment of the server hosting PSICQUIC).
+Another outcome of the BioHackathon was the draft implementation of a new PSICQUIC view interface, aiming to modernize and update the current web application used to access PSICQUIC {[}\protect\hyperlink{ref-psicquic-view}{69}{]}.
+Further work needs to be done to import and use newer technologies in the interface, which will result in better filtering and sorting of the HTML table results and more interactive, graph-based visualizations of the PSICQUIC data.
+To broadly facilitate the sharing of causal interaction data, additional development efforts are needed, in particular towards improving existing PSICQUIC clients.
+One such example is the PSICQUIC Universal Client, a Cytoscape app for querying multiple PSICQUIC-compliant interaction data services from a simple user interface {[}\protect\hyperlink{ref-PSICQUICUniversalClient}{70}{]}.
+This client has been used in tutorials to guide novice users in the visualization and analysis of molecular interaction networks {[}\protect\hyperlink{ref-Millan2013}{71}{]}.
+Lastly, two more clients that need to be updated to support the latest CausalTAB signaling format concern the PSICQUIC {[}\protect\hyperlink{ref-Shannon2020}{72}{]} and PItools \texttt{R} packages {[}\protect\hyperlink{ref-Kleshchevnikov2021}{73}{]}.
+These packages enable the translation of molecular interaction data directly into formats suitable for computational analysis with \texttt{R}, and therefore are crucial for relevant computational tasks.
+
+\newpage
+
 \hypertarget{biological-modeling-a-prelude}{%
 \section*{Biological modeling: a Prelude}\label{biological-modeling-a-prelude}}
 \addcontentsline{toc}{section}{Biological modeling: a Prelude}
@@ -688,7 +746,7 @@ As a final result, we showcased a demo in which curators could use their public,
 \item
   \href{https://github.com/bblodfon/usefun}{\texttt{usefun}}: various useful \texttt{R} functions
 \item
-  \href{https://github.com/bblodfon/rtemps}{\texttt{rtemps}}: templates for reproducible data analyses with \texttt{R} {[}\protect\hyperlink{ref-rtemps}{57}{]}
+  \href{https://github.com/bblodfon/rtemps}{\texttt{rtemps}}: templates for reproducible data analyses with \texttt{R} {[}\protect\hyperlink{ref-rtemps}{74}{]}
 \end{itemize}
 
 \hypertarget{misc-links}{%
@@ -705,7 +763,7 @@ Each repository has a \texttt{README.md} file with a brief description of the an
 \item
   \href{https://github.com/druglogics/ags-paper}{\texttt{ags-paper}}: simulation results and data analyses related to the AGS paper manuscript
 \item
-  \href{https://github.com/druglogics/sintef-obs-synergies}{\texttt{sintef-obs-synergies}}: synergy assessment of the Flobak et al.~(2019) {[}\protect\hyperlink{ref-Flobak2019}{58}{]} drug combination dataset using rbbt {[}\protect\hyperlink{ref-Vazquez2010}{59}{]} and the CImbinator tool {[}\protect\hyperlink{ref-Flobak2017}{60}{]}
+  \href{https://github.com/druglogics/sintef-obs-synergies}{\texttt{sintef-obs-synergies}}: synergy assessment of the Flobak et al.~(2019) {[}\protect\hyperlink{ref-Flobak2019}{75}{]} drug combination dataset using rbbt {[}\protect\hyperlink{ref-Vazquez2010}{76}{]} and the CImbinator tool {[}\protect\hyperlink{ref-Flobak2017}{77}{]}
 \item
   \href{https://github.com/druglogics/brf-bias}{\texttt{brf-bias}}: data analyses related to truth density bias in standardized Boolean regulatory functions (results are part of the Boolean function metrics paper)
 \item
@@ -888,17 +946,68 @@ Each repository has a \texttt{README.md} file with a brief description of the an
 \leavevmode\hypertarget{ref-Kim2019}{}%
 56. Kim, J.-D., Wang, Y., Fujiwara, T., Okuda, S., Callahan, T. J., \& Cohen, K. B. (2019). {Open Agile text mining for bioinformatics: the PubAnnotation ecosystem}. \emph{Bioinformatics}, \emph{35}(21), 4372--4380. \url{https://doi.org/10.1093/bioinformatics/btz227}
 
+\leavevmode\hypertarget{ref-Hermjakob2004}{}%
+57. Hermjakob, H., Montecchi-Palazzi, L., Bader, G., Wojcik, J., Salwinski, L., Ceol, A., Moore, S., Orchard, S., Sarkans, U., Mering, C. von, Roechert, B., Poux, S., Jung, E., Mersch, H., Kersey, P., Lappe, M., Li, Y., Zeng, R., Rana, D., \ldots{} Apweiler, R. (2004). {The HUPO PSI's Molecular Interaction format---a community standard for the representation of protein interaction data}. \emph{Nature Biotechnology}, \emph{22}(2), 177--183. \url{https://doi.org/10.1038/nbt926}
+
+\leavevmode\hypertarget{ref-Sivade2018}{}%
+58. Sivade, M., Alonso-López, D., Ammari, M., Bradley, G., Campbell, N. H., Ceol, A., Cesareni, G., Combe, C., De Las Rivas, J., Del-Toro, N., Heimbach, J., Hermjakob, H., Jurisica, I., Koch, M., Licata, L., Lovering, R. C., Lynn, D. J., Meldal, B. H. M., Micklem, G., \ldots{} Orchard, S. (2018). {Encompassing new use cases - level 3.0 of the HUPO-PSI format for molecular interactions}. \emph{BMC Bioinformatics}, \emph{19}(1), 134. \url{https://doi.org/10.1186/s12859-018-2118-1}
+
+\leavevmode\hypertarget{ref-Kerrien2007}{}%
+59. Kerrien, S., Orchard, S., Montecchi-Palazzi, L., Aranda, B., Quinn, A. F., Vinod, N., Bader, G. D., Xenarios, I., Wojcik, J., Sherman, D., Tyers, M., Salama, J. J., Moore, S., Ceol, A., Chatr-aryamontri, A., Oesterheld, M., Stümpflen, V., Salwinski, L., Nerothin, J., \ldots{} Hermjakob, H. (2007). {Broadening the horizon -- level 2.5 of the HUPO-PSI format for molecular interactions}. \emph{BMC Biology}, \emph{5}(1), 44. \url{https://doi.org/10.1186/1741-7007-5-44}
+
+\leavevmode\hypertarget{ref-Licata2019}{}%
+60. Licata, L., Lo Surdo, P., Iannuccelli, M., Palma, A., Micarelli, E., Perfetto, L., Peluso, D., Calderone, A., Castagnoli, L., \& Cesareni, G. (2019). {SIGNOR 2.0, the SIGnaling Network Open Resource 2.0: 2019 update}. \emph{Nucleic Acids Research}. \url{https://doi.org/10.1093/nar/gkz949}
+
+\leavevmode\hypertarget{ref-Aranda2011}{}%
+61. Aranda, B., Blankenburg, H., Kerrien, S., Brinkman, F. S. L., Ceol, A., Chautard, E., Dana, J. M., De Las Rivas, J., Dumousseau, M., Galeota, E., Gaulton, A., Goll, J., Hancock, R. E. W., Isserlin, R., Jimenez, R. C., Kerssemakers, J., Khadake, J., Lynn, D. J., Michaut, M., \ldots{} Hermjakob, H. (2011). {PSICQUIC and PSISCORE: accessing and scoring molecular interactions}. \emph{Nature Methods}, \emph{8}(7), 528--529. \url{https://doi.org/10.1038/nmeth.1637}
+
+\leavevmode\hypertarget{ref-mitab28-doc}{}%
+62. \emph{{MITAB 2.8 Documentation}}. (2018). \url{http://psicquic.github.io/MITAB28Format.html}, (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-mi-github}{}%
+63. \emph{{Molecular Interactions Community}}. (2015). \url{https://github.com/MICommunity}, (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-wiki-soft-rot}{}%
+64. \emph{{Software rot (Wikipedia entry)}}. (2014). \url{https://en.wikipedia.org/wiki/Software_rot}, (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-Sivade2018a}{}%
+65. Sivade, M., Koch, M., Shrivastava, A., Alonso-López, D., De Las Rivas, J., Del-Toro, N., Combe, C. W., Meldal, B. H. M., Heimbach, J., Rappsilber, J., Sullivan, J., Yehudi, Y., \& Orchard, S. (2018). {JAMI: a Java library for molecular interactions and data interoperability}. \emph{BMC Bioinformatics}, \emph{19}(1), 133. \url{https://doi.org/10.1186/s12859-018-2119-0}
+
+\leavevmode\hypertarget{ref-Hinxton2018}{}%
+66. \emph{{GREEKC Hinxton Workshop}}. (2018). \url{https://www.greekc.org/activity/hinxton-workshop/}, (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-biohack2018}{}%
+67. \emph{{ELIXIR BioHackathon Paris}}. (2018). \url{https://2018.biohackathon-europe.org/}, (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-psicquic-causalTAB-dataset}{}%
+68. Del-Toro, N., Zobolas, J., \& Touré, V. (2019). \emph{{Signor Dataset in CausalTAB (PSICQUIC Dev Server)}}. \url{http://wwwdev.ebi.ac.uk/Tools/webservices/psicquic/causality/webservices/current/search/query/*?firstResult=0\&maxResults=10\&format=tab28}, (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-psicquic-view}{}%
+69. \emph{{PSICQUIC View}}. (2011). \url{http://www.ebi.ac.uk/Tools/webservices/psicquic/view/main.xhtml}, (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-PSICQUICUniversalClient}{}%
+70. \emph{{PSICQUIC Universal Client (Cytoscape app)}}. (2012). \url{https://apps.cytoscape.org/apps/psicquicuniversalclient}, (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-Millan2013}{}%
+71. Millán, P. P. (2013). {Visualization and analysis of biological networks}. \emph{Methods in Molecular Biology}, \emph{1021}, 63--88. \url{https://doi.org/10.1007/978-1-62703-450-0_4}
+
+\leavevmode\hypertarget{ref-Shannon2020}{}%
+72. Shannon, P. (2020). \emph{{PSICQUIC: Proteomics Standard Initiative Common QUery InterfaCe. R package version 1.28.0.}} \url{https://doi.org/10.18129/B9.bioc.PSICQUIC}
+
+\leavevmode\hypertarget{ref-Kleshchevnikov2021}{}%
+73. Kleshchevnikov, V. (2021). \emph{{PItools: Protein interaction data tools. R package}}. GitHub. \url{https://github.com/vitkl/PItools}
+
 \leavevmode\hypertarget{ref-rtemps}{}%
-57. Zobolas, J. (2020). \emph{{Rtemps: R Templates for Reproducible Data Analyses}}. GitHub. \url{https://github.com/bblodfon/rtemps}
+74. Zobolas, J. (2020). \emph{{Rtemps: R Templates for Reproducible Data Analyses}}. GitHub. \url{https://github.com/bblodfon/rtemps}
 
 \leavevmode\hypertarget{ref-Flobak2019}{}%
-58. Flobak, Å., Niederdorfer, B., Nakstad, V. T., Thommesen, L., Klinkenberg, G., \& Lægreid, A. (2019). {A high-throughput drug combination screen of targeted small molecule inhibitors in cancer cell lines}. \emph{Scientific Data}, \emph{6}(1), 237. \url{https://doi.org/10.1038/s41597-019-0255-7}
+75. Flobak, Å., Niederdorfer, B., Nakstad, V. T., Thommesen, L., Klinkenberg, G., \& Lægreid, A. (2019). {A high-throughput drug combination screen of targeted small molecule inhibitors in cancer cell lines}. \emph{Scientific Data}, \emph{6}(1), 237. \url{https://doi.org/10.1038/s41597-019-0255-7}
 
 \leavevmode\hypertarget{ref-Vazquez2010}{}%
-59. Vázquez, M., Nogales, R., Carmona, P., Pascual, A., \& Pavón, J. (2010). \emph{{Rbbt: A Framework for Fast Bioinformatics Development with Ruby}} (pp. 201--208). Springer, Berlin, Heidelberg. \url{https://doi.org/10.1007/978-3-642-13214-8_26}
+76. Vázquez, M., Nogales, R., Carmona, P., Pascual, A., \& Pavón, J. (2010). \emph{{Rbbt: A Framework for Fast Bioinformatics Development with Ruby}} (pp. 201--208). Springer, Berlin, Heidelberg. \url{https://doi.org/10.1007/978-3-642-13214-8_26}
 
 \leavevmode\hypertarget{ref-Flobak2017}{}%
-60. Flobak, Å., Vazquez, M., Lægreid, A., \& Valencia, A. (2017). {CImbinator: a web-based tool for drug synergy analysis in small- and large-scale datasets}. \emph{Bioinformatics}, \emph{33}(15), 2410--2412. \url{https://doi.org/10.1093/bioinformatics/btx161}
+77. Flobak, Å., Vazquez, M., Lægreid, A., \& Valencia, A. (2017). {CImbinator: a web-based tool for drug synergy analysis in small- and large-scale datasets}. \emph{Bioinformatics}, \emph{33}(15), 2410--2412. \url{https://doi.org/10.1093/bioinformatics/btx161}
 
 \end{CSLReferences}
 
@@ -942,6 +1051,8 @@ Each repository has a \texttt{README.md} file with a brief description of the an
 \begin{center}
 \vspace*{\stretch{1}}
 \textbf{\fontsize{70}{1} \selectfont End of Thesis}
+\vfill
+\includegraphics[width=6cm, height=8cm]{img/rose.jpg}
 \vspace*{\stretch{1}}
 \end{center}
 

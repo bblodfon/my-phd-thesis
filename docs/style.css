@@ -39,6 +39,10 @@ h1.title {
   font-weight: 700;
 }
 
+#header .subtitle {
+  font-size: 1.5em;
+}
+
 body {
   font-size: 1.6rem;
   text-align: justify;
