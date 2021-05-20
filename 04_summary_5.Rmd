@@ -32,7 +32,7 @@ knitr::include_graphics(path = 'img/psicquic.png')
 With a new signaling data format established by the relevant scientific community and the PSICQUIC web service contributing to the accessibility of molecular interaction data, the next step was to support the PSI-MITAB 2.8 format in PSICQUIC.
 A software project to extend the PSICQUIC platform and include causality information of molecular interactions was thus formed ^[This project was funded by the GREEKC (Gene Regulation Ensemble Effort for the Knowledge Commons) COST action (https://www.greekc.org/) and was realized as a Short Term Scientific Mission (STSM) in cooperation with engineers from the IntAct team at the European Bioinformatics Institute (EBI).].
 Our contribution to this effort was the development of the underlying PSICQUIC software (version 1.4) that indexes CausalTAB files provided by the respective data providers, enabling the query and subsequent download of causality-enriched interactions.
-The PSICQUIC website source code was updated to show the four new columns in the HTML table results.
+The PSICQUIC View website source code was updated to show the four new columns in the HTML table results.
 Additionally, several clients that enable programmatic access to the distributed signaling data (written in Java, Python and Perl programming languages), were refactored to comply with data fitting the new standard format.
 Lastly, the relevant PSICQUIC documentation was improved and reformatted to enhance user readability [@mitab28-doc].
 
@@ -49,12 +49,12 @@ Upon finishing the support for CausalTAB in JAMI ^[During the GREEKC Marseille H
 During the ELIXIR BioHackathon, the architecture details of a new cloud-based, distributed PSICQUIC service were discussed and documented for future development efforts.
 The goal is to enable the data providers to upload their molecular interaction data in a fully automated process and add support for data validation.
 This service will minimize the long-term commitment and maintenance from the data providers, which they cannot always afford (e.g. deployment of the server hosting PSICQUIC).
-Another outcome of the BioHackathon was the draft implementation of a new PSICQUIC view interface, aiming to modernize and update the current web application used to access PSICQUIC [@psicquic-view].
+Another outcome of the BioHackathon was the draft implementation of a new PSICQUIC View interface, aiming to modernize and update the current web application used to access PSICQUIC [@psicquic-view].
 Further work needs to be done to import and use newer technologies in the interface, which will result in better filtering and sorting of the HTML table results and more interactive, graph-based visualizations of the PSICQUIC data.
 To broadly facilitate the sharing of causal interaction data, additional development efforts are needed, in particular towards improving existing PSICQUIC clients.
 One such example is the PSICQUIC Universal Client, a Cytoscape app for querying multiple PSICQUIC-compliant interaction data services from a simple user interface [@PSICQUICUniversalClient].
 This client has been used in tutorials to guide novice users in the visualization and analysis of molecular interaction networks [@Millan2013].
-Lastly, two more clients that need to be updated to support the latest CausalTAB signaling format concern the PSICQUIC [@Shannon2020] and PItools `R` packages [@Kleshchevnikov2021].
+Lastly, two more clients that need to be updated to support the latest CausalTAB signaling format are the PSICQUIC [@Shannon2020] and PItools `R` packages [@Kleshchevnikov2021].
 These packages enable the translation of molecular interaction data directly into formats suitable for computational analysis with `R`, and therefore are crucial for relevant computational tasks.
 
 \newpage
