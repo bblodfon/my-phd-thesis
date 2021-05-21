@@ -1,2 +1,52 @@
 ## Biological modeling: a Prelude {-}
 
+```{=html}
+<blockquote>&ldquo;All models are wrong but some are useful.&rdquo; ~ George E. P. Box</blockquote>
+```
+
+\indent
+In previous chapters we summarized our efforts related to the curation, access and sharing of causal molecular interactions, the building block of PKNs.
+This is only the first step in the process of creating computational models of biological systems [@Wang2012].
+To translate signaling networks to a computational form for simulation purposes, the next step is to define the regulatory *rules* (*parameterization*) of the underlying system: how do the different network entities influence each other across time and potentially space, and how does the systemic behavior change when specific rules or parameters of the model are modified? [@Aldridge2006]
+The formulation of the rules in mathematical terms (i.e. they are in most cases expressed as equations), defines the mechanistic details of the studied models and thus enables the study of their dynamics.
+Practically, this means that models can be used for various forms of analyses and simulations, and their outputs further investigated.
+For example, models can be validated and tested for agreement with experimental observations, can make predictions and generate new hypotheses leading to the design of new experiments, and they can be subjected to various perturbations, with their subsequent effects on the studied systems quantified and thoroughly analyzed.
+In addition to the biological analysis, one of the more important aspects of mathematical modeling is that it enables the investigation of the underlying mechanisms that result in the manifestation of the described system's behavior.
+In other words, computational models are explainable and interpretable, enabling us to answer why things happen the way they do, which is one of the driving forces behind science itself.
+
+Several mathematical methodologies have been used to study biological systems, such as stochastic modeling, ordinary and partial differential equations (ODE and PDE modeling), Petri nets, logical modeling, Bayesian networks, cellular automata and agent-based modeling [@ElKalaawy2015].
+Each modeling paradigm encapsulates a different way of formalizing the underlying rules and makes different assumptions about the studied system.
+Such assumptions can for example include the temporal and spatial properties of the modeled system (space and time can each be treated in a continuous manner or with varying degrees of discretization), the molecular scale (focus on modeling individual molecules or discrete amounts of each molecule or just considering their molar concentrations) and the nature of interactions between the molecules (reaction processes can be described as happening in a stochastic or deterministic manner).
+In general, there is a trade-off between the complexity of the system that a model is constructed to simulate and the mechanistic detail incorporated in the model itself [@Aldridge2006].
+Ideally we would like to have models which can simulate highly complex systems in as much detail as possible.
+This poses a significant challenge, since a more detailed representation of a biological system requires a higher level of granularity inherent in a model's formalization.
+This means that more parameters are required to specify and calibrate the model for the simulation and accurate representation of reality, and larger amounts of experimental data and computational resources are also necessary.
+On the other hand, by sacrificing the complexity of the studied system and making simpler models, we face overwhelming uncertainties that need to be properly quantified and integrated in any interpretation of results from such a model [@Groen2021].
+In the end, the modeling scope is a crucial factor for the choice of the appropriate methodology, and thus sufficient knowledge of the advantages and disadvantages of each formalism can be beneficial towards selecting the approach deemed most suitable for the realization of the modeling objectives.
+
+In this thesis we focus on Boolean modeling, one of the simplest formalizations for the modeling of complex biological systems [@Schwab2020].
+In this type of qualitative approach, every individual entity has a binary state denoting activity (1) or inactivity (0) and time is discretized [@Kauffman1969].
+Every interaction that affects a target entity is assembled into a Boolean equation which defines that particular target's output activity in the next time step.
+To formulate such a Boolean equation, only knowledge of the regulatory network topology is needed, along with the use of logical operators that describe how the combined activity of the regulators affects the target.
+This inherent simplicity in defining the rules is what makes the Boolean formalism attractive to modelers.
+Moreover, since the PKN is one of the core elements that characterize the Boolean rules, this explains why we spent a large amount of our efforts in this thesis to make sure modelers get the proper contextual prior knowledge.
+Lastly, another advantage of Boolean modeling is that it does not require the specification of parameters such as kinetic rate constants and initial concentrations that are a strong prerequisite in other modeling formalisms (e.g. in ODE modeling), where there is always a need for large and expensive amounts of data that might be either lacking or not enough to adequately characterize the rules.
+
+Continuing with the explanation of the modeling formalism, a logical model is a list of mathematical equations expressed in Boolean algebra.
+The state of such a system is represented by a series of 0's and 1's, each corresponding to the activity state of a signaling entity.
+Using the Boolean rules, we can update the system's state by deciding on the order that each of its equations are applied, to derive the next entity states.
+Therefore, a synchronous update scheme can be defined as calculating the output of all Boolean equations of the model at the same time.
+In contrast, randomly specifying one or more equations to update can result in various forms of asynchronous dynamics, which enable the inclusion of processes with different time scales in a logical model.
+By repeatedly applying the Boolean rules, systemic states that either don't change (*fixpoints*) or ones that demonstrate cycling patterns, can be reached.
+These are the *attractors*, which represent solutions to the system of equations that constitute a Boolean model and their identification is synonymous to the study of the long-term dynamical behavior of the modeled system.
+Attractors have been shown to be biologically meaningful, either by representing specific phenotypic outputs [@Kauffman1993] or transitions between system states like in the cell cycle [@Faure2006].
+
+Several computational tools have been developed to aid in the dynamical analysis of Boolean models [@Abou-Jaoude2016].
+These tools enable users to easily create and edit logical models, identify different types of attractors and their reachability properties, analyze model state evolution over time, investigate phenotypic outputs subject to various types of perturbations, explore different model parameterizations and calibrate models to fit experimental data, among others [@Naldi2018a].
+The existence of such a plethora of tools has enabled the modeling of complex diseases, the discovery of potential therapeutic solutions and the investigation of biomarkers that correlate with patients' response to specific pharmaceutical drugs.
+In particular, the derivation of mechanistic insights related to the manifestation of diseases, is one of the main challenges that computational modeling efforts strive to address towards achieving the goal of personalized medicine [@Hood2011].
+In light of this, several logical modeling approaches have been used to stratify patients based on the integration of multi-omics data [@Beal2018], build patient-specific models that aid in the understanding of drug sensitivity and cancer resistance mechanisms [@Eduati2017; @Beal2021; @Tognetti2021] and help identify novel therapeutic targets [@Saadatpour2011; @Flobak2015; @Eduati2020].
+Part of the work in this thesis has been to complement the aforementioned approaches by developing a software pipeline that uses causal prior knowledge and tailors Boolean models to cell-specific cancer signaling activities (**[Paper 3](#Paper3)**).
+These models can subsequently be used to predict combinatorial treatments that aid in the prioritization of drugs in high-throughput screening technologies and will eventually provide better clinical decision support for cancer patients, helping us find optimal drug-patient matches.
+
+\newpage
