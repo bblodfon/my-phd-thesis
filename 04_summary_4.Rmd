@@ -18,7 +18,7 @@ This information can be displayed by VSM-box in an autocomplete drop-down menu t
 (ref:caption-fig3) Querying multiple data resources using the VSM-box technology in CausalBuilder. The user enters a string of interest and selects a list of resource types (not shown here) for the source entity, following the MI2CAST curation guidelines. The UBDs stand as a hidden translator between the query launched from the curator interface and the respective database data, returning a list of uniformly-structured matches, shown as a drop-down list to the user. The matches consist of a curator-friendly main term (shown in blue) and metadata like identifier, name of species, textual description, resource name etc., that a user can use to disambiguate between the different concepts.
 
 ```{r fig3, cache = TRUE, echo = FALSE, out.width='100%', fig.cap='(ref:caption-fig3)'}
-knitr::include_graphics(path = 'img/causalBuilder_screenshot.png')
+knitr::include_graphics(path = 'img/causalBuilder_screenshot.png', auto_pdf = TRUE)
 ```
 
 \newpage
