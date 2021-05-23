@@ -214,7 +214,7 @@ To Henning Hermjacob, for not just being the scientific host for my visits to EB
 
 To Professors Denis Thieffry, Pedro T. Monteiro and Jin-Dong Kim for the nice discussions we had, resulting in excellent collaborations.
 
-And of course, \textbf{to my colleagues from the DrugLogics group}, for the good times we spent inside and outside of work! I am especially grateful to Barbara Niederdorfer and Evelina Folkesson for our music collaborations. Eirini Tsirvouli has been a very positive, dynamic presence. Rafel Riudavets Puig has been a really close friend - I hope that in the future we get to continue our random walks that somehow always end up in McDonalds! Marcio Luis Acencio has been a good friend as well, with a wonderful family that gained two new members I got to meet before he left our group! Vasundra Touré has been a wonderful colleague, a true source of light for the time we spend at our office in Gloshaugen. Wine, cheese, standards and good memories! Also, favorite cafe buddies with Anamika Chatterjee - we certainly made Espresso House richer (though I later switched to Dromedar, say sorry)!
+And of course, \textbf{to my colleagues from the DrugLogics group}, for the good times we spent inside and outside of work! I am especially grateful to Barbara Niederdorfer and Evelina Folkesson for our music sessions. Eirini Tsirvouli has been a very positive, dynamic presence. Rafel Riudavets Puig has been a really close friend - I hope that in the future we get to continue our random walks that somehow always end up in McDonalds! Marcio Luis Acencio has been a good friend as well, with a wonderful family that gained two new members I got to meet before he left our group! Vasundra Touré has been a wonderful colleague, a true source of light for the time we spend at our office in Gloshaugen (and it was really dark in general). Wine, cheese, standards and good memories! Also, favorite cafe buddies with Anamika Chatterjee - we certainly made Espresso House richer (though I later switched to Dromedar, say sorry)!
 
 Last but not least, a big \textbf{THANKS} to the beautiful city of Trondheim! I've had some really inspirational walks in these historic roads. And to its nice coffee shops I've been working throughout my PhD! Diverse working environment is extremely important and as it was perfectly stated:
 
@@ -643,7 +643,7 @@ Using the PSICQUIC web service, users can now download all relevant data files f
 With a new signaling data format established by the relevant scientific community and the PSICQUIC web service contributing to the accessibility of molecular interaction data, the next step was to support the PSI-MITAB 2.8 format in PSICQUIC.
 A software project to extend the PSICQUIC platform and include causality information of molecular interactions was thus formed.\footnote{This project was funded by the GREEKC (Gene Regulation Ensemble Effort for the Knowledge Commons) COST action (\url{https://www.greekc.org/}) and was realized as a Short Term Scientific Mission (STSM) in cooperation with engineers from the IntAct team at the European Bioinformatics Institute (EBI).}
 Our contribution to this effort was the development of the underlying PSICQUIC software (version 1.4) that indexes CausalTAB files provided by the respective data providers, enabling the query and subsequent download of causality-enriched interactions.
-The PSICQUIC website source code was updated to show the four new columns in the HTML table results.
+The PSICQUIC View website source code was updated to show the four new columns in the HTML table results.
 Additionally, several clients that enable programmatic access to the distributed signaling data (written in Java, Python and Perl programming languages), were refactored to comply with data fitting the new standard format.
 Lastly, the relevant PSICQUIC documentation was improved and reformatted to enhance user readability {[}\protect\hyperlink{ref-mitab28-doc}{62}{]}.
 
@@ -659,12 +659,12 @@ Upon finishing the support for CausalTAB in JAMI,\footnote{During the GREEKC Mar
 During the ELIXIR BioHackathon, the architecture details of a new cloud-based, distributed PSICQUIC service were discussed and documented for future development efforts.
 The goal is to enable the data providers to upload their molecular interaction data in a fully automated process and add support for data validation.
 This service will minimize the long-term commitment and maintenance from the data providers, which they cannot always afford (e.g.~deployment of the server hosting PSICQUIC).
-Another outcome of the BioHackathon was the draft implementation of a new PSICQUIC view interface, aiming to modernize and update the current web application used to access PSICQUIC {[}\protect\hyperlink{ref-psicquic-view}{69}{]}.
+Another outcome of the BioHackathon was the draft implementation of a new PSICQUIC View interface, aiming to modernize and update the current web application used to access PSICQUIC {[}\protect\hyperlink{ref-psicquic-view}{69}{]}.
 Further work needs to be done to import and use newer technologies in the interface, which will result in better filtering and sorting of the HTML table results and more interactive, graph-based visualizations of the PSICQUIC data.
 To broadly facilitate the sharing of causal interaction data, additional development efforts are needed, in particular towards improving existing PSICQUIC clients.
 One such example is the PSICQUIC Universal Client, a Cytoscape app for querying multiple PSICQUIC-compliant interaction data services from a simple user interface {[}\protect\hyperlink{ref-PSICQUICUniversalClient}{70}{]}.
 This client has been used in tutorials to guide novice users in the visualization and analysis of molecular interaction networks {[}\protect\hyperlink{ref-Millan2013}{71}{]}.
-Lastly, two more clients that need to be updated to support the latest CausalTAB signaling format concern the PSICQUIC {[}\protect\hyperlink{ref-Shannon2020}{72}{]} and PItools \texttt{R} packages {[}\protect\hyperlink{ref-Kleshchevnikov2021}{73}{]}.
+Lastly, two more clients that need to be updated to support the latest CausalTAB signaling format are the PSICQUIC {[}\protect\hyperlink{ref-Shannon2020}{72}{]} and PItools \texttt{R} packages {[}\protect\hyperlink{ref-Kleshchevnikov2021}{73}{]}.
 These packages enable the translation of molecular interaction data directly into formats suitable for computational analysis with \texttt{R}, and therefore are crucial for relevant computational tasks.
 
 \newpage
@@ -673,9 +673,179 @@ These packages enable the translation of molecular interaction data directly int
 \section*{Biological modeling: a Prelude}\label{biological-modeling-a-prelude}}
 \addcontentsline{toc}{section}{Biological modeling: a Prelude}
 
+\indent
+
+In previous chapters we summarized our efforts related to the curation, access and sharing of causal molecular interactions, the building block of PKNs.
+This is only the first step in the process of creating computational models of biological systems {[}\protect\hyperlink{ref-Wang2012}{74}{]}.
+To translate signaling networks to a computational form for simulation purposes, the next step is to define the regulatory \emph{rules} (\emph{parameterization}) of the underlying system: how do the different network entities influence each other across time and potentially space, and how does the systemic behavior change when specific rules or parameters of the model are modified? {[}\protect\hyperlink{ref-Aldridge2006}{75}{]}
+The formulation of the rules in mathematical terms (i.e.~they are in most cases expressed as equations), defines the mechanistic details of the studied models and thus enables the study of their dynamics.
+Practically, this means that models can be used for various forms of analyses and simulations, and their outputs further investigated.
+For example, models can be validated and tested for agreement with experimental observations, can make predictions and generate new hypotheses leading to the design of new experiments, and they can be subjected to various perturbations, with their subsequent effects on the studied systems quantified and thoroughly analyzed.
+In addition to the biological analysis, one of the more important aspects of mathematical modeling is that it enables the investigation of the underlying mechanisms that result in the manifestation of the described system's behavior.
+In other words, computational models are explainable and interpretable, enabling us to answer why things happen the way they do, which is one of the driving forces behind science itself.
+
+Several mathematical methodologies have been used to study biological systems, such as stochastic modeling, ordinary and partial differential equations (ODE and PDE modeling), Petri nets, logical modeling, Bayesian networks, cellular automata and agent-based modeling {[}\protect\hyperlink{ref-ElKalaawy2015}{76}{]}.
+Each modeling paradigm encapsulates a different way of formalizing the underlying rules and makes different assumptions about the studied system.
+Such assumptions can for example include the temporal and spatial properties of the modeled system (space and time can each be treated in a continuous manner or with varying degrees of discretization), the molecular scale (focus on modeling individual molecules or discrete amounts of each molecule or just considering their molar concentrations) and the nature of interactions between the molecules (reaction processes can be described as happening in a stochastic or deterministic manner).
+In general, there is a trade-off between the complexity of the system that a model is constructed to simulate and the mechanistic detail incorporated in the model itself {[}\protect\hyperlink{ref-Aldridge2006}{75}{]}.
+Ideally we would like to have models which can simulate highly complex systems in as much detail as possible.
+This poses a significant challenge, since a more detailed representation of a biological system requires a higher level of granularity inherent in a model's formalization.
+This means that more parameters are required to specify and calibrate the model for the simulation and accurate representation of reality, and larger amounts of experimental data and computational resources are also necessary.
+On the other hand, by sacrificing the complexity of the studied system and making simpler models, we face overwhelming uncertainties that need to be properly quantified and integrated in any interpretation of results from such a model {[}\protect\hyperlink{ref-Groen2021}{77}{]}.
+In the end, the modeling scope is a crucial factor for the choice of the appropriate methodology, and thus sufficient knowledge of the advantages and disadvantages of each formalism can be beneficial towards selecting the approach deemed most suitable for the realization of the modeling objectives.
+
+In this thesis we focus on Boolean modeling, one of the simplest formalizations for the modeling of complex biological systems {[}\protect\hyperlink{ref-Schwab2020}{78}{]}.
+In this type of qualitative approach, every individual entity has a binary state denoting activity (1) or inactivity (0) and time is discretized {[}\protect\hyperlink{ref-Kauffman1969}{79}{]}.
+Every interaction that affects a target entity is assembled into a Boolean equation which defines that particular target's output activity in the next time step.
+To formulate such a Boolean equation, only knowledge of the regulatory network topology is needed, along with the use of logical operators that describe how the combined activity of the regulators affects the target.
+This inherent simplicity in defining the rules is what makes the Boolean formalism attractive to modelers.
+Moreover, since the PKN is one of the core elements that characterize the Boolean rules, this explains why we spent a large amount of our efforts in this thesis to make sure modelers get the proper contextual prior knowledge.
+Lastly, another advantage of Boolean modeling is that it does not require the specification of parameters such as kinetic rate constants and initial concentrations that are a strong prerequisite in other modeling formalisms (e.g.~in ODE modeling), where there is always a need for large and expensive amounts of data that might be either lacking or not enough to adequately characterize the rules.
+
+Continuing with the explanation of the modeling formalism, a logical model is a list of mathematical equations expressed in Boolean algebra.
+The state of such a system is represented by a series of 0's and 1's, each corresponding to the activity state of a signaling entity.
+Using the Boolean rules, we can update the system's state by deciding on the order that each of its equations are applied, to derive the next entity states.
+Therefore, a synchronous update scheme can be defined as calculating the output of all Boolean equations of the model at the same time.
+In contrast, randomly specifying one or more equations to update can result in various forms of asynchronous dynamics, which enable the inclusion of processes with different time scales in a logical model.
+By repeatedly applying the Boolean rules, systemic states that either don't change (\emph{fixpoints}) or ones that demonstrate cycling patterns, can be reached.
+These are the \emph{attractors}, which represent solutions to the system of equations that constitute a Boolean model and their identification is synonymous to the study of the long-term dynamical behavior of the modeled system.
+Attractors have been shown to be biologically meaningful, either by representing specific phenotypic outputs {[}\protect\hyperlink{ref-Kauffman1993}{80}{]} or transitions between system states like in the cell cycle {[}\protect\hyperlink{ref-Faure2006}{81}{]}.
+
+Several computational tools have been developed to aid in the dynamical analysis of Boolean models {[}\protect\hyperlink{ref-Abou-Jaoude2016}{82}{]}.
+These tools enable users to easily create and edit logical models, identify different types of attractors and their reachability properties, analyze model state evolution over time, investigate phenotypic outputs subject to various types of perturbations, explore different model parameterizations and calibrate models to fit experimental data, among others {[}\protect\hyperlink{ref-Naldi2018a}{83}{]}.
+The existence of such a plethora of tools has enabled the modeling of complex diseases, the discovery of potential therapeutic solutions and the investigation of biomarkers that correlate with patients' response to specific pharmaceutical drugs.
+In particular, the derivation of mechanistic insights related to the manifestation of diseases, is one of the main challenges that computational modeling efforts strive to address towards achieving the goal of personalized medicine {[}\protect\hyperlink{ref-Hood2011}{84}{]}.
+In light of this, several logical modeling approaches have been used to stratify patients based on the integration of multi-omics data {[}\protect\hyperlink{ref-Beal2018}{85}{]}, build patient-specific models that aid in the understanding of drug sensitivity and cancer resistance mechanisms {[}\protect\hyperlink{ref-Eduati2017}{86}--\protect\hyperlink{ref-Tognetti2021}{88}{]} and help identify novel therapeutic targets {[}\protect\hyperlink{ref-Saadatpour2011}{89}--\protect\hyperlink{ref-Eduati2020}{91}{]}.
+Part of the work in this thesis has been to complement the aforementioned approaches by developing a software pipeline that uses causal prior knowledge and tailors Boolean models to cell-specific cancer signaling activities (\textbf{\protect\hyperlink{Paper3}{Paper 3}}).
+These models can subsequently be used to predict combinatorial treatments that aid in the prioritization of drugs in high-throughput screening technologies and will eventually provide better clinical decision support for cancer patients, helping us find optimal drug-patient matches.
+
+\newpage
+
 \hypertarget{clean-code}{%
 \section*{Clean Code}\label{clean-code}}
 \addcontentsline{toc}{section}{Clean Code}
+
+\indent
+
+Our main goal is to use causal molecular knowledge and signaling activity data to build and parameterize Boolean models to represent specific cancer cell systems, and study their behavior in the presence of in-silico drug perturbations.
+As such, the importance of the underlying scientific software that enables these computational tasks, is unquestionable.
+Such software needs to satisfy a list of requirements pertaining to its suitability for practical use {[}\protect\hyperlink{ref-Wilson2014}{92}{]}.
+Such practices ensure that the software does what it is intended to do and its produced scientific simulations can be used to inform decision-making for clinical applications.
+In other words, for the scientific results of the simulations to be \emph{actionable} and \emph{trustworthy} {[}\protect\hyperlink{ref-Coveney2021}{93}{]}, the following software requirements are not just optional, but rather a necessity.
+At first, challenges related to automation, efficiency and optimization in terms of the computational resources needed to perform the simulations and analyses, need to be properly addressed.
+To promote collaboration and allow others to study, use and further develop the software, the respective codebase needs to be open sourced {[}\protect\hyperlink{ref-Barnes2010}{94},\protect\hyperlink{ref-Prlic2012}{95}{]}.
+Standard formats for input and output should be supported, as well standard libraries for common programming tasks, enabling the effortless integration with related software.
+Also, sufficient documentation needs to be provided, containing installation guidelines and explanations for the various configurations used in the simulations {[}\protect\hyperlink{ref-Karimzadeh2018}{96}{]}.
+Simple examples of use and related tutorials should be part of such documentation as well {[}\protect\hyperlink{ref-List2017}{97}{]}.
+The usability of the software can also be increased by applying better programming architecture and design principles (e.g.~writing modular code), which also makes the software easier to test, extend and verify.
+Making the results of the simulations verifiable (i.e.~by ensuring that the algorithmic procedures and the model equations are \protect\hyperlink{gtrr}{right}), will increase their reproducibility, further supporting the aforementioned goals {[}\protect\hyperlink{ref-Sandve2013}{98}{]}.
+All in all, there can only be gains if the code is \emph{clean} and properly taken care of {[}\protect\hyperlink{ref-Martin2009}{99}{]}.
+
+In Figure \ref{fig:fig5} we present an overview diagram of the DrugLogics software pipeline.
+This pipeline represents a computational software system aiming to assist in the identification of synergistic drug combinations.
+The pipeline's two main modules, Gitsbe and Drabme, are both written in Java.
+Gitsbe, using as input a PKN and a signaling activity profile for some of the key entities in the input network, creates Boolean models based on a genetic algorithm approach and calibrates them to best fit the training signaling activity data.
+Boolean models with higher fitness have fixpoint attractors, whose node states best match the binary signaling activities.
+Calibration refers to changes in the Boolean equations to produce such high fitness models.
+These changes can simply be variations in the parameterization such as mutations in the Boolean rules (e.g.~a logical OR becomes a logical AND and vice-versa) or topological changes, such as the addition or removal of a regulator's effect on a particular target.
+Thus the Boolean models in Gitsbe's produced ensemble are parameterized differently, but are all essentially approximate representations of the same biological system.
+These variant Boolean models are then used as input to Drabme, to test the effect of several perturbations from a given drug panel and quantify their combinatorial interaction patterns using well-known synergy frameworks (namely HSA {[}\protect\hyperlink{ref-gaddum1940pharmacology}{100}{]} and Bliss {[}\protect\hyperlink{ref-Bliss1939}{101}{]}).
+Leveraging the wisdom of the crowds {[}\protect\hyperlink{ref-Saez-Rodriguez2016}{102}{]} using Gitsbe's models, Drabme's output predictions contribute in reducing the exponentially large drug space that is associated with combinatorial treatments for the targeted therapy of cancer, providing a list of candidate combinations to test in the lab, before a viable solution is found for a patient.
+
+
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{img/pipeline} \caption{The DrugLogics software pipeline. A series of connected modules that build a regulatory topology incorporating specific drug targets, parameterize Boolean models to a specific cancer signaling profile assembled from various omics data and simulate drug combination perturbations. The output models and their predictions can be further analyzed to explain the difference between phenotypes and thus identify biomarkers that make a particular drug combination synergistic.}\label{fig:fig5}
+\end{figure}
+
+The development of Drabme and Gitsbe was part of the latest stages of a previous research thesis and it was mostly exploratory work {[}\protect\hyperlink{ref-Flobak2016}{103}{]}.
+To lay the groundwork for the analyses and investigations of the papers included in this thesis, additional software development needed to be done.
+We started by refactoring the source code to increase its readability, maintainability and extensibility.
+Java classes were restructured, variables and functions were renamed to reflect current best programming practices, code written from scratch for common tasks such as string manipulation was replaced with reusable Java components (e.g.~using libraries from Apache Commons {[}\protect\hyperlink{ref-ApacheCommons}{104}{]}) and the Maven project management tool {[}\protect\hyperlink{ref-Maven}{105}{]} was used to enable easier source compilation, installation and packaging (all the Java code was bundled in a single compressed file for ease of use).
+To increase interoperability of our software, we used the Java library BioLQM {[}\protect\hyperlink{ref-Naldi2018}{106}{]} to enable the export of the produced Gitsbe models to standardized formats in the logical modeling community, such as GINML (used in the GINsim software {[}\protect\hyperlink{ref-Naldi2018b}{107}{]}), SBML-qual {[}\protect\hyperlink{ref-Chaouiya2013}{108}{]} and BoolNet {[}\protect\hyperlink{ref-Mussel2010}{109}{]}.
+For the calculation of fixpoint attractors, an external scripting-based tool was used by default {[}\protect\hyperlink{ref-Veliz-Cuba2014}{110}{]}.
+We added a built-in, integrated Java solution using BioLQM, which apart from fixpoints can also identify minimal trapspaces, a generic type of attractor that allows for a deeper exploration of dynamics.
+
+\newpage
+
+A practical outcome of these efforts was that the code became more modular, enabling the addition of software tests using the JUnit5 framework {[}\protect\hyperlink{ref-JUnit5}{111}{]} and specialized libraries {[}\protect\hyperlink{ref-AssertJ}{112},\protect\hyperlink{ref-Mockito-site}{113}{]}.
+With more tests, hidden or otherwise impossible to pinpoint bugs, were identified and fixed.
+Some of these were critical for the validity of the output findings, since they related to how changes in the parameterization or topology were encoded in the software equivalent of a Boolean model's equations.
+Moreover, it became much easier to add new features to the software, e.g.~we supported the execution of parallel simulations in Gitsbe (a significant performance optimization) and incorporated a new synergy framework for the identification of synergistic drug combinations in Drabme (Bliss).
+Gitsbe's simulation is the core computational process that produces the ``best-fit'' models resulting from the evolutionary approach of the genetic algorithms.
+Selecting a few of those best-fit models at the end of each simulation and executing multiple simulations in parallel, each one associated with a different random seed number, is what generates a reproducible list of Boolean models for use in Drabme (or other software if models are exported to standard formats).
+Lastly, we shared publicly the developed modules in GitHub\footnote{See respective repositories \protect\hyperlink{druglogics-soft-links}{here}} and built an extensive online documentation using the \texttt{R} package \texttt{bookdown} {[}\protect\hyperlink{ref-Xie2016}{114}{]} to gather all related information in one place with regard to the software's configuration parameters, the mathematical calculations used, installation instructions and examples of use.\footnote{See documentation repositories \protect\hyperlink{doc-links}{here}}
+This online documentation became a central virtual hub, providing information on all the software modules in the pipeline.
+One of these modules was \texttt{druglogics-synergy}, a convenient Java package used to serially execute Gitsbe and Drabme in one go, and which was employed for the simulations of \textbf{\protect\hyperlink{Paper3}{Paper 3}}.
+
+With all the main code in proper order, we could start investigating the outputs of our software and assess the performance of the produced drug synergy predictions.
+The results of these efforts, along with biologically-relevant mechanistic insights derived from further analyzing the simulation data and performing various investigations, are analytically presented in \textbf{\protect\hyperlink{Paper3}{Paper 3}}, and in even more detail at the \texttt{ags-paper} \protect\hyperlink{misc-links}{repository}, which also includes reproducibility guidelines.
+In the following paragraphs we are going to briefly explain the input data and software that either needed to be in place before we started the experimentation with the in-silico simulations or was built to help further analyze the output Boolean models from Gitsbe and Drabme's synergy predictions.
+
+To begin with, we had to choose a reference drug combination dataset to compare our predictions against.
+The argument here is to use a dataset that you know very well so that you can first experiment with the software and its configurations, and only later test your predictions on other published (and potentially larger) datasets.
+Therefore, we chose the Flobak et al.~(2019) dataset, with a total of 153 combinations of 18 targeted drugs, involving measurements across 8 cancer cell lines {[}\protect\hyperlink{ref-Flobak2019}{115}{]}.
+Next, we needed to assess in a computational manner which of the drug combinations in the reference dataset (per cell line) are synergistic and which are not.
+Our first attempt was to manually check the output growth curves and derive a majority-assessed \emph{gold standard} (so it was more of a curative group effort).
+We continued by performing a thorough analysis using the CImbinator tool {[}\protect\hyperlink{ref-Flobak2017}{116}{]} and established a methodology which computed the synergy classification of the reference dataset that best matched our internal curation efforts to call synergy (see \texttt{sintef-obs-synergies} \protect\hyperlink{misc-links}{repository}).
+All in all, we had a reference dataset and a list of drug combinations designated as synergistic from it, ready to be used to evaluate Drabme's predictions on the same dataset.
+
+On another front, we also needed a PKN suitable for our analysis.
+In particular, the targets of the drugs used in the reference dataset should be entities in the network, so as to enable the simulation of drug perturbations in Gitsbe's derived Boolean models.
+Moreover, several of the most important pathways in cancer cell biology (e.g.~PI3K, ERK and TGFB signaling {[}\protect\hyperlink{ref-kegg-cancer}{117}{]}) would have to be included as well.
+A PKN that fits all the above characteristics was curated within our research group and refined throughout many years, resulting in the topology that was used for the simulations of \textbf{\protect\hyperlink{Paper3}{Paper 3}} (named \protect\hyperlink{misc-links}{CASCADE}).
+In addition, proper signaling data was needed to train the Gitsbe models to a cancer proliferating phenotype.
+For that purpose, we used the literature curated activity profile for a set of nodes in CASCADE, which was the result of a previous research work {[}\protect\hyperlink{ref-Flobak2015}{90}{]}.
+This activity profile concerns only one of the cell lines in the reference dataset, namely the gastric adenocarcinoma cell line (AGS).
+In summation, by employing a curated topology and training data from only one cell line, we could focus more on the model parameterization aspects of our software, the performance assessment of the synergy predictions and the rest of the investigations of \textbf{\protect\hyperlink{Paper3}{Paper 3}}.
+
+While exploring various configuration options for the Gitsbe and Drabme simulations,\footnote{See the DrugLogics software documentation \protect\hyperlink{doc-links}{here}} we needed a tool to quickly assess their effect on the pipeline's performance and see which were the most important to tune.
+The pipeline's performance here refers to Drabme's output synergy predictions (continuous scores, each one for a different drug combination, ranging from negative and more synergistic values, to positive and more antagonistic values), validated against the computationally derived set of synergistic drug combinations for the AGS cell line (gold standard).
+This is a classical binary classification problem, where an imaginary threshold scans the range of Drabme's predicted synergy scores to derive various performance scores.
+Specifically, each threshold demarcates the synergistic drug combinations from the antagonistic ones, based on the output prediction scores.
+By comparing these assessments with what we consider as the actual truth, i.e.~the gold standard synergy set, a confusion matrix can be constructed and several threshold-specific measures calculated (Figure \ref{fig:fig6}).
+By accounting for every such threshold, ranging from a very strict (every prediction is declared as antagonistic) to a very relaxed one (every prediction is declared as synergistic), we can visualize Drabme's classifier performance with the Receiver Operating Characteristic (ROC) {[}\protect\hyperlink{ref-Fawcett2006}{118}{]} and Precision Recall (PR) {[}\protect\hyperlink{ref-Saito2015}{119}{]} curves, which are both well-known diagnostic tools for binary classification problems.
+In particular, they allow for a more broad, threshold-agnostic performance measurement, which is the Area Under the Curve (AUC).
+An AUC score of 1 is considered as the perfect classification, which in our case would happen if the top most negative synergy scores were exactly the ones corresponding to the drug combinations that represent the gold standard set for the AGS cell line.
+The aforementioned diagnostic curves also enable the calculation of ``optimal'' cutpoints, e.g.~thresholds that maximize or minimize certain criteria, an example of the latter being the distance from the point of perfect classification {[}\protect\hyperlink{ref-Perkins2006}{120}{]}.
+Based on this theoretical framework, we developed the \texttt{R} shiny app {[}\protect\hyperlink{ref-Chang2021}{121}{]} \texttt{druglogics-roc} to automatically parse Drabme's output files and produce a table {[}\protect\hyperlink{ref-Xie2021}{122}{]} with the confusion matrix values per synergy threshold, along with interactive plots of the ROC (using the \texttt{R} package \texttt{plotly} {[}\protect\hyperlink{ref-Sievert2020}{123}{]}) and PR curves (using the \texttt{R} package \texttt{PRROC} {[}\protect\hyperlink{ref-Grau2015}{124}{]}) and their respective AUC scores.
+This app is now part of the DrugLogics \protect\hyperlink{druglogics-soft-links}{software ecosystem}, facilitating the visualization of the pipeline's performance.
+
+
+
+\begin{figure}
+\centering
+\includegraphics{img/drabme_synergy_roc.pdf}
+\caption{\label{fig:fig6}Performance assessment of Drabme's drug synergy predictions. Predicted synergy scores are sorted from synergistic to antagonistic and compared to a gold standard synergy set for several possible thresholds. Each synergy threshold can be used to construct a confusion matrix, from which standard metrics are calculated, such as the number of True Positive (TP) and False Positive (FP) predictions, precision and recall, etc. Visualizing several of these metrics across all thresholds in the Receiver Operating Characteristic (ROC) and Precision Recall (PR) curves, enables the calculation of the Area Under the Curve (AUC), which is a performance score indicating how good the synergy classification method is.}
+\end{figure}
+
+The Boolean model ensembles produced by Gitsbe were a unique source for further data analyses.
+Since these ensembles contain a large variety of models, we were motivated to investigate their model-specific differences in terms of activity output and parameterization, as well how these differences translate to variations in prediction performance, i.e.~make some models predict specific drug combinations as synergistic or not.
+By assigning Gitsbe models into different classes based on their individual prediction performance, we could identify from dynamical analysis (i.e.~the models' attractors) nodes that were relatively more active (or inhibited) in the upper tier models compared to the lower tier models of the performance hierarchy.
+For example, we verified across many analyses\footnote{See repository \texttt{gitsbe-model-analysis} \protect\hyperlink{misc-links}{here}} that the ERK node of the CASCADE signaling network was particularly active in the models that predicted most of the gold standard synergies in the AGS cell line from the reference drug combination dataset.
+This was an interesting finding, since knowledge gathered from the scientific literature indicates conflicting measurements of ERK activity in AGS cells {[}\protect\hyperlink{ref-Flobak2015}{90}{]} and so our modeling results, upon further analysis, have the potential of providing us with information related to important biomarkers (this particular result is also shown using a different methodology in \textbf{\protect\hyperlink{Paper3}{Paper 3}}).
+In addition to the activity-based analyses, we also explored differences with respect to the Boolean model parameterization from Gitsbe's ensembles, e.g.~if higher performance models have specific logical operators or not and how these diverse parameterizations relate to the activity output in the different model classes (the latter also being one of the core motivations for the work presented in \textbf{\protect\hyperlink{Paper5}{Paper 5}}).
+To enable all the aforementioned investigations, we began writing functions in several scripts while getting familiar with the world of professional software development in \texttt{R} {[}\protect\hyperlink{ref-Wickham2015}{125}{]}.
+In the end, we spent considerable effort to organize all these functions into a single, clean, modularized and tested codebase, with the purpose to fill in a niche for data analysis-oriented software that performs auxiliary automated analyses on Boolean model datasets.
+The result was the creation of the emba \texttt{R} package and its addition to the DrugLogics software ecosystem (\textbf{\protect\hyperlink{Paper4}{Paper 4}}).
+
+\newpage
+
+\hypertarget{gtrr}{%
+\section*{Get the right rules}\label{gtrr}}
+\addcontentsline{toc}{section}{Get the right rules}
+
+\indent
+
+ETC TEC
+
+
+
+\begin{figure}
+\centering
+\includegraphics{img/abmlog_simple.pdf}
+\caption{\label{fig:fig7}Exploring Boolean model parameterization with the \texttt{abmlog} software. Using as input causal regulatory knowledge, all possible Boolean models that conform to a standardized logical equation form {[}Mendoza2006{]} and its most basic variation are produced. Target nodes B and C have 2 regulators each, and their Boolean equations can be formalized in two ways each, producing a total of 4 possible models for further analysis.}
+\end{figure}
 
 \hypertarget{appendix-appendix}{%
 \appendix}
@@ -726,15 +896,15 @@ These packages enable the translation of molecular interaction data directly int
 \item
   \href{https://github.com/druglogics/gitsbe}{\texttt{gitsbe}}: A Java module that defines Boolean models compliant with observed behavior (e.g.~steady state or perturbation data) using an automated, model parameterization genetic algorithm
 \item
-  \href{https://github.com/druglogics/drabme}{\texttt{drabme}}: A Java module that performs a drug perturbation response analysis to the Boolean model ensembles generated by gitsbe
+  \href{https://github.com/druglogics/drabme}{\texttt{drabme}}: A Java module that performs a drug perturbation response analysis to the Boolean model ensembles generated by Gitsbe
 \item
-  \href{https://github.com/druglogics/druglogics-synergy}{\texttt{druglogics-synergy}}: A Java module to execute serially gitsbe and then drabme
+  \href{https://github.com/druglogics/druglogics-synergy}{\texttt{druglogics-synergy}}: A Java module to execute serially Gitsbe and then Drabme
 \item
-  \href{https://github.com/druglogics/abmlog}{\texttt{abmlog}}: A Java-based generator of all possible logical models with AND/OR-NOT link operators in their respective Boolean equations
+  \href{https://github.com/druglogics/abmlog}{\texttt{abmlog}}: A Java-based generator of all possible logical models with AND/OR-NOT link operators in their respective Boolean equations (Figure \ref{fig:fig7})
 \item
-  \href{https://github.com/druglogics/druglogics-roc}{\texttt{druglogics-roc}}: \texttt{R} Shiny web app to visualize the ROC and PR prediction performance of drabme's ensemble-wise predictions
+  \href{https://github.com/druglogics/druglogics-roc}{\texttt{druglogics-roc}}: \texttt{R} Shiny web app to visualize the ROC and PR prediction performance of Drabme's ensemble-wise predictions (Figure \ref{fig:fig6})
 \item
-  \href{https://github.com/bblodfon/emba/}{\texttt{emba}}: \texttt{R} package for analysis and visualization of biomarkers in Boolean model ensembles
+  \href{https://github.com/bblodfon/emba/}{\texttt{emba}}: \texttt{R} package for analysis and visualization of biomarkers in Boolean model ensembles {[}\protect\hyperlink{ref-Zobolas2020}{3}{]}
 \end{itemize}
 
 \hypertarget{r-community-packages}{%
@@ -746,7 +916,7 @@ These packages enable the translation of molecular interaction data directly int
 \item
   \href{https://github.com/bblodfon/usefun}{\texttt{usefun}}: various useful \texttt{R} functions
 \item
-  \href{https://github.com/bblodfon/rtemps}{\texttt{rtemps}}: templates for reproducible data analyses with \texttt{R} {[}\protect\hyperlink{ref-rtemps}{74}{]}
+  \href{https://github.com/bblodfon/rtemps}{\texttt{rtemps}}: templates for reproducible data analyses with \texttt{R} {[}\protect\hyperlink{ref-rtemps}{126}{]}
 \end{itemize}
 
 \hypertarget{misc-links}{%
@@ -761,13 +931,13 @@ Each repository has a \texttt{README.md} file with a brief description of the an
 \item
   \href{https://github.com/druglogics/cascade}{\texttt{CASCADE}}: repository of the CAncer Signaling CAusality DatabasE developed by the DrugLogics group and its subsequent versions
 \item
-  \href{https://github.com/druglogics/ags-paper}{\texttt{ags-paper}}: simulation results and data analyses related to the AGS paper manuscript
+  \href{https://github.com/druglogics/ags-paper}{\texttt{ags-paper}}: simulation results and data analyses related to \textbf{\protect\hyperlink{Paper3}{Paper 3}}
 \item
-  \href{https://github.com/druglogics/sintef-obs-synergies}{\texttt{sintef-obs-synergies}}: synergy assessment of the Flobak et al.~(2019) {[}\protect\hyperlink{ref-Flobak2019}{75}{]} drug combination dataset using rbbt {[}\protect\hyperlink{ref-Vazquez2010}{76}{]} and the CImbinator tool {[}\protect\hyperlink{ref-Flobak2017}{77}{]}
+  \href{https://github.com/druglogics/sintef-obs-synergies}{\texttt{sintef-obs-synergies}}: synergy assessment of the Flobak et al.~(2019) {[}\protect\hyperlink{ref-Flobak2019}{115}{]} drug combination dataset using rbbt {[}\protect\hyperlink{ref-Vazquez2010}{127}{]} and the CImbinator tool {[}\protect\hyperlink{ref-Flobak2017}{116}{]}
 \item
-  \href{https://github.com/druglogics/brf-bias}{\texttt{brf-bias}}: data analyses related to truth density bias in standardized Boolean regulatory functions (results are part of the Boolean function metrics paper)
+  \href{https://github.com/druglogics/brf-bias}{\texttt{brf-bias}}: data analyses related to the study of truth density bias in standardized Boolean regulatory functions for \textbf{\protect\hyperlink{Paper5}{Paper 5}}
 \item
-  \href{https://github.com/druglogics/gitsbe-model-analysis}{\texttt{gitsbe-model-analysis}}: several analyses using Boolean model ensemble datasets generated via gitsbe and the emba \texttt{R} package to analyze them
+  \href{https://github.com/druglogics/gitsbe-model-analysis}{\texttt{gitsbe-model-analysis}}: several analyses using Boolean model ensemble datasets generated via Gitsbe and the emba \texttt{R} package to analyze them
 \item
   \href{https://github.com/druglogics/bool-param-maps}{\texttt{bool-param-maps}}: visualization of model parameterization and node importance using UMAP and random forests on the CASCADE 1.0 Boolean model dataset generated by \texttt{abmlog}
 \end{itemize}
@@ -997,17 +1167,167 @@ Each repository has a \texttt{README.md} file with a brief description of the an
 \leavevmode\hypertarget{ref-Kleshchevnikov2021}{}%
 73. Kleshchevnikov, V. (2021). \emph{{PItools: Protein interaction data tools. R package}}. GitHub. \url{https://github.com/vitkl/PItools}
 
-\leavevmode\hypertarget{ref-rtemps}{}%
-74. Zobolas, J. (2020). \emph{{Rtemps: R Templates for Reproducible Data Analyses}}. GitHub. \url{https://github.com/bblodfon/rtemps}
+\leavevmode\hypertarget{ref-Wang2012}{}%
+74. Wang, R.-S., Saadatpour, A., \& Albert, R. (2012). {Boolean modeling in systems biology: an overview of methodology and applications}. \emph{Physical Biology}, \emph{9}(5), 55001. \url{https://doi.org/10.1088/1478-3975/9/5/055001}
+
+\leavevmode\hypertarget{ref-Aldridge2006}{}%
+75. Aldridge, B. B., Burke, J. M., Lauffenburger, D. A., \& Sorger, P. K. (2006). {Physicochemical modelling of cell signalling pathways}. \emph{Nature Cell Biology}, \emph{8}(11), 1195--1203. \url{https://doi.org/10.1038/ncb1497}
+
+\leavevmode\hypertarget{ref-ElKalaawy2015}{}%
+76. ElKalaawy, N., \& Wassal, A. (2015). {Methodologies for the modeling and simulation of biochemical networks, illustrated for signal transduction pathways: A primer}. \emph{Biosystems}, \emph{129}, 1--18. \url{https://doi.org/10.1016/J.BIOSYSTEMS.2015.01.008}
+
+\leavevmode\hypertarget{ref-Groen2021}{}%
+77. Groen, D., Arabnejad, H., Jancauskas, V., Edeling, W. N., Jansson, F., Richardson, R. A., Lakhlili, J., Veen, L., Bosak, B., Kopta, P., Wright, D. W., Monnier, N., Karlshoefer, P., Suleimenova, D., Sinclair, R., Vassaux, M., Nikishova, A., Bieniek, M., Luk, O. O., \ldots{} Coveney, P. V. (2021). {VECMAtk: a scalable verification, validation and uncertainty quantification toolkit for scientific simulations}. \emph{Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences}, \emph{379}(2197). \url{https://doi.org/10.1098/rsta.2020.0221}
+
+\leavevmode\hypertarget{ref-Schwab2020}{}%
+78. Schwab, J. D., Kühlwein, S. D., Ikonomi, N., Kühl, M., \& Kestler, H. A. (2020). {Concepts in Boolean network modeling: What do they all mean?} \emph{Computational and Structural Biotechnology Journal}, \emph{18}, 571--582. \url{https://doi.org/10.1016/j.csbj.2020.03.001}
+
+\leavevmode\hypertarget{ref-Kauffman1969}{}%
+79. Kauffman, S. A. (1969). {Metabolic stability and epigenesis in randomly constructed genetic nets}. \emph{Journal of Theoretical Biology}, \emph{22}(3), 437--467. \url{https://doi.org/10.1016/0022-5193(69)90015-0}
+
+\leavevmode\hypertarget{ref-Kauffman1993}{}%
+80. Kauffman, S. A. (1993). \emph{{The origins of order: Self-organization and selection in evolution}}. Oxford University Press, USA.
+
+\leavevmode\hypertarget{ref-Faure2006}{}%
+81. Faure, A., Naldi, A., Chaouiya, C., \& Thieffry, D. (2006). {Dynamical analysis of a generic Boolean model for the control of the mammalian cell cycle}. \emph{Bioinformatics}, \emph{22}(14), e124--e131. \url{https://doi.org/10.1093/bioinformatics/btl210}
+
+\leavevmode\hypertarget{ref-Abou-Jaoude2016}{}%
+82. Abou-Jaoudé, W., Traynard, P., Monteiro, P. T., Saez-Rodriguez, J., Helikar, T., Thieffry, D., \& Chaouiya, C. (2016). {Logical Modeling and Dynamical Analysis of Cellular Networks}. \emph{Frontiers in Genetics}, \emph{7}, 94. \url{https://doi.org/10.3389/fgene.2016.00094}
+
+\leavevmode\hypertarget{ref-Naldi2018a}{}%
+83. Naldi, A., Hernandez, C., Levy, N., Stoll, G., Monteiro, P. T., Chaouiya, C., Helikar, T., Zinovyev, A., Calzone, L., Cohen-Boulakia, S., Thieffry, D., \& Paulevé, L. (2018). {The CoLoMoTo Interactive Notebook: Accessible and Reproducible Computational Analyses for Qualitative Biological Networks}. \emph{Frontiers in Physiology}, \emph{9}, 680. \url{https://doi.org/10.3389/fphys.2018.00680}
+
+\leavevmode\hypertarget{ref-Hood2011}{}%
+84. Hood, L., \& Friend, S. H. (2011). {Predictive, personalized, preventive, participatory (P4) cancer medicine}. \emph{Nature Reviews Clinical Oncology}, \emph{8}(3), 184--187. \url{https://doi.org/10.1038/nrclinonc.2010.227}
+
+\leavevmode\hypertarget{ref-Beal2018}{}%
+85. Béal, J., Montagud, A., Traynard, P., Barillot, E., \& Calzone, L. (2018). {Personalization of Logical Models With Multi-Omics Data Allows Clinical Stratification of Patients}. \emph{Frontiers in Physiology}, \emph{9}, 1965. \url{https://doi.org/10.3389/fphys.2018.01965}
+
+\leavevmode\hypertarget{ref-Eduati2017}{}%
+86. Eduati, F., Doldàn-Martelli, V., Klinger, B., Cokelaer, T., Sieber, A., Kogera, F., Dorel, M., Garnett, M. J., Blüthgen, N., \& Saez-Rodriguez, J. (2017). {Drug Resistance Mechanisms in Colorectal Cancer Dissected with Cell Type-Specific Dynamic Logic Models.} \emph{Cancer Research}, \emph{77}(12), 3364--3375. \url{https://doi.org/10.1158/0008-5472.CAN-17-0078}
+
+\leavevmode\hypertarget{ref-Beal2021}{}%
+87. Béal, J., Pantolini, L., Noël, V., Barillot, E., \& Calzone, L. (2021). {Personalized logical models to investigate cancer response to BRAF treatments in melanomas and colorectal cancers}. \emph{PLOS Computational Biology}, \emph{17}(1), e1007900. \url{https://doi.org/10.1371/journal.pcbi.1007900}
+
+\leavevmode\hypertarget{ref-Tognetti2021}{}%
+88. Tognetti, M., Gabor, A., Yang, M., Cappelletti, V., Windhager, J., Rueda, O. M., Charmpi, K., Esmaeilishirazifard, E., Bruna, A., Souza, N. de, Caldas, C., Beyer, A., Picotti, P., Saez-Rodriguez, J., \& Bodenmiller, B. (2021). {Deciphering the signaling network of breast cancer improves drug sensitivity prediction}. \emph{Cell Systems}, \emph{12}. \url{https://doi.org/10.1016/j.cels.2021.04.002}
+
+\leavevmode\hypertarget{ref-Saadatpour2011}{}%
+89. Saadatpour, A., Wang, R.-S., Liao, A., Liu, X., Loughran, T. P., Albert, I., \& Albert, R. (2011). {Dynamical and Structural Analysis of a T Cell Survival Network Identifies Novel Candidate Therapeutic Targets for Large Granular Lymphocyte Leukemia}. \emph{PLoS Computational Biology}, \emph{7}(11), e1002267. \url{https://doi.org/10.1371/journal.pcbi.1002267}
+
+\leavevmode\hypertarget{ref-Flobak2015}{}%
+90. Flobak, Å., Baudot, A., Remy, E., Thommesen, L., Thieffry, D., Kuiper, M., \& Lægreid, A. (2015). {Discovery of Drug Synergies in Gastric Cancer Cells Predicted by Logical Modeling}. \emph{PLOS Computational Biology}, \emph{11}(8). \url{https://doi.org/10.1371/journal.pcbi.1004426}
+
+\leavevmode\hypertarget{ref-Eduati2020}{}%
+91. Eduati, F., Jaaks, P., Wappler, J., Cramer, T., Merten, C. A., Garnett, M. J., \& Saez‐Rodriguez, J. (2020). {Patient‐specific logic models of signaling pathways from screenings on cancer biopsies to prioritize personalized combination therapies}. \emph{Molecular Systems Biology}, \emph{16}(2). \url{https://doi.org/10.15252/msb.20188664}
+
+\leavevmode\hypertarget{ref-Wilson2014}{}%
+92. Wilson, G., Aruliah, D. A., Brown, C. T., Chue Hong, N. P., Davis, M., Guy, R. T., Haddock, S. H. D., Huff, K. D., Mitchell, I. M., Plumbley, M. D., Waugh, B., White, E. P., \& Wilson, P. (2014). {Best Practices for Scientific Computing}. \emph{PLoS Biology}, \emph{12}(1), e1001745. \url{https://doi.org/10.1371/journal.pbio.1001745}
+
+\leavevmode\hypertarget{ref-Coveney2021}{}%
+93. Coveney, P. V., \& Highfield, R. R. (2021). {When we can trust computers (and when we can't)}. \emph{Philosophical Transactions. Series A, Mathematical, Physical, and Engineering Sciences}, \emph{379}(2197), 20200067. \url{https://doi.org/10.1098/rsta.2020.0067}
+
+\leavevmode\hypertarget{ref-Barnes2010}{}%
+94. Barnes, N. (2010). {Publish your computer code: it is good enough}. \emph{Nature}, \emph{467}(7317), 753--753. \url{https://doi.org/10.1038/467753a}
+
+\leavevmode\hypertarget{ref-Prlic2012}{}%
+95. Prlić, A., \& Procter, J. B. (2012). {Ten Simple Rules for the Open Development of Scientific Software}. \emph{PLoS Computational Biology}, \emph{8}(12), e1002802. \url{https://doi.org/10.1371/journal.pcbi.1002802}
+
+\leavevmode\hypertarget{ref-Karimzadeh2018}{}%
+96. Karimzadeh, M., \& Hoffman, M. M. (2018). {Top considerations for creating bioinformatics software documentation}. \emph{Briefings in Bioinformatics}, \emph{19}(4), 693--699. \url{https://doi.org/10.1093/bib/bbw134}
+
+\leavevmode\hypertarget{ref-List2017}{}%
+97. List, M., Ebert, P., \& Albrecht, F. (2017). {Ten Simple Rules for Developing Usable Software in Computational Biology}. \emph{PLoS Computational Biology}, \emph{13}(1), e1005265. \url{https://doi.org/10.1371/journal.pcbi.1005265}
+
+\leavevmode\hypertarget{ref-Sandve2013}{}%
+98. Sandve, G. K., Nekrutenko, A., Taylor, J., \& Hovig, E. (2013). {Ten simple rules for reproducible computational research}. \emph{PLoS Computational Biology}, \emph{9}(10), e1003285. \url{https://doi.org/10.1371/journal.pcbi.1003285}
+
+\leavevmode\hypertarget{ref-Martin2009}{}%
+99. Martin, R. C. (2009). \emph{{Clean code: a handbook of agile software craftsmanship}}. Pearson Education.
+
+\leavevmode\hypertarget{ref-gaddum1940pharmacology}{}%
+100. Gaddum, J. H. (1940). \emph{{Pharmacology}}. Oxford University Press, London.
+
+\leavevmode\hypertarget{ref-Bliss1939}{}%
+101. Bliss, C. I. (1939). {The Toxicity of Poisons Applied Jointly}. \emph{Annals of Applied Biology}, \emph{26}(3), 585--615. \url{https://doi.org/10.1111/j.1744-7348.1939.tb06990.x}
+
+\leavevmode\hypertarget{ref-Saez-Rodriguez2016}{}%
+102. Saez-Rodriguez, J., Costello, J. C., Friend, S. H., Kellen, M. R., Mangravite, L., Meyer, P., Norman, T., \& Stolovitzky, G. (2016). {Crowdsourcing biomedical research: Leveraging communities as innovation engines}. \emph{Nature Reviews Genetics}, \emph{17}(8), 470--486. \url{https://doi.org/10.1038/nrg.2016.69}
+
+\leavevmode\hypertarget{ref-Flobak2016}{}%
+103. Flobak, Å. (2016). {Systems Medicine: From Modeling Systems Perturbations to Predicting Drug Synergies}. \emph{PhD Thesis}. \url{https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2385695}
+
+\leavevmode\hypertarget{ref-ApacheCommons}{}%
+104. \emph{{Apache Commons}}. (2021). \url{https://commons.apache.org/}, (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-Maven}{}%
+105. \emph{{Apache Maven}}. (2021). \url{https://maven.apache.org/}, (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-Naldi2018}{}%
+106. Naldi, A. (2018). {BioLQM: A Java Toolkit for the Manipulation and Conversion of Logical Qualitative Models of Biological Networks}. \emph{Frontiers in Physiology}, \emph{9}, 1605. \url{https://doi.org/10.3389/fphys.2018.01605}
+
+\leavevmode\hypertarget{ref-Naldi2018b}{}%
+107. Naldi, A., Hernandez, C., Abou-Jaoudé, W., Monteiro, P. T., Chaouiya, C., \& Thieffry, D. (2018). {Logical Modeling and Analysis of Cellular Regulatory Networks With GINsim 3.0}. \emph{Frontiers in Physiology}, \emph{9}, 646. \url{https://doi.org/10.3389/fphys.2018.00646}
+
+\leavevmode\hypertarget{ref-Chaouiya2013}{}%
+108. Chaouiya, C., Bérenguier, D., Keating, S. M., Naldi, A., Iersel, M. P. van, Rodriguez, N., Dräger, A., Büchel, F., Cokelaer, T., Kowal, B., Wicks, B., Gonçalves, E., Dorier, J., Page, M., Monteiro, P. T., Kamp, A. von, Xenarios, I., Jong, H. de, Hucka, M., \ldots{} Helikar, T. (2013). {SBML qualitative models: A model representation format and infrastructure to foster interactions between qualitative modelling formalisms and tools}. \emph{BMC Systems Biology}, \emph{7}(1), 1--15. \url{https://doi.org/10.1186/1752-0509-7-135}
+
+\leavevmode\hypertarget{ref-Mussel2010}{}%
+109. Müssel, C., Hopfensitz, M., \& Kestler, H. A. (2010). {BoolNet---an R package for generation, reconstruction and analysis of Boolean networks}. \emph{Bioinformatics}, \emph{26}(10), 1378--1380. \url{https://doi.org/10.1093/bioinformatics/btq124}
+
+\leavevmode\hypertarget{ref-Veliz-Cuba2014}{}%
+110. Veliz-Cuba, A., Aguilar, B., Hinkelmann, F., \& Laubenbacher, R. (2014). {Steady state analysis of Boolean molecular network models via model reduction and computational algebra}. \emph{BMC Bioinformatics}, \emph{15}(1), 221. \url{https://doi.org/10.1186/1471-2105-15-221}
+
+\leavevmode\hypertarget{ref-JUnit5}{}%
+111. \emph{{JUnit 5}}. (2021). \url{https://junit.org/junit5/}, (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-AssertJ}{}%
+112. \emph{{AssertJ - fluent assertions java library}}. (2021). \url{https://assertj.github.io/doc/}, (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-Mockito-site}{}%
+113. \emph{{Mockito framework site}}. (2021). \url{https://site.mockito.org/}, (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-Xie2016}{}%
+114. Xie, Y. (2016). \emph{{bookdown: Authoring Books and Technical Documents with R Markdown}}. Chapman; Hall/CRC. \url{https://bookdown.org/yihui/bookdown}
 
 \leavevmode\hypertarget{ref-Flobak2019}{}%
-75. Flobak, Å., Niederdorfer, B., Nakstad, V. T., Thommesen, L., Klinkenberg, G., \& Lægreid, A. (2019). {A high-throughput drug combination screen of targeted small molecule inhibitors in cancer cell lines}. \emph{Scientific Data}, \emph{6}(1), 237. \url{https://doi.org/10.1038/s41597-019-0255-7}
-
-\leavevmode\hypertarget{ref-Vazquez2010}{}%
-76. Vázquez, M., Nogales, R., Carmona, P., Pascual, A., \& Pavón, J. (2010). \emph{{Rbbt: A Framework for Fast Bioinformatics Development with Ruby}} (pp. 201--208). Springer, Berlin, Heidelberg. \url{https://doi.org/10.1007/978-3-642-13214-8_26}
+115. Flobak, Å., Niederdorfer, B., Nakstad, V. T., Thommesen, L., Klinkenberg, G., \& Lægreid, A. (2019). {A high-throughput drug combination screen of targeted small molecule inhibitors in cancer cell lines}. \emph{Scientific Data}, \emph{6}(1), 237. \url{https://doi.org/10.1038/s41597-019-0255-7}
 
 \leavevmode\hypertarget{ref-Flobak2017}{}%
-77. Flobak, Å., Vazquez, M., Lægreid, A., \& Valencia, A. (2017). {CImbinator: a web-based tool for drug synergy analysis in small- and large-scale datasets}. \emph{Bioinformatics}, \emph{33}(15), 2410--2412. \url{https://doi.org/10.1093/bioinformatics/btx161}
+116. Flobak, Å., Vazquez, M., Lægreid, A., \& Valencia, A. (2017). {CImbinator: a web-based tool for drug synergy analysis in small- and large-scale datasets}. \emph{Bioinformatics}, \emph{33}(15), 2410--2412. \url{https://doi.org/10.1093/bioinformatics/btx161}
+
+\leavevmode\hypertarget{ref-kegg-cancer}{}%
+117. \emph{{KEGG PATHWAY: Pathways in cancer - Homo sapiens (human)}}. (2000). \url{https://www.genome.jp/kegg-bin/show_pathway?hsa05200}, (15 May 2021, date last accessed).
+
+\leavevmode\hypertarget{ref-Fawcett2006}{}%
+118. Fawcett, T. (2006). {An introduction to ROC analysis}. \emph{Pattern Recognition Letters}, \emph{27}(8), 861--874. \url{https://doi.org/10.1016/j.patrec.2005.10.010}
+
+\leavevmode\hypertarget{ref-Saito2015}{}%
+119. Saito, T., \& Rehmsmeier, M. (2015). {The Precision-Recall Plot Is More Informative than the ROC Plot When Evaluating Binary Classifiers on Imbalanced Datasets}. \emph{PLOS ONE}, \emph{10}(3), e0118432. \url{https://doi.org/10.1371/journal.pone.0118432}
+
+\leavevmode\hypertarget{ref-Perkins2006}{}%
+120. Perkins, N. J., \& Schisterman, E. F. (2006). {The Inconsistency of {``Optimal''} Cutpoints Obtained using Two Criteria based on the Receiver Operating Characteristic Curve}. \emph{American Journal of Epidemiology}, \emph{163}(7), 670--675. \url{https://doi.org/10.1093/aje/kwj063}
+
+\leavevmode\hypertarget{ref-Chang2021}{}%
+121. Chang, W., Cheng, J., Allaire, J. J., Sievert, C., Schloerke, B., Xie, Y., Allen, J., McPherson, J., Dipert, A., \& Borges, B. (2021). \emph{{shiny: Web Application Framework for R}}. \url{https://cran.r-project.org/package=shiny}, R package version 1.6.0.
+
+\leavevmode\hypertarget{ref-Xie2021}{}%
+122. Xie, Y., Cheng, J., \& Tan, X. (2021). \emph{{DT: A Wrapper of the JavaScript Library 'DataTables'}}. \url{https://cran.r-project.org/package=DT}, R package version 0.18.
+
+\leavevmode\hypertarget{ref-Sievert2020}{}%
+123. Sievert, C. (2020). \emph{{Interactive Web-Based Data Visualization with R, plotly, and shiny}}. Chapman; Hall/CRC. \url{https://plotly-r.com}
+
+\leavevmode\hypertarget{ref-Grau2015}{}%
+124. Grau, J., Grosse, I., \& Keilwagen, J. (2015). {PRROC: computing and visualizing precision-recall and receiver operating characteristic curves in R}. \emph{Bioinformatics}, \emph{31}(15), 2595--2597. \url{https://doi.org/10.1093/bioinformatics/btv153}
+
+\leavevmode\hypertarget{ref-Wickham2015}{}%
+125. Wickham, H. (2015). \emph{{R packages: organize, test, document, and share your code}}. O'Reilly Media, Inc.
+
+\leavevmode\hypertarget{ref-rtemps}{}%
+126. Zobolas, J. (2020). \emph{{Rtemps: R Templates for Reproducible Data Analyses}}. GitHub. \url{https://github.com/bblodfon/rtemps}
+
+\leavevmode\hypertarget{ref-Vazquez2010}{}%
+127. Vázquez, M., Nogales, R., Carmona, P., Pascual, A., \& Pavón, J. (2010). \emph{{Rbbt: A Framework for Fast Bioinformatics Development with Ruby}} (pp. 201--208). Springer, Berlin, Heidelberg. \url{https://doi.org/10.1007/978-3-642-13214-8_26}
 
 \end{CSLReferences}
 
@@ -1038,11 +1358,19 @@ Each repository has a \texttt{README.md} file with a brief description of the an
 \vspace*{\stretch{1}}
 \end{center}
 
-\includepdf[pages=-]{papers/emba.pdf}
+\includepdf[pages=-]{papers/ags.pdf}
 
 \begin{center}
 \vspace*{\stretch{1}}
 \textbf{\fontsize{70}{1} \selectfont PAPER 4}
+\vspace*{\stretch{1}}
+\end{center}
+
+\includepdf[pages=-]{papers/emba.pdf}
+
+\begin{center}
+\vspace*{\stretch{1}}
+\textbf{\fontsize{70}{1} \selectfont PAPER 5}
 \vspace*{\stretch{1}}
 \end{center}
 

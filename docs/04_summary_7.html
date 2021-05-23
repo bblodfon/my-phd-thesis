@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="04_summary_6.html"/>
-<link rel="next" href="05_links.html"/>
+<link rel="next" href="04_summary_8.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -111,6 +111,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="04_summary_5.html"><a href="04_summary_5.html"><i class="fa fa-check"></i>Sharing causal interactions with PSICQUIC</a></li>
 <li class="chapter" data-level="" data-path="04_summary_6.html"><a href="04_summary_6.html"><i class="fa fa-check"></i>Biological modeling: a Prelude</a></li>
 <li class="chapter" data-level="" data-path="04_summary_7.html"><a href="04_summary_7.html"><i class="fa fa-check"></i>Clean Code</a></li>
+<li class="chapter" data-level="" data-path="04_summary_8.html"><a href="04_summary_8.html"><i class="fa fa-check"></i>Get the right rules</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html"><i class="fa fa-check"></i>Links to software, documentation and data analyses</a>
@@ -144,24 +145,133 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="clean-code" class="section level2 unnumbered">
 <h2>Clean Code</h2>
-<blockquote>"If you can't even clean up your own room, who the hell are you to give advice to the world?" ~ Jordan B. Peterson</blockquote>
+<blockquote>&ldquo;If you can't even clean up your own room, who the hell are you to give advice to the world?&ldquo; ~ Jordan B. Peterson</blockquote>
+<p>Our main goal is to use causal molecular knowledge and signaling activity data to build and parameterize Boolean models to represent specific cancer cell systems, and study their behavior in the presence of in-silico drug perturbations.
+As such, the importance of the underlying scientific software that enables these computational tasks, is unquestionable.
+Such software needs to satisfy a list of requirements pertaining to its suitability for practical use <span class="citation">[<a href="06_refs.html#ref-Wilson2014" role="doc-biblioref">92</a>]</span>.
+Such practices ensure that the software does what it is intended to do and its produced scientific simulations can be used to inform decision-making for clinical applications.
+In other words, for the scientific results of the simulations to be <em>actionable</em> and <em>trustworthy</em> <span class="citation">[<a href="06_refs.html#ref-Coveney2021" role="doc-biblioref">93</a>]</span>, the following software requirements are not just optional, but rather a necessity.
+At first, challenges related to automation, efficiency and optimization in terms of the computational resources needed to perform the simulations and analyses, need to be properly addressed.
+To promote collaboration and allow others to study, use and further develop the software, the respective codebase needs to be open sourced <span class="citation">[<a href="06_refs.html#ref-Barnes2010" role="doc-biblioref">94</a>,<a href="06_refs.html#ref-Prlic2012" role="doc-biblioref">95</a>]</span>.
+Standard formats for input and output should be supported, as well standard libraries for common programming tasks, enabling the effortless integration with related software.
+Also, sufficient documentation needs to be provided, containing installation guidelines and explanations for the various configurations used in the simulations <span class="citation">[<a href="06_refs.html#ref-Karimzadeh2018" role="doc-biblioref">96</a>]</span>.
+Simple examples of use and related tutorials should be part of such documentation as well <span class="citation">[<a href="06_refs.html#ref-List2017" role="doc-biblioref">97</a>]</span>.
+The usability of the software can also be increased by applying better programming architecture and design principles (e.g. writing modular code), which also makes the software easier to test, extend and verify.
+Making the results of the simulations verifiable (i.e. by ensuring that the algorithmic procedures and the model equations are <a href="04_summary_8.html#gtrr">right</a>), will increase their reproducibility, further supporting the aforementioned goals <span class="citation">[<a href="06_refs.html#ref-Sandve2013" role="doc-biblioref">98</a>]</span>.
+All in all, there can only be gains if the code is <em>clean</em> and properly taken care of <span class="citation">[<a href="06_refs.html#ref-Martin2009" role="doc-biblioref">99</a>]</span>.</p>
+<blockquote>&ldquo;The standard library saves programmers from having to reinvent the wheel.&rdquo;
+~ Bjarne Stroustrup</blockquote>
+
+<img src='https://media.giphy.com/media/3o6gE9BYreSsQyOD9C/giphy.gif' style='display: block; margin-left: auto; margin-right: auto;' width='42%' onError="this.style.display='none'"></img>
+</br>
+<p>In Figure <a href="04_summary_7.html#fig:fig5">5</a> we present an overview diagram of the DrugLogics software pipeline.
+This pipeline represents a computational software system aiming to assist in the identification of synergistic drug combinations.
+The pipeline’s two main modules, Gitsbe and Drabme, are both written in Java.
+Gitsbe, using as input a PKN and a signaling activity profile for some of the key entities in the input network, creates Boolean models based on a genetic algorithm approach and calibrates them to best fit the training signaling activity data.
+Boolean models with higher fitness have fixpoint attractors, whose node states best match the binary signaling activities.
+Calibration refers to changes in the Boolean equations to produce such high fitness models.
+These changes can simply be variations in the parameterization such as mutations in the Boolean rules (e.g. a logical OR becomes a logical AND and vice-versa) or topological changes, such as the addition or removal of a regulator’s effect on a particular target.
+Thus the Boolean models in Gitsbe’s produced ensemble are parameterized differently, but are all essentially approximate representations of the same biological system.
+These variant Boolean models are then used as input to Drabme, to test the effect of several perturbations from a given drug panel and quantify their combinatorial interaction patterns using well-known synergy frameworks (namely HSA <span class="citation">[<a href="06_refs.html#ref-gaddum1940pharmacology" role="doc-biblioref">100</a>]</span> and Bliss <span class="citation">[<a href="06_refs.html#ref-Bliss1939" role="doc-biblioref">101</a>]</span>).
+Leveraging the wisdom of the crowds <span class="citation">[<a href="06_refs.html#ref-Saez-Rodriguez2016" role="doc-biblioref">102</a>]</span> using Gitsbe’s models, Drabme’s output predictions contribute in reducing the exponentially large drug space that is associated with combinatorial treatments for the targeted therapy of cancer, providing a list of candidate combinations to test in the lab, before a viable solution is found for a patient.</p>
+
+<div class="figure"><span id="fig:fig5"></span>
+<img src="img/pipeline.png" alt="The DrugLogics software pipeline. A series of connected modules that build a regulatory topology incorporating specific drug targets, parameterize Boolean models to a specific cancer signaling profile assembled from various omics data and simulate drug combination perturbations. The output models and their predictions can be further analyzed to explain the difference between phenotypes and thus identify biomarkers that make a particular drug combination synergistic." width="100%" />
+<p class="caption">
+Figure 5: The DrugLogics software pipeline. A series of connected modules that build a regulatory topology incorporating specific drug targets, parameterize Boolean models to a specific cancer signaling profile assembled from various omics data and simulate drug combination perturbations. The output models and their predictions can be further analyzed to explain the difference between phenotypes and thus identify biomarkers that make a particular drug combination synergistic.
+</p>
+</div>
+<p>The development of Drabme and Gitsbe was part of the latest stages of a previous research thesis and it was mostly exploratory work <span class="citation">[<a href="06_refs.html#ref-Flobak2016" role="doc-biblioref">103</a>]</span>.
+To lay the groundwork for the analyses and investigations of the papers included in this thesis, additional software development needed to be done.
+We started by refactoring the source code to increase its readability, maintainability and extensibility.
+Java classes were restructured, variables and functions were renamed to reflect current best programming practices, code written from scratch for common tasks such as string manipulation was replaced with reusable Java components (e.g. using libraries from Apache Commons <span class="citation">[<a href="06_refs.html#ref-ApacheCommons" role="doc-biblioref">104</a>]</span>) and the Maven project management tool <span class="citation">[<a href="06_refs.html#ref-Maven" role="doc-biblioref">105</a>]</span> was used to enable easier source compilation, installation and packaging (all the Java code was bundled in a single compressed file for ease of use).
+To increase interoperability of our software, we used the Java library BioLQM <span class="citation">[<a href="06_refs.html#ref-Naldi2018" role="doc-biblioref">106</a>]</span> to enable the export of the produced Gitsbe models to standardized formats in the logical modeling community, such as GINML (used in the GINsim software <span class="citation">[<a href="06_refs.html#ref-Naldi2018b" role="doc-biblioref">107</a>]</span>), SBML-qual <span class="citation">[<a href="06_refs.html#ref-Chaouiya2013" role="doc-biblioref">108</a>]</span> and BoolNet <span class="citation">[<a href="06_refs.html#ref-Mussel2010" role="doc-biblioref">109</a>]</span>.
+For the calculation of fixpoint attractors, an external scripting-based tool was used by default <span class="citation">[<a href="06_refs.html#ref-Veliz-Cuba2014" role="doc-biblioref">110</a>]</span>.
+We added a built-in, integrated Java solution using BioLQM, which apart from fixpoints can also identify minimal trapspaces, a generic type of attractor that allows for a deeper exploration of dynamics.</p>
 <p style='text-align:center;'>
-  <i>Even a small bug can have <strong>severe cascading effects<strong>...</i>
+  <i>... and this is how happy I was when I finally cleaned up the DrugLogics code:</i>
+</p>
+<img src='https://media.giphy.com/media/l3q2zbskZp2j8wniE/giphy.gif' style='display: block; margin-left: auto; margin-right: auto;' onError="this.style.display='none'"></img>
+</br>
+<div style="page-break-after: always;"></div>
+<p>A practical outcome of these efforts was that the code became more modular, enabling the addition of software tests using the JUnit5 framework <span class="citation">[<a href="06_refs.html#ref-JUnit5" role="doc-biblioref">111</a>]</span> and specialized libraries <span class="citation">[<a href="06_refs.html#ref-AssertJ" role="doc-biblioref">112</a>,<a href="06_refs.html#ref-Mockito-site" role="doc-biblioref">113</a>]</span>.
+With more tests, hidden or otherwise impossible to pinpoint bugs, were identified and fixed.
+Some of these were critical for the validity of the output findings, since they related to how changes in the parameterization or topology were encoded in the software equivalent of a Boolean model’s equations.
+Moreover, it became much easier to add new features to the software, e.g. we supported the execution of parallel simulations in Gitsbe (a significant performance optimization) and incorporated a new synergy framework for the identification of synergistic drug combinations in Drabme (Bliss).
+Gitsbe’s simulation is the core computational process that produces the “best-fit” models resulting from the evolutionary approach of the genetic algorithms.
+Selecting a few of those best-fit models at the end of each simulation and executing multiple simulations in parallel, each one associated with a different random seed number, is what generates a reproducible list of Boolean models for use in Drabme (or other software if models are exported to standard formats).
+Lastly, we shared publicly the developed modules in GitHub<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> and built an extensive online documentation using the <code>R</code> package <code>bookdown</code> <span class="citation">[<a href="06_refs.html#ref-Xie2016" role="doc-biblioref">114</a>]</span> to gather all related information in one place with regard to the software’s configuration parameters, the mathematical calculations used, installation instructions and examples of use.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
+This online documentation became a central virtual hub, providing information on all the software modules in the pipeline.
+One of these modules was <code>druglogics-synergy</code>, a convenient Java package used to serially execute Gitsbe and Drabme in one go, and which was employed for the simulations of <strong><a href="02_papers.html#Paper3">Paper 3</a></strong>.</p>
+<p style='text-align:center;'>
+  <i>Even a small bug can have <strong>severe cascading effects</strong>...</i>
 </p>
 <img src='https://thecodinglove.com/content/044/1Q0QIvX.gif' style='display: block; margin-left: auto; margin-right: auto;' width='60%' onError="this.style.display='none'"></img>
+</br>
+<p>With all the main code in proper order, we could start investigating the outputs of our software and assess the performance of the produced drug synergy predictions.
+The results of these efforts, along with biologically-relevant mechanistic insights derived from further analyzing the simulation data and performing various investigations, are analytically presented in <strong><a href="02_papers.html#Paper3">Paper 3</a></strong>, and in even more detail at the <code>ags-paper</code> <a href="05_links.html#misc-links">repository</a>, which also includes reproducibility guidelines.
+In the following paragraphs we are going to briefly explain the input data and software that either needed to be in place before we started the experimentation with the in-silico simulations or was built to help further analyze the output Boolean models from Gitsbe and Drabme’s synergy predictions.</p>
+<p>To begin with, we had to choose a reference drug combination dataset to compare our predictions against.
+The argument here is to use a dataset that you know very well so that you can first experiment with the software and its configurations, and only later test your predictions on other published (and potentially larger) datasets.
+Therefore, we chose the Flobak et al. (2019) dataset, with a total of 153 combinations of 18 targeted drugs, involving measurements across 8 cancer cell lines <span class="citation">[<a href="06_refs.html#ref-Flobak2019" role="doc-biblioref">115</a>]</span>.
+Next, we needed to assess in a computational manner which of the drug combinations in the reference dataset (per cell line) are synergistic and which are not.
+Our first attempt was to manually check the output growth curves and derive a majority-assessed <em>gold standard</em> (so it was more of a curative group effort).
+We continued by performing a thorough analysis using the CImbinator tool <span class="citation">[<a href="06_refs.html#ref-Flobak2017" role="doc-biblioref">116</a>]</span> and established a methodology which computed the synergy classification of the reference dataset that best matched our internal curation efforts to call synergy (see <code>sintef-obs-synergies</code> <a href="05_links.html#misc-links">repository</a>).
+All in all, we had a reference dataset and a list of drug combinations designated as synergistic from it, ready to be used to evaluate Drabme’s predictions on the same dataset.</p>
+<p>On another front, we also needed a PKN suitable for our analysis.
+In particular, the targets of the drugs used in the reference dataset should be entities in the network, so as to enable the simulation of drug perturbations in Gitsbe’s derived Boolean models.
+Moreover, several of the most important pathways in cancer cell biology (e.g. PI3K, ERK and TGFB signaling <span class="citation">[<a href="06_refs.html#ref-kegg-cancer" role="doc-biblioref">117</a>]</span>) would have to be included as well.
+A PKN that fits all the above characteristics was curated within our research group and refined throughout many years, resulting in the topology that was used for the simulations of <strong><a href="02_papers.html#Paper3">Paper 3</a></strong> (named <a href="05_links.html#misc-links">CASCADE</a>).
+In addition, proper signaling data was needed to train the Gitsbe models to a cancer proliferating phenotype.
+For that purpose, we used the literature curated activity profile for a set of nodes in CASCADE, which was the result of a previous research work <span class="citation">[<a href="06_refs.html#ref-Flobak2015" role="doc-biblioref">90</a>]</span>.
+This activity profile concerns only one of the cell lines in the reference dataset, namely the gastric adenocarcinoma cell line (AGS).
+In summation, by employing a curated topology and training data from only one cell line, we could focus more on the model parameterization aspects of our software, the performance assessment of the synergy predictions and the rest of the investigations of <strong><a href="02_papers.html#Paper3">Paper 3</a></strong>.</p>
+<p>While exploring various configuration options for the Gitsbe and Drabme simulations,<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> we needed a tool to quickly assess their effect on the pipeline’s performance and see which were the most important to tune.
+The pipeline’s performance here refers to Drabme’s output synergy predictions (continuous scores, each one for a different drug combination, ranging from negative and more synergistic values, to positive and more antagonistic values), validated against the computationally derived set of synergistic drug combinations for the AGS cell line (gold standard).
+This is a classical binary classification problem, where an imaginary threshold scans the range of Drabme’s predicted synergy scores to derive various performance scores.
+Specifically, each threshold demarcates the synergistic drug combinations from the antagonistic ones, based on the output prediction scores.
+By comparing these assessments with what we consider as the actual truth, i.e. the gold standard synergy set, a confusion matrix can be constructed and several threshold-specific measures calculated (Figure <a href="04_summary_7.html#fig:fig6">6</a>).
+By accounting for every such threshold, ranging from a very strict (every prediction is declared as antagonistic) to a very relaxed one (every prediction is declared as synergistic), we can visualize Drabme’s classifier performance with the Receiver Operating Characteristic (ROC) <span class="citation">[<a href="06_refs.html#ref-Fawcett2006" role="doc-biblioref">118</a>]</span> and Precision Recall (PR) <span class="citation">[<a href="06_refs.html#ref-Saito2015" role="doc-biblioref">119</a>]</span> curves, which are both well-known diagnostic tools for binary classification problems.
+In particular, they allow for a more broad, threshold-agnostic performance measurement, which is the Area Under the Curve (AUC).
+An AUC score of 1 is considered as the perfect classification, which in our case would happen if the top most negative synergy scores were exactly the ones corresponding to the drug combinations that represent the gold standard set for the AGS cell line.
+The aforementioned diagnostic curves also enable the calculation of “optimal” cutpoints, e.g. thresholds that maximize or minimize certain criteria, an example of the latter being the distance from the point of perfect classification <span class="citation">[<a href="06_refs.html#ref-Perkins2006" role="doc-biblioref">120</a>]</span>.
+Based on this theoretical framework, we developed the <code>R</code> shiny app <span class="citation">[<a href="06_refs.html#ref-Chang2021" role="doc-biblioref">121</a>]</span> <code>druglogics-roc</code> to automatically parse Drabme’s output files and produce a table <span class="citation">[<a href="06_refs.html#ref-Xie2021" role="doc-biblioref">122</a>]</span> with the confusion matrix values per synergy threshold, along with interactive plots of the ROC (using the <code>R</code> package <code>plotly</code> <span class="citation">[<a href="06_refs.html#ref-Sievert2020" role="doc-biblioref">123</a>]</span>) and PR curves (using the <code>R</code> package <code>PRROC</code> <span class="citation">[<a href="06_refs.html#ref-Grau2015" role="doc-biblioref">124</a>]</span>) and their respective AUC scores.
+This app is now part of the DrugLogics <a href="05_links.html#druglogics-soft-links">software ecosystem</a>, facilitating the visualization of the pipeline’s performance.</p>
+
+<div class="figure"><span id="fig:fig6"></span>
+<img src="img/drabme_synergy_roc.png" alt="Performance assessment of Drabme’s drug synergy predictions. Predicted synergy scores are sorted from synergistic to antagonistic and compared to a gold standard synergy set for several possible thresholds. Each synergy threshold can be used to construct a confusion matrix, from which standard metrics are calculated, such as the number of True Positive (TP) and False Positive (FP) predictions, precision and recall, etc. Visualizing several of these metrics across all thresholds in the Receiver Operating Characteristic (ROC) and Precision Recall (PR) curves, enables the calculation of the Area Under the Curve (AUC), which is a performance score indicating how good the synergy classification method is." width="2085" />
+<p class="caption">
+Figure 6: Performance assessment of Drabme’s drug synergy predictions. Predicted synergy scores are sorted from synergistic to antagonistic and compared to a gold standard synergy set for several possible thresholds. Each synergy threshold can be used to construct a confusion matrix, from which standard metrics are calculated, such as the number of True Positive (TP) and False Positive (FP) predictions, precision and recall, etc. Visualizing several of these metrics across all thresholds in the Receiver Operating Characteristic (ROC) and Precision Recall (PR) curves, enables the calculation of the Area Under the Curve (AUC), which is a performance score indicating how good the synergy classification method is.
+</p>
+</div>
+<p>The Boolean model ensembles produced by Gitsbe were a unique source for further data analyses.
+Since these ensembles contain a large variety of models, we were motivated to investigate their model-specific differences in terms of activity output and parameterization, as well how these differences translate to variations in prediction performance, i.e. make some models predict specific drug combinations as synergistic or not.
+By assigning Gitsbe models into different classes based on their individual prediction performance, we could identify from dynamical analysis (i.e. the models’ attractors) nodes that were relatively more active (or inhibited) in the upper tier models compared to the lower tier models of the performance hierarchy.
+For example, we verified across many analyses<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> that the ERK node of the CASCADE signaling network was particularly active in the models that predicted most of the gold standard synergies in the AGS cell line from the reference drug combination dataset.
+This was an interesting finding, since knowledge gathered from the scientific literature indicates conflicting measurements of ERK activity in AGS cells <span class="citation">[<a href="06_refs.html#ref-Flobak2015" role="doc-biblioref">90</a>]</span> and so our modeling results, upon further analysis, have the potential of providing us with information related to important biomarkers (this particular result is also shown using a different methodology in <strong><a href="02_papers.html#Paper3">Paper 3</a></strong>).
+In addition to the activity-based analyses, we also explored differences with respect to the Boolean model parameterization from Gitsbe’s ensembles, e.g. if higher performance models have specific logical operators or not and how these diverse parameterizations relate to the activity output in the different model classes (the latter also being one of the core motivations for the work presented in <strong><a href="02_papers.html#Paper5">Paper 5</a></strong>).
+To enable all the aforementioned investigations, we began writing functions in several scripts while getting familiar with the world of professional software development in <code>R</code> <span class="citation">[<a href="06_refs.html#ref-Wickham2015" role="doc-biblioref">125</a>]</span>.
+In the end, we spent considerable effort to organize all these functions into a single, clean, modularized and tested codebase, with the purpose to fill in a niche for data analysis-oriented software that performs auxiliary automated analyses on Boolean model datasets.
+The result was the creation of the emba <code>R</code> package and its addition to the DrugLogics software ecosystem (<strong><a href="02_papers.html#Paper4">Paper 4</a></strong>).</p>
+<div style="page-break-after: always;"></div>
 
 </div>
+<div class="footnotes">
+<hr />
+<ol start="5">
+<li id="fn5"><p>See respective repositories <a href="05_links.html#druglogics-soft-links">here</a><a href="04_summary_7.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>See documentation repositories <a href="05_links.html#doc-links">here</a><a href="04_summary_7.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>See the DrugLogics software documentation <a href="05_links.html#doc-links">here</a><a href="04_summary_7.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>See repository <code>gitsbe-model-analysis</code> <a href="05_links.html#misc-links">here</a><a href="04_summary_7.html#fnref8" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
 <a href="04_summary_6.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="05_links.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="04_summary_8.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
