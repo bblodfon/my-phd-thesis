@@ -820,13 +820,15 @@ This app is now part of the DrugLogics \protect\hyperlink{druglogics-soft-links}
 \end{figure}
 
 The Boolean model ensembles produced by Gitsbe were a unique source for further data analyses.
-Since these ensembles contain a large variety of models, we were motivated to investigate their model-specific differences in terms of activity output and parameterization, as well how these differences translate to variations in prediction performance, i.e.~make some models predict specific drug combinations as synergistic or not.
-By assigning Gitsbe models into different classes based on their individual prediction performance, we could identify from dynamical analysis (i.e.~the models' attractors) nodes that were relatively more active (or inhibited) in the upper tier models compared to the lower tier models of the performance hierarchy.
-For example, we verified across many analyses\footnote{See repository \texttt{gitsbe-model-analysis} \protect\hyperlink{misc-links}{here}} that the ERK node of the CASCADE signaling network was particularly active in the models that predicted most of the gold standard synergies in the AGS cell line from the reference drug combination dataset.
-This was an interesting finding, since knowledge gathered from the scientific literature indicates conflicting measurements of ERK activity in AGS cells {[}\protect\hyperlink{ref-Flobak2015}{90}{]} and so our modeling results, upon further analysis, have the potential of providing us with information related to important biomarkers (this particular result is also shown using a different methodology in \textbf{\protect\hyperlink{Paper3}{Paper 3}}).
-In addition to the activity-based analyses, we also explored differences with respect to the Boolean model parameterization from Gitsbe's ensembles, e.g.~if higher performance models have specific logical operators or not and how these diverse parameterizations relate to the activity output in the different model classes (the latter also being one of the core motivations for the work presented in \textbf{\protect\hyperlink{Paper5}{Paper 5}}).
+Since such an ensemble contains a large variety of models, all representing the same biological system, we investigated how these models differ in terms of each network node's activity (in the respective attractor) and parameterization.
+Moreover, we were interested in how these types of model differences translate to variations in prediction performance, i.e.~make some models predict specific drug combinations as synergistic or not.
+By assigning Gitsbe models into different classes based on their individual prediction performance, we could identify nodes that were relatively more active (or inhibited) in the upper tier models compared to the lower tier models of the performance hierarchy.
+For example, we verified across many analyses\footnote{See repository \texttt{gitsbe-model-analysis} \protect\hyperlink{misc-links}{here}} that the ERK node of the CASCADE signaling network was particularly overexpressed in the models that predicted most of the gold standard synergies in the AGS cell line from the reference drug combination dataset.
+This was an interesting finding, since knowledge gathered from the scientific literature indicates conflicting measurements of ERK activity in AGS cells {[}\protect\hyperlink{ref-Flobak2015}{90}{]} and so our modeling results, upon further analysis, have the potential of providing useful information related to the studied biological system (this particular result is also shown using a different methodology in \textbf{\protect\hyperlink{Paper3}{Paper 3}}).
+In addition to the activity-based analyses, we also explored differences with respect to the Boolean model parameterization, i.e.~if higher performance models tend to have specific logical operators (or not) in some equations.
+This also motivated us to study how the diversity in particular Boolean rule assignments in the different model classes translates to the respective target nodes' activity (the link between node parameterization and activity was further investigated in \textbf{\protect\hyperlink{Paper5}{Paper 5}}).
 To enable all the aforementioned investigations, we began writing functions in several scripts while getting familiar with the world of professional software development in \texttt{R} {[}\protect\hyperlink{ref-Wickham2015}{125}{]}.
-In the end, we spent considerable effort to organize all these functions into a single, clean, modularized and tested codebase, with the purpose to fill in a niche for data analysis-oriented software that performs auxiliary automated analyses on Boolean model datasets.
+In the end, we spent considerable effort to organize all these functions into a single, \emph{clean}, modularized and tested codebase, with the purpose to fill in a niche for data analysis-oriented software that performs auxiliary automated analyses on Boolean model datasets.
 The result was the creation of the emba \texttt{R} package and its addition to the DrugLogics software ecosystem (\textbf{\protect\hyperlink{Paper4}{Paper 4}}).
 
 \newpage
@@ -837,15 +839,69 @@ The result was the creation of the emba \texttt{R} package and its addition to t
 
 \indent
 
-ETC TEC
+In the previous chapter we described in detail all the different requirements that a software needs to satisfy so as to deliver on its promise to \emph{do what it was made to do}.
+In other words, it's entirely the software developer's responsibility to make sure that the underlying algorithms are programmed correctly, the model equations and their solutions are right and that in general, the software works as expected.
+In the case of our modeling pipeline, this translates for example to the precise and error-free implementation of the genetic algorithm as well as taking the extra effort to test and ensure that the Boolean models take on the desired parameterization and their attractors are correctly calculated.
+The aforementioned procedure is semantically synonymous to \emph{verification}: the software works in a manner that directly reflects the underlying theories and modeling assumptions.
+This is part of what makes the simulation results trustworthy and actionable, in the sense that they can be used to provide solutions to real-world problems, making the respective models valuable for diverse applications, both in industrial and clinical contexts.
+
+It's an entirely different matter if the solutions that the software was made to produce, (e.g.~the simulation results in the case of modeling software), are pragmatic.
+What good are models if their outputs do not agree with real observations, no matter how skillfully the developer put the theoretical ideas in software code?
+All models are wrong since they are approximate representations of reality, but it's important to be able to pinpoint exactly where this wrongness originates and what it pertains to.
+If a biological model for example cannot reproduce basic observations about the phenotype of the system it simulates (via its respective software), then that model is not useful and it probably needs further refinement.
+That leads to the question of what makes a model able to better match experimental data and become a more faithful approximation of reality.
+In other words, what aspect of the model needs refinement?
+The first step towards answering this question is understanding that a model is more than just the code.
+A model, as explained in a previous chapter, is its mathematical rules (also referred to as model parameterization).
+So, extra care should be given to make sure we have the right equations in our models.
+This crucial next step is known as the \emph{validation} of the modeling software and its basic assumption is that more ``right'' equations result in better fit to observations, which lead to better models (their behavior corresponds more accurately to reality) and subsequently, better simulation results (predictions about the studied system).
+
+So for every modeling application and subsequent software, not only do we need to have the rules right (verification), but it is of equal or maybe even more significance to have the right rules (validation) {[}\protect\hyperlink{ref-Roache1997}{126}{]}.
+In that aspect, the parameterization of the Boolean models in our software, i.e.~the choice of logical equations that define the regulatory activity of every target in the underlying cancer signaling network, stands as one of the most important parts of the ensuing modeling process.
+Since parameterization is so important, how can we find which are the ``right'' rules or similarly, how can we distinguish between those that are right vs those that aren't (or are less so), so that we can choose the former for our models?
+Practically, the way that researchers in the logical modeling community have dealt with this problem is by establishing standard logical equation forms to represent regulatory interactions upon a signaling target {[}\protect\hyperlink{ref-Mendoza2006}{127}{]}.
+Based on such a foundation for the initial construction of the logical rules, the next step is to tweak them properly, by changing logical operators and removing/adding variables (regulators), so that a better match with experimental observations can be achieved.
+This process of calibrating the rules to fit the respective data can be either the result of manual curation {[}\protect\hyperlink{ref-Flobak2015}{90},\protect\hyperlink{ref-Faure2009}{128},\protect\hyperlink{ref-Niederdorfer2020}{129}{]}, or the outcome of automated computational search for optimal logical equations {[}\protect\hyperlink{ref-Videla2016}{130},\protect\hyperlink{ref-Gjerga2020}{131}{]} (for similar efforts in this thesis see \textbf{\protect\hyperlink{Paper3}{Paper 3}}).
+In addition, several other methods are used to convert various input sources to the appropriate Boolean rules, e.g.~by translating molecular interaction maps directly to Boolean models {[}\protect\hyperlink{ref-Aghamiri2020}{132}{]} or user-provided text to suitable logical equations via web-based tools {[}\protect\hyperlink{ref-Helikar2012}{133}{]}.
+
+Be it the modelers or the computers that refine and produce the final Boolean equations in the respective models, we reasoned that a proper framework to characterize the Boolean functions that constitute the rules in these models, is currently missing.
+The main idea is that, since the mathematical rules are the heart of modeling and we need to have the right rules (or as best as possible) for validating and further refining our models, a proper toolkit is needed to differentiate and choose between the possible parameterization options.
+The plethora of potential equations that can be just ``right'' are a direct consequence of the fact that the number of possible parameterizations increases dramatically with the number of regulators {[}\protect\hyperlink{ref-Cury2019}{134}{]}.
+In addition, a large number of Boolean equations may fit equally well the experimental observations or it might even be the case that the data are not enough to uniquely define the model equations {[}\protect\hyperlink{ref-Saez-Rodriguez2009}{135}{]}.
+Either way, fitting the model to match the expected outputs is just one side of the validation process.
+We need to go deeper than that though if we are to reach our goal of finding the right rules for our models.
+To establish a practical framework assisting in the choice of a particular logical model parameterization, we need to search for ways to expand our knowledge of the rules and gain insights into these from different perspectives.
+Following this logic, there are function properties that Boolean mathematics research has thoroughly studied and which, when brought to the context of modeling, can be beneficial for both modelers and software applications that specify or calibrate the rules of a logical model {[}\protect\hyperlink{ref-Cury2019}{134},\protect\hyperlink{ref-Shmulevich2004}{136},\protect\hyperlink{ref-Gherardi2016}{137}{]}.
+For example, such properties could be used to investigate if the equations contradict the structure of the underlying regulatory topology (PKN) or that biologically important regulators manifest in the equations as proportionally influential to the respective Boolean output.
+Our efforts constitute a first attempt to compile such a list of Boolean function metrics in a unified framework that could be used to refine the search for the optimal rules to use (\textbf{\protect\hyperlink{Paper5}{Paper 5}}).
+The analyses in that paper also show the differences between varying Boolean parameterizations in terms of expected output behavior and how this information, when known \emph{a priori} (based on precise mathematical formalization and subsequent calculation), can assist in the choice of better rules for the considered models.
+
+While establishing a framework to help in the identification of the right rules for a Boolean model, we leveraged the benefits of variation in model parameterization (Figure \ref{fig:fig7}).
+Exploring the effects of variation in the values of model parameters, enables the identification of variables which have the largest influence in the behavior of the studied systems and can provide mechanistic insights to explain several phenomena {[}\protect\hyperlink{ref-Aldridge2006}{75}{]}.
+For example, in Eduati et al.~(2017) {[}\protect\hyperlink{ref-Eduati2017}{86}{]}, the authors study how logical model parameters are related with cellular sensitivity to anti-cancer drugs.
+Simply put, by tweaking a biologically meaningful parameter in their model (the responsiveness of the GSK3 signaling node), you could explain why a drug combination involving a MEK and a GSK3 inhibitor is sensitive in some cancer cell lines and resistant in others.
+This computational finding was supported by experimental evidence, thereby providing a proof-of-concept in how the investigation of model parameterization can suggest new mechanisms for the manifestation of particular drug synergies.
+On a more theoretical front, in Abou-Jaoudé et al.~(2019) {[}\protect\hyperlink{ref-Abou-Jaoude2019}{138}{]}, the authors formally describe the concept of logical bifurcation diagrams, a framework to assess how changes in the logical parameters result in the change of the dynamics of logical models.
+This methodology was used to display the attractors of the simple p53-Mdm2 signaling network as a function of the degradation rate of ubiquitin ligase Mdm2 in the nucleus, allowing for a more concise characterization of its main dynamical properties {[}\protect\hyperlink{ref-Abou-Jaoude2009}{139}{]}.
 
 
 
 \begin{figure}
 \centering
 \includegraphics{img/abmlog_simple.pdf}
-\caption{\label{fig:fig7}Exploring Boolean model parameterization with the \texttt{abmlog} software. Using as input causal regulatory knowledge, all possible Boolean models that conform to a standardized logical equation form {[}Mendoza2006{]} and its most basic variation are produced. Target nodes B and C have 2 regulators each, and their Boolean equations can be formalized in two ways each, producing a total of 4 possible models for further analysis.}
+\caption{\label{fig:fig7}Exploring Boolean model parameterization with the \texttt{abmlog} software. Using as input causal regulatory knowledge, all possible Boolean models that conform to a standardized logical equation form {[}\protect\hyperlink{ref-Mendoza2006}{127}{]} and its most basic variation are produced. Target nodes B and C have two regulators each, and their respective Boolean equations can be formalized in two ways, producing a total of four possible models for further analysis.}
 \end{figure}
+
+\newpage
+
+Such approaches inspired us to explore the space of Boolean model parameterization, pertaining to the equations used to construct and mutate the models in the genetic algorithm of Gitsbe (\textbf{\protect\hyperlink{Paper3}{Paper 3}}).
+We made a Java software package that can produce either a random sample or all possible Boolean models, based on a standardized equation form {[}\protect\hyperlink{ref-Mendoza2006}{127}{]} and it's most basic variation (Figure \ref{fig:fig7}).
+The \texttt{abmlog} package is now also part of the DrugLogics software ecosystem and was used in the analyses of \textbf{\protect\hyperlink{Paper5}{Paper 5}} to show how the output behavior of the two alternative parameterization options of the Gitsbe models varies based on the number of regulators in the respective equations and the ratio of positive to negative regulators (as these were defined in the original PKN).
+Moreover, a large number of CASCADE-based Boolean models were produced using the \texttt{abmlog} package to explore parameterization variation.
+Exploiting the dimension reduction and visualization method UMAP {[}\protect\hyperlink{ref-McInnes2018}{140}{]}, we constructed several Boolean model maps and were able to visualize model differences such as fitness to training data and prediction performance.\footnote{See repository \texttt{bool-param-maps} \protect\hyperlink{misc-links}{here}}
+Further analysis identified important nodes which drive the change of dynamics (number of attractors in the CASCADE Boolean models) and whose parameterization could be used to visually separate the UMAP embedded models in distinct clusters.
+
+\newpage
 
 \hypertarget{appendix-appendix}{%
 \appendix}
@@ -916,7 +972,7 @@ ETC TEC
 \item
   \href{https://github.com/bblodfon/usefun}{\texttt{usefun}}: various useful \texttt{R} functions
 \item
-  \href{https://github.com/bblodfon/rtemps}{\texttt{rtemps}}: templates for reproducible data analyses with \texttt{R} {[}\protect\hyperlink{ref-rtemps}{126}{]}
+  \href{https://github.com/bblodfon/rtemps}{\texttt{rtemps}}: templates for reproducible data analyses with \texttt{R} {[}\protect\hyperlink{ref-rtemps}{141}{]}
 \end{itemize}
 
 \hypertarget{misc-links}{%
@@ -929,11 +985,11 @@ Each repository has a \texttt{README.md} file with a brief description of the an
 \begin{itemize}
 \tightlist
 \item
-  \href{https://github.com/druglogics/cascade}{\texttt{CASCADE}}: repository of the CAncer Signaling CAusality DatabasE developed by the DrugLogics group and its subsequent versions
+  \href{https://github.com/druglogics/cascade}{\texttt{CASCADE}}: repository of the different versions of the CAncer Signaling CAusality DatabasE developed by the DrugLogics group
 \item
   \href{https://github.com/druglogics/ags-paper}{\texttt{ags-paper}}: simulation results and data analyses related to \textbf{\protect\hyperlink{Paper3}{Paper 3}}
 \item
-  \href{https://github.com/druglogics/sintef-obs-synergies}{\texttt{sintef-obs-synergies}}: synergy assessment of the Flobak et al.~(2019) {[}\protect\hyperlink{ref-Flobak2019}{115}{]} drug combination dataset using rbbt {[}\protect\hyperlink{ref-Vazquez2010}{127}{]} and the CImbinator tool {[}\protect\hyperlink{ref-Flobak2017}{116}{]}
+  \href{https://github.com/druglogics/sintef-obs-synergies}{\texttt{sintef-obs-synergies}}: synergy assessment of the Flobak et al.~(2019) {[}\protect\hyperlink{ref-Flobak2019}{115}{]} drug combination dataset using rbbt {[}\protect\hyperlink{ref-Vazquez2010}{142}{]} and the CImbinator tool {[}\protect\hyperlink{ref-Flobak2017}{116}{]}
 \item
   \href{https://github.com/druglogics/brf-bias}{\texttt{brf-bias}}: data analyses related to the study of truth density bias in standardized Boolean regulatory functions for \textbf{\protect\hyperlink{Paper5}{Paper 5}}
 \item
@@ -1323,11 +1379,56 @@ Each repository has a \texttt{README.md} file with a brief description of the an
 \leavevmode\hypertarget{ref-Wickham2015}{}%
 125. Wickham, H. (2015). \emph{{R packages: organize, test, document, and share your code}}. O'Reilly Media, Inc.
 
+\leavevmode\hypertarget{ref-Roache1997}{}%
+126. Roache, P. J. (1997). {Quantification of uncertainty in computational fluid dynamics}. \emph{Annual Review of Fluid Mechanics}, \emph{29}, 123--160. \url{https://doi.org/10.1146/annurev.fluid.29.1.123}
+
+\leavevmode\hypertarget{ref-Mendoza2006}{}%
+127. Mendoza, L., \& Xenarios, I. (2006). {A method for the generation of standardized qualitative dynamical systems of regulatory networks}. \emph{Theoretical Biology and Medical Modelling}, \emph{3}(1), 13. \url{https://doi.org/10.1186/1742-4682-3-13}
+
+\leavevmode\hypertarget{ref-Faure2009}{}%
+128. Fauré, A., \& Thieffry, D. (2009). {Logical modelling of cell cycle control in eukaryotes: A comparative study}. \emph{Molecular BioSystems}, \emph{5}(12), 1569--1581. \url{https://doi.org/10.1039/b907562n}
+
+\leavevmode\hypertarget{ref-Niederdorfer2020}{}%
+129. Niederdorfer, B., Touré, V., Vazquez, M., Thommesen, L., Kuiper, M., Lægreid, A., \& Flobak, Å. (2020). {Strategies to Enhance Logic Modeling-Based Cell Line-Specific Drug Synergy Prediction}. \emph{Frontiers in Physiology}, \emph{11}, 862. \url{https://doi.org/10.3389/fphys.2020.00862}
+
+\leavevmode\hypertarget{ref-Videla2016}{}%
+130. Videla, S., Saez-Rodriguez, J., Guziolowski, C., \& Siegel, A. (2016). Caspo: A toolbox for automated reasoning on the response of logical signaling networks families. \emph{Bioinformatics}, \emph{33}(6), 947--950. \url{https://doi.org/10.1093/bioinformatics/btw738}
+
+\leavevmode\hypertarget{ref-Gjerga2020}{}%
+131. Gjerga, E., Trairatphisan, P., Gabor, A., Koch, H., Chevalier, C., Ceccarelli, F., Dugourd, A., Mitsos, A., \& Saez-Rodriguez, J. (2020). {Converting networks to predictive logic models from perturbation signalling data with CellNOpt}. \emph{Bioinformatics}. \url{https://doi.org/10.1093/bioinformatics/btaa561}
+
+\leavevmode\hypertarget{ref-Aghamiri2020}{}%
+132. Aghamiri, S. S., Singh, V., Naldi, A., Helikar, T., Soliman, S., \& Niarakis, A. (2020). {Automated inference of Boolean models from molecular interaction maps using CaSQ}. \emph{Bioinformatics}. \url{https://doi.org/10.1093/bioinformatics/btaa484}
+
+\leavevmode\hypertarget{ref-Helikar2012}{}%
+133. Helikar, T., Kowal, B., Madrahimov, A., Shrestha, M., Pedersen, J., Limbu, K., Thapa, I., Rowley, T., Satalkar, R., Kochi, N., Konvalina, J., \& Rogers, J. A. (2012). {Bio-Logic Builder: A Non-Technical Tool for Building Dynamical, Qualitative Models}. \emph{PLoS ONE}, \emph{7}(10), e46417. \url{https://doi.org/10.1371/journal.pone.0046417}
+
+\leavevmode\hypertarget{ref-Cury2019}{}%
+134. Cury, J. E. R., Monteiro, P. T., \& Chaouiya, C. (2019). {Partial Order on the set of Boolean Regulatory Functions}. \emph{arXiv}. \url{http://arxiv.org/abs/1901.07623}
+
+\leavevmode\hypertarget{ref-Saez-Rodriguez2009}{}%
+135. Saez‐Rodriguez, J., Alexopoulos, L. G., Epperlein, J., Samaga, R., Lauffenburger, D. A., Klamt, S., \& Sorger, P. K. (2009). {Discrete logic modelling as a means to link protein signalling networks with functional analysis of mammalian signal transduction}. \emph{Molecular Systems Biology}, \emph{5}(1), 331. \url{https://doi.org/10.1038/msb.2009.87}
+
+\leavevmode\hypertarget{ref-Shmulevich2004}{}%
+136. Shmulevich, I., \& Kauffman, S. A. (2004). {Activities and sensitivities in Boolean network models}. \emph{Physical Review Letters}, \emph{93}(4), 048701. \url{https://doi.org/10.1103/PhysRevLett.93.048701}
+
+\leavevmode\hypertarget{ref-Gherardi2016}{}%
+137. Gherardi, M., \& Rotondo, P. (2016). {Measuring logic complexity can guide pattern discovery in empirical systems}. \emph{Complexity}, \emph{21}, 397--408. \url{https://doi.org/10.1002/cplx.21819}
+
+\leavevmode\hypertarget{ref-Abou-Jaoude2019}{}%
+138. Abou-Jaoudé, W., \& Monteiro, P. T. (2019). {On logical bifurcation diagrams}. \emph{Journal of Theoretical Biology}, \emph{466}, 39--63. \url{https://doi.org/10.1016/j.jtbi.2019.01.008}
+
+\leavevmode\hypertarget{ref-Abou-Jaoude2009}{}%
+139. Abou-Jaoudé, W., Ouattara, D. A., \& Kaufman, M. (2009). {From structure to dynamics: Frequency tuning in the p53-Mdm2 network. I. Logical approach}. \emph{Journal of Theoretical Biology}, \emph{258}(4), 561--577. \url{https://doi.org/10.1016/j.jtbi.2009.02.005}
+
+\leavevmode\hypertarget{ref-McInnes2018}{}%
+140. McInnes, L., Healy, J., \& Melville, J. (2018). {UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction}. \emph{arXiv}. \url{http://arxiv.org/abs/1802.03426}
+
 \leavevmode\hypertarget{ref-rtemps}{}%
-126. Zobolas, J. (2020). \emph{{Rtemps: R Templates for Reproducible Data Analyses}}. GitHub. \url{https://github.com/bblodfon/rtemps}
+141. Zobolas, J. (2020). \emph{{Rtemps: R Templates for Reproducible Data Analyses}}. GitHub. \url{https://github.com/bblodfon/rtemps}
 
 \leavevmode\hypertarget{ref-Vazquez2010}{}%
-127. Vázquez, M., Nogales, R., Carmona, P., Pascual, A., \& Pavón, J. (2010). \emph{{Rbbt: A Framework for Fast Bioinformatics Development with Ruby}} (pp. 201--208). Springer, Berlin, Heidelberg. \url{https://doi.org/10.1007/978-3-642-13214-8_26}
+142. Vázquez, M., Nogales, R., Carmona, P., Pascual, A., \& Pavón, J. (2010). \emph{{Rbbt: A Framework for Fast Bioinformatics Development with Ruby}} (pp. 201--208). Springer, Berlin, Heidelberg. \url{https://doi.org/10.1007/978-3-642-13214-8_26}
 
 \end{CSLReferences}
 
