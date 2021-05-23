@@ -46,6 +46,11 @@ The implementation work was initiated in a GREEKC workshop [@Hinxton2018] and co
 Upon finishing the support for CausalTAB in JAMI ^[During the GREEKC Marseille Hackathon 2019 event, see more info on the project here: https://github.com/GREEKC/hackathon-marseille/tree/master/project_descriptions/causal_psicquic
 ], we provided the first PSICQUIC service indexing SIGNOR's CausalTAB data at the time, made available through a development server [@psicquic-causalTAB-dataset].
 
+```{=html}
+<img src='https://media.giphy.com/media/jQERULZAJnT4QBNsdt/source.gif' style='display: block; margin-left: auto; margin-right: auto;' witdh='85%' onError="this.style.display='none'"></img>
+</br>
+```
+
 During the ELIXIR BioHackathon, the architecture details of a new cloud-based, distributed PSICQUIC service were discussed and documented for future development efforts.
 The goal is to enable the data providers to upload their molecular interaction data in a fully automated process and add support for data validation.
 This service will minimize the long-term commitment and maintenance from the data providers, which they cannot always afford (e.g. deployment of the server hosting PSICQUIC).
