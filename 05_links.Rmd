@@ -36,7 +36,7 @@
 All the following repositories have been authored exclusively by myself.
 Each repository has a `README.md` file with a brief description of the analysis and a link to online documentation and results (in the form of `R` Markdown documents or `R` GitBooks).
 
-- [`CASCADE`](https://github.com/druglogics/cascade): repository of the CAncer Signaling CAusality DatabasE developed by the DrugLogics group and its subsequent versions
+- [`CASCADE`](https://github.com/druglogics/cascade): repository of the different versions of the CAncer Signaling CAusality DatabasE developed by the DrugLogics group
 - [`ags-paper`](https://github.com/druglogics/ags-paper): simulation results and data analyses related to **[Paper 3](#Paper3)**
 - [`sintef-obs-synergies`](https://github.com/druglogics/sintef-obs-synergies): synergy assessment of the Flobak et al. (2019) [@Flobak2019] drug combination dataset using rbbt [@Vazquez2010] and the CImbinator tool [@Flobak2017]
 - [`brf-bias`](https://github.com/druglogics/brf-bias): data analyses related to the study of truth density bias in standardized Boolean regulatory functions for **[Paper 5](#Paper5)**
