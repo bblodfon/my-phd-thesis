@@ -81,7 +81,7 @@ One of these modules was `druglogics-synergy`, a convenient Java package used to
 ```
 
 With all the main code in proper order, we could start investigating the outputs of our software and assess the performance of the produced drug synergy predictions.
-The results of these efforts, along with biologically-relevant mechanistic insights derived from further analyzing the simulation data and performing various investigations, are analytically presented in **[Paper 3](#Paper3)**, and in even more detail at the `ags-paper` [repository](#misc-links), which also includes reproducibility guidelines.
+The results of these efforts, along with biologically-relevant mechanistic insights derived from further analyzing the simulation data and performing various investigations, are analytically presented in **[Paper 3](#Paper3)**, and in even more detail at the `ags-paper` repository ^[See `ags-paper` repository [here](#misc-links)], which also includes reproducibility guidelines.
 In the following paragraphs we are going to briefly explain the input data and software that either needed to be in place before we started the experimentation with the in-silico simulations or was built to help further analyze the output Boolean models from Gitsbe and Drabme's synergy predictions.
 
 To begin with, we had to choose a reference drug combination dataset to compare our predictions against.
@@ -95,7 +95,7 @@ All in all, we had a reference dataset and a list of drug combinations designate
 On another front, we also needed a PKN suitable for our analysis.
 In particular, the targets of the drugs used in the reference dataset should be entities in the network, so as to enable the simulation of drug perturbations in Gitsbe's derived Boolean models.
 Moreover, several of the most important pathways in cancer cell biology (e.g.  PI3K, ERK and TGFB signaling [@kegg-cancer]) would have to be included as well.
-A PKN that fits all the above characteristics was curated within our research group and refined throughout many years, resulting in the topology that was used for the simulations of **[Paper 3](#Paper3)** (named [CASCADE](#misc-links)).
+A PKN that fits all the above characteristics was curated within our research group and refined throughout many years, resulting in the topology that was used for the simulations of **[Paper 3](#Paper3)** (CASCADE ^[See CASCADE repository [here](#misc-links)]).
 In addition, proper signaling data was needed to train the Gitsbe models to a cancer proliferating phenotype.
 For that purpose, we used the literature curated activity profile for a set of nodes in CASCADE, which was the result of a previous research work [@Flobak2015].
 This activity profile concerns only one of the cell lines in the reference dataset, namely the gastric adenocarcinoma cell line (AGS).
