@@ -39,7 +39,7 @@ Lastly, the relevant PSICQUIC documentation was improved and reformatted to enha
 The aforementioned development effort spurred a series of actions that led to several improvements in the PSICQUIC platform.
 The Molecular Interactions Community, is an open source community providing tools, standard formats, ontologies and modules for manipulating molecular interaction data [@mi-github].
 For example, some of these modules are used to read and write PSI-MITAB files across different versions.
-Since these modules hadn't been updated for years (showing signs of software rot [@wiki-soft-rot]), we had to refactor the codebase and add tests to ensure it's future reliability and quality.
+Since these modules had not been updated for years (showing signs of software rot [@wiki-soft-rot]), we had to refactor the codebase and add tests to ensure its future reliability and quality.
 In the end, even though we managed to complete the task and support CausalTAB in PSICQUIC via updating these modules, the need to replace them with a newer library was imminent.
 JAMI is such a library, integrating all standard molecular interaction data formats such as the PSI-MI XML and PSI-MITAB, into a unified implementation, hiding the complex details of each format from the developers and thereby making their work easier [@Sivade2018a].
 The implementation work was initiated in a GREEKC workshop [@Hinxton2018] and continued during the first ELIXIR BioHackathon in Paris [@biohack2018].

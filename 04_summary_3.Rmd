@@ -38,7 +38,7 @@ Canto's respective website provides extensive documentation and step-by-step use
 A user management mechanism is incorporated in the software so as to allow proper monitoring of curation tasks and efficient communication between curators for work prioritization.
 In addition, two relatively new tools have been developed for the curation and visualization of molecular interaction maps: NaviCell [@Kuperstein2013] and MINERVA [@Gawron2016].
 These tools facilitate knowledge exploration in addition to knowledge annotation, allowing for an interactive user experience (e.g. feedback via comments), enabling content sharing, supporting well known data standards (e.g. SBGN [@Novere2009]) and thus allowing for data interoperability and re-use.
-All the aforementioned annotation tools are limited by the fact that they aren't generic enough to curate any type of information, with most of them representing specialized solutions pertaining to specific annotation purposes.
+All the aforementioned annotation tools are limited by the fact that they are not generic enough to curate any type of information, with most of them representing specialized solutions pertaining to specific annotation purposes.
 Most tools require extra technical configurations and software to include additional levels of contextualized details required for current and future curation efforts.
 
 \newpage

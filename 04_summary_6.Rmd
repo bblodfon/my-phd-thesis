@@ -11,7 +11,7 @@ To translate signaling networks to a computational form for simulation purposes,
 The formulation of the rules in mathematical terms (i.e. they are in most cases expressed as equations), defines the mechanistic details of the studied models and thus enables the study of their dynamics.
 Practically, this means that models can be used for various forms of analyses and simulations, and their outputs further investigated.
 For example, models can be validated and tested for agreement with experimental observations, can make predictions and generate new hypotheses leading to the design of new experiments, and they can be subjected to various perturbations, with their subsequent effects on the studied systems quantified and thoroughly analyzed.
-In addition to the biological analysis, one of the more important aspects of mathematical modeling is that it enables the investigation of the underlying mechanisms that result in the manifestation of the described system's behavior.
+In addition to biological analysis, one of the more important aspects of mathematical modeling is that it enables the investigation of the underlying mechanisms that result in the manifestation of the described system's behavior.
 In other words, computational models are explainable and interpretable, enabling us to answer why things happen the way they do, which is one of the driving forces behind science itself.
 
 Several mathematical methodologies have been used to study biological systems, such as stochastic modeling, ordinary and partial differential equations (ODE and PDE modeling), Petri nets, logical modeling, Bayesian networks, cellular automata and agent-based modeling [@ElKalaawy2015].
@@ -45,6 +45,8 @@ In contrast, randomly specifying one or more equations to update can result in v
 By repeatedly applying the Boolean rules, systemic states that either don't change (*fixpoints*) or ones that demonstrate cycling patterns, can be reached.
 These are the *attractors*, which represent solutions to the system of equations that constitute a Boolean model and their identification is synonymous to the study of the long-term dynamical behavior of the modeled system.
 Attractors have been shown to be biologically meaningful, either by representing specific phenotypic outputs [@Kauffman1993] or transitions between system states like in the cell cycle [@Faure2006].
+
+\newpage
 
 Several computational tools have been developed to aid in the dynamical analysis of Boolean models [@Abou-Jaoude2016].
 These tools enable users to easily create and edit logical models, identify different types of attractors and their reachability properties, analyze model state evolution over time, investigate phenotypic outputs subject to various types of perturbations, explore different model parameterizations and calibrate models to fit experimental data, among others [@Naldi2018a].

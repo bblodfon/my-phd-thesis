@@ -45,7 +45,7 @@ The work presented in this thesis is heavily based on this network medicine para
 Our primary focus is on protein-protein interaction (PPI) networks, with proteins as nodes and their physical contacts and interactions as links, and gene regulatory networks, represented for example by directed regulatory relationships between transcription factors and genes (TF-TG networks).
 These types of networks demonstrate a system of signal transduction pathways connected by crosstalk and embedded in feedback loops, forming what is known as the *Prior Knowledge Network* (PKN).
 The causality property of the PKN stems from the fact that the network links are directed (i.e. protein X affects protein Y) and signed (Y is inhibited or activated as a result).
-It's exactly this causality information that allows the investigation of behaviors from a systems perspective.
+It is exactly this causality information that allows the investigation of behaviors from a systems perspective.
 Such networks form the basis for the study and computational modeling of cancer, which is another subject of investigation in this thesis.
 In the subsequent chapters, we will discuss how we addressed problems related to the formalization, access and public sharing of the knowledge encoded in the PKN.
 

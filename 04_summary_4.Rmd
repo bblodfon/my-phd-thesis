@@ -41,7 +41,7 @@ The implementation of UBDs put us in a position to confront problems that biocur
 One of these challenges is that biocurators often need to annotate terms in a specific domain or novel field, for which there is still no authoritative database or ontology nor a community consensus about the respective terminology [@Hartmann2019].
 A similar challenge manifests when new knowledge is discovered or similarly, further contextual information related to existing knowledge comes into light, as a result of scientists' constant drive for progress.
 This eventually leads to the constant refactoring of ontologies and identifiers, subsequently making biocurators life even more difficult.
-To respond to these challenges, biocurators create project-specific, *ad-hoc* vocabularies that aren't openly accessible and usually become obsolete after some time passes.
+To respond to these challenges, biocurators create project-specific, *ad-hoc* vocabularies that are not openly accessible and usually become obsolete after some time passes.
 We reasoned that with the UBDs infrastructure in place, we could do better.
 
 ```{=html}
