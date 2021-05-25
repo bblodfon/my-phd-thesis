@@ -89,7 +89,7 @@ The argument here is to use a dataset that you know very well so that you can fi
 Therefore, we chose the Flobak et al. (2019) dataset, with a total of 153 combinations of 18 targeted drugs, involving measurements across 8 cancer cell lines [@Flobak2019].
 Next, we needed to assess in a computational manner which of the drug combinations in the reference dataset (per cell line) are synergistic and which are not.
 Our first attempt was to manually check the output growth curves and derive a majority-assessed *gold standard* (so it was more of a curative group effort).
-We continued by performing a thorough analysis using the CImbinator tool [@Flobak2017] and established a methodology which computed the synergy classification of the reference dataset that best matched our internal curation efforts to call synergy (see `sintef-obs-synergies` [repository](#misc-links)).
+We continued by performing a thorough analysis using the CImbinator tool [@Flobak2017] and established a methodology which computed the synergy classification of the reference dataset that best matched our internal curation efforts to call synergy ^[See `sintef-obs-synergies` repository [here](#misc-links)].
 All in all, we had a reference dataset and a list of drug combinations designated as synergistic from it, ready to be used to evaluate Drabme's predictions on the same dataset.
 
 On another front, we also needed a PKN suitable for our analysis.
