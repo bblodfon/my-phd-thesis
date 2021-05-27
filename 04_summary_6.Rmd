@@ -1,8 +1,10 @@
 ## Biological modeling: a Prelude {-}
 
+:::{.quote}
 ```{=html}
-<blockquote>&ldquo;All models are wrong but some are useful.&rdquo; ~ George E. P. Box</blockquote>
+<blockquote style='border:none'>&ldquo;All models are wrong but some are useful.&rdquo; </br><strong> George E. P. Box</strong></blockquote>
 ```
+:::
 
 \indent
 In previous chapters we summarized our efforts related to the curation, access and sharing of causal molecular interactions, the building block of PKNs.

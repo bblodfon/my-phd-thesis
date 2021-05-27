@@ -1,8 +1,10 @@
 ## Get the right rules {-#gtrr}
 
+:::{.quote}
 ```{=html}
-<blockquote>&ldquo;That's all well and good in practice, but how does it work in theory?&rdquo; ~ Shmuel Weinberger </blockquote>
+<blockquote style='border:none'>&ldquo;That's all well and good in practice, but how does it work in theory?&rdquo; </br><strong> Shmuel Weinberger </strong></blockquote>
 ```
+:::
 
 \indent
 In the previous chapter we described in detail all the different requirements that a software needs to satisfy so as to deliver on its promise to *do what it was made to do*.

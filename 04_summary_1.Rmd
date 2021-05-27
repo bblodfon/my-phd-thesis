@@ -4,9 +4,11 @@
 
 ## One for all {-}
 
+:::{.quote}
 ```{=html}
-<blockquote>&ldquo;While the future is unknowable, the winds always blow in the direction of human progress.&rdquo; ~ Barack Obama</blockquote>
+<blockquote style='border:none'>&ldquo;While the future is unknowable, the winds always blow in the direction of human progress.&rdquo; </br><strong>Barack Obama</strong></blockquote>
 ```
+:::
 
 \indent
 Scientific and technological progress has been the foundation for some of the most astounding achievements of humankind.

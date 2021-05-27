@@ -1,8 +1,10 @@
 ## Sharing causal interactions with PSICQUIC {-}
 
+:::{.quote}
 ```{=html}
-<blockquote>&ldquo;Knowledge shared = knowledge<sup>2</sup>.&rdquo; ~ Anonymous</blockquote>
+<blockquote style='border:none'>&ldquo;Knowledge shared = knowledge<sup>2</sup>.&rdquo; </br><strong> Anonymous</strong></blockquote>
 ```
+:::
 
 \indent
 Defining standards is a very important initiative across scientific disciplines, since it facilitates the accessibility and sharing of information amongst data users as well as the interoperability of software tools that produce or process the respective data, thereby increasing the quality of research findings [@Wilkinson2016].

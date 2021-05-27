@@ -1,8 +1,10 @@
 ## Clean Code {-}
 
+:::{.quote}
 ```{=html}
-<blockquote>&ldquo;If you can't even clean up your own room, who the hell are you to give advice to the world?&ldquo; ~ Jordan B. Peterson</blockquote>
+<blockquote style='border:none'>&ldquo;If you can't even clean up your own room, who are you to give advice to the world?&rdquo; </br><strong> Jordan B. Peterson </strong></blockquote>
 ```
+:::
 
 \indent
 Our main goal is to use causal molecular knowledge and signaling activity data to build and parameterize Boolean models to represent specific cancer cell systems, and study their behavior in the presence of in-silico drug perturbations.
@@ -19,10 +21,13 @@ The usability of the software can also be increased by applying better programmi
 Making the results of the simulations verifiable (i.e. by ensuring that the algorithmic procedures and the model equations are correctly coded ^[Read more on verification [here](#gtrr)]), will increase their reproducibility, further supporting the aforementioned goals [@Sandve2013].
 All in all, there can only be gains if the code is *clean* and properly taken care of [@Martin2009].
 
+:::{.quote}
 ```{=html}
-<blockquote>&ldquo;The standard library saves programmers from having to reinvent the wheel.&rdquo;
-~ Bjarne Stroustrup</blockquote>
-
+<blockquote style='border:none'>&ldquo;The standard library saves programmers from having to reinvent the wheel.&rdquo;
+</br><strong> Bjarne Stroustrup</strong></blockquote>
+```
+:::
+```{=html}
 <img src='https://media.giphy.com/media/3o6gE9BYreSsQyOD9C/giphy.gif' style='display: block; margin-left: auto; margin-right: auto;' width='42%' onError="this.style.display='none'"></img>
 </br>
 ```

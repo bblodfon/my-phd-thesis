@@ -1,8 +1,10 @@
 ## Knowledge from a stack of papers {-}
 
+:::{.quote}
 ```{=html}
-<blockquote>&ldquo;We know more than we can tell.&rdquo; ~ Michael Polanyi</blockquote>
+<blockquote style='border:none'>&ldquo;We know more than we can tell.&rdquo; </br><strong>Michael Polanyi</strong></blockquote>
 ```
+:::
 
 \indent
 Where does the information that is used to build knowledge networks originate from?

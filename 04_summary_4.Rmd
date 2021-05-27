@@ -1,8 +1,10 @@
 ## Biological Dictionaries aid in the curation of complex knowledge {-}
 
+:::{.quote}
 ```{=html}
-<blockquote>&ldquo;Dictionaries are like watches; the worst is better than none, and the best cannot be expected to go quite true&rdquo; ~ Samuel Johnson</blockquote>
+<blockquote style='border:none'>&ldquo;Dictionaries are like watches; the worst is better than none, and the best cannot be expected to go quite true&rdquo; </br><strong> Samuel Johnson </strong></blockquote>
 ```
+:::
 
 \indent
 During the design process of the VSM-box tool and its application, CausalBuilder, we came across a critical technical issue that needed to be addressed, and whose resolution had ramifications outside of the intended scope of our work.

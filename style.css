@@ -55,3 +55,13 @@ body {
 p.caption {
   font-size: 0.8em;
 }
+
+.quote {
+  font-size: 1.2em;
+  font-family:Open Sans;
+  font-style:italic;
+  border-left:8px solid #ffc8e1;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 17px;
+}

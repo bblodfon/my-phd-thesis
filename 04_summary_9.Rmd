@@ -1,2 +1,13 @@
-## Discussion & Future work {-}
+## Discussion {-}
 
+:::{.quote}
+```{=html}
+<blockquote style='border:none'>&ldquo;The case for my life, [...] is this: that I have added something to knowledge, and helped others to add more; and that these somethings have a value which differs in degree only, and not in kind, from that of the creations of the great mathematicians, or of any of the other artists, great or small, who have left some kind of memorial behind them.&rdquo; </br><strong>G.H. Hardy, A Mathematician's Apology</strong> </blockquote>
+```
+:::
+
+:::{.quote}
+```{=html}
+<blockquote style="border:none">&ldquo;Be the change you want to see in the world.&rdquo; </br><strong> Gandhi </strong></blockquote>
+```
+:::
