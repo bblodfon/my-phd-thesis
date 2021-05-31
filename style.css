@@ -65,3 +65,18 @@ p.caption {
   margin: 20px 0;
   border-radius: 17px;
 }
+
+.book .book-summary {
+  width: 325px;
+  position:absolute;
+  top:0;
+  left:-325px;
+}
+
+.book.with-summary .book-header.fixed {
+  left: 325px;
+}
+
+.book.with-summary .book-body {
+  left: 325px;
+}
