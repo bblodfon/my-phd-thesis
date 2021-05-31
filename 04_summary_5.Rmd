@@ -1,4 +1,4 @@
-## Sharing causal interactions with PSICQUIC {-}
+## Sharing causal interactions with PSICQUIC {-#psicquic-chapter}
 
 :::{.quote}
 ```{=html}
