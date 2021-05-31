@@ -44,7 +44,7 @@ The state of such a system is represented by a series of 0's and 1's, each corre
 Using the Boolean rules, we can update the system's state by deciding on the order that each of its equations are applied, to derive the next entity states.
 Therefore, a synchronous update scheme can be defined as calculating the output of all Boolean equations of the model at the same time.
 In contrast, randomly specifying one or more equations to update can result in various forms of asynchronous dynamics, which enable the inclusion of processes with different time scales in a logical model.
-By repeatedly applying the Boolean rules, systemic states that either don't change (*fixpoints*) or ones that demonstrate cycling patterns, can be reached.
+By repeatedly applying the Boolean rules, systemic states that either do not change (*fixpoints*) or ones that demonstrate cycling patterns, can be reached.
 These are the *attractors*, which represent solutions to the system of equations that constitute a Boolean model and their identification is synonymous to the study of the long-term dynamical behavior of the modeled system.
 Attractors have been shown to be biologically meaningful, either by representing specific phenotypic outputs [@Kauffman1993] or transitions between system states like in the cell cycle [@Faure2006].
 
