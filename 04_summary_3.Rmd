@@ -45,7 +45,7 @@ Most tools require extra technical configurations and software to include additi
 
 \newpage
 
-To obtain support from computational pipelines that will help us process the vast amounts of knowledge and advance our understanding of processes in nature, we must be able to efficiently annotate and store information that is highly detailed and contextualized.
+To obtain support from computational pipelines that will help us process vast amounts of knowledge and advance our understanding of processes in nature, we must be able to efficiently annotate and store information that is highly detailed and contextualized.
 Hereby, the knowledge's inherent complexity should be kept manageable and understandable by humans and machines alike.
 In order to accommodate for a much more powerful, flexible, and reusable annotation process, an intuitive curation and knowledge formalization method was developed, called VSM (Visual Syntax Method) [@vsm-paper].
 VSM enables scientists to capture any type of knowledge with any type of contextual information, in a way that is understandable by both humans and computers.
