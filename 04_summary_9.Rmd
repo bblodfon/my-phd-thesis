@@ -6,6 +6,95 @@
 ```
 :::
 
+\indent
+In most of the papers included in this thesis there is a separate section discussing potential future tasks, the fulfillment of which will advance the efforts towards achieving the goals of each respective research work.
+We also discussed in a previous chapter ^[See [Sharing causal interactions with PSICQUIC](#psicquic-chapter).] additional implementation work that is crucial for establishing a robust infrastructure for the sharing of causal molecular interactions to a wider community of users with PSICQUIC.
+Here, we will discuss further implementations and research that needs to be done related to modeling efforts for combating cancer.
+First, we will focus on clarifying several aspects in our own computational work and suggest future directions.
+Secondly, we will reflect on the more broad problem of understanding cancer and briefly describe the challenges that the computational biology community as a whole needs to overcome to drive future modeling efforts towards enabling more proactive, predictive and personalized Systems Medicine approaches [@Hood2011].
+
+In **[Paper 3](#Paper3)**, we outline four key prerequisites that a software pipeline designed to construct patient specific logical models should satisfy, in order to facilitate the identification of potential therapeutic solutions for cancer.
+These were expressed as (1) assembling a network topology from prior knowledge databases, (2) translating baseline cancer cell line biomarker data into signaling activities, (3) calibrating logical models, created from PKNs, by modifying logical equations to match the observed signaling activities, and (4) predicting phenotypic consequences of combinatorial interventions to the simulated model behavior.
+These four generic requirements were embodied in the respective software modules of Figure \@ref(fig:fig5).
+Gitsbe and Drabme were our proposed solutions for (3) and (4) and the resulting simulations and analyses was the main scope of **[Paper 3](#Paper3)**.
+Atopo aims to fulfill objective (1) while Aomics is the module that encapsulates the work needed for objective (2).
+In the following text, we are going to discuss the reasons why these solutions were not included in **[Paper 3](#Paper3)** and our future objectives for improvements on the Atopo and Aomics modules.
+
+Starting with the assembly of the PKN, we previously set a list of requirements that such an output network should satisfy to be suitable for our analyses.
+These were the inclusion of the drug targets so that they can be perturbed using subsequent pipeline software and the incorporation of major cancer pathways in the PKN.
+Atopo is a software module (Figure \@ref(fig:fig5)) precisely implemented with these specifications in mind, using SIGNOR's causal molecular interaction data to construct self-contained topologies that include specific signaling entities [@Flobak2016].
+The self-contained topology solves a practical issue, since it allows for smaller logical models with fewer fixpoint attractors, increasing computational efficiency.
+It is also tightly related to the hypothesis that cancer is a disease system in itself, not dictated by external factors.
+Put in other words, whatever makes a cancer cell keep proliferating, comes from within the cell itself.
+Moreover, the signaling entities used in Atopo, refer in our case not only to the drug targets, but also to nodes that define the phenotypic output of the computational models later in the pipeline.
+In the end, due to the methodology used to prune the network in Atopo and the molecular interaction content included in SIGNOR's database (dated April 2018), the Atopo-generated PKN was hard to make sense of, especially when trying to interpret the simulation results in terms of mechanistic insights.
+For example, some analyses using the `emba` `R` package from **[Paper 4](#Paper4)** produced confusing results with regard to the nodes designated as important for the manifestation of particular synergies ^[See `gitsbe-model-analysis` repository [here](#misc-links)].
+Since we had curated the CASCADE family of topologies from literature to incorporate cancer signaling pathways and associated key regulatory targets, it presented itself as a trustable and already refined solution that perfectly fitted our needs.
+Our future goal is to combine molecular interaction data from different causal knowledge databases, using software like PSICQUIC [@Aranda2011] or OmniPath [@Turei2016], to build larger and more comprehensive PKNs, suitable for our logical modeling applications in the context of cancer signaling.
+
+To derive an accurate activity profile for the signaling entities in CASCADE, we used multiple omics datasets such as copy number alterations (CNA) and expression data (transcriptomics or proteomics) pertaining to each of the cell lines of interest in the reference drug combination dataset chosen for our simulations [@Flobak2019].
+These datasets were given as input to appropriate software tools to predict the signaling activity information [@Vaske2010].
+Extensive effort was spent in subsequent software, which resulted in the Aomics family of internal tools (Figure \@ref(fig:fig5)).
+Sadly, we failed to produce reliable signaling activities for the 8 cell lines of the reference drug combination dataset.
+For example, model output nodes that are known to be inactivated in cancer cells (e.g. the family of Caspases), were computed as being active, contradicting basic biological knowledge.
+The conversion of various omics datasets to binary signaling information and their efficient integration for modeling purposes is an emerging area of research [@Martignetti2016; @Beal2018; @Schubert2018; @Dugourd2021].
+We acknowledge the fact that such discretization methodologies might be a bit coarse and ill-suited given the continuous nature of some omics datasets, but they are nonetheless a prerequisite for qualitative modeling methodologies such as ours.
+We hope that in the future more standardized methods will be available to handle such datasets and make them better suited for our needs.
+
+Overall, the Aomics endeavor represents a practical example where validation of the various input data sources of a scientific software fails and so, as researchers, we have to use every means available at our disposal to further progress our goals (i.e. in our case this meant to use a curated PKN and literature-derived signaling observations).
+Nonetheless, we can exploit the information presented in such input data sources to further investigate their quality, which can reveal the varying degrees of importance with which such inputs affect the simulation results of the software.
+For example, in **[Paper 3](#Paper3)** we investigated how severely the pipeline's synergy prediction performance was affected by either changes to the input training activity data or the input topology (PKN).
+In the end, the results indicated that the topology is far more important, demonstrating the need for high quality prior knowledge and the significance of related curation efforts that translate scientific literature to structured knowledge infrastructures.
+
+---
+
+The work described in this thesis focuses on the qualitative modeling of a single cancer cell, aiming at predicting its phenotypic behavior subject to various drug perturbations.
+Our work, along with similar efforts from the Computational Biology community, has only been the first step in the mechanistic modeling of biological systems.
+To help scientists better understand cancer cell biology, we need to achieve a better understanding of the processes occurring inside the cell and pave the way for the systematic analysis of cells on a broader scale than what is currently possible.
+Up to now, researchers have been constructing, simulating and analyzing models to answer specific questions pertaining to context-specific modeling scenarios.
+Such concentrated modeling efforts are usually restrictive, because of their limited scope and the choice of a single mathematical framework to formalize the respective models (e.g. Boolean mathematics or ODEs).
+Thus the resulting biological models are inadequate and can not provide the necessary temporal and spatial resolution of the modeled systems that is required to holistically describe and interpret complex cellular behavior.
+
+There is a gradual shift to replace focused models with larger, multiscale hybrid models.
+These types of fine-grained models can incorporate multiple levels of granularity in their associated mathematical representation and simulated molecular scale, and their aim is to provide an accurate description of the cellular phenotype from its respective genotype [@Karr2012].
+Such in-silico whole-cell (WC) models are powerful scientific tools that will allow us to identify gaps in our understanding of cell biology and unify our fragmented knowledge of disease development.
+Their main advantage is that they can be used to address multiple scientific questions, and conduct complex in-silico experiments that would otherwise be impractical to perform in the laboratory with current technologies.
+Such approaches to modeling complex biological systems are foreseen to have a significant impact in a number of applications, both in research and industry (e.g. biotechnology), serving as a platform to facilitate model-driven discovery [@Carrera2015].
+In parallel, research on multicellular modeling aims to improve our understanding of the interactions between the different cells that send and receive signals to communicate and perform tissue- and organism-level functions.
+Such models can help us describe in more detail the processes that drive tumor pathogenesis and favor the development and progression of cancer [@Senft2017].
+For example, multicellular models could elucidate the mechanisms by which tumor associated macrophages (TAMs) interact with cancer cells in the inflammatory microenvironment of solid tumors [@Fukuda2012; @Marku2020], provide comprehensive explanations of how multicellular cancer resistance manifests [@Desoize2000], and propose novel therapeutic targets that damage the communication of tumor cells with their microenvironment [@Komohara2016].
+
+There exist several challenges in building accurate and comprehensive WC models [@whole-cell-doc].
+To fully characterize the function of every gene product and predict the dynamics of all molecular species of a cell over its entire life cycle, WC models need to be able to synthesize information that is subject to different molecular as well as spatiotemporal scales, and perform multi-algorithmic simulations.
+Despite the fact that several software tools have been built to enable the construction and simulation of WC models [@Tomita1999; @Blinov2017], a complete integration of all the different algorithmic methodologies representing molecular detail at every possible scale, is currently lacking.
+Moreover, a proper theoretical foundation that specifies how the different modeling formalisms can work under a hybrid mathematical framework for WC modeling is also missing [@Karr2015].
+On another front, the heterogeneous data needed for the scalable design, construction, calibration, simulation and validation of WC models, are incomplete, imprecise and noisy, calling for the development of new experimental methods and tools to more properly characterize cells at multiple levels of molecular granularity and expression (e.g. different omics data) [@Macklin2020].
+Literature curation tools, used to annotate and extract knowledge from scientific publications, complement the aforementioned efforts by providing a systematic way to assemble the comprehensive prior knowledge that is required for WC modeling.
+Therefore, software implementations allowing for new approaches towards the annotation and sharing of causal molecular interactions (as were presented in this thesis), significantly contribute to such efforts.
+In addition, we anticipate that the use of machine learning and text mining automated tools are going to be detrimental for future curation efforts, leveraging the vast amounts of biological knowledge for the creation of more accurate WC models.
+
+There are major computational bottlenecks that we need to overcome to enable the comprehensive modeling of complex cells.
+Due to the high computational costs required for the calibration and simulation of WC models (e.g. parameter estimation is particularly resource intensive), high-performance modeling algorithms need to be implemented, along with better parallel processing simulators [@Hallock2014].
+Additionally, technological advancements such as cloud and high performance computing (HPC) services [@HPC-wiki] will allow us to take advantage of modern computational resources and harness their scalability and processing power, surpassing the limitations of conventional single machines that are unsuitable for such large-scale modeling efforts.
+On another front, WC models and their subcomponents (e.g. signaling pathway models corresponding to distinct cellular processes) need to be interoperable to allow for proper model integration, extension and reuse, as well as enable reproducible simulation results.
+During the 2015 WC Modeling Summer School event, efforts directed towards translating a WC model to community formats such as SBML [@Keating2020] (for model encoding) and SBGN [@Novere2009] (for model visualization), indicated the need for additional standards, databases and software to accelerate WC modeling [@Waltemath2016].
+
+Current approaches to build comprehensive WC models of simple organisms such as the pathogen *Mycoplasma genitalium* [@Karr2012; @Burke2020], and the bacterium *Escherichia Coli* [@Carrera2014] constitute significant achievements towards addressing all the aforementioned challenges.
+Moreover, they pave the way for the construction of mammalian WC models and eventually whole-organism models [@Szigeti2014; @Viceconti2016] (the pinnacle of which should be a complete human model), where the communication and coordination between different WC models (representing different cell types), at different hierarchical levels, is going to be one of the most difficult issues to tackle.
+Despite the difficulty inherent in such aspiring projects, many recent research efforts have been focused on studying multicellular systems with potential applications in cancer immunology and therapeutics.
+Notably, several tools have been developed using agent-based or similar modeling approaches, providing ways to intuitively represent multicellular biological systems [@Ghaffarizadeh2018; @Letort2018; @Varela2018; @Cooper2020; @Stoll2020].
+Such methodologies facilitate the integration of multiple scales for the study of cell population dynamics, and some also incorporate various spatial aspects of the modeled systems.
+The respective software simulators make use of coarse-grained characterizations of the interacting cells (i.e. the agents), significantly reducing the computational simulation costs.
+Even though current multicellular models do not encapsulate a realistic picture of the intracellular signaling (since it is impractical to incorporate full WC models) nor of the cell communication mechanics, they have been successfully used to validate several experimental findings and study interacting cells in dynamic tissue microenvironments such as heterogeneous cell tumors.
+Moreover, multicellular models have the potential to assist in the exploration of the effects that the genetic alteration of individual cells has to the population level (e.g. how knocking out genes in specific cells can limit tumor growth), the investigation of response to various anti-cancer treatments, as well as the study of the cellular mechanisms and dynamics of carcinogenesis.
+We can only expect that in the future, biological and medical applications will push the boundaries of what is achievable by such software modeling solutions and that multicellular and WC models will drive progress in the cancer-related research areas and beyond.
+
+Lastly, we stress the necessity of interdisciplinarity and collaboration across the research and industrial spectrum, to solve all the grand challenges involved in the modeling of complex biological systems and the efforts to combat diseases such as cancer.
+Building a cohesive Computational Biology community also plays an important role, as it promotes a *common vision* and a collaborative spirit amongst the members of the community.
+The success story of the COMBINE initiative's standardization efforts in computational biological modeling, has been empowered by the promotion of its standards via tutorials, workshops and dedicated sessions at international conferences [@Hucka2015].
+As scientists, we are called to take risks, not only to explore the unknown and yet uncharted territory of our world but also to face the social and communication challenges between ourselves.
+Only together, as one community, can we set the world in order, tackle the problems of today, and create a better tomorrow for all humankind.
+
 :::{.quote}
 ```{=html}
 <blockquote style="border:none">&ldquo;Be the change you want to see in the world.&rdquo; </br><strong> Gandhi </strong></blockquote>
