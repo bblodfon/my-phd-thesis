@@ -8,7 +8,7 @@ subtitle: |
   Faculty of Natural Sciences  
   Department of Biology  
 author: "John Zobolas"
-date: "Trondheim, May 2021"
+date: "Trondheim, June 2021"
 site: bookdown::bookdown_site
 description: "John Zobolas's PhD thesis, NTNU"
 url: 'https\://bblodfon.github.io/my-phd-thesis/'
@@ -81,5 +81,5 @@ knitr::include_graphics("img/depresso.jpg")
 
 :::{.right-align data-latex=""}
 John Zobolas,
-May 2021
+June 2021
 :::
