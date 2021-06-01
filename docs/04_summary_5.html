@@ -112,6 +112,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="04_summary_6.html"><a href="04_summary_6.html"><i class="fa fa-check"></i>Biological modeling: a Prelude</a></li>
 <li class="chapter" data-level="" data-path="04_summary_7.html"><a href="04_summary_7.html"><i class="fa fa-check"></i>Clean Code</a></li>
 <li class="chapter" data-level="" data-path="04_summary_8.html"><a href="04_summary_8.html"><i class="fa fa-check"></i>Get the right rules</a></li>
+<li class="chapter" data-level="" data-path="04_summary_9.html"><a href="04_summary_9.html"><i class="fa fa-check"></i>Discussion &amp; Future Perspectives</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html"><i class="fa fa-check"></i>Links to software, documentation and data analyses</a>
@@ -143,9 +144,11 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sharing-causal-interactions-with-psicquic" class="section level2 unnumbered">
+<div id="psicquic-chapter" class="section level2 unnumbered">
 <h2>Sharing causal interactions with PSICQUIC</h2>
-<blockquote>&ldquo;Knowledge shared = knowledge<sup>2</sup>.&rdquo; ~ Anonymous</blockquote>
+<div class="quote">
+<blockquote style='border:none'>&ldquo;Knowledge shared = knowledge<sup>2</sup>.&rdquo; </br><strong> Anonymous</strong></blockquote>
+</div>
 <p>Defining standards is a very important initiative across scientific disciplines, since it facilitates the accessibility and sharing of information amongst data users as well as the interoperability of software tools that produce or process the respective data, thereby increasing the quality of research findings <span class="citation">[<a href="06_refs.html#ref-Wilkinson2016" role="doc-biblioref">54</a>]</span>.
 Following this logic, after the curation of causal molecular interactions from scientific literature has been achieved, the next step is to store this information to a standard data format.
 One of the most detailed, community-standard formats for representing molecular interaction data is the PSI molecular interaction (MI) XML format, released by the Human Proteome Organization Proteomics Standards Initiative (HUPO-PSI) <span class="citation">[<a href="06_refs.html#ref-Hermjakob2004" role="doc-biblioref">57</a>]</span>.
@@ -169,7 +172,7 @@ Figure 4: PSICQUIC architecture. Molecular interaction knowledge about a biologi
 </p>
 </div>
 <p>With a new signaling data format established by the relevant scientific community and the PSICQUIC web service contributing to the accessibility of molecular interaction data, the next step was to support the PSI-MITAB 2.8 format in PSICQUIC.
-A software project to extend the PSICQUIC platform and include causality information of molecular interactions was thus formed.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
+A software project to extend the PSICQUIC platform and include causality information of molecular interactions was thus formed.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
 Our contribution to this effort was the development of the underlying PSICQUIC software (version 1.4) that indexes CausalTAB files provided by the respective data providers, enabling the query and subsequent download of causality-enriched interactions.
 The PSICQUIC View website source code was updated to show the four new columns in the HTML table results.
 Additionally, several clients that enable programmatic access to the distributed signaling data (written in Java, Python and Perl programming languages), were refactored to comply with data fitting the new standard format.
@@ -177,11 +180,11 @@ Lastly, the relevant PSICQUIC documentation was improved and reformatted to enha
 <p>The aforementioned development effort spurred a series of actions that led to several improvements in the PSICQUIC platform.
 The Molecular Interactions Community, is an open source community providing tools, standard formats, ontologies and modules for manipulating molecular interaction data <span class="citation">[<a href="06_refs.html#ref-mi-github" role="doc-biblioref">63</a>]</span>.
 For example, some of these modules are used to read and write PSI-MITAB files across different versions.
-Since these modules hadn’t been updated for years (showing signs of software rot <span class="citation">[<a href="06_refs.html#ref-wiki-soft-rot" role="doc-biblioref">64</a>]</span>), we had to refactor the codebase and add tests to ensure it’s future reliability and quality.
+Since these modules had not been updated for years (showing signs of software rot <span class="citation">[<a href="06_refs.html#ref-soft-rot-wiki" role="doc-biblioref">64</a>]</span>), we had to refactor the codebase and add tests to ensure its future reliability and quality.
 In the end, even though we managed to complete the task and support CausalTAB in PSICQUIC via updating these modules, the need to replace them with a newer library was imminent.
 JAMI is such a library, integrating all standard molecular interaction data formats such as the PSI-MI XML and PSI-MITAB, into a unified implementation, hiding the complex details of each format from the developers and thereby making their work easier <span class="citation">[<a href="06_refs.html#ref-Sivade2018a" role="doc-biblioref">65</a>]</span>.
 The implementation work was initiated in a GREEKC workshop <span class="citation">[<a href="06_refs.html#ref-Hinxton2018" role="doc-biblioref">66</a>]</span> and continued during the first ELIXIR BioHackathon in Paris <span class="citation">[<a href="06_refs.html#ref-biohack2018" role="doc-biblioref">67</a>]</span>.
-Upon finishing the support for CausalTAB in JAMI,<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> we provided the first PSICQUIC service indexing SIGNOR’s CausalTAB data at the time, made available through a development server <span class="citation">[<a href="06_refs.html#ref-psicquic-causalTAB-dataset" role="doc-biblioref">68</a>]</span>.</p>
+Upon finishing the support for CausalTAB in JAMI,<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> we provided the first PSICQUIC service indexing SIGNOR’s CausalTAB data at the time, made available through a development server <span class="citation">[<a href="06_refs.html#ref-psicquic-causalTAB-dataset" role="doc-biblioref">68</a>]</span>.</p>
 <img src='https://media.giphy.com/media/jQERULZAJnT4QBNsdt/source.gif' style='display: block; margin-left: auto; margin-right: auto;' witdh='85%' onError="this.style.display='none'"></img>
 </br>
 <p>During the ELIXIR BioHackathon, the architecture details of a new cloud-based, distributed PSICQUIC service were discussed and documented for future development efforts.
@@ -199,9 +202,9 @@ These packages enable the translation of molecular interaction data directly int
 </div>
 <div class="footnotes">
 <hr />
-<ol start="3">
-<li id="fn3"><p>This project was funded by the GREEKC (Gene Regulation Ensemble Effort for the Knowledge Commons) COST action (<a href="https://www.greekc.org/" class="uri">https://www.greekc.org/</a>) and was realized as a Short Term Scientific Mission (STSM) in cooperation with engineers from the IntAct team at the European Bioinformatics Institute (EBI).<a href="04_summary_5.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>During the GREEKC Marseille Hackathon 2019 event, see more info on the project here: <a href="https://github.com/GREEKC/hackathon-marseille/tree/master/project_descriptions/causal_psicquic" class="uri">https://github.com/GREEKC/hackathon-marseille/tree/master/project_descriptions/causal_psicquic</a><a href="04_summary_5.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<ol start="4">
+<li id="fn4"><p>This project was funded by the GREEKC (Gene Regulation Ensemble Effort for the Knowledge Commons) COST action (<a href="https://www.greekc.org/" class="uri">https://www.greekc.org/</a>) and was realized as a Short Term Scientific Mission (STSM) in cooperation with engineers from the IntAct team at the European Bioinformatics Institute (EBI).<a href="04_summary_5.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>During the GREEKC Marseille Hackathon 2019 event, see more info on the project here: <a href="https://github.com/GREEKC/hackathon-marseille/tree/master/project_descriptions/causal_psicquic" class="uri">https://github.com/GREEKC/hackathon-marseille/tree/master/project_descriptions/causal_psicquic</a><a href="04_summary_5.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

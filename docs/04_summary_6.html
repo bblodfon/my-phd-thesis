@@ -112,6 +112,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="04_summary_6.html"><a href="04_summary_6.html"><i class="fa fa-check"></i>Biological modeling: a Prelude</a></li>
 <li class="chapter" data-level="" data-path="04_summary_7.html"><a href="04_summary_7.html"><i class="fa fa-check"></i>Clean Code</a></li>
 <li class="chapter" data-level="" data-path="04_summary_8.html"><a href="04_summary_8.html"><i class="fa fa-check"></i>Get the right rules</a></li>
+<li class="chapter" data-level="" data-path="04_summary_9.html"><a href="04_summary_9.html"><i class="fa fa-check"></i>Discussion &amp; Future Perspectives</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="05_links.html"><a href="05_links.html"><i class="fa fa-check"></i>Links to software, documentation and data analyses</a>
@@ -145,14 +146,16 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="biological-modeling-a-prelude" class="section level2 unnumbered">
 <h2>Biological modeling: a Prelude</h2>
-<blockquote>&ldquo;All models are wrong but some are useful.&rdquo; ~ George E. P. Box</blockquote>
+<div class="quote">
+<blockquote style='border:none'>&ldquo;All models are wrong but some are useful.&rdquo; </br><strong> George E. P. Box</strong></blockquote>
+</div>
 <p>In previous chapters we summarized our efforts related to the curation, access and sharing of causal molecular interactions, the building block of PKNs.
 This is only the first step in the process of creating computational models of biological systems <span class="citation">[<a href="06_refs.html#ref-Wang2012" role="doc-biblioref">74</a>]</span>.
 To translate signaling networks to a computational form for simulation purposes, the next step is to define the regulatory <em>rules</em> (<em>parameterization</em>) of the underlying system: how do the different network entities influence each other across time and potentially space, and how does the systemic behavior change when specific rules or parameters of the model are modified? <span class="citation">[<a href="06_refs.html#ref-Aldridge2006" role="doc-biblioref">75</a>]</span>
 The formulation of the rules in mathematical terms (i.e. they are in most cases expressed as equations), defines the mechanistic details of the studied models and thus enables the study of their dynamics.
 Practically, this means that models can be used for various forms of analyses and simulations, and their outputs further investigated.
 For example, models can be validated and tested for agreement with experimental observations, can make predictions and generate new hypotheses leading to the design of new experiments, and they can be subjected to various perturbations, with their subsequent effects on the studied systems quantified and thoroughly analyzed.
-In addition to the biological analysis, one of the more important aspects of mathematical modeling is that it enables the investigation of the underlying mechanisms that result in the manifestation of the described system’s behavior.
+In addition to biological analysis, one of the more important aspects of mathematical modeling is that it enables the investigation of the underlying mechanisms that result in the manifestation of the described system’s behavior.
 In other words, computational models are explainable and interpretable, enabling us to answer why things happen the way they do, which is one of the driving forces behind science itself.</p>
 <p>Several mathematical methodologies have been used to study biological systems, such as stochastic modeling, ordinary and partial differential equations (ODE and PDE modeling), Petri nets, logical modeling, Bayesian networks, cellular automata and agent-based modeling <span class="citation">[<a href="06_refs.html#ref-ElKalaawy2015" role="doc-biblioref">76</a>]</span>.
 Each modeling paradigm encapsulates a different way of formalizing the underlying rules and makes different assumptions about the studied system.
@@ -177,9 +180,10 @@ The state of such a system is represented by a series of 0’s and 1’s, each c
 Using the Boolean rules, we can update the system’s state by deciding on the order that each of its equations are applied, to derive the next entity states.
 Therefore, a synchronous update scheme can be defined as calculating the output of all Boolean equations of the model at the same time.
 In contrast, randomly specifying one or more equations to update can result in various forms of asynchronous dynamics, which enable the inclusion of processes with different time scales in a logical model.
-By repeatedly applying the Boolean rules, systemic states that either don’t change (<em>fixpoints</em>) or ones that demonstrate cycling patterns, can be reached.
+By repeatedly applying the Boolean rules, systemic states that either do not change (<em>fixpoints</em>) or ones that demonstrate cycling patterns, can be reached.
 These are the <em>attractors</em>, which represent solutions to the system of equations that constitute a Boolean model and their identification is synonymous to the study of the long-term dynamical behavior of the modeled system.
 Attractors have been shown to be biologically meaningful, either by representing specific phenotypic outputs <span class="citation">[<a href="06_refs.html#ref-Kauffman1993" role="doc-biblioref">80</a>]</span> or transitions between system states like in the cell cycle <span class="citation">[<a href="06_refs.html#ref-Faure2006" role="doc-biblioref">81</a>]</span>.</p>
+<div style="page-break-after: always;"></div>
 <p>Several computational tools have been developed to aid in the dynamical analysis of Boolean models <span class="citation">[<a href="06_refs.html#ref-Abou-Jaoude2016" role="doc-biblioref">82</a>]</span>.
 These tools enable users to easily create and edit logical models, identify different types of attractors and their reachability properties, analyze model state evolution over time, investigate phenotypic outputs subject to various types of perturbations, explore different model parameterizations and calibrate models to fit experimental data, among others <span class="citation">[<a href="06_refs.html#ref-Naldi2018a" role="doc-biblioref">83</a>]</span>.
 The existence of such a plethora of tools has enabled the modeling of complex diseases, the discovery of potential therapeutic solutions and the investigation of biomarkers that correlate with patients’ response to specific pharmaceutical drugs.
