@@ -6,10 +6,10 @@ set -x
 thesis="docs/phd-thesis.pdf"
 
 # page number that has the "PAPER 1" title in the thesis (before the UBDs paper)
-paper1_page=58
+paper1_page=66
 paper2_page=$(($paper1_page+4))
 paper3_page=$(($paper2_page+7))
-paper4_page=$(($paper3_page+41))
+paper4_page=$(($paper3_page+39))
 paper5_page=$(($paper4_page+6))
 last_page=$(($paper5_page+31))
 
