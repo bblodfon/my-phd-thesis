@@ -1,4 +1,27 @@
 # PhD Thesis
 
-This repo holds the code+text for my PhD thesis (currently in the making).
-I am using the R package [bookdown](https://github.com/rstudio/bookdown/).
+## HTML GitBook
+
+I used the R package [bookdown](https://github.com/rstudio/bookdown/).
+See thesis here: https://bblodfon.github.io/my-phd-thesis
+
+## Thesis PDF
+
+Access the PDF here: https://github.com/bblodfon/my-phd-thesis/blob/main/docs/phd-thesis.pdf
+
+## Citation
+
+- Formatted citation:
+
+Zobolas, J. (2021). Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine, PhD Thesis. Retrieved from https://github.com/bblodfon/my-phd-thesis
+
+- BibTeX citation:
+
+```
+@misc{ZobolasThesis2021,
+  author = {Zobolas, John},
+  title = {{Software implementations allowing new approaches toward data analysis, modeling and curation of biological knowledge for Systems Medicine, PhD Thesis}},
+  howpublished = {\url{https://github.com/bblodfon/my-phd-thesis}}
+  year = {2021}
+}
+```
