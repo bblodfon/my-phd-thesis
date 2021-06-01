@@ -1,7 +1,0 @@
-fig:fig1
-fig:fig2
-fig:fig3
-fig:fig4
-fig:fig5
-fig:fig6
-fig:fig7
