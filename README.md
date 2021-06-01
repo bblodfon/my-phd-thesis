@@ -1,5 +1,7 @@
 # PhD Thesis
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4889742.svg)](https://doi.org/10.5281/zenodo.4889742)
+
 ## HTML GitBook
 
 I used the R package [bookdown](https://github.com/rstudio/bookdown/).
